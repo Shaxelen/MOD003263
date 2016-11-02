@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOD003263_SoftwareEngineering", "MOD003263_SoftwareEngineering\MOD003263_SoftwareEngineering.csproj", "{83D582CD-ECCE-4E8D-A683-34B5B447270D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareEngineeringTemplate", "E:\Year 2\Software Eng\Assignment\FeedbackCode\SoftwareEngineeringTemplate\SoftwareEngineeringTemplate\SoftwareEngineeringTemplate.csproj", "{D03C0EAD-EFE4-4103-8032-4127027AF756}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{83D582CD-ECCE-4E8D-A683-34B5B447270D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83D582CD-ECCE-4E8D-A683-34B5B447270D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83D582CD-ECCE-4E8D-A683-34B5B447270D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03C0EAD-EFE4-4103-8032-4127027AF756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03C0EAD-EFE4-4103-8032-4127027AF756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03C0EAD-EFE4-4103-8032-4127027AF756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03C0EAD-EFE4-4103-8032-4127027AF756}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
