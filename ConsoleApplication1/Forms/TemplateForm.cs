@@ -19,7 +19,6 @@ namespace ConsoleApplication1 {
         public TemplateForm() {
             InitializeComponent();
             _templateBank.Add("N", new CVTemplate());
-            
         }
 
         private void btnCreateTemplate_Click(object sender, EventArgs e) {
