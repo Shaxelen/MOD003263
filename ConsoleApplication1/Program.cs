@@ -18,10 +18,10 @@ namespace ConsoleApplication1
             TemplateFactory factory = new TemplateFactory();
             TemplateEditor tempEditor = new TemplateEditor(factory);
             Template temp = tempEditor.RequestTemplate("CV");
-            string name = temp.GetTemplateName();
+            string name = temp.TemplateName;
             Console.WriteLine(name);
-            for (int i = 0; i < temp.GetTemplateQuestions.Count; i++) {
-                Console.WriteLine(temp.GetTemplateQuestions[i]);
+            for (int i = 0; i < temp.TemplateQuestions.Count; i++) {
+                Console.WriteLine(temp.TemplateQuestions[i]);
             }
             Console.ReadKey(true);
         }

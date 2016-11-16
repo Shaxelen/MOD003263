@@ -13,12 +13,12 @@ namespace ConsoleApplication1 {
         private TemplateFactory _templateFactory = new TemplateFactory();
         private TemplateEditor _tempEditor;
         private Template _template;
-        private TemplateBank _templateBank = new TemplateBank();
+        private TemplateBank _templateBank = TemplateBank.getInstance();
         private int _tempRemQuestionIndex = -1;
 
         public TemplateForm() {
             InitializeComponent();
-
+            _templateBank.Add("N", new CVTemplate());
         }
 
         private void btnCreateTemplate_Click(object sender, EventArgs e) {
@@ -26,18 +26,23 @@ namespace ConsoleApplication1 {
             string request = txtCreateTemplate.Text;
             _tempEditor = new TemplateEditor(_templateFactory);
             _template = _tempEditor.RequestTemplate(request);
-            lblTemplateName.Text = _template.GetTemplateName();
+            lblTemplateName.Text = _template.TemplateName;
             UpdateListBox();
             txtCreateTemplate.Clear();
         }
 
+        public void RetrieveTemplate(string template) {
+            _template = _templateBank.Load(template);
+            lblTemplateName.Text = _template.TemplateName;
+            grbFeedbackTemplate.Visible = true;
+            UpdateListBox();
+        }
 
         private void btnLoadTemplate_Click(object sender, EventArgs e) {
-            string loadTemplate = txtLoadTemplate.Text;
-            _template = _templateBank.Load(loadTemplate);
-            lblTemplateName.Text = _template.GetTemplateName();
-            UpdateListBox();
-            txtLoadTemplate.Clear();
+            TestLoadForm tlf = new TestLoadForm();
+            tlf.addDataList(_templateBank.Templates);
+            tlf.Parent = this;
+            tlf.ShowDialog();
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
@@ -49,7 +54,7 @@ namespace ConsoleApplication1 {
 
         private void UpdateListBox() {
             lstTemplateQuestions.DataSource = null;
-            lstTemplateQuestions.DataSource = _template.GetTemplateQuestions;
+            lstTemplateQuestions.DataSource = _template.TemplateQuestions;
         }
 
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
@@ -58,9 +63,18 @@ namespace ConsoleApplication1 {
         }
 
         private void btnSaveTemplate_Click(object sender, EventArgs e) {
-            string saveName = txtSaveTemplate.Text;
-            _templateBank.Add(saveName, _template);
-            txtSaveTemplate.Clear();
+            TestSaveForm tsf = new TestSaveForm();
+            tsf.addDataList(_templateBank);
+            tsf.Parent = this;
+            tsf.ShowDialog();
+        }
+
+        public void retrieveDataList(List<Template> dataList) {
+            _templateBank.Templates = dataList;
+            lstTest.Items.Clear();
+            foreach (Template t in dataList) {
+                lstTest.Items.Add(t.TemplateName);
+            }
         }
 
         private void lstTemplateQuestions_SelectedIndexChanged(object sender, EventArgs e) {

@@ -57,6 +57,7 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.picAppImage = new System.Windows.Forms.PictureBox();
+            this.lstTest = new System.Windows.Forms.ListBox();
             this.grbAddQuestion.SuspendLayout();
             this.grbCreateTemplate.SuspendLayout();
             this.grbLoadTemplate.SuspendLayout();
@@ -389,11 +390,20 @@
             this.picAppImage.TabIndex = 0;
             this.picAppImage.TabStop = false;
             // 
+            // lstTest
+            // 
+            this.lstTest.FormattingEnabled = true;
+            this.lstTest.Location = new System.Drawing.Point(840, 328);
+            this.lstTest.Name = "lstTest";
+            this.lstTest.Size = new System.Drawing.Size(120, 95);
+            this.lstTest.TabIndex = 5;
+            // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 654);
+            this.Controls.Add(this.lstTest);
             this.Controls.Add(this.grbFeedbackTemplate);
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.grbRemoveQuestion);
@@ -458,5 +468,6 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.PictureBox picAppImage;
+        private System.Windows.Forms.ListBox lstTest;
     }
 }

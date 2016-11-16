@@ -5,14 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1 {
-    class TemplateBank {
-        private Dictionary<string, Template> _templateDict = new Dictionary<string, Template>();
-
+    public class TemplateBank {
+        private static List<Template> _templateList = new List<Template>();
+        private static TemplateBank _instance = null;
         /// <summary>
         /// Template bank constructor
         /// </summary>
-        public TemplateBank() {
-
+        private TemplateBank() { }
+        
+        public static TemplateBank getInstance() {
+            if (null == _instance) {
+                _instance = new TemplateBank();
+            }
+            return _instance;
         }
         /// <summary>
         /// Add a template to the template bank
@@ -21,7 +26,8 @@ namespace ConsoleApplication1 {
         /// <param name="template">The template to add</param>
         public void Add(string templateName, Template template) {
             // Add Template to bank
-            _templateDict.Add(templateName, template);
+            template.TemplateName = templateName;
+            _templateList.Add(template);
         }
         /// <summary>
         /// Load a template from the template bank
@@ -31,8 +37,10 @@ namespace ConsoleApplication1 {
         public Template Load(string templateName) {
             // Retrieve template from bank
             Template temp = null;
-            if (_templateDict.ContainsKey(templateName)) {
-                return temp = _templateDict[templateName];
+            foreach (Template t in _templateList) {
+                if (t.TemplateName == templateName) {
+                    return t;
+                }
             }
             return temp;
         }
@@ -42,7 +50,18 @@ namespace ConsoleApplication1 {
         /// <param name="templateName">The name of the template to delete</param>
         public void Remove(string templateName) {
             // Delete template from bank
-            _templateDict.Remove(templateName);
+            Template temp = null;
+            foreach (Template t in _templateList) {
+                if (t.TemplateName == templateName) {
+                    temp = t;
+                }
+            }
+            _templateList.Remove(temp);
+        }
+
+        public List<Template> Templates {
+            get { return _templateList; }
+            set { _templateList = value; }
         }
     }
 }

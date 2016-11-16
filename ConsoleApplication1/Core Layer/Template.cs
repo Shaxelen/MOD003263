@@ -5,17 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1 {
-    abstract class Template {
-
+    public abstract class Template {
         protected string _templateName;
+        protected string _templateType;
         protected List<string> _templateQuestions = new List<string>();
 
         /// <summary>
         /// Template constructor
         /// </summary>
-        public Template() {
-
-        }
+        public Template() { }
+        /// <summary>
+        /// Gets and Sets the Template Name
+        /// </summary>
+        public string TemplateName { get { return _templateName; } set { _templateName = value; } }
         /// <summary>
         /// Add a question to the template
         /// </summary>
@@ -40,15 +42,8 @@ namespace ConsoleApplication1 {
         /// <summary>
         /// Returns the template question list
         /// </summary>
-        public List<string> GetTemplateQuestions {
+        public List<string> TemplateQuestions {
             get { return _templateQuestions; }
-        }
-        /// <summary>
-        /// Returns the template name
-        /// </summary>
-        /// <returns></returns>
-        public string GetTemplateName() {
-            return _templateName;
         }
     }
 
@@ -57,7 +52,7 @@ namespace ConsoleApplication1 {
         /// CV Template constructor
         /// </summary>
         public CVTemplate() {
-            _templateName = "CV";
+            _templateType = "CV";
         }
     }
 
@@ -66,7 +61,7 @@ namespace ConsoleApplication1 {
         /// Interview template constructor
         /// </summary>
         public InterviewTemplate() {
-            _templateName = "Interview";
+            _templateType = "Interview";
         }
     }
 
@@ -75,7 +70,7 @@ namespace ConsoleApplication1 {
         /// Employee template constructor
         /// </summary>
         public EmployeeTemplate() {
-            _templateName = "Employee";
+            _templateType = "Employee";
         }
     }
 }
