@@ -23,18 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.lstTest = new System.Windows.Forms.ListBox();
+            this.lstTemplates = new System.Windows.Forms.ListBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lstTest
+            // lstTemplates
             // 
-            this.lstTest.FormattingEnabled = true;
-            this.lstTest.Location = new System.Drawing.Point(12, 12);
-            this.lstTest.Name = "lstTest";
-            this.lstTest.Size = new System.Drawing.Size(260, 212);
-            this.lstTest.TabIndex = 0;
-            this.lstTest.SelectedIndexChanged += new System.EventHandler(this.lstTest_SelectedIndexChanged);
+            this.lstTemplates.FormattingEnabled = true;
+            this.lstTemplates.Location = new System.Drawing.Point(12, 12);
+            this.lstTemplates.Name = "lstTemplates";
+            this.lstTemplates.Size = new System.Drawing.Size(260, 212);
+            this.lstTemplates.TabIndex = 0;
+            this.lstTemplates.SelectedIndexChanged += new System.EventHandler(this.lstTest_SelectedIndexChanged);
             // 
             // btnLoad
             // 
@@ -52,7 +52,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.lstTest);
+            this.Controls.Add(this.lstTemplates);
             this.Name = "TestLoadForm";
             this.Text = "TestLoadForm";
             this.ResumeLayout(false);
@@ -61,7 +61,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstTest;
+        private System.Windows.Forms.ListBox lstTemplates;
         private System.Windows.Forms.Button btnLoad;
     }
 }

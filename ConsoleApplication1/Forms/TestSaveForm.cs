@@ -10,27 +10,52 @@ using System.Windows.Forms;
 
 namespace ConsoleApplication1 {
     public partial class TestSaveForm : Form {
-        private TemplateBank _tempBank = TemplateBank.getInstance();
+        private TemplateBank _templateBank = TemplateBank.getInstance();
         private TemplateForm _parent;
+        private Template _template;
 
-        public new TemplateForm Parent { get { return _parent; } set { _parent = value; } }
-
-        public TestSaveForm() {
+       /// <summary>
+       /// TestSaveForm Constructor
+       /// </summary>
+       /// <param name="templateBank">The TemplateBank to access</param>
+        public TestSaveForm(TemplateBank templateBank) {
             InitializeComponent();
+            _templateBank = templateBank;
         }
 
-        public void addDataList(TemplateBank data) {
-            _tempBank = data;
-            foreach (Template s in data.Templates) {
-                lstData.Items.Add(s.TemplateName);
+        /// <summary>
+        /// Saves a template to the template bank
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e) {
+            //generate new Template
+            string templateName = txtName.Text;
+            lstTemplates.Items.Add(txtName.Text);
+            _template = _parent.RetrieveTemplate();
+            _templateBank.Add(templateName, _template);
+            _parent.retrieveDataList(_templateBank.Templates);
+        }
+
+        /// <summary>
+        /// Display templates from template bank 
+        /// </summary>
+        /// <param name="templateBank">The TemplateBank to access</param>
+        public void DisplayTemplates()
+        {
+            foreach (Template t in _templateBank.Templates)
+            {
+                lstTemplates.Items.Add(t.TemplateName);
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e) {
-            //generate new Template
-            lstData.Items.Add(txtName.Text);
-
-            _parent.retrieveDataList(_tempBank.Templates);
+        /// <summary>
+        /// Gets and sets the parent form
+        /// </summary>
+        public new TemplateForm Parent
+        {
+            get { return _parent; }
+            set { _parent = value; }
         }
     }
 }

@@ -8,6 +8,7 @@ namespace ConsoleApplication1 {
     public class TemplateBank {
         private static List<Template> _templateList = new List<Template>();
         private static TemplateBank _instance = null;
+
         /// <summary>
         /// Template bank constructor
         /// </summary>
@@ -19,6 +20,7 @@ namespace ConsoleApplication1 {
             }
             return _instance;
         }
+
         /// <summary>
         /// Add a template to the template bank
         /// </summary>
@@ -29,6 +31,7 @@ namespace ConsoleApplication1 {
             template.TemplateName = templateName;
             _templateList.Add(template);
         }
+
         /// <summary>
         /// Load a template from the template bank
         /// </summary>
@@ -39,11 +42,13 @@ namespace ConsoleApplication1 {
             Template temp = null;
             foreach (Template t in _templateList) {
                 if (t.TemplateName == templateName) {
-                    return t;
+                    temp = t;
+                    return temp;
                 }
             }
             return temp;
         }
+
         /// <summary>
         /// Delete a template from the template bank
         /// </summary>
@@ -59,6 +64,9 @@ namespace ConsoleApplication1 {
             _templateList.Remove(temp);
         }
 
+        /// <summary>
+        /// Gets and sets the template list
+        /// </summary>
         public List<Template> Templates {
             get { return _templateList; }
             set { _templateList = value; }

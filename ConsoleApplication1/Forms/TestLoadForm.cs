@@ -10,33 +10,56 @@ using System.Windows.Forms;
 
 namespace ConsoleApplication1 {
     public partial class TestLoadForm : Form {
-        private List<Template> _dataList = new List<Template>();
+        private List<Template> _templateList = new List<Template>();
+        private TemplateBank _templateBank = TemplateBank.getInstance();
         private int _index = -1;
         private TemplateForm _parent;
 
-        public new TemplateForm Parent { get { return _parent; } set { _parent = value; } }
 
+        /// <summary>
+        /// TestLoadForm Constructor
+        /// </summary>
         public TestLoadForm() {
             InitializeComponent();
         }
 
-        public void addDataList(List<Template> datas) {
-            _dataList = datas;
-            foreach (Template s in datas) {
-                lstTest.Items.Add(s.TemplateName);
-            }
-        }
-
+        /// <summary>
+        /// Load a selected template
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoad_Click(object sender, EventArgs e) {
             if (_index != -1) {
-                string a = lstTest.Items[_index].ToString();
-                _parent.RetrieveTemplate(a);
+                string templateName = lstTemplates.Items[_index].ToString();
+                _parent.RetrieveTemplate(templateName);
                 this.Close();
             }
         }
 
+        /// <summary>
+        /// Selected template
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstTest_SelectedIndexChanged(object sender, EventArgs e) {
-            _index = lstTest.SelectedIndex;
+            _index = lstTemplates.SelectedIndex;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="templates"></param>
+        public void DisplayTemplates()
+        {
+            foreach (Template t in _templateBank.Templates)
+            {
+                lstTemplates.Items.Add(t.TemplateName);
+            }
+        }
+
+        public new TemplateForm Parent {
+            get { return _parent; }
+            set { _parent = value; }
         }
     }
 }

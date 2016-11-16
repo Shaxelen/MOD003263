@@ -23,19 +23,19 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.lstData = new System.Windows.Forms.ListBox();
+            this.lstTemplates = new System.Windows.Forms.ListBox();
             this.lblLabel = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lstData
+            // lstTemplates
             // 
-            this.lstData.FormattingEnabled = true;
-            this.lstData.Location = new System.Drawing.Point(12, 12);
-            this.lstData.Name = "lstData";
-            this.lstData.Size = new System.Drawing.Size(260, 186);
-            this.lstData.TabIndex = 0;
+            this.lstTemplates.FormattingEnabled = true;
+            this.lstTemplates.Location = new System.Drawing.Point(12, 12);
+            this.lstTemplates.Name = "lstTemplates";
+            this.lstTemplates.Size = new System.Drawing.Size(260, 186);
+            this.lstTemplates.TabIndex = 0;
             // 
             // lblLabel
             // 
@@ -71,7 +71,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblLabel);
-            this.Controls.Add(this.lstData);
+            this.Controls.Add(this.lstTemplates);
             this.Name = "TestSaveForm";
             this.Text = "TestSaveForm";
             this.ResumeLayout(false);
@@ -81,7 +81,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstData;
+        private System.Windows.Forms.ListBox lstTemplates;
         private System.Windows.Forms.Label lblLabel;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnSave;
