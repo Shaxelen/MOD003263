@@ -8,30 +8,30 @@ namespace ConsoleApplication1 {
     public abstract class Template {
         protected string _templateName;
         protected string _templateType;
-        protected List<string> _templateQuestions = new List<string>();
+        protected List<Question> _templateQuestions = new List<Question>();
+        protected Person _person;
 
         /// <summary>
         /// Template constructor
         /// </summary>
         public Template() { }
-        /// <summary>
-        /// Gets and Sets the Template Name
-        /// </summary>
-        public string TemplateName { get { return _templateName; } set { _templateName = value; } }
+
         /// <summary>
         /// Add a question to the template
         /// </summary>
         /// <param name="question">The question to add</param>
-        public void Add(string question) {
+        public void Add(Question question) {
             _templateQuestions.Add(question);
         }
+
         /// <summary>
         /// Remove a question from the template
         /// </summary>
         /// <param name="question">The question to remove</param>
-        public void Remove(string question) {
+        public void Remove(Question question) {
             _templateQuestions.Remove(question);
         }
+
         /// <summary>
         /// Removes a Question at a certain index
         /// </summary>
@@ -39,10 +39,36 @@ namespace ConsoleApplication1 {
         public void RemoveAt(int index) {
             _templateQuestions.RemoveAt(index);
         }
+
+
+        /// <summary>
+        /// Adds a Person to the template
+        /// </summary>
+        /// <param name="person"></param>
+        public void AddPerson(Person person) {
+            _person = person;
+        }
+
+        /// <summary>
+        /// Gets and Sets the Template Name
+        /// </summary>
+        public string TemplateName {
+            get { return _templateName; }
+            set { _templateName = value; }
+        }
+
+        /// <summary>
+        /// Gets and Sets a person class
+        /// </summary>
+        public Person Person {
+            get { return _person; }
+            set { _person = value; }
+        }
+
         /// <summary>
         /// Returns the template question list
         /// </summary>
-        public List<string> TemplateQuestions {
+        public List<Question> TemplateQuestions {
             get { return _templateQuestions; }
         }
     }

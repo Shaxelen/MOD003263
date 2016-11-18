@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ConsoleApplication1 {
     public partial class TestSaveForm : Form {
-        private TemplateBank _templateBank = TemplateBank.getInstance();
+        private TemplateBank _templateBank = TemplateBank.Instance();
         private TemplateForm _parent;
         private Template _template;
 
@@ -31,10 +31,19 @@ namespace ConsoleApplication1 {
         private void btnSave_Click(object sender, EventArgs e) {
             //generate new Template
             string templateName = txtName.Text;
-            lstTemplates.Items.Add(txtName.Text);
-            _template = _parent.RetrieveTemplate();
-            _templateBank.Add(templateName, _template);
-            _parent.retrieveDataList(_templateBank.Templates);
+
+            if (lstTemplates.Items.Contains(templateName)) {
+                _template = _parent.RetrieveTemplate();
+                _templateBank.Update(templateName, _template);
+                _parent.retrieveDataList(_templateBank.Templates);
+            } else {
+                lstTemplates.Items.Add(txtName.Text);
+                _template = _parent.RetrieveTemplate();
+                _templateBank.Add(templateName, _template);
+                _parent.retrieveDataList(_templateBank.Templates);
+            }
+
+            
         }
 
         /// <summary>

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace ConsoleApplication1 {
     public partial class TestLoadForm : Form {
         private List<Template> _templateList = new List<Template>();
-        private TemplateBank _templateBank = TemplateBank.getInstance();
+        private TemplateBank _templateBank = TemplateBank.Instance();
         private int _index = -1;
         private TemplateForm _parent;
 
@@ -46,7 +46,7 @@ namespace ConsoleApplication1 {
         }
 
         /// <summary>
-        /// 
+        /// Displays a list of templates from the template bank
         /// </summary>
         /// <param name="templates"></param>
         public void DisplayTemplates()

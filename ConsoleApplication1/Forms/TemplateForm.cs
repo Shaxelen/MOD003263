@@ -13,12 +13,15 @@ namespace ConsoleApplication1 {
         private TemplateFactory _templateFactory = new TemplateFactory();
         private TemplateEditor _tempEditor;
         private Template _template;
-        private TemplateBank _templateBank = TemplateBank.getInstance();
+        private TemplateBank _templateBank = TemplateBank.Instance();
+
+
+        private Question _question;
+
         private int _tempRemQuestionIndex = -1;
 
         public TemplateForm() {
             InitializeComponent();
-            //_templateBank.Add("N", new CVTemplate());
         }
 
         private void btnCreateTemplate_Click(object sender, EventArgs e) {
@@ -47,10 +50,7 @@ namespace ConsoleApplication1 {
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            string question = txtAddQuestion.Text;
-            _template.Add(question);
-            UpdateListBox();
-            txtAddQuestion.Clear();
+            txtQuestionTitle.Text = txtAddQuestion.Text;
         }
         private void btnRemoveQuestion_Click(object sender, EventArgs e)
         {
@@ -63,6 +63,10 @@ namespace ConsoleApplication1 {
             _tempRemQuestionIndex = lstTemplateQuestions.SelectedIndex;
         }
 
+        public Template RetrieveTemplate() {
+            return _template;
+        }
+
         public void RetrieveTemplate(string template)
         {
             _template = _templateBank.Load(template);
@@ -71,15 +75,9 @@ namespace ConsoleApplication1 {
             UpdateListBox();
         }
 
-        private void UpdateListBox()
-        {
+        private void UpdateListBox() {
             lstTemplateQuestions.DataSource = null;
             lstTemplateQuestions.DataSource = _template.TemplateQuestions;
-        }
-
-        public Template RetrieveTemplate()
-        {
-            return _template;
         }
 
         public void retrieveDataList(List<Template> dataList) {
@@ -88,6 +86,26 @@ namespace ConsoleApplication1 {
             foreach (Template t in dataList) {
                 lstTest.Items.Add(t.TemplateName);
             }
+        }
+
+        public GroupBox QuestionTemplate() {
+            GroupBox questTemplate = grbQuestion;
+            string question = txtAddQuestion.Text;
+
+            if (radFeedback.Checked) {
+                txtFeedback.Visible = true;
+            }
+
+            if (radScore.Checked) {
+                txtScore.Visible = true;
+                lblScoreMax.Visible = true;
+            }
+            _question = new Question(question);
+            _template.Add(_question);
+            UpdateListBox();
+
+            txtAddQuestion.Clear();
+            return questTemplate;
         }
     }
 }

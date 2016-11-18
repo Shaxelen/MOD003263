@@ -14,7 +14,7 @@ namespace ConsoleApplication1 {
         /// </summary>
         private TemplateBank() { }
         
-        public static TemplateBank getInstance() {
+        public static TemplateBank Instance() {
             if (null == _instance) {
                 _instance = new TemplateBank();
             }
@@ -40,9 +40,10 @@ namespace ConsoleApplication1 {
         public Template Load(string templateName) {
             // Retrieve template from bank
             Template temp = null;
-            foreach (Template t in _templateList) {
-                if (t.TemplateName == templateName) {
-                    temp = t;
+
+            for (int i = 0; i < _templateList.Count; i++) {
+                if (_templateList[i].TemplateName == templateName) {
+                    temp = _templateList[i];
                     return temp;
                 }
             }
@@ -56,12 +57,26 @@ namespace ConsoleApplication1 {
         public void Remove(string templateName) {
             // Delete template from bank
             Template temp = null;
-            foreach (Template t in _templateList) {
-                if (t.TemplateName == templateName) {
-                    temp = t;
+
+            for (int i = 0; i < _templateList.Count; i++) {
+                if (_templateList[i].TemplateName == templateName) {
+                    temp = _templateList[i];
                 }
             }
             _templateList.Remove(temp);
+        }
+
+        /// <summary>
+        /// Updates an existing template in the template bank
+        /// </summary>
+        /// <param name="templateName">The name of the template to update</param>
+        /// <param name="template">The new template object to replace</param>
+        public void Update(string templateName, Template template) {
+            for (int i = 0; i < _templateList.Count; i++) {
+                if (_templateList[i].TemplateName == templateName) {
+                    _templateList[i] = template;
+                }
+            }
         }
 
         /// <summary>
