@@ -8,7 +8,7 @@ namespace ConsoleApplication1 {
     public abstract class Template {
         protected string _templateName;
         protected string _templateType;
-        protected List<Question> _templateQuestions = new List<Question>();
+        protected List<string> _templateQuestions = new List<string>();
         protected Person _person;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace ConsoleApplication1 {
         /// Add a question to the template
         /// </summary>
         /// <param name="question">The question to add</param>
-        public void Add(Question question) {
+        public void Add(string question) {
             _templateQuestions.Add(question);
         }
 
@@ -28,7 +28,7 @@ namespace ConsoleApplication1 {
         /// Remove a question from the template
         /// </summary>
         /// <param name="question">The question to remove</param>
-        public void Remove(Question question) {
+        public void Remove(string question) {
             _templateQuestions.Remove(question);
         }
 
@@ -68,7 +68,7 @@ namespace ConsoleApplication1 {
         /// <summary>
         /// Returns the template question list
         /// </summary>
-        public List<Question> TemplateQuestions {
+        public List<string> TemplateQuestions {
             get { return _templateQuestions; }
         }
     }

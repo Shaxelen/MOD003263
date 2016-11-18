@@ -50,7 +50,10 @@ namespace ConsoleApplication1 {
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            txtQuestionTitle.Text = txtAddQuestion.Text;
+            string question = txtAddQuestion.Text;
+            _template.Add(question);
+            UpdateListBox();
+            txtAddQuestion.Clear();
         }
         private void btnRemoveQuestion_Click(object sender, EventArgs e)
         {
@@ -86,26 +89,6 @@ namespace ConsoleApplication1 {
             foreach (Template t in dataList) {
                 lstTest.Items.Add(t.TemplateName);
             }
-        }
-
-        public GroupBox QuestionTemplate() {
-            GroupBox questTemplate = grbQuestion;
-            string question = txtAddQuestion.Text;
-
-            if (radFeedback.Checked) {
-                txtFeedback.Visible = true;
-            }
-
-            if (radScore.Checked) {
-                txtScore.Visible = true;
-                lblScoreMax.Visible = true;
-            }
-            _question = new Question(question);
-            _template.Add(_question);
-            UpdateListBox();
-
-            txtAddQuestion.Clear();
-            return questTemplate;
         }
     }
 }

@@ -62,10 +62,10 @@
             this.radAdditionalFeedback = new System.Windows.Forms.RadioButton();
             this.radFeedback = new System.Windows.Forms.RadioButton();
             this.grbQuestion = new System.Windows.Forms.GroupBox();
+            this.txtScore = new System.Windows.Forms.TextBox();
             this.lblScoreMax = new System.Windows.Forms.Label();
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.txtQuestionTitle = new System.Windows.Forms.TextBox();
-            this.txtScore = new System.Windows.Forms.TextBox();
             this.grbCreateTemplate.SuspendLayout();
             this.grbLoadTemplate.SuspendLayout();
             this.grbSaveTemplate.SuspendLayout();
@@ -455,6 +455,16 @@
             this.grbQuestion.TabIndex = 7;
             this.grbQuestion.TabStop = false;
             this.grbQuestion.Text = "Question Template";
+            this.grbQuestion.Visible = false;
+            // 
+            // txtScore
+            // 
+            this.txtScore.Location = new System.Drawing.Point(6, 125);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.ReadOnly = true;
+            this.txtScore.Size = new System.Drawing.Size(20, 20);
+            this.txtScore.TabIndex = 3;
+            this.txtScore.Visible = false;
             // 
             // lblScoreMax
             // 
@@ -483,15 +493,6 @@
             this.txtQuestionTitle.ReadOnly = true;
             this.txtQuestionTitle.Size = new System.Drawing.Size(182, 20);
             this.txtQuestionTitle.TabIndex = 0;
-            // 
-            // txtScore
-            // 
-            this.txtScore.Location = new System.Drawing.Point(6, 125);
-            this.txtScore.Name = "txtScore";
-            this.txtScore.ReadOnly = true;
-            this.txtScore.Size = new System.Drawing.Size(20, 20);
-            this.txtScore.TabIndex = 3;
-            this.txtScore.Visible = false;
             // 
             // TemplateForm
             // 
