@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1 {
-    public abstract class Template {
+    public abstract class Template : Component {
         protected string _templateName;
         protected string _templateType;
-        protected List<string> _templateQuestions = new List<string>();
         protected Person _person;
+        protected List<Component> _componentList = new List<Component>();
 
         /// <summary>
         /// Template constructor
@@ -17,40 +17,49 @@ namespace ConsoleApplication1 {
         public Template() { }
 
         /// <summary>
-        /// Add a question to the template
+        /// Add a Person to the template
         /// </summary>
-        /// <param name="question">The question to add</param>
-        public void Add(string question) {
-            _templateQuestions.Add(question);
-        }
-
-        /// <summary>
-        /// Remove a question from the template
-        /// </summary>
-        /// <param name="question">The question to remove</param>
-        public void Remove(string question) {
-            _templateQuestions.Remove(question);
-        }
-
-        /// <summary>
-        /// Removes a Question at a certain index
-        /// </summary>
-        /// <param name="index">The index to Remove the question at</param>
-        public void RemoveAt(int index) {
-            _templateQuestions.RemoveAt(index);
-        }
-
-
-        /// <summary>
-        /// Adds a Person to the template
-        /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person">The person object to add</param>
         public void AddPerson(Person person) {
             _person = person;
         }
 
         /// <summary>
-        /// Gets and Sets the Template Name
+        /// Add a component to the template
+        /// </summary>
+        /// <param name="component">The component to add</param>
+        public override void Add(Component component) {
+            _componentList.Add(component);
+        }
+
+        /// <summary>
+        /// Remove a component from the template
+        /// </summary>
+        /// <param name="component">The component to remove</param>
+        public override void Remove(Component component) {
+            _componentList.Remove(component);
+        }
+
+        /// <summary>
+        /// Remove a component at a certain index
+        /// </summary>
+        /// <param name="index">The index of the component to remove</param>
+        public override void RemoveAt(int index) {
+            _componentList.RemoveAt(index);
+        }
+
+        /// <summary>
+        /// Return an attached component from the component list by its index
+        /// </summary>
+        /// <param name="index">The index of the component</param>
+        /// <returns></returns>
+        public override Component GetChild(int index) {
+            Component comp = _componentList[index];
+            return comp;
+        }
+
+        /// <summary>
+        /// Get and Set the Template Name
         /// </summary>
         public string TemplateName {
             get { return _templateName; }
@@ -58,7 +67,7 @@ namespace ConsoleApplication1 {
         }
 
         /// <summary>
-        /// Gets and Sets a person class
+        /// Get and Set a person class
         /// </summary>
         public Person Person {
             get { return _person; }
@@ -66,10 +75,10 @@ namespace ConsoleApplication1 {
         }
 
         /// <summary>
-        /// Returns the template question list
+        /// Return all attached components
         /// </summary>
-        public List<string> TemplateQuestions {
-            get { return _templateQuestions; }
+        public List<Component> ComponentList {
+            get { return _componentList; }
         }
     }
 

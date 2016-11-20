@@ -15,10 +15,9 @@ namespace ConsoleApplication1 {
         private Template _template;
         private TemplateBank _templateBank = TemplateBank.Instance();
 
+        private int _tempRemQuestionIndex = -1;
 
         private Question _question;
-
-        private int _tempRemQuestionIndex = -1;
 
         public TemplateForm() {
             InitializeComponent();
@@ -50,8 +49,9 @@ namespace ConsoleApplication1 {
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            string question = txtAddQuestion.Text;
-            _template.Add(question);
+            string questionText = txtAddQuestion.Text;
+            _question = new Question(questionText);
+            _template.Add(_question);
             UpdateListBox();
             txtAddQuestion.Clear();
         }
@@ -66,6 +66,11 @@ namespace ConsoleApplication1 {
             _tempRemQuestionIndex = lstTemplateQuestions.SelectedIndex;
         }
 
+        private void UpdateListBox() {
+            lstTemplateQuestions.DataSource = null;
+            lstTemplateQuestions.DataSource = _template.ComponentList;
+        }
+
         public Template RetrieveTemplate() {
             return _template;
         }
@@ -76,11 +81,6 @@ namespace ConsoleApplication1 {
             lblTemplateName.Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
             UpdateListBox();
-        }
-
-        private void UpdateListBox() {
-            lstTemplateQuestions.DataSource = null;
-            lstTemplateQuestions.DataSource = _template.TemplateQuestions;
         }
 
         public void retrieveDataList(List<Template> dataList) {

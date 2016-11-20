@@ -28,7 +28,6 @@
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnRemoveQuestion = new System.Windows.Forms.Button();
             this.lblTemplateName = new System.Windows.Forms.Label();
-            this.lstTemplateQuestions = new System.Windows.Forms.ListBox();
             this.grbCreateTemplate = new System.Windows.Forms.GroupBox();
             this.btnCreateTemplate = new System.Windows.Forms.Button();
             this.txtCreateTemplate = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@
             this.lblScoreMax = new System.Windows.Forms.Label();
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.txtQuestionTitle = new System.Windows.Forms.TextBox();
+            this.lstTemplateQuestions = new System.Windows.Forms.ListBox();
             this.grbCreateTemplate.SuspendLayout();
             this.grbLoadTemplate.SuspendLayout();
             this.grbSaveTemplate.SuspendLayout();
@@ -123,16 +123,6 @@
             this.lblTemplateName.Size = new System.Drawing.Size(82, 13);
             this.lblTemplateName.TabIndex = 1;
             this.lblTemplateName.Text = "Template Name";
-            // 
-            // lstTemplateQuestions
-            // 
-            this.lstTemplateQuestions.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.lstTemplateQuestions.FormattingEnabled = true;
-            this.lstTemplateQuestions.Location = new System.Drawing.Point(7, 189);
-            this.lstTemplateQuestions.Name = "lstTemplateQuestions";
-            this.lstTemplateQuestions.Size = new System.Drawing.Size(549, 420);
-            this.lstTemplateQuestions.TabIndex = 0;
-            this.lstTemplateQuestions.SelectedIndexChanged += new System.EventHandler(this.lstTemplateQuestions_SelectedIndexChanged);
             // 
             // grbCreateTemplate
             // 
@@ -494,6 +484,16 @@
             this.txtQuestionTitle.Size = new System.Drawing.Size(182, 20);
             this.txtQuestionTitle.TabIndex = 0;
             // 
+            // lstTemplateQuestions
+            // 
+            this.lstTemplateQuestions.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.lstTemplateQuestions.FormattingEnabled = true;
+            this.lstTemplateQuestions.Location = new System.Drawing.Point(7, 189);
+            this.lstTemplateQuestions.Name = "lstTemplateQuestions";
+            this.lstTemplateQuestions.Size = new System.Drawing.Size(549, 420);
+            this.lstTemplateQuestions.TabIndex = 0;
+            this.lstTemplateQuestions.SelectedIndexChanged += new System.EventHandler(this.lstTemplateQuestions_SelectedIndexChanged);
+            // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +535,6 @@
         private System.Windows.Forms.Button btnAddQuestion;
         private System.Windows.Forms.TextBox txtAddQuestion;
         private System.Windows.Forms.Label lblQuestion;
-        private System.Windows.Forms.ListBox lstTemplateQuestions;
         private System.Windows.Forms.Label lblTemplateName;
         private System.Windows.Forms.GroupBox grbCreateTemplate;
         private System.Windows.Forms.Button btnCreateTemplate;
@@ -575,5 +574,6 @@
         private System.Windows.Forms.TextBox txtFeedback;
         private System.Windows.Forms.TextBox txtQuestionTitle;
         private System.Windows.Forms.TextBox txtScore;
+        private System.Windows.Forms.ListBox lstTemplateQuestions;
     }
 }

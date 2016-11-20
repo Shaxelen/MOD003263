@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core Layer\Comment.cs" />
+    <Compile Include="Core Layer\Component.cs" />
     <Compile Include="Core Layer\FeedbackBank.cs" />
     <Compile Include="Core Layer\Feedback.cs" />
     <Compile Include="Forms\TestLoadForm.cs">
@@ -65,6 +67,7 @@
     <Compile Include="Core Layer\Template.cs" />
     <Compile Include="Core Layer\TemplateBank.cs" />
     <Compile Include="Core Layer\Question.cs" />
+    <Compile Include="Core Layer\Score.cs" />
     <Compile Include="UI Layer\TemplateEditor.cs" />
     <Compile Include="UI Layer\TemplateFactory.cs" />
     <Compile Include="Forms\TemplateForm.cs">

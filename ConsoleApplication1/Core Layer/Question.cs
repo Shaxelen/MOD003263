@@ -5,91 +5,66 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1 {
-    public class Question {
+    public class Question : Component {
         private string _questionTitle;
-        private string _feedback;
-        private string _additionalFeedback;
-        private int _score;
+        private List<Component> _componentList = new List<Component>();
 
         /// <summary>
         /// Question Constructor
         /// </summary>
-        public Question () { }
-
-        /// <summary>
-        /// Question Constructor
-        /// </summary>
-        /// <param name="questionTitle">The title of the question</param>
-        public Question(string questionTitle) {
+        /// <param name="questionTitle">The question title </param>
+        public Question (string questionTitle) {
             _questionTitle = questionTitle;
         }
 
         /// <summary>
-        /// Question Constructor
+        /// Add a component to the question
         /// </summary>
-        /// <param name="questionTitle">The title of the question</param>
-        /// <param name="feedback">The question feedback</param>
-        public Question(string questionTitle, string feedback) {
-            _questionTitle = questionTitle;
-            _feedback = feedback;
+        /// <param name="component">The component to add</param>
+        public override void Add(Component component) {
+            _componentList.Add(component);
         }
 
         /// <summary>
-        /// Question Constructor
+        /// Remove a component from the question
         /// </summary>
-        /// <param name="questionTitle">The title of the question</param>
-        /// <param name="feedback">The question feedback</param>
-        /// <param name="score">The score of the question</param>
-        public Question(string questionTitle, string feedback, int score) {
-            _questionTitle = questionTitle;
-            _feedback = feedback;
-            _score = score;
+        /// <param name="component">The component to remove</param>
+        public override void Remove(Component component) {
+            _componentList.Remove(component);
         }
 
         /// <summary>
-        /// Question Constructor
+        /// Remove a component at a certian index
         /// </summary>
-        /// <param name="questionTitle">The title of the question</param>
-        /// <param name="feedback">The question feedback</param>
-        /// <param name="additionalFeedback">The questions additional feedback</param>
-        /// <param name="score">The score of the question</param>
-        public Question(string questionTitle, string feedback, string additionalFeedback, int score) {
-            _questionTitle = questionTitle;
-            _feedback = feedback;
-            _additionalFeedback = additionalFeedback;
-            _score = score;
+        /// <param name="index">The index of the component to remove</param>
+        public override void RemoveAt(int index) {
+            _componentList.RemoveAt(index);
         }
 
+        /// <summary>
+        /// Return an attached component from the component list by its index 
+        /// </summary>
+        /// <param name="index">The index of the component</param>
+        /// <returns></returns>
+        public override Component GetChild(int index) {
+            Component comp = _componentList[index];
+            return comp;
+        }
+
+        /// <summary>
+        /// Displays the object as a string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() {
-            return _questionTitle + " " + _feedback + " " + _additionalFeedback + " " + _score;
+            return QuestionTitle;
         }
+
         /// <summary>
-        /// Gets and sets the Question Title
+        /// Get and set the Question Title
         /// </summary>
         public string QuestionTitle {
             get { return _questionTitle; }
             set { _questionTitle = value; }
-        }
-        /// <summary>
-        /// Gets and sets the Feedback
-        /// </summary>
-        public string Feedback {
-            get { return _feedback; }
-            set { _feedback = value; }
-        }
-        /// <summary>
-        /// Gets and sets the Additonal Feedback
-        /// </summary>
-        public string AdditionalFeedback {
-            get { return _additionalFeedback; }
-            set { _additionalFeedback = value; }
-        }
-        /// <summary>
-        /// Gets and sets the score
-        /// </summary>
-        public int Score {
-            get { return _score; }
-            set { _score = value; }
         }
     }
 }
