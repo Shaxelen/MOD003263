@@ -53,7 +53,9 @@
     <Compile Include="Forms\TestLoadForm.Designer.cs">
       <DependentUpon>TestLoadForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core Layer\Applicant.cs" />
     <Compile Include="Meta Layer\DatabaseConnection.cs" />
+    <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
     <Compile Include="Meta Layer\MySQLConnection.cs" />
     <Compile Include="Meta Layer\OleDatabaseConnection.cs" />
     <Compile Include="Meta Layer\PDFConvert.cs" />
