@@ -22,7 +22,7 @@ namespace ConsoleApplication1.Meta_Layer {
         public List<Applicant> getApplicants() {
             List<Applicant> apps = new List<Applicant>();
 
-            DatabaseConnection con = DatabaseFactory.instance();
+            DatabaseConnection con = DatabaseFactory.Instance();
             if (con.OpenConnection()) {
                 DbDataReader dr = con.Select("SELECT ID, cust_name, cust_address, cust_city FROM customers;");
 

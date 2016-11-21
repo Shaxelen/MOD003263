@@ -7,31 +7,31 @@ using System.IO;
 
 namespace ConsoleApplication1 {
     public class DatabaseFactory {
-        private static DatabaseConnection m_instance = null;
+        private static DatabaseConnection _instance = null;
 
-        Dictionary<string, string> m_properties;
-        private static string propfile = "properties.dat";
+        private Dictionary<string, string> _properties;
+        private static string _propfile = "properties.dat";
 
         private DatabaseFactory() {
-            m_properties = new Dictionary<string, string>();
+            _properties = new Dictionary<string, string>();
         }
-        public static DatabaseConnection instance() {
-            if (null == m_instance) {
+        public static DatabaseConnection Instance() {
+            if (null == _instance) {
                 DatabaseFactory factory = new DatabaseFactory();
-                m_instance = factory.getConection();
+                _instance = factory.getConection();
             }
-            return m_instance;
+            return _instance;
         }
         private DatabaseConnection getConection() {
             DatabaseConnection connection = null;
 
             try {
-                m_properties = getProperties();
-                string provider = m_properties["Provider"];
+                _properties = getProperties();
+                string provider = _properties["Provider"];
                 if (provider.Equals("MySQL"))
-                    connection = new MySQLCon(m_properties);
+                    connection = new MySQLCon(_properties);
                 else if (provider.Equals("Microsoft.ACE.OLEDB.15.0"))
-                    connection = new OleDatabaseConnection(m_properties);
+                    connection = new OleDatabaseConnection(_properties);
                 else {
                     // should throw unsupport exception here
                     throw new DatabaseException("Not supported provider '" + provider + "'");
@@ -50,7 +50,7 @@ namespace ConsoleApplication1 {
 
         private Dictionary<string, string> getProperties() {
             string fileData = "";
-            using (StreamReader sr = new StreamReader(propfile)) {
+            using (StreamReader sr = new StreamReader(_propfile)) {
                 fileData = sr.ReadToEnd().Replace("\r", "");
             }
             Dictionary<string, string> properties = new Dictionary<string, string>();
