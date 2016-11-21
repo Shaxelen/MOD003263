@@ -43,7 +43,7 @@ namespace ConsoleApplication1 {
                 _parent.retrieveDataList(_templateBank.Templates);
             }
 
-            
+
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace ConsoleApplication1 {
         /// <param name="templateBank">The TemplateBank to access</param>
         public void DisplayTemplates()
         {
-            foreach (Template t in _templateBank.Templates)
+            foreach (Template t in _templateBank.Templates) 
             {
                 lstTemplates.Items.Add(t.TemplateName);
             }
