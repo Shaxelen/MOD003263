@@ -6,7 +6,7 @@ using System.Data.OleDb;
 using System.IO;
 using System.Text;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Meta {
     internal class OleDatabaseConnection : DatabaseConnection {
         private Dictionary<string, string> m_properties;
         private OleDbConnection connection;

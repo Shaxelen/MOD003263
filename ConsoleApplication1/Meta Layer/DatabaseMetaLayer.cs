@@ -4,8 +4,9 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApplication1.Core;
 
-namespace ConsoleApplication1.Meta_Layer {
+namespace ConsoleApplication1.Meta {
     public class DatabaseMetaLayer {
         static private DatabaseMetaLayer m_instance = null;
 

@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication1 {
+﻿namespace ConsoleApplication1.Forms {
     partial class TestLoadForm {
         /// <summary>
         /// Required designer variable.

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Core {
     public class TemplateBank {
         private static List<Template> _templateList = new List<Template>();
         private static TemplateBank _instance = null;

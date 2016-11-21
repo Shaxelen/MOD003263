@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Meta {
     internal class MySQLCon : DatabaseConnection {
         private Dictionary<string, string> m_properties;
         private MySqlConnection connection;

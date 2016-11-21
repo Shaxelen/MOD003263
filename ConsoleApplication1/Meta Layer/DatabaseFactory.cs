@@ -5,7 +5,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Meta {
     public class DatabaseFactory {
         private static DatabaseConnection _instance = null;
 

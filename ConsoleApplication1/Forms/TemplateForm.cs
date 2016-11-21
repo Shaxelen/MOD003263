@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConsoleApplication1.Core;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Forms {
     public partial class TemplateForm : Form {
         private TemplateFactory _templateFactory = new TemplateFactory();
         private TemplateEditor _tempEditor;

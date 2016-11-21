@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConsoleApplication1.Core;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Forms {
     public partial class TestLoadForm : Form {
         private List<Template> _dataList = new List<Template>();
         private int _index = -1;

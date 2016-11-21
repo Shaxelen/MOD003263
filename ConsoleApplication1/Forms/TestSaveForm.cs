@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConsoleApplication1.Core;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Forms {
     public partial class TestSaveForm : Form {
         private TemplateBank _tempBank = TemplateBank.getInstance();
         private TemplateForm _parent;

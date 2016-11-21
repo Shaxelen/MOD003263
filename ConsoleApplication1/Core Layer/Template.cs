@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1 {
+namespace ConsoleApplication1.Core {
     public abstract class Template {
         protected string _templateName;
         protected string _templateType;

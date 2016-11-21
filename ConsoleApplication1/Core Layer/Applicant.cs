@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication1.Meta_Layer {
+﻿namespace ConsoleApplication1.Core {
     public class Applicant {
         private string _name;
         public Applicant() { }
