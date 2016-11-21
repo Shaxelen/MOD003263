@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core Layer\Person.cs" />
     <Compile Include="Forms\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +87,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TestLoadForm.resx">
       <DependentUpon>TestLoadForm.cs</DependentUpon>
     </EmbeddedResource>

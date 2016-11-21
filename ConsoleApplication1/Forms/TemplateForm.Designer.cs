@@ -29,7 +29,6 @@
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnRemoveQuestion = new System.Windows.Forms.Button();
             this.lblTemplateName = new System.Windows.Forms.Label();
-            this.lstTemplateQuestions = new System.Windows.Forms.ListBox();
             this.grbCreateTemplate = new System.Windows.Forms.GroupBox();
             this.btnCreateTemplate = new System.Windows.Forms.Button();
             this.txtCreateTemplate = new System.Windows.Forms.TextBox();
@@ -41,31 +40,24 @@
             this.btnSaveTemplate = new System.Windows.Forms.Button();
             this.grbRemoveQuestion = new System.Windows.Forms.GroupBox();
             this.grbFeedbackTemplate = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtFeedbacker = new System.Windows.Forms.TextBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblFeedbacker = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.picAppImage = new System.Windows.Forms.PictureBox();
-            this.lstTest = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCVTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuInterviewTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEmployeeTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSaveTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSaveAsTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClearTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLoadTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.grbAddQuestion.SuspendLayout();
             this.grbCreateTemplate.SuspendLayout();
             this.grbLoadTemplate.SuspendLayout();
             this.grbSaveTemplate.SuspendLayout();
             this.grbRemoveQuestion.SuspendLayout();
             this.grbFeedbackTemplate.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbAddQuestion
@@ -109,7 +101,7 @@
             // 
             // btnRemoveQuestion
             // 
-            this.btnRemoveQuestion.Location = new System.Drawing.Point(0, 19);
+            this.btnRemoveQuestion.Location = new System.Drawing.Point(6, 19);
             this.btnRemoveQuestion.Name = "btnRemoveQuestion";
             this.btnRemoveQuestion.Size = new System.Drawing.Size(188, 23);
             this.btnRemoveQuestion.TabIndex = 2;
@@ -121,27 +113,17 @@
             // lblTemplateName
             // 
             this.lblTemplateName.AutoSize = true;
-            this.lblTemplateName.Location = new System.Drawing.Point(224, 15);
+            this.lblTemplateName.Location = new System.Drawing.Point(9, 38);
             this.lblTemplateName.Name = "lblTemplateName";
             this.lblTemplateName.Size = new System.Drawing.Size(82, 13);
             this.lblTemplateName.TabIndex = 1;
             this.lblTemplateName.Text = "Template Name";
             // 
-            // lstTemplateQuestions
-            // 
-            this.lstTemplateQuestions.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.lstTemplateQuestions.FormattingEnabled = true;
-            this.lstTemplateQuestions.Location = new System.Drawing.Point(7, 189);
-            this.lstTemplateQuestions.Name = "lstTemplateQuestions";
-            this.lstTemplateQuestions.Size = new System.Drawing.Size(549, 420);
-            this.lstTemplateQuestions.TabIndex = 0;
-            this.lstTemplateQuestions.SelectedIndexChanged += new System.EventHandler(this.lstTemplateQuestions_SelectedIndexChanged);
-            // 
             // grbCreateTemplate
             // 
             this.grbCreateTemplate.Controls.Add(this.btnCreateTemplate);
             this.grbCreateTemplate.Controls.Add(this.txtCreateTemplate);
-            this.grbCreateTemplate.Location = new System.Drawing.Point(12, 12);
+            this.grbCreateTemplate.Location = new System.Drawing.Point(808, 348);
             this.grbCreateTemplate.Name = "grbCreateTemplate";
             this.grbCreateTemplate.Size = new System.Drawing.Size(200, 74);
             this.grbCreateTemplate.TabIndex = 2;
@@ -170,7 +152,7 @@
             // 
             this.grbLoadTemplate.Controls.Add(this.txtLoadTemplate);
             this.grbLoadTemplate.Controls.Add(this.btnLoadTemplate);
-            this.grbLoadTemplate.Location = new System.Drawing.Point(12, 92);
+            this.grbLoadTemplate.Location = new System.Drawing.Point(808, 428);
             this.grbLoadTemplate.Name = "grbLoadTemplate";
             this.grbLoadTemplate.Size = new System.Drawing.Size(200, 73);
             this.grbLoadTemplate.TabIndex = 2;
@@ -198,7 +180,7 @@
             // 
             this.grbSaveTemplate.Controls.Add(this.txtSaveTemplate);
             this.grbSaveTemplate.Controls.Add(this.btnSaveTemplate);
-            this.grbSaveTemplate.Location = new System.Drawing.Point(12, 171);
+            this.grbSaveTemplate.Location = new System.Drawing.Point(808, 507);
             this.grbSaveTemplate.Name = "grbSaveTemplate";
             this.grbSaveTemplate.Size = new System.Drawing.Size(200, 79);
             this.grbSaveTemplate.TabIndex = 2;
@@ -227,7 +209,7 @@
             this.grbRemoveQuestion.Controls.Add(this.btnRemoveQuestion);
             this.grbRemoveQuestion.Location = new System.Drawing.Point(802, 147);
             this.grbRemoveQuestion.Name = "grbRemoveQuestion";
-            this.grbRemoveQuestion.Size = new System.Drawing.Size(200, 49);
+            this.grbRemoveQuestion.Size = new System.Drawing.Size(200, 59);
             this.grbRemoveQuestion.TabIndex = 3;
             this.grbRemoveQuestion.TabStop = false;
             this.grbRemoveQuestion.Text = "Remove Question";
@@ -235,175 +217,108 @@
             // grbFeedbackTemplate
             // 
             this.grbFeedbackTemplate.AutoSize = true;
-            this.grbFeedbackTemplate.Controls.Add(this.groupBox1);
-            this.grbFeedbackTemplate.Controls.Add(this.lstTemplateQuestions);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(227, 31);
+            this.grbFeedbackTemplate.Controls.Add(this.panel1);
+            this.grbFeedbackTemplate.Location = new System.Drawing.Point(5, 61);
             this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
-            this.grbFeedbackTemplate.Size = new System.Drawing.Size(569, 628);
+            this.grbFeedbackTemplate.Size = new System.Drawing.Size(588, 600);
             this.grbFeedbackTemplate.TabIndex = 4;
             this.grbFeedbackTemplate.TabStop = false;
             this.grbFeedbackTemplate.Text = "Feedback Template";
             this.grbFeedbackTemplate.Visible = false;
             // 
-            // groupBox1
+            // panel1
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.txtFeedbacker);
-            this.groupBox1.Controls.Add(this.dateTimePicker);
-            this.groupBox1.Controls.Add(this.txtPosition);
-            this.groupBox1.Controls.Add(this.txtPhoneNumber);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.lblDate);
-            this.groupBox1.Controls.Add(this.lblFeedbacker);
-            this.groupBox1.Controls.Add(this.lblPosition);
-            this.groupBox1.Controls.Add(this.lblPhoneNumber);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.lblLastName);
-            this.groupBox1.Controls.Add(this.lblFirstName);
-            this.groupBox1.Controls.Add(this.picAppImage);
-            this.groupBox1.Location = new System.Drawing.Point(7, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 164);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Header";
+            this.panel1.Location = new System.Drawing.Point(7, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(575, 565);
+            this.panel1.TabIndex = 2;
             // 
-            // txtFeedbacker
+            // menuStrip1
             // 
-            this.txtFeedbacker.Location = new System.Drawing.Point(76, 123);
-            this.txtFeedbacker.Name = "txtFeedbacker";
-            this.txtFeedbacker.Size = new System.Drawing.Size(229, 20);
-            this.txtFeedbacker.TabIndex = 5;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.menuClearTemplate,
+            this.menuLoadTemplate});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1014, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // dateTimePicker
+            // createToolStripMenuItem
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(350, 123);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker.TabIndex = 4;
+            this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCVTemplate,
+            this.menuInterviewTemplate,
+            this.menuEmployeeTemplate});
+            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.createToolStripMenuItem.Text = "Create";
             // 
-            // txtPosition
+            // menuCVTemplate
             // 
-            this.txtPosition.Location = new System.Drawing.Point(193, 97);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(356, 20);
-            this.txtPosition.TabIndex = 3;
+            this.menuCVTemplate.Name = "menuCVTemplate";
+            this.menuCVTemplate.Size = new System.Drawing.Size(152, 22);
+            this.menuCVTemplate.Text = "CV";
+            this.menuCVTemplate.Click += new System.EventHandler(this.menuCVTemplate_Click);
             // 
-            // txtPhoneNumber
+            // menuInterviewTemplate
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(193, 71);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(357, 20);
-            this.txtPhoneNumber.TabIndex = 3;
+            this.menuInterviewTemplate.Name = "menuInterviewTemplate";
+            this.menuInterviewTemplate.Size = new System.Drawing.Size(152, 22);
+            this.menuInterviewTemplate.Text = "Interview";
+            this.menuInterviewTemplate.Click += new System.EventHandler(this.menuInterviewTemplate_Click);
             // 
-            // txtEmail
+            // menuEmployeeTemplate
             // 
-            this.txtEmail.Location = new System.Drawing.Point(194, 45);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(356, 20);
-            this.txtEmail.TabIndex = 3;
+            this.menuEmployeeTemplate.Name = "menuEmployeeTemplate";
+            this.menuEmployeeTemplate.Size = new System.Drawing.Size(152, 22);
+            this.menuEmployeeTemplate.Text = "Employee";
+            this.menuEmployeeTemplate.Click += new System.EventHandler(this.menuEmployeeTemplate_Click);
             // 
-            // txtLastName
+            // saveToolStripMenuItem
             // 
-            this.txtLastName.Location = new System.Drawing.Point(409, 19);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(140, 20);
-            this.txtLastName.TabIndex = 2;
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSaveTemplate,
+            this.menuSaveAsTemplate});
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
-            // txtFirstName
+            // menuSaveTemplate
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(194, 19);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(140, 20);
-            this.txtFirstName.TabIndex = 2;
+            this.menuSaveTemplate.Name = "menuSaveTemplate";
+            this.menuSaveTemplate.Size = new System.Drawing.Size(152, 22);
+            this.menuSaveTemplate.Text = "Save";
+            this.menuSaveTemplate.Click += new System.EventHandler(this.menuSaveTemplate_Click);
             // 
-            // lblDate
+            // menuSaveAsTemplate
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(311, 130);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(33, 13);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "Date:";
+            this.menuSaveAsTemplate.Name = "menuSaveAsTemplate";
+            this.menuSaveAsTemplate.Size = new System.Drawing.Size(152, 22);
+            this.menuSaveAsTemplate.Text = "Save As";
+            this.menuSaveAsTemplate.Click += new System.EventHandler(this.menuSaveAsTemplate_Click);
             // 
-            // lblFeedbacker
+            // menuClearTemplate
             // 
-            this.lblFeedbacker.AutoSize = true;
-            this.lblFeedbacker.Location = new System.Drawing.Point(3, 129);
-            this.lblFeedbacker.Name = "lblFeedbacker";
-            this.lblFeedbacker.Size = new System.Drawing.Size(67, 13);
-            this.lblFeedbacker.TabIndex = 1;
-            this.lblFeedbacker.Text = "Feedbacker:";
+            this.menuClearTemplate.Name = "menuClearTemplate";
+            this.menuClearTemplate.Size = new System.Drawing.Size(46, 20);
+            this.menuClearTemplate.Text = "Clear";
+            this.menuClearTemplate.Click += new System.EventHandler(this.menuClearTemplate_Click);
             // 
-            // lblPosition
+            // menuLoadTemplate
             // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(143, 104);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(47, 13);
-            this.lblPosition.TabIndex = 1;
-            this.lblPosition.Text = "Position:";
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(112, 78);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(81, 13);
-            this.lblPhoneNumber.TabIndex = 1;
-            this.lblPhoneNumber.Text = "Phone Number:";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(155, 52);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
-            this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "Email:";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(340, 26);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(61, 13);
-            this.lblLastName.TabIndex = 1;
-            this.lblLastName.Text = "Last Name:";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(130, 26);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(60, 13);
-            this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "First Name:";
-            // 
-            // picAppImage
-            // 
-            this.picAppImage.Location = new System.Drawing.Point(6, 19);
-            this.picAppImage.Name = "picAppImage";
-            this.picAppImage.Size = new System.Drawing.Size(100, 100);
-            this.picAppImage.TabIndex = 0;
-            this.picAppImage.TabStop = false;
-            // 
-            // lstTest
-            // 
-            this.lstTest.FormattingEnabled = true;
-            this.lstTest.Location = new System.Drawing.Point(840, 328);
-            this.lstTest.Name = "lstTest";
-            this.lstTest.Size = new System.Drawing.Size(120, 95);
-            this.lstTest.TabIndex = 5;
+            this.menuLoadTemplate.Name = "menuLoadTemplate";
+            this.menuLoadTemplate.Size = new System.Drawing.Size(45, 20);
+            this.menuLoadTemplate.Text = "Load";
+            this.menuLoadTemplate.Click += new System.EventHandler(this.menuLoadTemplate_Click);
             // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 654);
-            this.Controls.Add(this.lstTest);
             this.Controls.Add(this.grbFeedbackTemplate);
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.grbRemoveQuestion);
@@ -411,6 +326,8 @@
             this.Controls.Add(this.grbLoadTemplate);
             this.Controls.Add(this.grbCreateTemplate);
             this.Controls.Add(this.grbAddQuestion);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TemplateForm";
             this.Text = "TemplateForm";
             this.grbAddQuestion.ResumeLayout(false);
@@ -423,10 +340,8 @@
             this.grbSaveTemplate.PerformLayout();
             this.grbRemoveQuestion.ResumeLayout(false);
             this.grbFeedbackTemplate.ResumeLayout(false);
-            this.grbFeedbackTemplate.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,7 +353,6 @@
         private System.Windows.Forms.Button btnAddQuestion;
         private System.Windows.Forms.TextBox txtAddQuestion;
         private System.Windows.Forms.Label lblQuestion;
-        private System.Windows.Forms.ListBox lstTemplateQuestions;
         private System.Windows.Forms.Label lblTemplateName;
         private System.Windows.Forms.GroupBox grbCreateTemplate;
         private System.Windows.Forms.Button btnCreateTemplate;
@@ -452,22 +366,16 @@
         private System.Windows.Forms.TextBox txtLoadTemplate;
         private System.Windows.Forms.GroupBox grbRemoveQuestion;
         private System.Windows.Forms.GroupBox grbFeedbackTemplate;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtFeedbacker;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblFeedbacker;
-        private System.Windows.Forms.Label lblPosition;
-        private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.PictureBox picAppImage;
-        private System.Windows.Forms.ListBox lstTest;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuCVTemplate;
+        private System.Windows.Forms.ToolStripMenuItem menuInterviewTemplate;
+        private System.Windows.Forms.ToolStripMenuItem menuEmployeeTemplate;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSaveTemplate;
+        private System.Windows.Forms.ToolStripMenuItem menuSaveAsTemplate;
+        private System.Windows.Forms.ToolStripMenuItem menuClearTemplate;
+        private System.Windows.Forms.ToolStripMenuItem menuLoadTemplate;
     }
 }

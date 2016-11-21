@@ -80,5 +80,33 @@ namespace ConsoleApplication1 {
         private void lstTemplateQuestions_SelectedIndexChanged(object sender, EventArgs e) {
             _tempRemQuestionIndex = lstTemplateQuestions.SelectedIndex;
         }
+
+        private void menuLoadTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuClearTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuSaveTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuSaveAsTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuCVTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuInterviewTemplate_Click(object sender, EventArgs e) {
+
+        }
+
+        private void menuEmployeeTemplate_Click(object sender, EventArgs e) {
+
+        }
     }
 }
