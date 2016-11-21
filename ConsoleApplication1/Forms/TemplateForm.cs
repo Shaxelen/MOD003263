@@ -25,10 +25,11 @@ namespace ConsoleApplication1 {
 
         private void btnCreateTemplate_Click(object sender, EventArgs e) {
             grbFeedbackTemplate.Visible = true;
+
             string request = txtCreateTemplate.Text;
             _tempEditor = new TemplateEditor(_templateFactory);
             _template = _tempEditor.RequestTemplate(request);
-            lblTemplateName.Text = _template.TemplateName;
+            grbCreateTemplate.Text = _template.TemplateName;
             UpdateListBox();
             txtCreateTemplate.Clear();
         }
@@ -81,14 +82,6 @@ namespace ConsoleApplication1 {
             lblTemplateName.Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
             UpdateListBox();
-        }
-
-        public void retrieveDataList(List<Template> dataList) {
-            _templateBank.Templates = dataList;
-            lstTest.Items.Clear();
-            foreach (Template t in dataList) {
-                lstTest.Items.Add(t.TemplateName);
-            }
         }
     }
 }

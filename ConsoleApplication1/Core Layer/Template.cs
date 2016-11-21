@@ -11,6 +11,8 @@ namespace ConsoleApplication1 {
         protected Person _person;
         protected List<Component> _componentList = new List<Component>();
 
+        protected const int QUESTION_DISTANCE = 20;
+
         /// <summary>
         /// Template constructor
         /// </summary>

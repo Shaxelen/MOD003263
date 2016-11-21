@@ -27,7 +27,6 @@
             this.txtAddQuestion = new System.Windows.Forms.TextBox();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnRemoveQuestion = new System.Windows.Forms.Button();
-            this.lblTemplateName = new System.Windows.Forms.Label();
             this.grbCreateTemplate = new System.Windows.Forms.GroupBox();
             this.btnCreateTemplate = new System.Windows.Forms.Button();
             this.txtCreateTemplate = new System.Windows.Forms.TextBox();
@@ -55,17 +54,11 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.picAppImage = new System.Windows.Forms.PictureBox();
-            this.lstTest = new System.Windows.Forms.ListBox();
             this.grbQuestionCreator = new System.Windows.Forms.GroupBox();
-            this.radScore = new System.Windows.Forms.RadioButton();
-            this.radAdditionalFeedback = new System.Windows.Forms.RadioButton();
-            this.radFeedback = new System.Windows.Forms.RadioButton();
-            this.grbQuestion = new System.Windows.Forms.GroupBox();
-            this.txtScore = new System.Windows.Forms.TextBox();
-            this.lblScoreMax = new System.Windows.Forms.Label();
-            this.txtFeedback = new System.Windows.Forms.TextBox();
-            this.txtQuestionTitle = new System.Windows.Forms.TextBox();
-            this.lstTemplateQuestions = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pnlTemplateQuestions = new System.Windows.Forms.Panel();
             this.grbCreateTemplate.SuspendLayout();
             this.grbLoadTemplate.SuspendLayout();
             this.grbSaveTemplate.SuspendLayout();
@@ -74,12 +67,12 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).BeginInit();
             this.grbQuestionCreator.SuspendLayout();
-            this.grbQuestion.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddQuestion
             // 
-            this.btnAddQuestion.Location = new System.Drawing.Point(6, 119);
+            this.btnAddQuestion.Location = new System.Drawing.Point(6, 58);
             this.btnAddQuestion.Name = "btnAddQuestion";
             this.btnAddQuestion.Size = new System.Drawing.Size(188, 23);
             this.btnAddQuestion.TabIndex = 2;
@@ -114,15 +107,6 @@
             this.btnRemoveQuestion.UseVisualStyleBackColor = true;
             this.btnRemoveQuestion.UseWaitCursor = true;
             this.btnRemoveQuestion.Click += new System.EventHandler(this.btnRemoveQuestion_Click);
-            // 
-            // lblTemplateName
-            // 
-            this.lblTemplateName.AutoSize = true;
-            this.lblTemplateName.Location = new System.Drawing.Point(224, 15);
-            this.lblTemplateName.Name = "lblTemplateName";
-            this.lblTemplateName.Size = new System.Drawing.Size(82, 13);
-            this.lblTemplateName.TabIndex = 1;
-            this.lblTemplateName.Text = "Template Name";
             // 
             // grbCreateTemplate
             // 
@@ -212,7 +196,7 @@
             // grbRemoveQuestion
             // 
             this.grbRemoveQuestion.Controls.Add(this.btnRemoveQuestion);
-            this.grbRemoveQuestion.Location = new System.Drawing.Point(808, 186);
+            this.grbRemoveQuestion.Location = new System.Drawing.Point(808, 128);
             this.grbRemoveQuestion.Name = "grbRemoveQuestion";
             this.grbRemoveQuestion.Size = new System.Drawing.Size(200, 49);
             this.grbRemoveQuestion.TabIndex = 3;
@@ -222,9 +206,9 @@
             // grbFeedbackTemplate
             // 
             this.grbFeedbackTemplate.AutoSize = true;
+            this.grbFeedbackTemplate.Controls.Add(this.pnlTemplateQuestions);
             this.grbFeedbackTemplate.Controls.Add(this.groupBox1);
-            this.grbFeedbackTemplate.Controls.Add(this.lstTemplateQuestions);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(227, 31);
+            this.grbFeedbackTemplate.Location = new System.Drawing.Point(218, 27);
             this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
             this.grbFeedbackTemplate.Size = new System.Drawing.Size(569, 628);
             this.grbFeedbackTemplate.TabIndex = 4;
@@ -377,133 +361,60 @@
             this.picAppImage.TabIndex = 0;
             this.picAppImage.TabStop = false;
             // 
-            // lstTest
-            // 
-            this.lstTest.FormattingEnabled = true;
-            this.lstTest.Location = new System.Drawing.Point(86, 332);
-            this.lstTest.Name = "lstTest";
-            this.lstTest.Size = new System.Drawing.Size(120, 95);
-            this.lstTest.TabIndex = 5;
-            // 
             // grbQuestionCreator
             // 
-            this.grbQuestionCreator.Controls.Add(this.radScore);
-            this.grbQuestionCreator.Controls.Add(this.radAdditionalFeedback);
-            this.grbQuestionCreator.Controls.Add(this.radFeedback);
             this.grbQuestionCreator.Controls.Add(this.btnAddQuestion);
             this.grbQuestionCreator.Controls.Add(this.lblQuestion);
             this.grbQuestionCreator.Controls.Add(this.txtAddQuestion);
             this.grbQuestionCreator.Location = new System.Drawing.Point(808, 27);
             this.grbQuestionCreator.Name = "grbQuestionCreator";
-            this.grbQuestionCreator.Size = new System.Drawing.Size(200, 153);
+            this.grbQuestionCreator.Size = new System.Drawing.Size(200, 88);
             this.grbQuestionCreator.TabIndex = 6;
             this.grbQuestionCreator.TabStop = false;
             this.grbQuestionCreator.Text = "Question Creator";
             // 
-            // radScore
+            // groupBox2
             // 
-            this.radScore.AutoSize = true;
-            this.radScore.Location = new System.Drawing.Point(6, 101);
-            this.radScore.Name = "radScore";
-            this.radScore.Size = new System.Drawing.Size(53, 17);
-            this.radScore.TabIndex = 6;
-            this.radScore.TabStop = true;
-            this.radScore.Text = "Score";
-            this.radScore.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(18, 276);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(194, 221);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Question 1";
             // 
-            // radAdditionalFeedback
+            // label1
             // 
-            this.radAdditionalFeedback.AutoSize = true;
-            this.radAdditionalFeedback.Location = new System.Drawing.Point(6, 78);
-            this.radAdditionalFeedback.Name = "radAdditionalFeedback";
-            this.radAdditionalFeedback.Size = new System.Drawing.Size(119, 17);
-            this.radAdditionalFeedback.TabIndex = 4;
-            this.radAdditionalFeedback.TabStop = true;
-            this.radAdditionalFeedback.Text = "AdditionalFeedback";
-            this.radAdditionalFeedback.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Previous Experience?";
             // 
-            // radFeedback
+            // textBox1
             // 
-            this.radFeedback.AutoSize = true;
-            this.radFeedback.Location = new System.Drawing.Point(6, 55);
-            this.radFeedback.Name = "radFeedback";
-            this.radFeedback.Size = new System.Drawing.Size(73, 17);
-            this.radFeedback.TabIndex = 3;
-            this.radFeedback.TabStop = true;
-            this.radFeedback.Text = "Feedback";
-            this.radFeedback.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(6, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(179, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // grbQuestion
+            // pnlTemplateQuestions
             // 
-            this.grbQuestion.Controls.Add(this.txtScore);
-            this.grbQuestion.Controls.Add(this.lblScoreMax);
-            this.grbQuestion.Controls.Add(this.txtFeedback);
-            this.grbQuestion.Controls.Add(this.txtQuestionTitle);
-            this.grbQuestion.Location = new System.Drawing.Point(808, 257);
-            this.grbQuestion.Name = "grbQuestion";
-            this.grbQuestion.Size = new System.Drawing.Size(194, 152);
-            this.grbQuestion.TabIndex = 7;
-            this.grbQuestion.TabStop = false;
-            this.grbQuestion.Text = "Question Template";
-            this.grbQuestion.Visible = false;
-            // 
-            // txtScore
-            // 
-            this.txtScore.Location = new System.Drawing.Point(6, 125);
-            this.txtScore.Name = "txtScore";
-            this.txtScore.ReadOnly = true;
-            this.txtScore.Size = new System.Drawing.Size(20, 20);
-            this.txtScore.TabIndex = 3;
-            this.txtScore.Visible = false;
-            // 
-            // lblScoreMax
-            // 
-            this.lblScoreMax.AutoSize = true;
-            this.lblScoreMax.Location = new System.Drawing.Point(32, 132);
-            this.lblScoreMax.Name = "lblScoreMax";
-            this.lblScoreMax.Size = new System.Drawing.Size(41, 13);
-            this.lblScoreMax.TabIndex = 2;
-            this.lblScoreMax.Text = "/ score";
-            this.lblScoreMax.Visible = false;
-            // 
-            // txtFeedback
-            // 
-            this.txtFeedback.Location = new System.Drawing.Point(6, 45);
-            this.txtFeedback.Multiline = true;
-            this.txtFeedback.Name = "txtFeedback";
-            this.txtFeedback.ReadOnly = true;
-            this.txtFeedback.Size = new System.Drawing.Size(182, 71);
-            this.txtFeedback.TabIndex = 1;
-            this.txtFeedback.Visible = false;
-            // 
-            // txtQuestionTitle
-            // 
-            this.txtQuestionTitle.Location = new System.Drawing.Point(6, 19);
-            this.txtQuestionTitle.Name = "txtQuestionTitle";
-            this.txtQuestionTitle.ReadOnly = true;
-            this.txtQuestionTitle.Size = new System.Drawing.Size(182, 20);
-            this.txtQuestionTitle.TabIndex = 0;
-            // 
-            // lstTemplateQuestions
-            // 
-            this.lstTemplateQuestions.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.lstTemplateQuestions.FormattingEnabled = true;
-            this.lstTemplateQuestions.Location = new System.Drawing.Point(7, 189);
-            this.lstTemplateQuestions.Name = "lstTemplateQuestions";
-            this.lstTemplateQuestions.Size = new System.Drawing.Size(549, 420);
-            this.lstTemplateQuestions.TabIndex = 0;
-            this.lstTemplateQuestions.SelectedIndexChanged += new System.EventHandler(this.lstTemplateQuestions_SelectedIndexChanged);
+            this.pnlTemplateQuestions.Location = new System.Drawing.Point(6, 189);
+            this.pnlTemplateQuestions.Name = "pnlTemplateQuestions";
+            this.pnlTemplateQuestions.Size = new System.Drawing.Size(557, 384);
+            this.pnlTemplateQuestions.TabIndex = 2;
             // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 654);
-            this.Controls.Add(this.grbQuestion);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grbQuestionCreator);
-            this.Controls.Add(this.lstTest);
             this.Controls.Add(this.grbFeedbackTemplate);
-            this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.grbRemoveQuestion);
             this.Controls.Add(this.grbSaveTemplate);
             this.Controls.Add(this.grbLoadTemplate);
@@ -524,8 +435,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).EndInit();
             this.grbQuestionCreator.ResumeLayout(false);
             this.grbQuestionCreator.PerformLayout();
-            this.grbQuestion.ResumeLayout(false);
-            this.grbQuestion.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,7 +446,6 @@
         private System.Windows.Forms.Button btnAddQuestion;
         private System.Windows.Forms.TextBox txtAddQuestion;
         private System.Windows.Forms.Label lblQuestion;
-        private System.Windows.Forms.Label lblTemplateName;
         private System.Windows.Forms.GroupBox grbCreateTemplate;
         private System.Windows.Forms.Button btnCreateTemplate;
         private System.Windows.Forms.Button btnRemoveQuestion;
@@ -564,16 +474,10 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.PictureBox picAppImage;
-        private System.Windows.Forms.ListBox lstTest;
         private System.Windows.Forms.GroupBox grbQuestionCreator;
-        private System.Windows.Forms.RadioButton radScore;
-        private System.Windows.Forms.RadioButton radAdditionalFeedback;
-        private System.Windows.Forms.RadioButton radFeedback;
-        private System.Windows.Forms.GroupBox grbQuestion;
-        private System.Windows.Forms.Label lblScoreMax;
-        private System.Windows.Forms.TextBox txtFeedback;
-        private System.Windows.Forms.TextBox txtQuestionTitle;
-        private System.Windows.Forms.TextBox txtScore;
-        private System.Windows.Forms.ListBox lstTemplateQuestions;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlTemplateQuestions;
     }
 }

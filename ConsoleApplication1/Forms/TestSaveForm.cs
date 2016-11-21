@@ -29,21 +29,16 @@ namespace ConsoleApplication1 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e) {
-            //generate new Template
             string templateName = txtName.Text;
 
             if (lstTemplates.Items.Contains(templateName)) {
                 _template = _parent.RetrieveTemplate();
                 _templateBank.Update(templateName, _template);
-                _parent.retrieveDataList(_templateBank.Templates);
             } else {
                 lstTemplates.Items.Add(txtName.Text);
                 _template = _parent.RetrieveTemplate();
                 _templateBank.Add(templateName, _template);
-                _parent.retrieveDataList(_templateBank.Templates);
-            }
-
-            
+            }    
         }
 
         /// <summary>

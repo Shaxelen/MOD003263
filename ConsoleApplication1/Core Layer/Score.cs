@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace ConsoleApplication1 {
     public class Score : Component {
         private int _score;
+        private int _maxScore;
 
         /// <summary>
         /// Score Constructor
         /// </summary>
-        public Score() { }
+        public Score(int maxScore) {
+            _maxScore = maxScore;
+        }
 
         /// <summary>
         /// Get and set the score
@@ -19,6 +22,10 @@ namespace ConsoleApplication1 {
         public int QuestionScore {
             get { return _score; }
             set { _score = value; }
+        }
+
+        public int MaxScore {
+            get { return _maxScore; }
         }
 
         // Not used
