@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareEngineeringTemplate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{54FE1244-FB08-4580-970E-9893213D5B9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateUIPrototype", "..\..\..\..\Coding Stuff\TemplateUIPrototype\TemplateUIPrototype\TemplateUIPrototype.csproj", "{2DF37347-20C0-4F42-B5A8-3F2902B10371}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{54FE1244-FB08-4580-970E-9893213D5B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54FE1244-FB08-4580-970E-9893213D5B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54FE1244-FB08-4580-970E-9893213D5B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF37347-20C0-4F42-B5A8-3F2902B10371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF37347-20C0-4F42-B5A8-3F2902B10371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF37347-20C0-4F42-B5A8-3F2902B10371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF37347-20C0-4F42-B5A8-3F2902B10371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
