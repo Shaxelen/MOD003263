@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1.Core {
+    [Serializable]
     public abstract class Template {
         protected string _templateName;
         protected string _templateType;
@@ -47,7 +48,8 @@ namespace ConsoleApplication1.Core {
         }
     }
 
-    class CVTemplate : Template {
+    [Serializable]
+    public class CVTemplate : Template {
         /// <summary>
         /// CV Template constructor
         /// </summary>
@@ -56,7 +58,8 @@ namespace ConsoleApplication1.Core {
         }
     }
 
-    class InterviewTemplate : Template {
+    [Serializable]
+    public class InterviewTemplate : Template {
         /// <summary>
         /// Interview template constructor
         /// </summary>
@@ -65,7 +68,8 @@ namespace ConsoleApplication1.Core {
         }
     }
 
-    class EmployeeTemplate : Template {
+    [Serializable]
+    public class EmployeeTemplate : Template {
         /// <summary>
         /// Employee template constructor
         /// </summary>
