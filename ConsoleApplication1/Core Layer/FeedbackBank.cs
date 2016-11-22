@@ -21,5 +21,9 @@ namespace ConsoleApplication1 {
         public void Add(Feedback feedback) {
             _feedbackList.Add(feedback);
         }
+
+        public List<Feedback> FeedbackList {
+            get { return _feedbackList; }
+        }
     }
 }

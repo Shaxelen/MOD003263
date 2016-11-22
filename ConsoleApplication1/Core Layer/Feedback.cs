@@ -8,24 +8,24 @@ namespace ConsoleApplication1 {
     public class Feedback {
         private TemplateBank _templateBank = TemplateBank.Instance();
         private Template _template;
+        private Header _header;
+        private Person _person;
 
-        public Feedback() { }
-
-        public  void ProduceFeedback(Template _template) {
-
+        public Feedback() {
+            _header = new Header();
+            _header.Person = _person;
+            _template.Add(_header);
         }
 
         public Template LoadTemplate(string templateName) {
-            _template = _templateBank.Load(templateName);
-            return _template;
+            return _template = _templateBank.Load(templateName);
         }
 
-        /// <summary>
-        /// Adds a Person to the template 
-        /// </summary>
-        /// <param name="person"></param>
-        public void AddPerson(Person person) {
-            _template.AddPerson(person);
+        public void LoadPerson() {
+            // Fake data to help with code
+            _person = new Applicant();
+            _person.FirstName = "Bill";
+            _person.LastName = "Ben";
         }
     }
 }

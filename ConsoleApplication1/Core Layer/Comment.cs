@@ -18,28 +18,13 @@ namespace ConsoleApplication1 {
         /// </summary>
         public string Comments {
             get { return _comment; }
-            set { _comment = value; }
-        }
-
-        // Not used
-        public override void Add(Component component) {
-            throw new NotImplementedException();
-        }
-
-        // Not used
-        public override void Remove(Component component) {
-            throw new NotImplementedException();
-        }
-
-        // Not used
-        public override void RemoveAt(int index) {
-            throw new NotImplementedException();
-        }
-
-        // Not used
-        public override Component GetChild(int index) {
-            throw new NotImplementedException();
-        }
-        
+            set { _comment = value;
+                if (_comment == null) {
+                    _comment = "Enter Comment";
+                } else {
+                    _comment = value;
+                }
+            }
+        }      
     }
 }

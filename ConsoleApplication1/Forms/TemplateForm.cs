@@ -51,7 +51,9 @@ namespace ConsoleApplication1 {
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
             string questionText = txtAddQuestion.Text;
-            _question = new Question(questionText);
+            _question = new Question();
+            Title title = new Title(questionText);
+            _question.Add(title);
             _template.Add(_question);
             UpdateListBox();
             txtAddQuestion.Clear();
@@ -79,7 +81,7 @@ namespace ConsoleApplication1 {
         public void RetrieveTemplate(string template)
         {
             _template = _templateBank.Load(template);
-            lblTemplateName.Text = _template.TemplateName;
+            this.Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
             UpdateListBox();
         }

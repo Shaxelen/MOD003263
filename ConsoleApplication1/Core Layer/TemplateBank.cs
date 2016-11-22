@@ -14,6 +14,10 @@ namespace ConsoleApplication1 {
         /// </summary>
         private TemplateBank() { }
         
+        /// <summary>
+        /// Singleton instance of Template Bank
+        /// </summary>
+        /// <returns></returns>
         public static TemplateBank Instance() {
             if (null == _instance) {
                 _instance = new TemplateBank();
@@ -46,6 +50,7 @@ namespace ConsoleApplication1 {
                     temp = _templateList[i];
                     return temp;
                 }
+                break;
             }
             return temp;
         }
@@ -62,6 +67,7 @@ namespace ConsoleApplication1 {
                 if (_templateList[i].TemplateName == templateName) {
                     temp = _templateList[i];
                 }
+                break;
             }
             _templateList.Remove(temp);
         }
@@ -75,6 +81,7 @@ namespace ConsoleApplication1 {
             for (int i = 0; i < _templateList.Count; i++) {
                 if (_templateList[i].TemplateName == templateName) {
                     _templateList[i] = template;
+                    break;
                 }
             }
         }
