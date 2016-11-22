@@ -8,8 +8,15 @@ namespace ConsoleApplication1
     class Program {
 
         static void Main(string[] args) {
+            testPDF();
+            Console.ReadKey(true);
             //RunConsole();
-            RunForm();
+            //RunForm();
+        }
+
+        static void testPDF() {
+            Meta.PDFConvert pdf = new Meta.PDFConvert();
+            pdf.ConvertToPDF();
         }
 
         static void RunConsole() {
