@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Debug\Logger.cs" />
+    <Compile Include="Debugging\Logger.cs" />
     <Compile Include="Forms\TestLoadForm.cs">
       <SubType>Form</SubType>
     </Compile>
