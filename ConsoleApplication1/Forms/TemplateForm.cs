@@ -10,80 +10,80 @@ using System.Windows.Forms;
 
 namespace ConsoleApplication1 {
     public partial class TemplateForm : Form {
-        private TemplateFactory _templateFactory = new TemplateFactory();
+        private TestSaveForm _saveForm;
+        private TestLoadForm _loadForm;
+
+        private TemplateFactory _templateFactory;
         private TemplateEditor _tempEditor;
         private Template _template;
-        private TemplateBank _templateBank = TemplateBank.Instance();
+        private TemplateBank _templateBank;
+
+        private QuestionCreator _questionCreator;
+        private Question _question;
 
         private int _tempRemQuestionIndex = -1;
 
-        private Question _question;
-
         public TemplateForm() {
+            _templateFactory = new TemplateFactory();
+            _tempEditor = new TemplateEditor(_templateFactory);
+            _templateBank= TemplateBank.Instance();
+            _questionCreator = QuestionCreator.Instance();
             InitializeComponent();
         }
 
-        private void btnCreateTemplate_Click(object sender, EventArgs e) {
-            grbFeedbackTemplate.Visible = true;
-
-            string request = txtCreateTemplate.Text;
-            _tempEditor = new TemplateEditor(_templateFactory);
-            _template = _tempEditor.RequestTemplate(request);
-            grbCreateTemplate.Text = _template.TemplateName;
-            UpdateListBox();
-            txtCreateTemplate.Clear();
+        private void cVToolStripMenuItem_Click(object sender, EventArgs e) {
+            TemplateRequest("CV");
         }
 
-        private void btnSaveTemplate_Click(object sender, EventArgs e)
-        {
-            TestSaveForm tsf = new TestSaveForm(_templateBank);
-            tsf.DisplayTemplates();
-            tsf.Parent = this;
-            tsf.ShowDialog();
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e) {
+            TemplateRequest("Employee");
         }
 
-        private void btnLoadTemplate_Click(object sender, EventArgs e) {
-            TestLoadForm tlf = new TestLoadForm();
-            tlf.DisplayTemplates();
-            tlf.Parent = this;
-            tlf.ShowDialog();
+        private void interviewToolStripMenuItem_Click(object sender, EventArgs e) {
+            TemplateRequest("Interview");
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
+            _saveForm = new TestSaveForm(_templateBank);
+            _saveForm.DisplayTemplates();
+            _saveForm.Parent = this;
+            _saveForm.ShowDialog();
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e) {
+            _loadForm = new TestLoadForm();
+            _loadForm.DisplayTemplates();
+            _loadForm.Parent = this;
+            _loadForm.ShowDialog();
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            string questionText = txtAddQuestion.Text;
-            _question = new Question();
-            Title title = new Title(questionText);
-            _question.Add(title);
-            _template.Add(_question);
-            UpdateListBox();
+            string question = txtAddQuestion.Text;
             txtAddQuestion.Clear();
+
         }
-        private void btnRemoveQuestion_Click(object sender, EventArgs e)
-        {
+        private void btnRemoveQuestion_Click(object sender, EventArgs e) {
             _template.RemoveAt(_tempRemQuestionIndex);
-            UpdateListBox();
         }
 
-        private void lstTemplateQuestions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _tempRemQuestionIndex = lstTemplateQuestions.SelectedIndex;
-        }
-
-        private void UpdateListBox() {
-            lstTemplateQuestions.DataSource = null;
-            lstTemplateQuestions.DataSource = _template.ComponentList;
+        public void TemplateRequest(string type) {
+            grbFeedbackTemplate.Visible = true;
+            _template = _tempEditor.RequestTemplate(type);
+            Text = _template.TemplateName;
         }
 
         public Template RetrieveTemplate() {
             return _template;
         }
 
-        public void RetrieveTemplate(string template)
-        {
+        public void RetrieveTemplate(string template) {
             _template = _templateBank.Load(template);
-            this.Text = _template.TemplateName;
+            Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
-            UpdateListBox();
         }
     }
 }

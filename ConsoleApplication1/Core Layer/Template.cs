@@ -8,10 +8,6 @@ namespace ConsoleApplication1 {
     public abstract class Template : ComponentManager {
         protected string _templateName;
         protected string _templateType;
-        protected Person _person;
-        protected List<Component> _componentList = new List<Component>();
-
-        protected const int QUESTION_DISTANCE = 20;
 
         /// <summary>
         /// Template constructor
