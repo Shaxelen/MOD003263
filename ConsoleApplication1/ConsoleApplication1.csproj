@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Debug\Logger.cs" />
     <Compile Include="Forms\TestLoadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,7 @@
     <Compile Include="Core Layer\Applicant.cs" />
     <Compile Include="Meta Layer\DatabaseFactory.cs" />
     <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
+    <Compile Include="Meta Layer\EmailHandler.cs" />
     <Compile Include="Meta Layer\MySQLConnection.cs" />
     <Compile Include="Meta Layer\OleDatabaseConnection.cs" />
     <Compile Include="Meta Layer\PDFConvert.cs" />

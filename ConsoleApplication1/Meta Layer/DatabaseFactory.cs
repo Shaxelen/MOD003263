@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Data;
 using System.Data.Common;
-using System.Diagnostics;
-using System.IO;
+using ConsoleApplication1.Debug;
 
 namespace ConsoleApplication1.Meta {
     public class DatabaseFactory {
         private static DatabaseConnection _instance = null;
-
+        private Logger logger = Logger.getInstance();
         private Dictionary<string, string> _properties;
         private static string _propfile = "properties.dat";
 
@@ -37,11 +37,11 @@ namespace ConsoleApplication1.Meta {
                     throw new DatabaseException("Not supported provider '" + provider + "'");
                 }
             } catch (FileNotFoundException e) {
-                Debug.WriteLine("Error file not found" + e.Message);
+                logger.WriteLine("Error file not found" + e.Message);
                 connection = null;
                 throw e;
             } catch (Exception e) {
-                Debug.WriteLine("Property file parsing exception thrown : " + e.Message);
+                logger.WriteLine("Property file parsing exception thrown : " + e.Message);
                 connection = null;
                 throw e;
             }
