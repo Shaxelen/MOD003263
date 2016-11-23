@@ -46,8 +46,7 @@ namespace ConsoleApplication1 {
         }
 
         private void UpdateListBox() {
-            lstTemplateQuestions.DataSource = null;
-            lstTemplateQuestions.DataSource = _template.TemplateQuestions;
+
         }
 
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
