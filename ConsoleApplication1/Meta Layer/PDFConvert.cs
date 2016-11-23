@@ -11,7 +11,7 @@ using iTextSharp.text.pdf;
 namespace ConsoleApplication1.Meta {
     public class PDFConvert {
         public void ConvertToPDF() {
-            FileStream fs = new FileStream("C:\\Users\\Shaxx\\Desktop\\PDFTest.pdf", FileMode.Create);
+            FileStream fs = new FileStream("E:\\PDFTest.pdf", FileMode.Create);
             Document document = new Document(PageSize.A4, 25, 25, 30, 30);
             PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
