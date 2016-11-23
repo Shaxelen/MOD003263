@@ -36,6 +36,7 @@
             this.menuClearHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearFeedback = new System.Windows.Forms.ToolStripMenuItem();
             this.grbFeedbackTemplate = new System.Windows.Forms.GroupBox();
+            this.panelQuestions = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFeedbacker = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -53,7 +54,6 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.picAppImage = new System.Windows.Forms.PictureBox();
             this.lblTemplateName = new System.Windows.Forms.Label();
-            this.panelQuestions = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.grbFeedbackTemplate.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,8 +84,9 @@
             // menuLoadTemp
             // 
             this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(152, 22);
+            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
             this.menuLoadTemp.Text = "Template";
+            this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
             // 
             // personToolStripMenuItem
             // 
@@ -93,20 +94,22 @@
             this.menuLoadApplicant,
             this.menuLoadEmployee});
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.personToolStripMenuItem.Text = "Person";
             // 
             // menuLoadApplicant
             // 
             this.menuLoadApplicant.Name = "menuLoadApplicant";
-            this.menuLoadApplicant.Size = new System.Drawing.Size(152, 22);
+            this.menuLoadApplicant.Size = new System.Drawing.Size(126, 22);
             this.menuLoadApplicant.Text = "Applicant";
+            this.menuLoadApplicant.Click += new System.EventHandler(this.menuLoadApplicant_Click);
             // 
             // menuLoadEmployee
             // 
             this.menuLoadEmployee.Name = "menuLoadEmployee";
-            this.menuLoadEmployee.Size = new System.Drawing.Size(152, 22);
+            this.menuLoadEmployee.Size = new System.Drawing.Size(126, 22);
             this.menuLoadEmployee.Text = "Employee";
+            this.menuLoadEmployee.Click += new System.EventHandler(this.menuLoadEmployee_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -122,12 +125,14 @@
             this.menuSave.Name = "menuSave";
             this.menuSave.Size = new System.Drawing.Size(152, 22);
             this.menuSave.Text = "Save";
+            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // menuSaveAs
             // 
             this.menuSaveAs.Name = "menuSaveAs";
             this.menuSaveAs.Size = new System.Drawing.Size(152, 22);
             this.menuSaveAs.Text = "Save As";
+            this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // clearToolStripMenuItem
             // 
@@ -143,12 +148,14 @@
             this.menuClearHeader.Name = "menuClearHeader";
             this.menuClearHeader.Size = new System.Drawing.Size(152, 22);
             this.menuClearHeader.Text = "Header";
+            this.menuClearHeader.Click += new System.EventHandler(this.menuClearHeader_Click);
             // 
             // menuClearFeedback
             // 
             this.menuClearFeedback.Name = "menuClearFeedback";
             this.menuClearFeedback.Size = new System.Drawing.Size(152, 22);
             this.menuClearFeedback.Text = "Feedback";
+            this.menuClearFeedback.Click += new System.EventHandler(this.menuClearFeedback_Click);
             // 
             // grbFeedbackTemplate
             // 
@@ -162,6 +169,13 @@
             this.grbFeedbackTemplate.TabStop = false;
             this.grbFeedbackTemplate.Text = "Feedback Template";
             this.grbFeedbackTemplate.Visible = false;
+            // 
+            // panelQuestions
+            // 
+            this.panelQuestions.Location = new System.Drawing.Point(8, 178);
+            this.panelQuestions.Name = "panelQuestions";
+            this.panelQuestions.Size = new System.Drawing.Size(574, 404);
+            this.panelQuestions.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -316,13 +330,6 @@
             this.lblTemplateName.Size = new System.Drawing.Size(82, 13);
             this.lblTemplateName.TabIndex = 5;
             this.lblTemplateName.Text = "Template Name";
-            // 
-            // panelQuestions
-            // 
-            this.panelQuestions.Location = new System.Drawing.Point(8, 178);
-            this.panelQuestions.Name = "panelQuestions";
-            this.panelQuestions.Size = new System.Drawing.Size(574, 404);
-            this.panelQuestions.TabIndex = 2;
             // 
             // FeedbackForm
             // 

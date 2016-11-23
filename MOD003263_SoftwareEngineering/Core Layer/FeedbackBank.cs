@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public class FeedbackBank {
         private static List<Feedback> _feedbackList = new List<Feedback>();
         private static FeedbackBank _instance = null;

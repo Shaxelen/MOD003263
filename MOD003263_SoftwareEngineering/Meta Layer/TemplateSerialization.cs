@@ -7,19 +7,19 @@ namespace MOD003263_SoftwareEngineering.Meta {
     public class TemplateSerialization {
         private const string _BankFile = "Templates.bin";
 
-        public TemplateBank LoadTemplateBank() {
+        public Bank LoadTemplateBank() {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(_BankFile, FileMode.Open, FileAccess.Read, FileShare.None);
-            TemplateBank tb = (TemplateBank)formatter.Deserialize(stream);
+            Bank bank = (Bank)formatter.Deserialize(stream);
             stream.Close();
             stream.Dispose();
-            return tb;
+            return bank;
         }
 
-        public void SaveTemplateBank(TemplateBank tb) {
+        public void SaveTemplateBank(Bank bank) {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(_BankFile, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, tb);
+            formatter.Serialize(stream, bank);
             stream.Close();
             stream.Dispose();
         }

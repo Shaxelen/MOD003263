@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public class Feedback {
-        private TemplateBank _templateBank = TemplateBank.Instance();
         private Template _template;
         private Person _person;
 
@@ -14,8 +14,8 @@ namespace MOD003263_SoftwareEngineering.Core {
             _person = person;
         }
 
-        public Template LoadTemplate(string templateName) {
-            return _template = _templateBank.Load(templateName);
+        public Template LoadTemplate(Template template) {
+            return _template = template;
         }
 
         public void LoadPerson() {

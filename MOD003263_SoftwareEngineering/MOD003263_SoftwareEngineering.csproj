@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core Layer\Bank.cs" />
     <Compile Include="Core Layer\Comment.cs" />
     <Compile Include="Core Layer\Component.cs" />
     <Compile Include="Core Layer\ComponentManager.cs" />
