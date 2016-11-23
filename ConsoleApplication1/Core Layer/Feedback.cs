@@ -8,13 +8,10 @@ namespace ConsoleApplication1 {
     public class Feedback {
         private TemplateBank _templateBank = TemplateBank.Instance();
         private Template _template;
-        private Header _header;
         private Person _person;
 
-        public Feedback() {
-            _header = new Header();
-            _header.Person = _person;
-            _template.Add(_header);
+        public Feedback(Person person) {
+            _person = person;
         }
 
         public Template LoadTemplate(string templateName) {
