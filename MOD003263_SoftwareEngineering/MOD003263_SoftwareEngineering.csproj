@@ -68,6 +68,18 @@
     <Compile Include="Core Layer\TemplateBank.cs" />
     <Compile Include="Core Layer\Title.cs" />
     <Compile Include="Debugging\Logger.cs" />
+    <Compile Include="Forms\EmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmailForm.Designer.cs">
+      <DependentUpon>EmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
