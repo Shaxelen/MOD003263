@@ -10,11 +10,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         private List<Feedback> _acceptList = new List<Feedback>();
         private List<Feedback> _rejectList = new List<Feedback>();
 
-        public FeedbackFilter() { } 
-
-        public List<Feedback> FilterList {
-            get { return _feedbackBank.FeedbackList; }
-        }
+        public FeedbackFilter() { }
 
         public void Accept(Feedback feedback) {
             _acceptList.Add(feedback);

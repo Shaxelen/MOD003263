@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace MOD003263_SoftwareEngineering.Core {
+﻿namespace MOD003263_SoftwareEngineering.Core {
     public abstract class Person {
         protected short _personID;
         protected string _personImageFile;

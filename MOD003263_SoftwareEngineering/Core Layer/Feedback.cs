@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class Feedback {
+        private string _title;
+        private string _fileLocation;
         private Template _template;
         private Person _person;
 
@@ -18,11 +20,12 @@ namespace MOD003263_SoftwareEngineering.Core {
             return _template = template;
         }
 
-        public void LoadPerson() {
-            // Fake data to help with code
-            _person = new Applicant();
-            _person.FirstName = "Bill";
-            _person.LastName = "Ben";
+        public string SetFileName {
+            set { _fileLocation = value; }
+        }
+
+        public string GetTitle {
+            get { return _title; }
         }
     }
 }

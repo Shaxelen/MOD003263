@@ -26,5 +26,16 @@ namespace MOD003263_SoftwareEngineering.Core {
         public List<Feedback> FeedbackList {
             get { return _feedbackList; }
         }
+
+        public Feedback FindFeedback(string title) {
+            Feedback temp = null;
+            foreach (Feedback f in _feedbackList) {
+                if (f.GetTitle == title) {
+                    temp = f;
+                    break;
+                }
+            }
+            return temp;
+        }
     }
 }

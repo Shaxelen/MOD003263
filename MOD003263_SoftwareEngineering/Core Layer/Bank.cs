@@ -19,5 +19,13 @@ namespace MOD003263_SoftwareEngineering.Core {
             }
             return _instance;
         }
+
+        public FeedbackBank Feedbacks {
+            get { return _feedbackBank; }
+        }
+
+        public TemplateBank Templates {
+            get { return _templateBank; }
+        }
     }
 }
