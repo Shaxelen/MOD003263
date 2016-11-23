@@ -38,13 +38,6 @@ namespace ConsoleApplication1 {
             UpdateListBox();
         }
 
-        private void btnLoadTemplate_Click(object sender, EventArgs e) {
-            TestLoadForm tlf = new TestLoadForm();
-            tlf.addDataList(_templateBank.Templates);
-            tlf.Parent = this;
-            tlf.ShowDialog();
-        }
-
         private void btnAddQuestion_Click(object sender, EventArgs e) {
             string question = txtAddQuestion.Text;
             _template.Add(question);
@@ -62,13 +55,6 @@ namespace ConsoleApplication1 {
             UpdateListBox();
         }
 
-        private void btnSaveTemplate_Click(object sender, EventArgs e) {
-            TestSaveForm tsf = new TestSaveForm();
-            tsf.addDataList(_templateBank);
-            tsf.Parent = this;
-            tsf.ShowDialog();
-        }
-
         public void retrieveDataList(List<Template> dataList) {
             _templateBank.Templates = dataList;
             lstTest.Items.Clear();
@@ -82,7 +68,10 @@ namespace ConsoleApplication1 {
         }
 
         private void menuLoadTemplate_Click(object sender, EventArgs e) {
-
+            TestLoadForm tlf = new TestLoadForm();
+            tlf.addDataList(_templateBank.Templates);
+            tlf.Parent = this;
+            tlf.ShowDialog();
         }
 
         private void menuClearTemplate_Click(object sender, EventArgs e) {
@@ -90,23 +79,28 @@ namespace ConsoleApplication1 {
         }
 
         private void menuSaveTemplate_Click(object sender, EventArgs e) {
-
+            TestSaveForm tsf = new TestSaveForm();
+            tsf.addDataList(_templateBank);
+            tsf.Parent = this;
+            tsf.ShowDialog();
         }
-
-        private void menuSaveAsTemplate_Click(object sender, EventArgs e) {
-
-        }
-
+        
         private void menuCVTemplate_Click(object sender, EventArgs e) {
-
+            TemplateRequest("CV");
         }
 
         private void menuInterviewTemplate_Click(object sender, EventArgs e) {
-
+            TemplateRequest("Interview");
         }
 
         private void menuEmployeeTemplate_Click(object sender, EventArgs e) {
+            TemplateRequest("Employee");
+        }
 
+        public void TemplateRequest(string type) {
+            grbFeedbackTemplate.Visible = true;
+            _template = _tempEditor.RequestTemplate(type);
+            Text = _template.TemplateName;
         }
     }
 }
