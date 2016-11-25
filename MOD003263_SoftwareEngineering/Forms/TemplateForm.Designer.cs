@@ -29,15 +29,10 @@
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnRemoveQuestion = new System.Windows.Forms.Button();
             this.lblTemplateName = new System.Windows.Forms.Label();
-            this.grbCreateTemplate = new System.Windows.Forms.GroupBox();
-            this.btnCreateTemplate = new System.Windows.Forms.Button();
-            this.txtCreateTemplate = new System.Windows.Forms.TextBox();
             this.grbSaveTemplate = new System.Windows.Forms.GroupBox();
             this.txtSaveTemplate = new System.Windows.Forms.TextBox();
             this.btnSaveTemplate = new System.Windows.Forms.Button();
             this.grbRemoveQuestion = new System.Windows.Forms.GroupBox();
-            this.grbFeedbackTemplate = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCVTemplate = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,12 +41,13 @@
             this.menuSaveTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoadTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.flwQuestions = new System.Windows.Forms.FlowLayoutPanel();
+            this.grbFeedbackTemplate = new System.Windows.Forms.GroupBox();
             this.grbAddQuestion.SuspendLayout();
-            this.grbCreateTemplate.SuspendLayout();
             this.grbSaveTemplate.SuspendLayout();
             this.grbRemoveQuestion.SuspendLayout();
-            this.grbFeedbackTemplate.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.grbFeedbackTemplate.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbAddQuestion
@@ -59,7 +55,7 @@
             this.grbAddQuestion.Controls.Add(this.btnAddQuestion);
             this.grbAddQuestion.Controls.Add(this.txtAddQuestion);
             this.grbAddQuestion.Controls.Add(this.lblQuestion);
-            this.grbAddQuestion.Location = new System.Drawing.Point(802, 41);
+            this.grbAddQuestion.Location = new System.Drawing.Point(606, 54);
             this.grbAddQuestion.Name = "grbAddQuestion";
             this.grbAddQuestion.Size = new System.Drawing.Size(200, 100);
             this.grbAddQuestion.TabIndex = 0;
@@ -113,40 +109,11 @@
             this.lblTemplateName.TabIndex = 1;
             this.lblTemplateName.Text = "Template Name";
             // 
-            // grbCreateTemplate
-            // 
-            this.grbCreateTemplate.Controls.Add(this.btnCreateTemplate);
-            this.grbCreateTemplate.Controls.Add(this.txtCreateTemplate);
-            this.grbCreateTemplate.Location = new System.Drawing.Point(808, 348);
-            this.grbCreateTemplate.Name = "grbCreateTemplate";
-            this.grbCreateTemplate.Size = new System.Drawing.Size(200, 74);
-            this.grbCreateTemplate.TabIndex = 2;
-            this.grbCreateTemplate.TabStop = false;
-            this.grbCreateTemplate.Text = "Create Template";
-            // 
-            // btnCreateTemplate
-            // 
-            this.btnCreateTemplate.Location = new System.Drawing.Point(6, 45);
-            this.btnCreateTemplate.Name = "btnCreateTemplate";
-            this.btnCreateTemplate.Size = new System.Drawing.Size(188, 23);
-            this.btnCreateTemplate.TabIndex = 0;
-            this.btnCreateTemplate.Text = "Create Template";
-            this.btnCreateTemplate.UseVisualStyleBackColor = true;
-            this.btnCreateTemplate.Click += new System.EventHandler(this.btnCreateTemplate_Click);
-            // 
-            // txtCreateTemplate
-            // 
-            this.txtCreateTemplate.Location = new System.Drawing.Point(6, 19);
-            this.txtCreateTemplate.Name = "txtCreateTemplate";
-            this.txtCreateTemplate.Size = new System.Drawing.Size(188, 20);
-            this.txtCreateTemplate.TabIndex = 1;
-            this.txtCreateTemplate.UseWaitCursor = true;
-            // 
             // grbSaveTemplate
             // 
             this.grbSaveTemplate.Controls.Add(this.txtSaveTemplate);
             this.grbSaveTemplate.Controls.Add(this.btnSaveTemplate);
-            this.grbSaveTemplate.Location = new System.Drawing.Point(808, 428);
+            this.grbSaveTemplate.Location = new System.Drawing.Point(606, 225);
             this.grbSaveTemplate.Name = "grbSaveTemplate";
             this.grbSaveTemplate.Size = new System.Drawing.Size(200, 79);
             this.grbSaveTemplate.TabIndex = 2;
@@ -172,31 +139,12 @@
             // grbRemoveQuestion
             // 
             this.grbRemoveQuestion.Controls.Add(this.btnRemoveQuestion);
-            this.grbRemoveQuestion.Location = new System.Drawing.Point(802, 147);
+            this.grbRemoveQuestion.Location = new System.Drawing.Point(606, 160);
             this.grbRemoveQuestion.Name = "grbRemoveQuestion";
             this.grbRemoveQuestion.Size = new System.Drawing.Size(200, 59);
             this.grbRemoveQuestion.TabIndex = 3;
             this.grbRemoveQuestion.TabStop = false;
             this.grbRemoveQuestion.Text = "Remove Question";
-            // 
-            // grbFeedbackTemplate
-            // 
-            this.grbFeedbackTemplate.AutoSize = true;
-            this.grbFeedbackTemplate.Controls.Add(this.panel1);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(5, 61);
-            this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
-            this.grbFeedbackTemplate.Size = new System.Drawing.Size(588, 600);
-            this.grbFeedbackTemplate.TabIndex = 4;
-            this.grbFeedbackTemplate.TabStop = false;
-            this.grbFeedbackTemplate.Text = "Feedback Template";
-            this.grbFeedbackTemplate.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(7, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 565);
-            this.panel1.TabIndex = 2;
             // 
             // menuStrip1
             // 
@@ -262,6 +210,25 @@
             this.menuLoadTemplate.Text = "Load";
             this.menuLoadTemplate.Click += new System.EventHandler(this.menuLoadTemplate_Click);
             // 
+            // flwQuestions
+            // 
+            this.flwQuestions.Location = new System.Drawing.Point(6, 19);
+            this.flwQuestions.Name = "flwQuestions";
+            this.flwQuestions.Size = new System.Drawing.Size(571, 569);
+            this.flwQuestions.TabIndex = 0;
+            // 
+            // grbFeedbackTemplate
+            // 
+            this.grbFeedbackTemplate.AutoSize = true;
+            this.grbFeedbackTemplate.Controls.Add(this.flwQuestions);
+            this.grbFeedbackTemplate.Location = new System.Drawing.Point(12, 54);
+            this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
+            this.grbFeedbackTemplate.Size = new System.Drawing.Size(588, 607);
+            this.grbFeedbackTemplate.TabIndex = 4;
+            this.grbFeedbackTemplate.TabStop = false;
+            this.grbFeedbackTemplate.Text = "Feedback Template";
+            this.grbFeedbackTemplate.Visible = false;
+            // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,7 +238,6 @@
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.grbRemoveQuestion);
             this.Controls.Add(this.grbSaveTemplate);
-            this.Controls.Add(this.grbCreateTemplate);
             this.Controls.Add(this.grbAddQuestion);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -279,14 +245,12 @@
             this.Text = "TemplateForm";
             this.grbAddQuestion.ResumeLayout(false);
             this.grbAddQuestion.PerformLayout();
-            this.grbCreateTemplate.ResumeLayout(false);
-            this.grbCreateTemplate.PerformLayout();
             this.grbSaveTemplate.ResumeLayout(false);
             this.grbSaveTemplate.PerformLayout();
             this.grbRemoveQuestion.ResumeLayout(false);
-            this.grbFeedbackTemplate.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.grbFeedbackTemplate.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,16 +263,11 @@
         private System.Windows.Forms.TextBox txtAddQuestion;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label lblTemplateName;
-        private System.Windows.Forms.GroupBox grbCreateTemplate;
-        private System.Windows.Forms.Button btnCreateTemplate;
         private System.Windows.Forms.Button btnRemoveQuestion;
-        private System.Windows.Forms.TextBox txtCreateTemplate;
         private System.Windows.Forms.GroupBox grbSaveTemplate;
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.TextBox txtSaveTemplate;
         private System.Windows.Forms.GroupBox grbRemoveQuestion;
-        private System.Windows.Forms.GroupBox grbFeedbackTemplate;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuCVTemplate;
@@ -317,5 +276,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuSaveTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuClearTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuLoadTemplate;
+        private System.Windows.Forms.FlowLayoutPanel flwQuestions;
+        private System.Windows.Forms.GroupBox grbFeedbackTemplate;
     }
 }

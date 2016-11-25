@@ -12,7 +12,8 @@ namespace MOD003263_SoftwareEngineering.Core {
         private Template _template;
         private Person _person;
 
-        public Feedback(Person person) {
+        public Feedback(string title, Person person) {
+            _title = title;
             _person = person;
         }
 

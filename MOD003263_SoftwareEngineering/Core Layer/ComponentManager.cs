@@ -22,11 +22,8 @@ namespace MOD003263_SoftwareEngineering.Core {
             _components.RemoveAt(index);
         }
 
-        public Component GetComponent(Component component) {
-            if (_components.Contains(component)) {
-                return component;
-            }
-            return null;
+        public Component GetComponent(int index) {
+            return _components[index];
         }
 
         public List<Component> AttachedComponents {

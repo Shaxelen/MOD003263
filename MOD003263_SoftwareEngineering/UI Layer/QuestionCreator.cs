@@ -9,9 +9,9 @@ namespace MOD003263_SoftwareEngineering.UI {
     public class QuestionCreator {
         private static QuestionCreator _instance;
         private Question _question;
-        private Title _quetionTitle;
-        private Comment _questionComment;
-        private Score _questionScore;
+        private Title _title;
+        private Comment _comment;
+        private Score _score;
 
         private QuestionCreator() { }
 
@@ -22,41 +22,35 @@ namespace MOD003263_SoftwareEngineering.UI {
             return _instance;
         }
 
-        public Question CreateQuestion(string question, bool hasComment, bool hasScore) {
+        public Question CreateQuestion(int id, string question) {
             _question = Question();
-            _quetionTitle = Title(question);
-            _question.Add(_quetionTitle);
+            _title = Title(question);
+            _comment = Comment();
+            _score = Score();
 
-            if (hasComment) AddComment();
-            if (hasScore) AddScore();
+            _question.Add(_title);
+            _question.Add(_comment);
+            _question.Add(_score);
+
+            _question.ID = id;
 
             return _question;
         }
 
         private Question Question() {
-            return new Question();
+            return _question = new Question();
         }
 
         private Title Title(string title) {
-            return new Title(title);
+            return _title = new Title(title);
         }
 
-        private void AddComment() {
-            _questionComment = new Comment();
-            _question.Add(_questionComment);
+        private Comment Comment() {
+            return _comment = new Comment();
         }
 
-        private void AddScore() {
-            _questionScore = new Score();
-            _question.Add(_questionScore);
-        }
-        
-        private void RemoveComment() {
-            _question.Remove(_questionComment);
-        }
-
-        private void RemoveScore() {
-            _question.Remove(_questionScore);
+        private Score Score() {
+            return _score = new Score();
         }
     }
 }
