@@ -14,11 +14,17 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public Template() { }
 
+        /// <summary>
+        /// Gets and sets the name of the template
+        /// </summary>
         public string TemplateName {
             get { return _templateName; }
             set { _templateName = value; }
         }
 
+        /// <summary>
+        /// Returns the type of template
+        /// </summary>
         public string TemplateType {
             get { return _templateType; }
         }

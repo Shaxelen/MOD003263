@@ -28,7 +28,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
         private RadioButton _radScore3;
         private RadioButton _radScore4;
         private RadioButton _radScore5;
-        private int _id = 1;
+        private int _id = 0;
 
         // Form Objects
         private TestSaveForm _saveForm;
@@ -47,18 +47,29 @@ namespace MOD003263_SoftwareEngineering.Forms {
         }
         #region Requesting Template
 
-        private void menuCVTemplate_Click(object sender, EventArgs e) { TemplateRequest("CV"); }
+        private void menuCVTemplate_Click(object sender, EventArgs e) {
+            TemplateRequest("CV");
+        }
 
-        private void menuInterviewTemplate_Click(object sender, EventArgs e) { TemplateRequest("Interview"); }
+        private void menuInterviewTemplate_Click(object sender, EventArgs e) {
+            TemplateRequest("Interview");
+        }
 
-        private void menuEmployeeTemplate_Click(object sender, EventArgs e) { TemplateRequest("Employee"); }
+        private void menuEmployeeTemplate_Click(object sender, EventArgs e) {
+            TemplateRequest("Employee");
+        }
 
-        private void menuClearTemplate_Click(object sender, EventArgs e) { flwQuestions.Controls.Clear(); }
+        private void menuClearTemplate_Click(object sender, EventArgs e) {
+            flwQuestions.Controls.Clear();
+        }
 
         public void TemplateRequest(string type) {
             grbFeedbackTemplate.Visible = true;
             _template = _tempEditor.RequestTemplate(type);
             Text = _template.TemplateName;
+            grbFeedbackTemplate.Visible = true;
+            grbAddQuestion.Visible = true;
+            grbRemoveQuestion.Visible = true;
         }
         #endregion
 
@@ -80,8 +91,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
 
         public void RetrieveTemplate(string template) {
             _template = _templateBank.Load(template);
-            lblTemplateName.Text = _template.TemplateName;
-            grbFeedbackTemplate.Visible = true;
+            Text = _template.TemplateName;
         }
 
         #endregion
@@ -90,13 +100,13 @@ namespace MOD003263_SoftwareEngineering.Forms {
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
             _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text);
-            _grbQuestion = TestGroupBox(_id, txtAddQuestion.Text);
-            _txtComment = TestTextBox(_id);
-            _radScore1 = TestScore(_id, 1, 6, 81);
-            _radScore2 = TestScore(_id, 2, 43, 81);
-            _radScore3 = TestScore(_id, 3, 80, 81);
-            _radScore4 = TestScore(_id, 4, 117, 81);
-            _radScore5 = TestScore(_id, 5, 154, 81);
+            _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
+            _txtComment = CommentTextBox(_id);
+            _radScore1 = Score(_id, 1, 6, 81);
+            _radScore2 = Score(_id, 2, 43, 81);
+            _radScore3 = Score(_id, 3, 80, 81);
+            _radScore4 = Score(_id, 4, 117, 81);
+            _radScore5 = Score(_id, 5, 154, 81);
 
             _grbQuestion.Controls.Add(_txtComment);
             _grbQuestion.Controls.Add(_radScore1);
@@ -106,17 +116,37 @@ namespace MOD003263_SoftwareEngineering.Forms {
             _grbQuestion.Controls.Add(_radScore5);
 
             flwQuestions.Controls.Add(_grbQuestion);
+            cmbQuestionID.Items.Add(_id);
             _id++;
             txtAddQuestion.Clear();
+
         }
 
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
+            int index = cmbQuestionID.SelectedIndex;
+
+            foreach (GroupBox g in flwQuestions.Controls) {
+                if (g.Name.Contains(Convert.ToString(index))) {
+                    flwQuestions.Controls.Remove(g);
+                }
+            }
+
+            foreach (Question q in _template.AttachedComponents) {
+                if (q.ID == index) {
+                    Core.Component compToRemove = q;
+                    _template.Remove(compToRemove);  
+                }
+            }
+            cmbQuestionID.Items.Remove(index);
         }
 
-        private void lstTemplateQuestions_SelectedIndexChanged(object sender, EventArgs e) {
-        }
-
-        private GroupBox TestGroupBox(int id, string text) {
+        /// <summary>
+        /// Creates a GroupBox for Questions
+        /// </summary>
+        /// <param name="id">The id of the question</param>
+        /// <param name="text">The question text</param>
+        /// <returns>A GroupBox</returns>
+        private GroupBox QuestionGroupBox(int id, string text) {
             GroupBox grbBox = new GroupBox();
             grbBox.Location = new Point(3, 3);
             grbBox.Name = "grbQuestion " + id;
@@ -127,7 +157,12 @@ namespace MOD003263_SoftwareEngineering.Forms {
             return grbBox;
         }
 
-        private TextBox TestTextBox(int id) {
+        /// <summary>
+        /// Creates a TextBox for question comments
+        /// </summary>
+        /// <param name="id">The id of the question</param>
+        /// <returns>A TextBox</returns>
+        private TextBox CommentTextBox(int id) {
             TextBox txtBox = new TextBox();
             txtBox.Location = new Point(6, 19);
             txtBox.Multiline = true;
@@ -137,7 +172,15 @@ namespace MOD003263_SoftwareEngineering.Forms {
             return txtBox;
         }
 
-        private RadioButton TestScore(int id, int score, int x, int y) {
+        /// <summary>
+        /// Creates a RadioButton for question score
+        /// </summary>
+        /// <param name="id">The id of the question</param>
+        /// <param name="score">The score of the question</param>
+        /// <param name="x">Position X</param>
+        /// <param name="y">Position Y</param>
+        /// <returns></returns>
+        private RadioButton Score(int id, int score, int x, int y) {
             RadioButton radBtn = new RadioButton();
             radBtn.AutoSize = true;
             radBtn.Location = new Point(x, y);

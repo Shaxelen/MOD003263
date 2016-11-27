@@ -13,8 +13,15 @@ namespace MOD003263_SoftwareEngineering.UI {
         private Comment _comment;
         private Score _score;
 
+        /// <summary>
+        /// QuestionCreator Constructor
+        /// </summary>
         private QuestionCreator() { }
 
+        /// <summary>
+        /// The static instance of QuestionCreator
+        /// </summary>
+        /// <returns>QuestionCreator instance</returns>
         public static QuestionCreator Instance() {
             if (_instance == null) {
                 _instance = new QuestionCreator();
@@ -22,6 +29,12 @@ namespace MOD003263_SoftwareEngineering.UI {
             return _instance;
         }
 
+        /// <summary>
+        /// Creates a question
+        /// </summary>
+        /// <param name="id">The question id</param>
+        /// <param name="question">The question</param>
+        /// <returns></returns>
         public Question CreateQuestion(int id, string question) {
             _question = Question();
             _title = Title(question);
@@ -37,18 +50,35 @@ namespace MOD003263_SoftwareEngineering.UI {
             return _question;
         }
 
+        /// <summary>
+        /// Returns a Question
+        /// </summary>
+        /// <returns>A new Question</returns>
         private Question Question() {
             return _question = new Question();
         }
 
+        /// <summary>
+        /// Returns a Title
+        /// </summary>
+        /// <param name="title">The title of the question</param>
+        /// <returns>A new Title</returns>
         private Title Title(string title) {
             return _title = new Title(title);
         }
 
+        /// <summary>
+        /// Returns a Comment
+        /// </summary>
+        /// <returns>A new Comment</returns>
         private Comment Comment() {
             return _comment = new Comment();
         }
 
+        /// <summary>
+        /// Returns a Score
+        /// </summary>
+        /// <returns>a new Score</returns>
         private Score Score() {
             return _score = new Score();
         }

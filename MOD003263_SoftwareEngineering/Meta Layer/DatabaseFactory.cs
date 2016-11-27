@@ -15,6 +15,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
         private DatabaseFactory() {
             _properties = new Dictionary<string, string>();
         }
+
         public static DatabaseConnection Instance() {
             if (null == _instance) {
                 DatabaseFactory factory = new DatabaseFactory();
@@ -22,6 +23,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
             }
             return _instance;
         }
+
         private DatabaseConnection getConection() {
             DatabaseConnection connection = null;
 

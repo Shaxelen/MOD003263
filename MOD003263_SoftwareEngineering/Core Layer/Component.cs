@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
     public abstract class Component {
+        /// <summary>
+        /// Component Constructor
+        /// </summary>
         public Component() { }
     }
 }
