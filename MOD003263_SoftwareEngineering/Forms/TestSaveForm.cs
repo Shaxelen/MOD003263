@@ -28,10 +28,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            //generate new Template
             lstData.Items.Add(txtName.Text);
-
-            _parent.retrieveDataList(_tempBank.Templates);
         }
     }
 }
