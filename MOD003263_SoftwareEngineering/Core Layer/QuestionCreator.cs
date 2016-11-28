@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MOD003263_SoftwareEngineering.Core;
 
-namespace MOD003263_SoftwareEngineering.UI {
+namespace MOD003263_SoftwareEngineering.Core {
     public class QuestionCreator {
         private static QuestionCreator _instance;
         private Question _question;

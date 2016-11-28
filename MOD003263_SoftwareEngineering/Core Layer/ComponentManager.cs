@@ -30,20 +30,17 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         /// <summary>
-        /// Removes a component from the component list by its index
-        /// </summary>
-        /// <param name="index">The index of the component</param>
-        public void RemoveAt(int index) {
-            _components.RemoveAt(index);
-        }
-
-        /// <summary>
         /// Returns a component from the component list by its index
         /// </summary>
         /// <param name="index">The index of the component</param>
         /// <returns></returns>
-        public Component GetComponent(int index) {
-            return _components[index];
+        public Component GetComponent(Component component) {
+            foreach (Component c in _components) {
+                if (c == component) {
+                    return c;
+                }
+            }
+            return null;
         }
 
         /// <summary>
