@@ -21,6 +21,9 @@ namespace MOD003263_SoftwareEngineering.Forms {
         // Question Objects
         private Question _question;
         private QuestionCreator _questionCreator;
+        private int _id = 0;
+
+        // Question Form Objects
         private GroupBox _grbQuestion;
         private TextBox _txtComment;
         private RadioButton _radScore1;
@@ -28,7 +31,6 @@ namespace MOD003263_SoftwareEngineering.Forms {
         private RadioButton _radScore3;
         private RadioButton _radScore4;
         private RadioButton _radScore5;
-        private int _id = 0;
 
         // Form Objects
         private TestSaveForm _saveForm;
@@ -96,7 +98,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
 
         #endregion
 
-        #region Creating and adding Questions
+        #region Creating, Adding and Removing Questions
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
             _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text);
@@ -116,6 +118,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
             _grbQuestion.Controls.Add(_radScore5);
 
             flwQuestions.Controls.Add(_grbQuestion);
+            _template.Add(_question);
             cmbQuestionID.Items.Add(_id);
             _id++;
             txtAddQuestion.Clear();
@@ -130,14 +133,52 @@ namespace MOD003263_SoftwareEngineering.Forms {
                     flwQuestions.Controls.Remove(g);
                 }
             }
-
+            Core.Component compToRemove = null;
             foreach (Question q in _template.AttachedComponents) {
                 if (q.ID == index) {
-                    Core.Component compToRemove = q;
-                    _template.Remove(compToRemove);  
+                    compToRemove = q;
+                    break;
                 }
             }
+            _template.Remove(compToRemove);
             cmbQuestionID.Items.Remove(index);
+            updateComboBox();
+        }
+
+        /// <summary>
+        /// Finds all of the Groupboxes that are Question Groupboxes within the FlowPanel Control
+        /// </summary>
+        /// <returns> Returns a List of Groupboxes that are Question Groupboxes </returns>
+        private List<GroupBox> findAllGrps() {
+            List<GroupBox> grp = new List<GroupBox>();
+            foreach (Control c in flwQuestions.Controls) {
+                if ((c.GetType() == typeof(GroupBox)) && (c.Name.Contains("grbQuestion"))) {
+                    grp.Add((GroupBox)c);
+                }
+            }
+            return grp;
+        }
+
+        /// <summary>
+        /// Updates the ComboBox and re-indexes all of the questions and their groupboxes
+        /// </summary>
+        private void updateComboBox() {
+            List<GroupBox> grp = findAllGrps();
+            int questIndex = 0;
+            cmbQuestionID.Items.Clear();
+            foreach(Question q in _template.AttachedComponents) {
+                foreach (GroupBox g in grp) {
+                    if (g.Name.Contains(q.ID.ToString())) {
+                        g.Name = "grbQuestion " + questIndex;
+                        break;
+                    }
+                }
+                q.ID = questIndex;
+                cmbQuestionID.Items.Add(q.ID);
+                questIndex++;
+            }
+            _id = questIndex;
+            cmbQuestionID.Text = "";
         }
 
         /// <summary>

@@ -20,45 +20,49 @@ namespace MOD003263_SoftwareEngineering.Forms {
         }
 
         private void btnTemplateForm_Click(object sender, EventArgs e) {
-            if (_templateForm == null) {
+            if (null == _templateForm) {
                 OpenForm(_templateForm);
             }
+            _templateForm = null;
         }
 
         private void btnFeedbackForm_Click(object sender, EventArgs e) {
-            if (_feedbackForm == null) {
+            if (null == _feedbackForm) {
                 OpenForm(_feedbackForm);
-            } 
+            }
+            _feedbackForm = null;
         }
 
         private void btnFilterForm_Click(object sender, EventArgs e) {
-            if (_filterForm == null) {
+            if (null == _filterForm) {
                 OpenForm(_filterForm);
             }
+            _filterForm = null;
         }
 
         private void btnEmail_Click(object sender, EventArgs e) {
-            if (_emailForm == null) {
+            if (null == _emailForm) {
                 OpenForm(_emailForm);
             }
+            _emailForm = null;
         }
 
         private void OpenForm(Form formToOpen) {
             if (formToOpen == _templateForm) {
                 _templateForm = new TemplateForm();
-                _templateForm.ShowDialog(this);
+                _templateForm.ShowDialog();
             }
             else if (formToOpen == _feedbackForm) {
                 _feedbackForm = new FeedbackForm();
-                _feedbackForm.ShowDialog(this);
+                _feedbackForm.ShowDialog();
             }
             else if (formToOpen == _filterForm) {
                 _filterForm = new FilterForm();
-                _filterForm.ShowDialog(this);
+                _filterForm.ShowDialog();
             }
             else if (formToOpen == _emailForm) {
                 _emailForm = new EmailForm();
-                _emailForm.ShowDialog(this);
+                _emailForm.ShowDialog();
             }
         }
     }
