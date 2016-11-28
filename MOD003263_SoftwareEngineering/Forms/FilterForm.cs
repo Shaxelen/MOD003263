@@ -13,5 +13,41 @@ namespace MOD003263_SoftwareEngineering {
         public FilterForm() {
             InitializeComponent();
         }
+
+        private void btnAccept_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnReject_Click(object sender, EventArgs e) {
+
+        }
+
+        private void txtPosAppliedFor_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtTotalScore_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtAdditionalComments_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void lstFeedbackList_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void btnEmail_Click(object sender, EventArgs e) {
+
+        }
     }
 }
