@@ -30,7 +30,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
     }
 
-    class CVTemplate : Template {
+    public class CVTemplate : Template {
         /// <summary>
         /// CV Template constructor
         /// </summary>
@@ -39,7 +39,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
     }
 
-    class InterviewTemplate : Template {
+    public class InterviewTemplate : Template {
         /// <summary>
         /// Interview template constructor
         /// </summary>
@@ -48,7 +48,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
     }
 
-    class EmployeeTemplate : Template {
+    public class EmployeeTemplate : Template {
         /// <summary>
         /// Employee template constructor
         /// </summary>
