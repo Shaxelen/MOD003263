@@ -95,7 +95,6 @@
     <Compile Include="Meta Layer\DatabaseFactory.cs" />
     <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
     <Compile Include="Meta Layer\EmailHandler.cs" />
-    <Compile Include="Meta Layer\MySQLConnection.cs" />
     <Compile Include="Meta Layer\OleDatabaseConnection.cs" />
     <Compile Include="Meta Layer\PDFConvert.cs" />
     <Compile Include="Meta Layer\TemplateSerialization.cs" />
@@ -141,6 +140,7 @@
   <ItemGroup>
     <Content Include="ExternalDLLs\itextsharp.dll" />
     <Content Include="ExternalDLLs\MySql.Data.dll" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
