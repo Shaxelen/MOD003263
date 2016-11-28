@@ -8,7 +8,7 @@ namespace UITests {
     [TestClass]
     public class UnitTest {
         [TestMethod]
-        public void PersonTest() {
+        public void ApplicantTest() {
             Applicant a = new Applicant();
 
             a.ApplicantID = 111;
@@ -17,6 +17,17 @@ namespace UITests {
             a.EmailAddress = "alexwyke@icloud.com";
             a.PhoneNumber = "07456679770";
             a.ApplicantPosition = "Website Developer";
+        }
+
+        public void EmployeeTest() {
+            Employee e = new Employee();
+
+            e.EmployeeID = 222;
+            e.FirstName = "David";
+            e.LastName = "Cundy";
+            e.EmailAddress = "d.cundy@hotmail.com";
+            e.PhoneNumber = "07345678900";
+            e.EmployeePosition = "IT Supervisor";
         }
     }
 }
