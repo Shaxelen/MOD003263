@@ -17,8 +17,18 @@ namespace UITests {
             a.EmailAddress = "alexwyke@icloud.com";
             a.PhoneNumber = "07456679770";
             a.ApplicantPosition = "Website Developer";
+            a.ImageFileLocation = "file.png";
+
+            Assert.AreEqual(111, a.ApplicantID);
+            Assert.AreEqual("Alex", a.FirstName);
+            Assert.AreEqual("Wyke", a.LastName);
+            Assert.AreEqual("alexwyke@icloud.com", a.EmailAddress);
+            Assert.AreEqual("07456679770", a.PhoneNumber);
+            Assert.AreEqual("Website Developer", a.ApplicantPosition);
+            Assert.AreEqual("file.png", a.ImageFileLocation);
         }
 
+        [TestMethod]
         public void EmployeeTest() {
             Employee e = new Employee();
 
@@ -28,6 +38,15 @@ namespace UITests {
             e.EmailAddress = "d.cundy@hotmail.com";
             e.PhoneNumber = "07345678900";
             e.EmployeePosition = "IT Supervisor";
+            e.ImageFileLocation = null;
+
+            Assert.AreEqual(222, e.EmployeeID);
+            Assert.AreEqual("David", e.FirstName);
+            Assert.AreEqual("Cundy", e.LastName);
+            Assert.AreEqual("d.cundy@hotmail.com", e.EmailAddress);
+            Assert.AreEqual("07345678900", e.PhoneNumber);
+            Assert.AreEqual("IT Supervisor", e.EmployeePosition);
+            Assert.AreEqual("default.png", e.ImageFileLocation);
         }
     }
 }

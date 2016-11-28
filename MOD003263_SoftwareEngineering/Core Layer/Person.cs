@@ -8,7 +8,7 @@
         protected string _personPhoneNumber;
         protected string _position;
 
-        private string _defaultImageFile;
+        private string _defaultImageFile = "default.png";
 
         /// <summary>
         /// Person constructor
@@ -21,7 +21,7 @@
         public string ImageFileLocation {
             get { return _personImageFile; }
             set {
-                if (null == _personImageFile) {
+                if (null == value) {
                     _personImageFile = _defaultImageFile;
                 }
                 else {
