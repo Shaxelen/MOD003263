@@ -48,6 +48,37 @@ namespace CoreTests {
         }
 
         [TestMethod]
+        public void TemplateFactoryTest() {
+            TemplateFactory tFactory = new TemplateFactory();
+
+            Template tCV = tFactory.CreateTemplate("CV");
+            Template tIw = tFactory.CreateTemplate("Interview");
+            Template tEe = tFactory.CreateTemplate("Employee");
+
+            Assert.AreNotSame(tCV, tIw);
+            Assert.AreEqual("CV", tCV.TemplateType);
+            Template tNull = tFactory.CreateTemplate("Bla");
+
+            Assert.AreEqual(null, tNull);
+        }
+
+        [TestMethod]
+        public void TemplateEditor() {
+            TemplateFactory tFactory = new TemplateFactory();
+            TemplateEditor tEditor = new TemplateEditor(tFactory);
+
+            Template tCV = tEditor.RequestTemplate("CV");
+            Template tIw = tEditor.RequestTemplate("Interview");
+            Template tEe = tEditor.RequestTemplate("Employee");
+
+            Assert.AreNotSame(tCV, tIw);
+            Assert.AreEqual("CV", tCV.TemplateType);
+            Template tNull = tEditor.RequestTemplate("Bla");
+
+            Assert.AreEqual(null, tNull);
+        }
+
+        [TestMethod]
         public void TemplateBankTest() {
             Template cv = new CVTemplate();
             Template inter = new InterviewTemplate();
@@ -133,6 +164,15 @@ namespace CoreTests {
 
         [TestMethod]
         public void QuestionCreatorTest() {
+            QuestionCreator qCreator = QuestionCreator.Instance();
+            QuestionCreator qCreator2 = QuestionCreator.Instance();
+
+            ReferenceEquals(qCreator, qCreator2);
+
+            Question q1 = qCreator.CreateQuestion(1, "Question 1");
+            Question q2 = qCreator.CreateQuestion(2, "Question 2");
+
+            Assert.AreNotSame(q2, q1);
         }
 
         [TestMethod]

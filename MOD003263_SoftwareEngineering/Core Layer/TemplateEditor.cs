@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.Core {
-    class TemplateEditor {
+    public class TemplateEditor {
         private TemplateFactory templateFactory;
 
         /// <summary>
