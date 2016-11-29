@@ -84,7 +84,6 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(138, 20);
             this.txtFirstName.TabIndex = 3;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // lblFirstName
             // 
@@ -101,7 +100,6 @@
             this.txtPosAppliedFor.Name = "txtPosAppliedFor";
             this.txtPosAppliedFor.Size = new System.Drawing.Size(138, 20);
             this.txtPosAppliedFor.TabIndex = 1;
-            this.txtPosAppliedFor.TextChanged += new System.EventHandler(this.txtPosAppliedFor_TextChanged);
             // 
             // lblPosAppliedFor
             // 
@@ -138,7 +136,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(138, 20);
             this.txtLastName.TabIndex = 5;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // txtTotalScore
             // 
@@ -146,7 +143,6 @@
             this.txtTotalScore.Name = "txtTotalScore";
             this.txtTotalScore.Size = new System.Drawing.Size(138, 20);
             this.txtTotalScore.TabIndex = 6;
-            this.txtTotalScore.TextChanged += new System.EventHandler(this.txtTotalScore_TextChanged);
             // 
             // lblTotalScore
             // 
@@ -172,7 +168,6 @@
             this.txtAdditionalComments.Name = "txtAdditionalComments";
             this.txtAdditionalComments.Size = new System.Drawing.Size(138, 20);
             this.txtAdditionalComments.TabIndex = 9;
-            this.txtAdditionalComments.TextChanged += new System.EventHandler(this.txtAdditionalComments_TextChanged);
             // 
             // btnEmail
             // 
