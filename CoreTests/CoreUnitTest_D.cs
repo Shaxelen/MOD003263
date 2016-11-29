@@ -135,6 +135,9 @@ namespace CoreTests {
 
             score.QScore = 0;
             Assert.AreEqual(1, score.QScore);
+
+            score.QScore = 3;
+            Assert.AreEqual(3, score.QScore);
         }
 
         [TestMethod]
@@ -215,7 +218,7 @@ namespace CoreTests {
             fBank.Add(f2);
 
             Assert.AreSame(f1, fBank.FindFeedback("F1"));
-            Assert.AreNotSame(f2, fBank.FindFeedback("F1"));
+            Assert.AreNotSame(f1, fBank.FindFeedback("F2"));
 
             FeedbackBank anotherBank = FeedbackBank.Instance();
             Assert.AreSame(fBank, anotherBank);

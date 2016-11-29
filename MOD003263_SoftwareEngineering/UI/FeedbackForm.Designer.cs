@@ -1,4 +1,4 @@
-﻿namespace MOD003263_SoftwareEngineering.Forms {
+﻿namespace MOD003263_SoftwareEngineering.UI {
     partial class FeedbackForm {
         /// <summary>
         /// Required designer variable.

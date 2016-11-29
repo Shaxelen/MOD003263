@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MOD003263_SoftwareEngineering.Forms {
-    public partial class EmailForm : Form {
-        public EmailForm() {
+namespace MOD003263_SoftwareEngineering.UI {
+    public partial class FilterForm : Form {
+        public FilterForm() {
             InitializeComponent();
         }
     }

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MOD003263_SoftwareEngineering</RootNamespace>
     <AssemblyName>MOD003263_SoftwareEngineering</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,46 +69,46 @@
     <Compile Include="Core Layer\TemplateBank.cs" />
     <Compile Include="Core Layer\Title.cs" />
     <Compile Include="Debugging\Logger.cs" />
-    <Compile Include="Forms\EmailForm.cs">
+    <Compile Include="UI\EmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmailForm.Designer.cs">
+    <Compile Include="UI\EmailForm.Designer.cs">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.cs">
+    <Compile Include="UI\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.Designer.cs">
+    <Compile Include="UI\FeedbackForm.Designer.cs">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FilterForm.cs">
+    <Compile Include="UI\FilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FilterForm.Designer.cs">
+    <Compile Include="UI\FilterForm.Designer.cs">
       <DependentUpon>FilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainMenuForm.cs">
+    <Compile Include="UI\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenuForm.Designer.cs">
+    <Compile Include="UI\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TemplateForm.cs">
+    <Compile Include="UI\TemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TemplateForm.Designer.cs">
+    <Compile Include="UI\TemplateForm.Designer.cs">
       <DependentUpon>TemplateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TestLoadForm.cs">
+    <Compile Include="UI\TestLoadForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TestLoadForm.Designer.cs">
+    <Compile Include="UI\TestLoadForm.Designer.cs">
       <DependentUpon>TestLoadForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TestSaveForm.cs">
+    <Compile Include="UI\TestSaveForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TestSaveForm.Designer.cs">
+    <Compile Include="UI\TestSaveForm.Designer.cs">
       <DependentUpon>TestSaveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Meta Layer\DatabaseFactory.cs" />
@@ -122,19 +123,19 @@
     <Compile Include="Core Layer\QuestionCreator.cs" />
     <Compile Include="Core Layer\TemplateEditor.cs" />
     <Compile Include="Core Layer\TemplateFactory.cs" />
-    <EmbeddedResource Include="Forms\FeedbackForm.resx">
+    <EmbeddedResource Include="UI\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuForm.resx">
+    <EmbeddedResource Include="UI\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TemplateForm.resx">
+    <EmbeddedResource Include="UI\TemplateForm.resx">
       <DependentUpon>TemplateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TestLoadForm.resx">
+    <EmbeddedResource Include="UI\TestLoadForm.resx">
       <DependentUpon>TestLoadForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TestSaveForm.resx">
+    <EmbeddedResource Include="UI\TestSaveForm.resx">
       <DependentUpon>TestSaveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -145,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,9 +165,7 @@
     <Content Include="ExternalDLLs\itextsharp.dll" />
     <Content Include="ExternalDLLs\MySql.Data.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI Layer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

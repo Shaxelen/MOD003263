@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MOD003263_SoftwareEngineering.Forms {
+namespace MOD003263_SoftwareEngineering.UI {
     public partial class MainMenuForm : Form {
         private TemplateForm _templateForm;
         private FeedbackForm _feedbackForm;
