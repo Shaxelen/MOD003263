@@ -18,13 +18,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public string Comments {
             get { return _comment; }
-            set { _comment = value;
-                if (_comment == null) {
-                    _comment = "Enter Comment";
-                } else {
-                    _comment = value;
-                }
-            }
-        }      
+            set { _comment = value; }
+        }
     }
 }

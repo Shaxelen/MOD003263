@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MOD003263_SoftwareEngineering.Forms;
+using MOD003263_SoftwareEngineering.UI;
 
 namespace MOD003263_SoftwareEngineering
 {
@@ -18,7 +18,7 @@ namespace MOD003263_SoftwareEngineering
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TemplateForm());
+            Application.Run(new MainMenuForm());
         }
     }
 }

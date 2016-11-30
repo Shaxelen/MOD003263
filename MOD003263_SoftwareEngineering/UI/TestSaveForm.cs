@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
-namespace MOD003263_SoftwareEngineering.Forms {
+namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestSaveForm : Form {
         private TemplateBank _tempBank = TemplateBank.Instance();
         private TemplateForm _parent;
@@ -28,10 +28,7 @@ namespace MOD003263_SoftwareEngineering.Forms {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            //generate new Template
             lstData.Items.Add(txtName.Text);
-
-            _parent.retrieveDataList(_tempBank.Templates);
         }
     }
 }

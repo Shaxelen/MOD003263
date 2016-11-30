@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
-namespace MOD003263_SoftwareEngineering.Forms {
+namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestLoadForm : Form {
         private List<Template> _dataList = new List<Template>();
         private int _index = -1;

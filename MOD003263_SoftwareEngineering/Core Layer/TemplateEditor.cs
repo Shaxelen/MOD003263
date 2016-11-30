@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MOD003263_SoftwareEngineering.Core;
 
-namespace MOD003263_SoftwareEngineering.UI {
-    class TemplateEditor {
+namespace MOD003263_SoftwareEngineering.Core {
+    public class TemplateEditor {
         private TemplateFactory templateFactory;
 
         /// <summary>

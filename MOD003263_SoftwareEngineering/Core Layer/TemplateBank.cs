@@ -90,7 +90,6 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public List<Template> Templates {
             get { return _templateList; }
-            set { _templateList = value; }
         }
     }
 }

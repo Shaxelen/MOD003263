@@ -13,6 +13,9 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public Question () { }
 
+        /// <summary>
+        /// Gets and sets the ID of the question
+        /// </summary>
         public int ID {
             get { return _questionID; }
             set { _questionID = value; }

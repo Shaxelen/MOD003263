@@ -10,11 +10,12 @@ namespace MOD003263_SoftwareEngineering.Meta {
         private static DatabaseConnection _instance = null;
         private Logger logger = Logger.getInstance();
         private Dictionary<string, string> _properties;
-        private static string _propfile = "properties.dat";
+        private static string _propfile = "DBConnectionSettings.dat";
 
         private DatabaseFactory() {
             _properties = new Dictionary<string, string>();
         }
+
         public static DatabaseConnection Instance() {
             if (null == _instance) {
                 DatabaseFactory factory = new DatabaseFactory();
@@ -22,15 +23,14 @@ namespace MOD003263_SoftwareEngineering.Meta {
             }
             return _instance;
         }
+
         private DatabaseConnection getConection() {
             DatabaseConnection connection = null;
 
             try {
                 _properties = getProperties();
                 string provider = _properties["Provider"];
-                if (provider.Equals("MySQL"))
-                    connection = new MySQLCon(_properties);
-                else if (provider.Equals("Microsoft.ACE.OLEDB.15.0"))
+                if (provider.Equals("Microsoft.ACE.OLEDB.15.0"))
                     connection = new OleDatabaseConnection(_properties);
                 else {
                     // should throw unsupport exception here
@@ -63,9 +63,11 @@ namespace MOD003263_SoftwareEngineering.Meta {
             return properties;
         }
     }
+
     public class DatabaseException : System.Exception {
         public DatabaseException(string message) : base(message) { }
     }
+
     public interface DatabaseConnection {
         bool OpenConnection();
 
