@@ -103,7 +103,7 @@
             this.grbRemoveQuestion.Controls.Add(this.lblRemove);
             this.grbRemoveQuestion.Controls.Add(this.cmbQuestionID);
             this.grbRemoveQuestion.Controls.Add(this.btnRemoveQuestion);
-            this.grbRemoveQuestion.Location = new System.Drawing.Point(218, 27);
+            this.grbRemoveQuestion.Location = new System.Drawing.Point(225, 27);
             this.grbRemoveQuestion.Name = "grbRemoveQuestion";
             this.grbRemoveQuestion.Size = new System.Drawing.Size(200, 93);
             this.grbRemoveQuestion.TabIndex = 3;
@@ -137,7 +137,7 @@
             this.menuLoadTemplate});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(610, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(437, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,18 +194,19 @@
             // 
             // flwQuestions
             // 
+            this.flwQuestions.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flwQuestions.Location = new System.Drawing.Point(6, 19);
             this.flwQuestions.Name = "flwQuestions";
-            this.flwQuestions.Size = new System.Drawing.Size(575, 565);
+            this.flwQuestions.Size = new System.Drawing.Size(400, 518);
             this.flwQuestions.TabIndex = 0;
             // 
             // grbFeedbackTemplate
             // 
             this.grbFeedbackTemplate.AutoSize = true;
             this.grbFeedbackTemplate.Controls.Add(this.flwQuestions);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(12, 142);
+            this.grbFeedbackTemplate.Location = new System.Drawing.Point(12, 126);
             this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
-            this.grbFeedbackTemplate.Size = new System.Drawing.Size(587, 607);
+            this.grbFeedbackTemplate.Size = new System.Drawing.Size(414, 556);
             this.grbFeedbackTemplate.TabIndex = 4;
             this.grbFeedbackTemplate.TabStop = false;
             this.grbFeedbackTemplate.Text = "Feedback Template";
@@ -215,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 654);
+            this.ClientSize = new System.Drawing.Size(437, 687);
             this.Controls.Add(this.grbFeedbackTemplate);
             this.Controls.Add(this.grbRemoveQuestion);
             this.Controls.Add(this.grbAddQuestion);

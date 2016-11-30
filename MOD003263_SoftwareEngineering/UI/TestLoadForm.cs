@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestLoadForm : Form {
-        private List<Template> _dataList = new List<Template>();
+        private List<Template> _dataList = TemplateBank.Instance().Templates;
         private int _index = -1;
         private TemplateForm _parent;
 

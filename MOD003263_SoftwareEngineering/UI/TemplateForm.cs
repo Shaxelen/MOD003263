@@ -62,6 +62,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void menuClearTemplate_Click(object sender, EventArgs e) {
             flwQuestions.Controls.Clear();
+            _template.AttachedComponents.Clear();
         }
 
         public void TemplateRequest(string type) {
