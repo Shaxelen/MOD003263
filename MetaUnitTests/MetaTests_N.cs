@@ -28,6 +28,13 @@ namespace MetaUnitTests {
 
         }
         [TestMethod]
+        public void EmailTest() {
+            EmailHandler eh = new EmailHandler("email", "password");
+            bool test = eh.SendEmail("to", "from", "subject", "body", "", new System.Net.NetworkCredential("email", "password"));
+            // Is supposed to come back false as "email" and "password" do not exist as email authentication.
+            Assert.AreEqual(false, test);
+        }
+        [TestMethod]
         public void BankTest() {
             Bank bank = Bank.Instance();
             FeedbackBank fb = FeedbackBank.Instance();
@@ -38,7 +45,9 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void DebugLoggerTest() {
-
+            Logger log = Logger.getInstance();
+            bool test = log.WriteLine("Testing Message from the Unit Test : " + DateTime.Now.ToLongTimeString());
+            Assert.AreEqual(true, test);
         }
     }
 }

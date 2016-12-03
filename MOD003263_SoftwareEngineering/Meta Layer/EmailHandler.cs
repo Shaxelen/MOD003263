@@ -12,7 +12,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
             _networkCred = new NetworkCredential(email, password);
         }
 
-        public void SendEmail(string to, string from, string subject, string body, string attachment, NetworkCredential auth) {
+        public bool SendEmail(string to, string from, string subject, string body, string attachment, NetworkCredential auth) {
             MailMessage mail = new MailMessage(from, to, subject, body);
             SmtpClient smtpServer = new SmtpClient();
 
@@ -29,8 +29,10 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 _logger.WriteLine("email was sent successfully!");
             } catch (Exception ep) {
                 _logger.WriteLine("failed to send email with the following error: " + ep.Message);
+                return false;
             }
             Console.ReadKey(true);
+            return true;
         }
     }
 }

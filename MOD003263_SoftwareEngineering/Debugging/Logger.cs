@@ -15,11 +15,16 @@ namespace MOD003263_SoftwareEngineering.Debug {
             return _instance;
         }
 
-        public void WriteLine(string log) {
-            _streamWriter = new StreamWriter("log.txt", true);
-            _streamWriter.WriteLine(DateTime.Now.ToString() + ": " + log);
+        public bool WriteLine(string log) {
+            try {
+                _streamWriter = new StreamWriter("log.txt", true);
+                _streamWriter.WriteLine(DateTime.Now.ToString() + ": " + log);
+            } catch (IOException) {
+                return false;
+            }
             _streamWriter.Close();
             _streamWriter.Dispose();
+            return true;
         }
     }
 }
