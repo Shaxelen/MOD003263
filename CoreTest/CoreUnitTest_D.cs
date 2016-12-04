@@ -24,27 +24,23 @@ namespace CoreTests {
             Template template2 = new CVTemplate();
 
             Question question = new Question();
-            Title title = new Title("Hello");
-            Comment comment = new Comment();
-            Score score = new Score();
-
-            question.Add(title);
-            question.Add(comment);
-            question.Add(score);
+            question.Title = "Hello";
+            question.Comment = "";
+            question.Score = 1;
 
             Question question2 = new Question();
-            Title title2 = new Title("Hello");
+            question2.Title = "Hello";
 
-            question2.Add(title2);
-
-            template1.Add(question);
-            template2.Add(question);
-            template2.Add(question2);
+            template1.AddQuestion(question);
+            template2.AddQuestion(question);
+            template2.AddQuestion(question2);
             Assert.AreNotEqual(template1, template2);
 
-            template2.Remove(question2);
+            template2.RemoveQuestion(question2.ID);
             Assert.AreNotEqual(template1, template2);
-            Assert.AreEqual(null, template2.GetComponent(question2));
+
+            Question testQuestion = template2.GetQuestion(2);
+            Assert.AreEqual(null, testQuestion);
         }
 
         [TestMethod]
@@ -111,55 +107,22 @@ namespace CoreTests {
             Assert.AreSame(tBank, anotherBank);
             Assert.AreSame(tBank.Templates, anotherBank.Templates);
         }
-
-        [TestMethod]
-        public void TitleTest() {
-            Title title = new Title("Hello");
-            Assert.AreEqual("Hello", title.QTitle);
-        }
-
-        [TestMethod]
-        public void CommentTest() {
-            Comment comment = new Comment();
-            comment.Comments = "Comment";
-
-            Assert.AreEqual("Comment", comment.Comments);
-        }
-
-        [TestMethod]
-        public void ScoreTest() {
-            Score score = new Score();
-            score.QScore = 6;
-
-            Assert.AreEqual(5, score.QScore);
-
-            score.QScore = 0;
-            Assert.AreEqual(1, score.QScore);
-
-            score.QScore = 3;
-            Assert.AreEqual(3, score.QScore);
-        }
-
         [TestMethod]
         public void QuestionTest() {
             Question question = new Question();
-            Title title = new Title("Hello");
-            Comment comment = new Comment();
-            Score score = new Score();
+            question.Title = "Hello";
+            question.Comment = "";
+            question.Score = 1;
 
-            question.Add(title);
-            question.Add(comment);
-            question.Add(score);
+            Assert.AreEqual("Hello", question.Title);
+            Assert.AreEqual("", question.Comment);
+            Assert.AreEqual(1, question.Score);
 
-            Assert.AreEqual(title, question.GetComponent(title));
-            Assert.AreEqual(comment, question.GetComponent(comment));
-            Assert.AreEqual(score, question.GetComponent(score));
+            question.Score = -1;
+            Assert.AreEqual(1, question.Score);
 
-            question.Remove(score);
-            Assert.AreEqual(null, question.GetComponent(score));
-
-            List<Component> compList = question.AttachedComponents;
-            Assert.AreSame(compList, question.AttachedComponents);
+            question.Score = 6;
+            Assert.AreEqual(5, question.Score);
 
             question.ID = 1;
             Assert.AreEqual(1, question.ID);
@@ -172,8 +135,8 @@ namespace CoreTests {
 
             ReferenceEquals(qCreator, qCreator2);
 
-            Question q1 = qCreator.CreateQuestion(1, "Question 1");
-            Question q2 = qCreator.CreateQuestion(2, "Question 2");
+            Question q1 = qCreator.CreateQuestion(1, "Question 1", "", 0);
+            Question q2 = qCreator.CreateQuestion(2, "Question 2", "", 0);
 
             Assert.AreNotSame(q2, q1);
         }

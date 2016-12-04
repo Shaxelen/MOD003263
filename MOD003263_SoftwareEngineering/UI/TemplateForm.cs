@@ -26,11 +26,6 @@ namespace MOD003263_SoftwareEngineering.UI {
         private GroupBox _grbQuestion;
         private TextBox _txtComment;
         private RadioButton[] _radScores = new RadioButton[5];
-        private RadioButton _radScore1;
-        private RadioButton _radScore2;
-        private RadioButton _radScore3;
-        private RadioButton _radScore4;
-        private RadioButton _radScore5;
 
         // Form Objects
         private TestSaveForm _saveForm;
@@ -53,29 +48,25 @@ namespace MOD003263_SoftwareEngineering.UI {
         #region Requesting Template
 
         private void menuCVTemplate_Click(object sender, EventArgs e) {
-            TemplateRequest("CV");
+            templateRequest("CV");
         }
 
         private void menuInterviewTemplate_Click(object sender, EventArgs e) {
-            TemplateRequest("Interview");
+            templateRequest("Interview");
         }
 
         private void menuEmployeeTemplate_Click(object sender, EventArgs e) {
-            TemplateRequest("Employee");
+            templateRequest("Employee");
         }
 
-        private void menuClearTemplate_Click(object sender, EventArgs e) {
-            flwQuestions.Controls.Clear();
-            _template.AttachedComponents.Clear();
-        }
-
-        public void TemplateRequest(string type) {
+        private void templateRequest(string type) {
             grbFeedbackTemplate.Visible = true;
             _template = _tempEditor.RequestTemplate(type);
             Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
             grbAddQuestion.Visible = true;
             grbRemoveQuestion.Visible = true;
+            grbClearQuestions.Visible = true;
         }
         #endregion
 
@@ -83,14 +74,12 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void menuSaveTemplate_Click(object sender, EventArgs e) {
             _saveForm = new TestSaveForm();
-            _saveForm.addDataList(_templateBank);
             _saveForm.Parent = this;
             _saveForm.ShowDialog();
         }
 
         private void menuLoadTemplate_Click(object sender, EventArgs e) {
             _loadForm = new TestLoadForm();
-            _loadForm.addDataList(_templateBank.Templates);
             _loadForm.Parent = this;
             _loadForm.ShowDialog();
         }
@@ -105,8 +94,8 @@ namespace MOD003263_SoftwareEngineering.UI {
         #region Creating, Adding and Removing Questions
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            if (_questionCount < 8) {
-                _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text);
+            if (_questionCount < 12) {
+                _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text, "", 0);
                 _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
                 _txtComment = CommentTextBox(_id);
                 _grbQuestion.Controls.Add(_txtComment);
@@ -115,7 +104,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                     _grbQuestion.Controls.Add(_radScores[i]);
                 }
                 flwQuestions.Controls.Add(_grbQuestion);
-                _template.Add(_question);
+                _template.AddQuestion(_question);
                 cmbQuestionID.Items.Add((_id + 1));
                 _id++;
                 _questionCount++;
@@ -125,24 +114,42 @@ namespace MOD003263_SoftwareEngineering.UI {
             txtAddQuestion.Clear();
         }
 
-        private void btnRemoveQuestion_Click(object sender, EventArgs e) {
-            int index = cmbQuestionID.SelectedIndex;
+        private bool inputCheckForLetter(string toCheck) {
+            toCheck = toCheck.ToLower();
+            return (toCheck.Contains("a") || toCheck.Contains("b") || toCheck.Contains("c") || toCheck.Contains("d") || toCheck.Contains("e")
+                 || toCheck.Contains("f") || toCheck.Contains("g") || toCheck.Contains("h") || toCheck.Contains("i") || toCheck.Contains("j")
+                  || toCheck.Contains("k") || toCheck.Contains("l") || toCheck.Contains("m") || toCheck.Contains("n") || toCheck.Contains("o")
+                   || toCheck.Contains("p") || toCheck.Contains("q") || toCheck.Contains("r") || toCheck.Contains("s") || toCheck.Contains("t")
+                    || toCheck.Contains("u") || toCheck.Contains("v") || toCheck.Contains("w") || toCheck.Contains("x") || toCheck.Contains("y")
+                     || toCheck.Contains("z"));
+        }
 
-            foreach (GroupBox g in flwQuestions.Controls) {
-                if (g.Name.Contains(Convert.ToString(index))) {
-                    flwQuestions.Controls.Remove(g);
+        private void btnRemoveQuestion_Click(object sender, EventArgs e) {
+            if (!inputCheckForLetter(cmbQuestionID.Text)) {
+                int index = int.Parse(cmbQuestionID.Text) - 1;
+                _questionCount--;
+
+                foreach (GroupBox g in flwQuestions.Controls) {
+                    if (g.Name.Contains(Convert.ToString(index))) {
+                        flwQuestions.Controls.Remove(g);
+                    }
                 }
-            }
-            Core.Component compToRemove = null;
-            foreach (Question q in _template.AttachedComponents) {
-                if (q.ID == index) {
-                    compToRemove = q;
-                    break;
+                Question compToRemove = null;
+                foreach (Question q in _template.Questions) {
+                    if (q.ID == index) {
+                        compToRemove = q;
+                        break;
+                    }
                 }
+                _template.RemoveQuestion(compToRemove.ID);
+                cmbQuestionID.Items.Remove(index);
+                updateComboBox();
             }
-            _template.Remove(compToRemove);
-            cmbQuestionID.Items.Remove(index);
-            updateComboBox();
+            else {
+                MessageBox.Show("Question Number should not contain Letters!");
+                cmbQuestionID.Text = "";
+                cmbQuestionID.Focus();
+            }
         }
 
         /// <summary>
@@ -166,16 +173,16 @@ namespace MOD003263_SoftwareEngineering.UI {
             List<GroupBox> grp = findAllGrps();
             int questIndex = 0;
             cmbQuestionID.Items.Clear();
-            foreach(Question q in _template.AttachedComponents) {
+            foreach(Question q in _template.Questions) {
                 foreach (GroupBox g in grp) {
                     if (g.Name.Contains(q.ID.ToString())) {
                         g.Name = "grbQuestion " + questIndex;
-                        g.Text = "Question " + (questIndex + 1) + ": ";
+                        g.Text = "Question " + (questIndex + 1) + ": " + q.Title;
                         break;
                     }
                 }
-                q.ID = questIndex + 1;
-                cmbQuestionID.Items.Add(q.ID);
+                q.ID = questIndex;
+                cmbQuestionID.Items.Add(q.ID + 1);
                 questIndex++;
             }
             _id = questIndex;
@@ -236,5 +243,22 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         #endregion
+
+        private void TemplateForm_FormClosing(object sender, FormClosingEventArgs e) {
+            ScreenForm sf = (ScreenForm)MdiParent;
+            sf.TemplateForm = null;
+        }
+
+        private void btnClearQuestions_Click(object sender, EventArgs e) {
+            flwQuestions.Controls.Clear();
+            _template.Questions.Clear();
+            _questionCount = 0;
+            _id = 0;
+        }
+
+        public Template CurrentTemplate {
+            get { return _template; }
+            set { _template = value; }
+        }
     }
 }

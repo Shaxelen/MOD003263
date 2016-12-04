@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
-    public abstract class Template : ComponentManager {
+    public abstract class Template {
         protected string _templateName;
         protected string _templateType;
+        private List<Question> _questions = new List<Question>();
 
         /// <summary>
         /// Template constructor
@@ -28,6 +29,27 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public string TemplateType {
             get { return _templateType; }
+        }
+
+        public void AddQuestion(Question question) {
+            _questions.Add(question);
+        }
+
+        public Question GetQuestion(int id) {
+            foreach (Question q in _questions) {
+                if (q.ID == id) {
+                    return q;
+                }
+            }
+            return null;
+        }
+
+        public void RemoveQuestion(int id) {
+            _questions.Remove(GetQuestion(id));
+        }
+
+        public List<Question> Questions {
+            get { return _questions; }
         }
     }
 

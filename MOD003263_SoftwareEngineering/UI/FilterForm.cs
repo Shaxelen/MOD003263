@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MOD003263_SoftwareEngineering {
+namespace MOD003263_SoftwareEngineering.UI {
     public partial class FilterForm : Form {
         public FilterForm() {
             InitializeComponent();
@@ -28,6 +28,11 @@ namespace MOD003263_SoftwareEngineering {
 
         private void btnEmail_Click(object sender, EventArgs e) {
 
+        }
+
+        private void FilterForm_FormClosing(object sender, FormClosingEventArgs e) {
+            ScreenForm sf = (ScreenForm)MdiParent;
+            sf.FilterForm = null;
         }
     }
 }

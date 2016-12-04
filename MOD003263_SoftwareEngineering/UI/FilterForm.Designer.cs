@@ -1,4 +1,4 @@
-﻿namespace MOD003263_SoftwareEngineering {
+﻿namespace MOD003263_SoftwareEngineering.UI {
     partial class FilterForm {
         /// <summary>
         /// Required designer variable.
@@ -25,6 +25,11 @@
         private void InitializeComponent() {
             this.lstFeedbackList = new System.Windows.Forms.ListBox();
             this.grbPersonData = new System.Windows.Forms.GroupBox();
+            this.txtAdditionalComments = new System.Windows.Forms.TextBox();
+            this.lblAdditionalComments = new System.Windows.Forms.Label();
+            this.lblTotalScore = new System.Windows.Forms.Label();
+            this.txtTotalScore = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -32,11 +37,6 @@
             this.lblPosAppliedFor = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReject = new System.Windows.Forms.Button();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtTotalScore = new System.Windows.Forms.TextBox();
-            this.lblTotalScore = new System.Windows.Forms.Label();
-            this.lblAdditionalComments = new System.Windows.Forms.Label();
-            this.txtAdditionalComments = new System.Windows.Forms.TextBox();
             this.btnEmail = new System.Windows.Forms.Button();
             this.grbPersonData.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,45 @@
             this.grbPersonData.TabIndex = 1;
             this.grbPersonData.TabStop = false;
             this.grbPersonData.Text = "Person Data";
+            // 
+            // txtAdditionalComments
+            // 
+            this.txtAdditionalComments.Location = new System.Drawing.Point(130, 124);
+            this.txtAdditionalComments.Name = "txtAdditionalComments";
+            this.txtAdditionalComments.Size = new System.Drawing.Size(138, 20);
+            this.txtAdditionalComments.TabIndex = 9;
+            // 
+            // lblAdditionalComments
+            // 
+            this.lblAdditionalComments.AutoSize = true;
+            this.lblAdditionalComments.Location = new System.Drawing.Point(7, 127);
+            this.lblAdditionalComments.Name = "lblAdditionalComments";
+            this.lblAdditionalComments.Size = new System.Drawing.Size(105, 13);
+            this.lblAdditionalComments.TabIndex = 8;
+            this.lblAdditionalComments.Text = "Additional Comments";
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.Location = new System.Drawing.Point(7, 100);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(62, 13);
+            this.lblTotalScore.TabIndex = 7;
+            this.lblTotalScore.Text = "Total Score";
+            // 
+            // txtTotalScore
+            // 
+            this.txtTotalScore.Location = new System.Drawing.Point(130, 97);
+            this.txtTotalScore.Name = "txtTotalScore";
+            this.txtTotalScore.Size = new System.Drawing.Size(138, 20);
+            this.txtTotalScore.TabIndex = 6;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(130, 70);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(138, 20);
+            this.txtLastName.TabIndex = 5;
             // 
             // lblLastName
             // 
@@ -130,45 +169,6 @@
             this.btnReject.UseVisualStyleBackColor = true;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(130, 70);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(138, 20);
-            this.txtLastName.TabIndex = 5;
-            // 
-            // txtTotalScore
-            // 
-            this.txtTotalScore.Location = new System.Drawing.Point(130, 97);
-            this.txtTotalScore.Name = "txtTotalScore";
-            this.txtTotalScore.Size = new System.Drawing.Size(138, 20);
-            this.txtTotalScore.TabIndex = 6;
-            // 
-            // lblTotalScore
-            // 
-            this.lblTotalScore.AutoSize = true;
-            this.lblTotalScore.Location = new System.Drawing.Point(7, 100);
-            this.lblTotalScore.Name = "lblTotalScore";
-            this.lblTotalScore.Size = new System.Drawing.Size(62, 13);
-            this.lblTotalScore.TabIndex = 7;
-            this.lblTotalScore.Text = "Total Score";
-            // 
-            // lblAdditionalComments
-            // 
-            this.lblAdditionalComments.AutoSize = true;
-            this.lblAdditionalComments.Location = new System.Drawing.Point(7, 127);
-            this.lblAdditionalComments.Name = "lblAdditionalComments";
-            this.lblAdditionalComments.Size = new System.Drawing.Size(105, 13);
-            this.lblAdditionalComments.TabIndex = 8;
-            this.lblAdditionalComments.Text = "Additional Comments";
-            // 
-            // txtAdditionalComments
-            // 
-            this.txtAdditionalComments.Location = new System.Drawing.Point(130, 124);
-            this.txtAdditionalComments.Name = "txtAdditionalComments";
-            this.txtAdditionalComments.Size = new System.Drawing.Size(138, 20);
-            this.txtAdditionalComments.TabIndex = 9;
-            // 
             // btnEmail
             // 
             this.btnEmail.Location = new System.Drawing.Point(282, 232);
@@ -191,6 +191,7 @@
             this.Controls.Add(this.lstFeedbackList);
             this.Name = "FilterForm";
             this.Text = "FilterForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FilterForm_FormClosing);
             this.grbPersonData.ResumeLayout(false);
             this.grbPersonData.PerformLayout();
             this.ResumeLayout(false);

@@ -19,14 +19,10 @@ namespace MetaUnitTests {
             Bank bank = Bank.Instance();
             Template template = new CVTemplate();
             Question q = new Question();
-            Score sc = new Score();
-            sc.QScore = 3;
-            Title tl = new Title("Test");
-            Comment cm = new Comment();
-            cm.Comments = "Test Comment";
-            q.Add(sc);
-            q.Add(tl);
-            q.Add(cm);
+            q.Score = 3;
+            q.Title = "Test";
+            q.Comment = "Test Comment";
+            template.AddQuestion(q);
             bank.Templates.Add("TempTest", template);
 
             bool test = ts.SaveTemplateBank(bank);
@@ -41,16 +37,11 @@ namespace MetaUnitTests {
             //Make Template to Save
             Template template = new CVTemplate();
             Question q = new Question();
-            Score sc = new Score();
-            sc.QScore = 3;
-            Title tl = new Title("Test");
-            Comment cm = new Comment();
-            cm.Comments = "Test Comment";
-            q.Add(sc);
-            q.Add(tl);
-            q.Add(cm);
+            q.Score = 3;
+            q.Title = "Test";
+            q.Comment = "Test Comment";
             for (int i = 0; i < 5; i++) {
-                template.Add(q);
+                template.AddQuestion(q);
             }
 
             //Make Employee

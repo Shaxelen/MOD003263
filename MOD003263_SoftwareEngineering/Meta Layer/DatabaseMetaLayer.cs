@@ -29,7 +29,6 @@ namespace MOD003263_SoftwareEngineering.Meta {
         public List<Employee> GetEmployees() {
             List<Employee> employees = new List<Employee>();
             OleDbCommand cmd = new OleDbCommand("SELECT * FROM Person WHERE PersonIsEmployee=true", _connection);
-            //cmd.Connection = _connection;
             _connection.Open();
             if (_connection.State == ConnectionState.Open) {
                 try {
@@ -60,7 +59,6 @@ namespace MOD003263_SoftwareEngineering.Meta {
         public List<Applicant> GetApplicants() {
             List<Applicant> applicants = new List<Applicant>();
             OleDbCommand cmd = new OleDbCommand("SELECT * FROM Person WHERE PersonIsEmployee=false", _connection);
-            //cmd.Connection = _connection;
             _connection.Open();
             if (_connection.State == ConnectionState.Open) {
                 try {
@@ -122,7 +120,6 @@ namespace MOD003263_SoftwareEngineering.Meta {
             try {
                 OleDbCommand cmd = new OleDbCommand("INSERT INTO Person (PersonFirstName, PersonLastName, PersonEmailAddress, PersonPhoneNumber, PersonIsEmployee, PersonPosition)" +
                     " VALUES ('" + p.FirstName + "', '" + p.LastName + "', '" + p.EmailAddress + "', '" + p.PhoneNumber + "', " + isEmployee + ", '" + position + "');", _connection);
-                cmd.Connection = _connection; // Check if im needed
                 _connection.Open();
                 if (_connection.State == ConnectionState.Open) {
                     try {

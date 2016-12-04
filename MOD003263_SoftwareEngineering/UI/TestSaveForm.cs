@@ -11,24 +11,36 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestSaveForm : Form {
-        private TemplateBank _tempBank = TemplateBank.Instance();
+        private Bank _bank = Bank.Instance();
         private TemplateForm _parent;
 
         public new TemplateForm Parent { get { return _parent; } set { _parent = value; } }
 
         public TestSaveForm() {
             InitializeComponent();
+            addDataList();
         }
 
-        public void addDataList(TemplateBank data) {
-            _tempBank = data;
-            foreach (Template s in data.Templates) {
-                lstData.Items.Add(s.TemplateName);
+        private void addDataList() {
+            foreach (Template t in _bank.Templates.Templates) {
+                lstData.Items.Add(t.TemplateName);
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             lstData.Items.Add(txtName.Text);
+            Template tem = Parent.CurrentTemplate;
+            tem.TemplateName = txtName.Text;
+            if (_bank.Templates.Load(txtName.Text).TemplateName == tem.TemplateName) {
+                Template old = _bank.Templates.Load(txtName.Text);
+                if (null != old) { saveOver(old, tem); }
+                else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
+            }
+            _bank.Templates.Templates.Add(tem);
+        }
+
+        private void saveOver(Template old, Template neww) {
+
         }
     }
 }

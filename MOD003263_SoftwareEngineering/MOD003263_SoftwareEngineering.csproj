@@ -51,21 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core Layer\Bank.cs" />
-    <Compile Include="Core Layer\Comment.cs" />
-    <Compile Include="Core Layer\Component.cs" />
-    <Compile Include="Core Layer\ComponentManager.cs" />
     <Compile Include="Core Layer\Feedback.cs" />
     <Compile Include="Core Layer\FeedbackBank.cs" />
     <Compile Include="Core Layer\FeedbackFilter.cs" />
     <Compile Include="Core Layer\Person.cs" />
     <Compile Include="Core Layer\Question.cs" />
     <Compile Include="Core Layer\QuestionCreator.cs" />
-    <Compile Include="Core Layer\Score.cs" />
     <Compile Include="Core Layer\Template.cs" />
     <Compile Include="Core Layer\TemplateBank.cs" />
     <Compile Include="Core Layer\TemplateEditor.cs" />
     <Compile Include="Core Layer\TemplateFactory.cs" />
-    <Compile Include="Core Layer\Title.cs" />
     <Compile Include="Debugging\Logger.cs" />
     <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
     <Compile Include="Meta Layer\EmailHandler.cs" />
@@ -90,6 +85,12 @@
     </Compile>
     <Compile Include="UI\MainMenuForm.designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ScreenForm.Designer.cs">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\TemplateForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +128,9 @@
     <EmbeddedResource Include="UI\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ScreenForm.resx">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\TemplateForm.resx">
       <DependentUpon>TemplateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExternalDLLs\itextsharp.dll" />
-    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

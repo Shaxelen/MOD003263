@@ -84,7 +84,7 @@
             // menuLoadTemp
             // 
             this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
+            this.menuLoadTemp.Size = new System.Drawing.Size(123, 22);
             this.menuLoadTemp.Text = "Template";
             this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
             // 
@@ -94,7 +94,7 @@
             this.menuLoadApplicant,
             this.menuLoadEmployee});
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.personToolStripMenuItem.Text = "Person";
             // 
             // menuLoadApplicant
@@ -123,14 +123,14 @@
             // menuSave
             // 
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(152, 22);
+            this.menuSave.Size = new System.Drawing.Size(114, 22);
             this.menuSave.Text = "Save";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // menuSaveAs
             // 
             this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.menuSaveAs.Size = new System.Drawing.Size(114, 22);
             this.menuSaveAs.Text = "Save As";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
@@ -146,14 +146,14 @@
             // menuClearHeader
             // 
             this.menuClearHeader.Name = "menuClearHeader";
-            this.menuClearHeader.Size = new System.Drawing.Size(152, 22);
+            this.menuClearHeader.Size = new System.Drawing.Size(124, 22);
             this.menuClearHeader.Text = "Header";
             this.menuClearHeader.Click += new System.EventHandler(this.menuClearHeader_Click);
             // 
             // menuClearFeedback
             // 
             this.menuClearFeedback.Name = "menuClearFeedback";
-            this.menuClearFeedback.Size = new System.Drawing.Size(152, 22);
+            this.menuClearFeedback.Size = new System.Drawing.Size(124, 22);
             this.menuClearFeedback.Text = "Feedback";
             this.menuClearFeedback.Click += new System.EventHandler(this.menuClearFeedback_Click);
             // 
@@ -342,6 +342,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FeedbackForm";
             this.Text = "FeedbackForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grbFeedbackTemplate.ResumeLayout(false);

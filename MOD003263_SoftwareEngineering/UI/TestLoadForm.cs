@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestLoadForm : Form {
-        private List<Template> _dataList = TemplateBank.Instance().Templates;
+        private Bank _bank = Bank.Instance();
         private int _index = -1;
         private TemplateForm _parent;
 
@@ -19,17 +19,17 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         public TestLoadForm() {
             InitializeComponent();
+            addDataList();
         }
 
-        public void addDataList(List<Template> datas) {
-            _dataList = datas;
-            foreach (Template s in datas) {
+        private void addDataList() {
+            foreach (Template s in _bank.Templates.Templates) {
                 lstTest.Items.Add(s.TemplateName);
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e) {
-            if (_index != -1) {
+            if (_index != -1 && _index < lstTest.Items.Count) {
                 string a = lstTest.Items[_index].ToString();
                 _parent.RetrieveTemplate(a);
                 this.Close();

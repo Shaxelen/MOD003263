@@ -49,5 +49,10 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void menuClearFeedback_Click(object sender, EventArgs e) {
 
         }
+
+        private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
+            ScreenForm sf = (ScreenForm)MdiParent;
+            sf.FeedbackForm = null;
+        }
     }
 }

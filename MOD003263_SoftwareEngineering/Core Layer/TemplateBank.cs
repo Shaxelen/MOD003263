@@ -43,12 +43,10 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// <param name="templateName">The name of the template to load</param>
         /// <returns></returns>
         public Template Load(string templateName) {
-            // Retrieve template from bank
             Template temp = null;
-
-            for (int i = 0; i < _templateList.Count; i++) {
-                if (_templateList[i].TemplateName == templateName) {
-                    temp = _templateList[i];
+            foreach (Template t in _templateList) {
+                if (t.TemplateName == templateName) {
+                    temp = t;
                     return temp;
                 }
             }
