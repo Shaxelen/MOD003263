@@ -67,10 +67,8 @@
     <Compile Include="Core Layer\TemplateFactory.cs" />
     <Compile Include="Core Layer\Title.cs" />
     <Compile Include="Debugging\Logger.cs" />
-    <Compile Include="Meta Layer\DatabaseFactory.cs" />
     <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
     <Compile Include="Meta Layer\EmailHandler.cs" />
-    <Compile Include="Meta Layer\OleDatabaseConnection.cs" />
     <Compile Include="Meta Layer\PDFConvert.cs" />
     <Compile Include="Meta Layer\TemplateSerialization.cs" />
     <Compile Include="Program.cs" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public class Title : Component {
         private string _title;
 

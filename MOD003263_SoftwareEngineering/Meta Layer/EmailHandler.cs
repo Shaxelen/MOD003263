@@ -6,24 +6,24 @@ using MOD003263_SoftwareEngineering.Debug;
 namespace MOD003263_SoftwareEngineering.Meta {
     public class EmailHandler {
         private NetworkCredential _networkCred;
-        private Logger _logger = Logger.getInstance();
+        private Logger _logger = Logger.Instance();
 
-        public EmailHandler(string email, string password) {
-            _networkCred = new NetworkCredential(email, password);
+        public EmailHandler(NetworkCredential NetworkCredentials) {
+            _networkCred = NetworkCredentials;
         }
 
-        public bool SendEmail(string to, string from, string subject, string body, string attachment, NetworkCredential auth) {
-            MailMessage mail = new MailMessage(from, to, subject, body);
-            SmtpClient smtpServer = new SmtpClient();
-
-            smtpServer.Host = "smtp-mail.outlook.com";
-            smtpServer.Credentials = _networkCred;
-            smtpServer.EnableSsl = true;
-            smtpServer.Port = 587;
-
-            mail.Attachments.Add(new Attachment(attachment));
-
+        public bool SendEmail(string to, string from, string subject, string body, string attachment) {
             try {
+                MailMessage mail = new MailMessage(from, to, subject, body);
+                SmtpClient smtpServer = new SmtpClient();
+
+                smtpServer.Host = "smtp-mail.outlook.com";
+                smtpServer.Credentials = _networkCred;
+                smtpServer.EnableSsl = true;
+                smtpServer.Port = 587;
+
+                mail.Attachments.Add(new Attachment(attachment));
+
                 _logger.WriteLine("start to send email directly ...");
                 smtpServer.Send(mail);
                 _logger.WriteLine("email was sent successfully!");
@@ -31,7 +31,6 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 _logger.WriteLine("failed to send email with the following error: " + ep.Message);
                 return false;
             }
-            Console.ReadKey(true);
             return true;
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public class TemplateBank {
         private static List<Template> _templateList = new List<Template>();
         private static TemplateBank _instance = null;

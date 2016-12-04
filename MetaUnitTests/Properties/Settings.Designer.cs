@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOD003263_SoftwareEngineering.Properties {
+namespace MetaUnitTests.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,15 +20,6 @@ namespace MOD003263_SoftwareEngineering.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.15.0;Data Source=persons.accdb")]
-        public string ConnectionString {
-            get {
-                return ((string)(this["ConnectionString"]));
             }
         }
     }

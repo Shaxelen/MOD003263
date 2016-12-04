@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public class Question : ComponentManager {
         private int _questionID;
 

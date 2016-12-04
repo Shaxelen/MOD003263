@@ -8,7 +8,7 @@ namespace MOD003263_SoftwareEngineering.Debug {
 
         private Logger() { }
 
-        public static Logger getInstance() {
+        public static Logger Instance() {
             if (null == _instance) {
                 _instance = new Logger();
             }
