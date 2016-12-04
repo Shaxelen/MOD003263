@@ -25,6 +25,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         // Question Form Objects
         private GroupBox _grbQuestion;
         private TextBox _txtComment;
+        private RadioButton[] _radScores = new RadioButton[5];
         private RadioButton _radScore1;
         private RadioButton _radScore2;
         private RadioButton _radScore3;
@@ -34,6 +35,9 @@ namespace MOD003263_SoftwareEngineering.UI {
         // Form Objects
         private TestSaveForm _saveForm;
         private TestLoadForm _loadForm;
+
+        //Counter Object
+        private int _questionCount = 0;
 
         public TemplateForm() {
             InitializeComponent();
@@ -101,28 +105,24 @@ namespace MOD003263_SoftwareEngineering.UI {
         #region Creating, Adding and Removing Questions
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
-            _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text);
-            _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
-            _txtComment = CommentTextBox(_id);
-            _radScore1 = Score(_id, 1, 6, 81);
-            _radScore2 = Score(_id, 2, 43, 81);
-            _radScore3 = Score(_id, 3, 80, 81);
-            _radScore4 = Score(_id, 4, 117, 81);
-            _radScore5 = Score(_id, 5, 154, 81);
-
-            _grbQuestion.Controls.Add(_txtComment);
-            _grbQuestion.Controls.Add(_radScore1);
-            _grbQuestion.Controls.Add(_radScore2);
-            _grbQuestion.Controls.Add(_radScore3);
-            _grbQuestion.Controls.Add(_radScore4);
-            _grbQuestion.Controls.Add(_radScore5);
-
-            flwQuestions.Controls.Add(_grbQuestion);
-            _template.Add(_question);
-            cmbQuestionID.Items.Add(_id);
-            _id++;
+            if (_questionCount < 8) {
+                _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text);
+                _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
+                _txtComment = CommentTextBox(_id);
+                _grbQuestion.Controls.Add(_txtComment);
+                for (int i = 0; i < 5; i++) {
+                    _radScores[i] = Score(_id, i+1, 6 + (i * 37), 81);
+                    _grbQuestion.Controls.Add(_radScores[i]);
+                }
+                flwQuestions.Controls.Add(_grbQuestion);
+                _template.Add(_question);
+                cmbQuestionID.Items.Add((_id + 1));
+                _id++;
+                _questionCount++;
+            } else {
+                MessageBox.Show("Cannot Fit anymore Questions on Template");
+            }
             txtAddQuestion.Clear();
-
         }
 
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
@@ -170,10 +170,11 @@ namespace MOD003263_SoftwareEngineering.UI {
                 foreach (GroupBox g in grp) {
                     if (g.Name.Contains(q.ID.ToString())) {
                         g.Name = "grbQuestion " + questIndex;
+                        g.Text = "Question " + (questIndex + 1) + ": ";
                         break;
                     }
                 }
-                q.ID = questIndex;
+                q.ID = questIndex + 1;
                 cmbQuestionID.Items.Add(q.ID);
                 questIndex++;
             }
@@ -194,7 +195,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             grbBox.Size = new Size(195, 120);
             grbBox.TabIndex = 1;
             grbBox.TabStop = false;
-            grbBox.Text = text;
+            grbBox.Text = "Question " + (id + 1) + ": " + text;
             return grbBox;
         }
 
