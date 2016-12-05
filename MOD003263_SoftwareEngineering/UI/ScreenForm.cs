@@ -13,6 +13,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private TemplateForm _templateForm;
         private FeedbackForm _feedbackForm;
         private FilterForm _filterForm;
+        private QuestionCreatorForm _questionForm;
 
         public ScreenForm() {
             InitializeComponent();
@@ -54,6 +55,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             menuItemTemplate.Visible = value;
             menuItemFeedback.Visible = value;
             menuItemFilter.Visible = value;
+            menuItemQuestion.Visible = value;
         }
 
         public TemplateForm TemplateForm {
@@ -77,6 +79,16 @@ namespace MOD003263_SoftwareEngineering.UI {
                 if (null == _filterForm) {
                     showScreenMenu(true);
                 }
+            }
+        }
+
+        private void menuItemQuestion_Click(object sender, EventArgs e) {
+            if (null == _questionForm) {
+                _questionForm = new QuestionCreatorForm();
+                _questionForm.MdiParent = this;
+                _questionForm.WindowState = FormWindowState.Maximized;
+                showScreenMenu(false);
+                _questionForm.Show();
             }
         }
     }

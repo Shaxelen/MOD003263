@@ -14,12 +14,13 @@ namespace MOD003263_SoftwareEngineering.Meta {
         static private DatabaseMetaLayer m_instance = null;
         private OleDbConnection _connection = new OleDbConnection();
         private Logger _logger = Logger.Instance();
+        private Property _property = Property.Instance;
 
         private DatabaseMetaLayer() {
-            _connection.ConnectionString = Properties.Settings.Default.ConnectionString;
+            _connection.ConnectionString = _property.ConnectionString;
         }
 
-            static public DatabaseMetaLayer Instance() {
+        static public DatabaseMetaLayer Instance() {
             if (null == m_instance) {
                 m_instance = new DatabaseMetaLayer();
             }

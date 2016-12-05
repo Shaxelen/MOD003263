@@ -31,14 +31,12 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// <param name="templateName">The name of the template to load</param>
         /// <returns></returns>
         public Template Load(string templateName) {
-            Template temp = null;
             foreach (Template t in _templateList) {
                 if (t.TemplateName == templateName) {
-                    temp = t;
-                    return temp;
+                    return t;
                 }
             }
-            return temp;
+            return null;
         }
 
         /// <summary>

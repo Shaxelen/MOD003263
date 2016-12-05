@@ -9,40 +9,43 @@ namespace MOD003263_SoftwareEngineering.Core {
     public class FeedbackBank {
         private static List<Feedback> _feedbackList = new List<Feedback>();
 
-        /// <summary>
-        /// FeedbackBank Constructor
-        /// </summary>
         public FeedbackBank() { }
 
-        /// <summary>
-        /// Adds a feedback to the feedbackBank
-        /// </summary>
-        /// <param name="feedback">The feedback to add</param>
         public void Add(Feedback feedback) {
             _feedbackList.Add(feedback);
         }
 
-        /// <summary>
-        /// Returns the list of feedbacks
-        /// </summary>
         public List<Feedback> FeedbackList {
             get { return _feedbackList; }
         }
 
-        /// <summary>
-        /// Finds a feedback by the title
-        /// </summary>
-        /// <param name="title">The title of thee feedback to find</param>
-        /// <returns></returns>
         public Feedback FindFeedback(string title) {
-            Feedback temp = null;
             foreach (Feedback f in _feedbackList) {
                 if (f.Title == title) {
-                    temp = f;
+                    return f;
+                }
+            }
+            return null;
+        }
+
+        public void Remove(string title) {
+            Feedback temp = null;
+            for (int i = 0; i < _feedbackList.Count; i++) {
+                if (_feedbackList[i].Title == title) {
+                    temp = _feedbackList[i];
                     break;
                 }
             }
-            return temp;
+            _feedbackList.Remove(temp);
+        }
+
+        public void Update(string title, Feedback feedback) {
+            for (int i = 0; i < _feedbackList.Count; i++) {
+                if (_feedbackList[i].Title == title) {
+                    _feedbackList[i] = feedback;
+                    break;
+                }
+            }
         }
     }
 }

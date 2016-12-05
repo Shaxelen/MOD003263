@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MOD003263_SoftwareEngineering.Meta;
 
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class Bank {
+        private static FeedbackSerializer _serializer = new FeedbackSerializer();
         private FeedbackBank _feedbackBank = new FeedbackBank();
         private TemplateBank _templateBank = new TemplateBank();
         private CategoryBank _categoryBank = new CategoryBank();
+        private ApplicantBank _applicantBank = new ApplicantBank();
         private static Bank _instance = null;
 
         /// <summary>
@@ -26,6 +29,14 @@ namespace MOD003263_SoftwareEngineering.Core {
                 _instance = new Bank();
             }
             return _instance;
+        }
+
+        public void SaveBank() {
+            _serializer.Save(this);
+        }
+
+        public void LoadBank() {
+            _instance = _serializer.Load();
         }
 
         /// <summary>
@@ -46,6 +57,13 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public CategoryBank Categories {
             get { return _categoryBank; }
+        }
+
+        /// <summary>
+        /// Returns the Applicant Bank
+        /// </summary>
+        public ApplicantBank Applicants {
+            get { return _applicantBank; }
         }
     }
 }

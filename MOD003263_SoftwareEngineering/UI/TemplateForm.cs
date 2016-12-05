@@ -57,6 +57,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             grbFeedbackTemplate.Visible = true;
             _template = new Template();
             Text = _template.TemplateName;
+            _template.TemplateType = type;
             grbFeedbackTemplate.Visible = true;
             grbAddQuestion.Visible = true;
             grbRemoveQuestion.Visible = true;
