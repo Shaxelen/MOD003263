@@ -8,23 +8,11 @@ namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class FeedbackBank {
         private static List<Feedback> _feedbackList = new List<Feedback>();
-        private static FeedbackBank _instance = null;
 
         /// <summary>
         /// FeedbackBank Constructor
         /// </summary>
-        private FeedbackBank() { }
-
-        /// <summary>
-        /// The static instance of FeedbackBank
-        /// </summary>
-        /// <returns>FeedbackBank instance</returns>
-        public static FeedbackBank Instance() {
-            if (null == _instance) {
-                _instance = new FeedbackBank();
-            }
-            return _instance;
-        }
+        public FeedbackBank() { }
 
         /// <summary>
         /// Adds a feedback to the feedbackBank
@@ -49,7 +37,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         public Feedback FindFeedback(string title) {
             Feedback temp = null;
             foreach (Feedback f in _feedbackList) {
-                if (f.GetTitle == title) {
+                if (f.Title == title) {
                     temp = f;
                     break;
                 }

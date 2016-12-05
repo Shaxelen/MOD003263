@@ -37,7 +37,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 foreach (Question q in template.Questions) {
                     document.Add(new Paragraph("Question " + a));
                     document.Add(new Paragraph(q.Title + ": " + q.Score + "/5"));
-                    document.Add(new Paragraph(q.Comment));
+                    document.Add(new Paragraph(q.PickedFeedback));
                     document.Add(new Paragraph(" "));
                     a++;
                 }
@@ -74,7 +74,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 foreach (Question q in template.Questions) {
                     document.Add(new Paragraph("Question " + a));
                     document.Add(new Paragraph(q.Title + ": " + q.Score + "/5"));
-                    document.Add(new Paragraph(q.Comment));
+                    document.Add(new Paragraph(q.PickedFeedback));
                     document.Add(new Paragraph(" "));
                     a++;
                 }

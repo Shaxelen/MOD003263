@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class Bank {
-        private FeedbackBank _feedbackBank = FeedbackBank.Instance();
-        private TemplateBank _templateBank = TemplateBank.Instance();
+        private FeedbackBank _feedbackBank = new FeedbackBank();
+        private TemplateBank _templateBank = new TemplateBank();
+        private CategoryBank _categoryBank = new CategoryBank();
         private static Bank _instance = null;
 
         /// <summary>
-        /// Bank Constructor
+        /// The Constructor for Bank
         /// </summary>
         private Bank() { }
 
         /// <summary>
-        /// A static instance of Bank
+        /// Returns the Current instance of Bank if it exists, if it doesnt, it makes a new instance and returns that.
         /// </summary>
-        /// <returns>Bank instance</returns>
+        /// <returns>Returns the current Instance of Bank</returns>
         public static Bank Instance() {
             if (null == _instance) {
                 _instance = new Bank();
@@ -28,17 +29,23 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         /// <summary>
-        /// Returns FeedbackBank
+        /// Returns the Feedback Bank
         /// </summary>
         public FeedbackBank Feedbacks {
             get { return _feedbackBank; }
         }
 
         /// <summary>
-        /// Returns TemplateBank
+        /// Returns the Template Bank
         /// </summary>
         public TemplateBank Templates {
             get { return _templateBank; }
+        }
+        /// <summary>
+        /// Returns the Category Bank
+        /// </summary>
+        public CategoryBank Categories {
+            get { return _categoryBank; }
         }
     }
 }

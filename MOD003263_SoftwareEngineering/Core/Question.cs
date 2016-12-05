@@ -10,7 +10,8 @@ namespace MOD003263_SoftwareEngineering.Core {
         private int _questionID;
         private string _title;
         private int _score;
-        private string _comment;
+        private string[] _feedbackList = new string[5];
+        private string _pickedFeedback;
 
         /// <summary>
         /// Question Constructor
@@ -42,9 +43,14 @@ namespace MOD003263_SoftwareEngineering.Core {
             }
         }
 
-        public string Comment {
-            get { return _comment; }
-            set { _comment = value; }
+        public string[] FeedbackList {
+            get { return _feedbackList; }
+            set { _feedbackList = value; }
+        }
+
+        public string PickedFeedback {
+            get { return _pickedFeedback; }
+            set { _pickedFeedback = value; }
         }
     }
 }

@@ -12,8 +12,6 @@ using MOD003263_SoftwareEngineering.Core;
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TemplateForm : Form {
         // Template Objects
-        private TemplateFactory _templateFactory;
-        private TemplateEditor _tempEditor;
         private Template _template;
         private TemplateBank _templateBank;
 
@@ -39,9 +37,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void Start() {
-            _templateFactory = new TemplateFactory();
-            _tempEditor = new TemplateEditor(_templateFactory);
-            _templateBank = TemplateBank.Instance();
+            _templateBank = Bank.Instance().Templates;
         }
         #region Requesting Template
 
@@ -59,7 +55,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void templateRequest(string type) {
             grbFeedbackTemplate.Visible = true;
-            _template = _tempEditor.RequestTemplate(type);
+            _template = new Template();
             Text = _template.TemplateName;
             grbFeedbackTemplate.Visible = true;
             grbAddQuestion.Visible = true;

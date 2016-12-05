@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class QuestionCreation {
+    partial class QuestionCreatorForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -27,20 +27,20 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.grbGenericFeedback = new System.Windows.Forms.GroupBox();
+            this.lblScoreFour = new System.Windows.Forms.Label();
+            this.lblScoreFive = new System.Windows.Forms.Label();
+            this.lblScoreThree = new System.Windows.Forms.Label();
+            this.lblScoreTwo = new System.Windows.Forms.Label();
+            this.lblScoreOne = new System.Windows.Forms.Label();
+            this.txtGenericFive = new System.Windows.Forms.TextBox();
+            this.txtGenericThree = new System.Windows.Forms.TextBox();
+            this.txtGenericTwo = new System.Windows.Forms.TextBox();
+            this.txtGenericFour = new System.Windows.Forms.TextBox();
             this.txtGenericOne = new System.Windows.Forms.TextBox();
             this.txtQuestion = new System.Windows.Forms.TextBox();
             this.lstCategoryList = new System.Windows.Forms.ListBox();
             this.btnAddCategory = new System.Windows.Forms.Button();
-            this.txtGenericFour = new System.Windows.Forms.TextBox();
-            this.txtGenericTwo = new System.Windows.Forms.TextBox();
-            this.txtGenericThree = new System.Windows.Forms.TextBox();
-            this.txtGenericFive = new System.Windows.Forms.TextBox();
             this.btnAddQuestion = new System.Windows.Forms.Button();
-            this.lblScoreOne = new System.Windows.Forms.Label();
-            this.lblScoreTwo = new System.Windows.Forms.Label();
-            this.lblScoreThree = new System.Windows.Forms.Label();
-            this.lblScoreFive = new System.Windows.Forms.Label();
-            this.lblScoreFour = new System.Windows.Forms.Label();
             this.grbGenericFeedback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +87,83 @@
             this.grbGenericFeedback.TabIndex = 4;
             this.grbGenericFeedback.TabStop = false;
             // 
+            // lblScoreFour
+            // 
+            this.lblScoreFour.AutoSize = true;
+            this.lblScoreFour.Location = new System.Drawing.Point(3, 307);
+            this.lblScoreFour.Name = "lblScoreFour";
+            this.lblScoreFour.Size = new System.Drawing.Size(64, 13);
+            this.lblScoreFour.TabIndex = 2;
+            this.lblScoreFour.Text = "Feedback 4";
+            // 
+            // lblScoreFive
+            // 
+            this.lblScoreFive.AutoSize = true;
+            this.lblScoreFive.Location = new System.Drawing.Point(3, 404);
+            this.lblScoreFive.Name = "lblScoreFive";
+            this.lblScoreFive.Size = new System.Drawing.Size(64, 13);
+            this.lblScoreFive.TabIndex = 2;
+            this.lblScoreFive.Text = "Feedback 5";
+            // 
+            // lblScoreThree
+            // 
+            this.lblScoreThree.AutoSize = true;
+            this.lblScoreThree.Location = new System.Drawing.Point(3, 210);
+            this.lblScoreThree.Name = "lblScoreThree";
+            this.lblScoreThree.Size = new System.Drawing.Size(64, 13);
+            this.lblScoreThree.TabIndex = 2;
+            this.lblScoreThree.Text = "Feedback 3";
+            // 
+            // lblScoreTwo
+            // 
+            this.lblScoreTwo.AutoSize = true;
+            this.lblScoreTwo.Location = new System.Drawing.Point(3, 113);
+            this.lblScoreTwo.Name = "lblScoreTwo";
+            this.lblScoreTwo.Size = new System.Drawing.Size(64, 13);
+            this.lblScoreTwo.TabIndex = 2;
+            this.lblScoreTwo.Text = "Feedback 2";
+            // 
+            // lblScoreOne
+            // 
+            this.lblScoreOne.AutoSize = true;
+            this.lblScoreOne.Location = new System.Drawing.Point(3, 16);
+            this.lblScoreOne.Name = "lblScoreOne";
+            this.lblScoreOne.Size = new System.Drawing.Size(64, 13);
+            this.lblScoreOne.TabIndex = 2;
+            this.lblScoreOne.Text = "Feedback 1";
+            // 
+            // txtGenericFive
+            // 
+            this.txtGenericFive.Location = new System.Drawing.Point(0, 420);
+            this.txtGenericFive.Multiline = true;
+            this.txtGenericFive.Name = "txtGenericFive";
+            this.txtGenericFive.Size = new System.Drawing.Size(676, 78);
+            this.txtGenericFive.TabIndex = 1;
+            // 
+            // txtGenericThree
+            // 
+            this.txtGenericThree.Location = new System.Drawing.Point(0, 226);
+            this.txtGenericThree.Multiline = true;
+            this.txtGenericThree.Name = "txtGenericThree";
+            this.txtGenericThree.Size = new System.Drawing.Size(676, 78);
+            this.txtGenericThree.TabIndex = 1;
+            // 
+            // txtGenericTwo
+            // 
+            this.txtGenericTwo.Location = new System.Drawing.Point(0, 129);
+            this.txtGenericTwo.Multiline = true;
+            this.txtGenericTwo.Name = "txtGenericTwo";
+            this.txtGenericTwo.Size = new System.Drawing.Size(676, 78);
+            this.txtGenericTwo.TabIndex = 1;
+            // 
+            // txtGenericFour
+            // 
+            this.txtGenericFour.Location = new System.Drawing.Point(0, 323);
+            this.txtGenericFour.Multiline = true;
+            this.txtGenericFour.Name = "txtGenericFour";
+            this.txtGenericFour.Size = new System.Drawing.Size(676, 78);
+            this.txtGenericFour.TabIndex = 1;
+            // 
             // txtGenericOne
             // 
             this.txtGenericOne.Location = new System.Drawing.Point(0, 32);
@@ -110,6 +187,7 @@
             this.lstCategoryList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstCategoryList.Size = new System.Drawing.Size(347, 524);
             this.lstCategoryList.TabIndex = 5;
+            this.lstCategoryList.SelectedIndexChanged += new System.EventHandler(this.lstCategoryList_SelectedIndexChanged);
             // 
             // btnAddCategory
             // 
@@ -119,38 +197,7 @@
             this.btnAddCategory.TabIndex = 6;
             this.btnAddCategory.Text = "Add Category";
             this.btnAddCategory.UseVisualStyleBackColor = true;
-            // 
-            // txtGenericFour
-            // 
-            this.txtGenericFour.Location = new System.Drawing.Point(0, 323);
-            this.txtGenericFour.Multiline = true;
-            this.txtGenericFour.Name = "txtGenericFour";
-            this.txtGenericFour.Size = new System.Drawing.Size(676, 78);
-            this.txtGenericFour.TabIndex = 1;
-            // 
-            // txtGenericTwo
-            // 
-            this.txtGenericTwo.Location = new System.Drawing.Point(0, 129);
-            this.txtGenericTwo.Multiline = true;
-            this.txtGenericTwo.Name = "txtGenericTwo";
-            this.txtGenericTwo.Size = new System.Drawing.Size(676, 78);
-            this.txtGenericTwo.TabIndex = 1;
-            // 
-            // txtGenericThree
-            // 
-            this.txtGenericThree.Location = new System.Drawing.Point(0, 226);
-            this.txtGenericThree.Multiline = true;
-            this.txtGenericThree.Name = "txtGenericThree";
-            this.txtGenericThree.Size = new System.Drawing.Size(676, 78);
-            this.txtGenericThree.TabIndex = 1;
-            // 
-            // txtGenericFive
-            // 
-            this.txtGenericFive.Location = new System.Drawing.Point(0, 420);
-            this.txtGenericFive.Multiline = true;
-            this.txtGenericFive.Name = "txtGenericFive";
-            this.txtGenericFive.Size = new System.Drawing.Size(676, 78);
-            this.txtGenericFive.TabIndex = 1;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnAddQuestion
             // 
@@ -160,53 +207,9 @@
             this.btnAddQuestion.TabIndex = 7;
             this.btnAddQuestion.Text = "Add Question";
             this.btnAddQuestion.UseVisualStyleBackColor = true;
+            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
             // 
-            // lblScoreOne
-            // 
-            this.lblScoreOne.AutoSize = true;
-            this.lblScoreOne.Location = new System.Drawing.Point(3, 16);
-            this.lblScoreOne.Name = "lblScoreOne";
-            this.lblScoreOne.Size = new System.Drawing.Size(64, 13);
-            this.lblScoreOne.TabIndex = 2;
-            this.lblScoreOne.Text = "Feedback 1";
-            // 
-            // lblScoreTwo
-            // 
-            this.lblScoreTwo.AutoSize = true;
-            this.lblScoreTwo.Location = new System.Drawing.Point(3, 113);
-            this.lblScoreTwo.Name = "lblScoreTwo";
-            this.lblScoreTwo.Size = new System.Drawing.Size(64, 13);
-            this.lblScoreTwo.TabIndex = 2;
-            this.lblScoreTwo.Text = "Feedback 2";
-            // 
-            // lblScoreThree
-            // 
-            this.lblScoreThree.AutoSize = true;
-            this.lblScoreThree.Location = new System.Drawing.Point(3, 210);
-            this.lblScoreThree.Name = "lblScoreThree";
-            this.lblScoreThree.Size = new System.Drawing.Size(64, 13);
-            this.lblScoreThree.TabIndex = 2;
-            this.lblScoreThree.Text = "Feedback 3";
-            // 
-            // lblScoreFive
-            // 
-            this.lblScoreFive.AutoSize = true;
-            this.lblScoreFive.Location = new System.Drawing.Point(3, 404);
-            this.lblScoreFive.Name = "lblScoreFive";
-            this.lblScoreFive.Size = new System.Drawing.Size(64, 13);
-            this.lblScoreFive.TabIndex = 2;
-            this.lblScoreFive.Text = "Feedback 5";
-            // 
-            // lblScoreFour
-            // 
-            this.lblScoreFour.AutoSize = true;
-            this.lblScoreFour.Location = new System.Drawing.Point(3, 307);
-            this.lblScoreFour.Name = "lblScoreFour";
-            this.lblScoreFour.Size = new System.Drawing.Size(64, 13);
-            this.lblScoreFour.TabIndex = 2;
-            this.lblScoreFour.Text = "Feedback 4";
-            // 
-            // QuestionCreation
+            // QuestionCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,8 +222,8 @@
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.txtCategory);
-            this.Name = "QuestionCreation";
-            this.Text = "QuestionCreation";
+            this.Name = "QuestionCreatorForm";
+            this.Text = "Question Creator";
             this.grbGenericFeedback.ResumeLayout(false);
             this.grbGenericFeedback.PerformLayout();
             this.ResumeLayout(false);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
-    public abstract class Template {
+    public class Template {
         protected string _templateName;
         protected string _templateType;
         private List<Question> _questions = new List<Question>();
@@ -29,13 +29,14 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public string TemplateType {
             get { return _templateType; }
+            set { _templateType = value; }
         }
 
         public void AddQuestion(Question question) {
             _questions.Add(question);
         }
 
-        public Question GetQuestion(int id) {
+        public Question FindQuestion(int id) {
             foreach (Question q in _questions) {
                 if (q.ID == id) {
                     return q;
@@ -45,38 +46,11 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         public void RemoveQuestion(int id) {
-            _questions.Remove(GetQuestion(id));
+            _questions.Remove(FindQuestion(id));
         }
 
         public List<Question> Questions {
             get { return _questions; }
-        }
-    }
-
-    public class CVTemplate : Template {
-        /// <summary>
-        /// CV Template constructor
-        /// </summary>
-        public CVTemplate() {
-            _templateType = "CV";
-        }
-    }
-
-    public class InterviewTemplate : Template {
-        /// <summary>
-        /// Interview template constructor
-        /// </summary>
-        public InterviewTemplate() {
-            _templateType = "Interview";
-        }
-    }
-
-    public class EmployeeTemplate : Template {
-        /// <summary>
-        /// Employee template constructor
-        /// </summary>
-        public EmployeeTemplate() {
-            _templateType = "Employee";
         }
     }
 }

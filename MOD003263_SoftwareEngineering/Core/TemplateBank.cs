@@ -8,23 +8,11 @@ namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class TemplateBank {
         private static List<Template> _templateList = new List<Template>();
-        private static TemplateBank _instance = null;
 
         /// <summary>
         /// Template bank constructor
         /// </summary>
-        private TemplateBank() { }
-        
-        /// <summary>
-        /// Singleton instance of Template Bank
-        /// </summary>
-        /// <returns></returns>
-        public static TemplateBank Instance() {
-            if (null == _instance) {
-                _instance = new TemplateBank();
-            }
-            return _instance;
-        }
+        public TemplateBank() { }
 
         /// <summary>
         /// Add a template to the template bank
