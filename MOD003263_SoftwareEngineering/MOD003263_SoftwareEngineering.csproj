@@ -85,6 +85,12 @@
     <Compile Include="UI\MainMenuForm.designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\QuestionCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionCreation.Designer.cs">
+      <DependentUpon>QuestionCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionCreation.resx">
+      <DependentUpon>QuestionCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ScreenForm.resx">
       <DependentUpon>ScreenForm.cs</DependentUpon>
