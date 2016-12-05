@@ -24,11 +24,13 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// Returns the Current instance of Bank if it exists, if it doesnt, it makes a new instance and returns that.
         /// </summary>
         /// <returns>Returns the current Instance of Bank</returns>
-        public static Bank Instance() {
-            if (null == _instance) {
-                _instance = new Bank();
+        public static Bank Instance {
+            get {
+                if (null == _instance) {
+                    _instance = new Bank();
+                }
+                return _instance;
             }
-            return _instance;
         }
 
         public void SaveBank() {

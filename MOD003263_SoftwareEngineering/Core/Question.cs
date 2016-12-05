@@ -48,6 +48,11 @@ namespace MOD003263_SoftwareEngineering.Core {
             set { _feedbackList = value; }
         }
 
+        public void pickFeedback(int score) {
+            score--;
+            _pickedFeedback = _feedbackList[score];
+        }
+
         public string PickedFeedback {
             get { return _pickedFeedback; }
             set { _pickedFeedback = value; }

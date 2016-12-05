@@ -1,17 +1,3 @@
-QuestionCreatorForm
-+AddQuestion
-+SaveIntoQuestionBank
-
-Question
-+Category {get set} from _category; //Searchable term
-+Dictionary<int, string> //int = score //string = feedback
-
-Template ->-> Feedback (Add all things inside Template into Feedback)
-
-TemplateForm ==> FeedbackCreatorForm
-+DragnDrop Questions from Bank that match Category
-+Load in Questions from Bank using a specified Category that exists (or make new category)
-
 MainMenu.Size = MDIChild.Size
 MainMenu = MenuStrip Settings
 MainMenu Autoshow on startup
@@ -23,5 +9,6 @@ Generic Email Body for Accept and Reject w/ Subject
 
 Add person to Database where Category == PositionAppliedFor
 
-Bank += CategoryBank
-Category = new Class {List<Question> Questions, string Name}
+Drag And Drop from Prototype
+
+TemplateForm Remove sometimes works (need to fix) -> might be ID based problem

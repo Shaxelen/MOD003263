@@ -13,6 +13,8 @@ namespace MOD003263_SoftwareEngineering.Core {
         private Person _person;
         private List<Question> _questions = new List<Question>();
 
+        public Feedback() { }
+
         /// <summary>
         /// Feedback Constructor
         /// </summary>
@@ -44,6 +46,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public string Title {
             get { return _title; }
+            set { _title = value; }
         }
 
         public void AddQuestion(Question question) {

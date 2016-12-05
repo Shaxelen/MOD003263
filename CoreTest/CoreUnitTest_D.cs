@@ -46,7 +46,7 @@ namespace CoreTests {
             inter.TemplateType = "Interview";
 
             // Add
-            TemplateBank tBank = Bank.Instance().Templates;
+            TemplateBank tBank = Bank.Instance.Templates;
             tBank.Add("Interview Template", inter);
             tBank.Add("CV Template", cv);
 
@@ -70,7 +70,7 @@ namespace CoreTests {
             Assert.AreEqual(null, tBank.Load("New CV Template"));
 
             // Templates
-            TemplateBank anotherBank = Bank.Instance().Templates;
+            TemplateBank anotherBank = Bank.Instance.Templates;
             Assert.AreSame(tBank, anotherBank);
             Assert.AreSame(tBank.Templates, anotherBank.Templates);
         }
@@ -131,14 +131,14 @@ namespace CoreTests {
             Feedback f1 = new Feedback("F1", e);
             Feedback f2 = new Feedback("F2", a);
 
-            FeedbackBank fBank = Bank.Instance().Feedbacks;
+            FeedbackBank fBank = Bank.Instance.Feedbacks;
             fBank.Add(f1);
             fBank.Add(f2);
 
             Assert.AreSame(f1, fBank.FindFeedback("F1"));
             Assert.AreNotSame(f1, fBank.FindFeedback("F2"));
 
-            FeedbackBank anotherBank = Bank.Instance().Feedbacks;
+            FeedbackBank anotherBank = Bank.Instance.Feedbacks;
             Assert.AreSame(fBank, anotherBank);
             Assert.AreSame(fBank.FeedbackList, anotherBank.FeedbackList);
         }

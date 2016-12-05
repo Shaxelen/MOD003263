@@ -16,7 +16,7 @@ namespace MetaUnitTests {
         [TestMethod]
         public void TemplateSerializationTest() {
             FeedbackSerializer ts = new FeedbackSerializer();
-            Bank bank = Bank.Instance();
+            Bank bank = Bank.Instance;
             Template template = new Template();
             Question q = new Question();
             q.Score = 3;
@@ -126,9 +126,9 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void BankTest() {
-            Bank bank = Bank.Instance();
-            FeedbackBank fb = Bank.Instance().Feedbacks;
-            TemplateBank tb = Bank.Instance().Templates;
+            Bank bank = Bank.Instance;
+            FeedbackBank fb = Bank.Instance.Feedbacks;
+            TemplateBank tb = Bank.Instance.Templates;
 
             Assert.AreEqual(fb, bank.Feedbacks);
             Assert.AreEqual(tb, bank.Templates);

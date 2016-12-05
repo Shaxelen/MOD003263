@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestLoadForm : Form {
-        private Bank _bank = Bank.Instance();
+        private Bank _bank = Bank.Instance;
         private int _index = -1;
         private TemplateForm _parent;
 
