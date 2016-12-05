@@ -39,7 +39,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             _bank.Templates.Templates.Add(tem);
         }
 
-        private void saveOver(Template old, Template neww) {
+        private void saveOver(Template current, Template updated) {
 
         }
     }
