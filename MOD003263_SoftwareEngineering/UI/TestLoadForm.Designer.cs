@@ -54,7 +54,7 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lstTest);
             this.Name = "TestLoadForm";
-            this.Text = "TestLoadForm";
+            this.Text = "Load Template";
             this.ResumeLayout(false);
 
         }

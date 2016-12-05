@@ -129,19 +129,6 @@ namespace CoreTests {
         }
 
         [TestMethod]
-        public void QuestionCreatorTest() {
-            QuestionCreator qCreator = QuestionCreator.Instance();
-            QuestionCreator qCreator2 = QuestionCreator.Instance();
-
-            ReferenceEquals(qCreator, qCreator2);
-
-            Question q1 = qCreator.CreateQuestion(1, "Question 1", "", 0);
-            Question q2 = qCreator.CreateQuestion(2, "Question 2", "", 0);
-
-            Assert.AreNotSame(q2, q1);
-        }
-
-        [TestMethod]
         public void FeedbackTest() {
             Person employee = new Employee();
             employee.FirstName = "Bill";

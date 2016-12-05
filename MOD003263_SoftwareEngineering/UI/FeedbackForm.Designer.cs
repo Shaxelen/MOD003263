@@ -52,12 +52,9 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.picAppImage = new System.Windows.Forms.PictureBox();
-            this.lblTemplateName = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grbFeedbackTemplate.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,7 +65,7 @@
             this.clearToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(597, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1065, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,7 +81,7 @@
             // menuLoadTemp
             // 
             this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(123, 22);
+            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
             this.menuLoadTemp.Text = "Template";
             this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
             // 
@@ -94,7 +91,7 @@
             this.menuLoadApplicant,
             this.menuLoadEmployee});
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.personToolStripMenuItem.Text = "Person";
             // 
             // menuLoadApplicant
@@ -162,19 +159,18 @@
             this.grbFeedbackTemplate.AutoSize = true;
             this.grbFeedbackTemplate.Controls.Add(this.panelQuestions);
             this.grbFeedbackTemplate.Controls.Add(this.groupBox1);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(4, 60);
+            this.grbFeedbackTemplate.Location = new System.Drawing.Point(12, 27);
             this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
-            this.grbFeedbackTemplate.Size = new System.Drawing.Size(588, 601);
+            this.grbFeedbackTemplate.Size = new System.Drawing.Size(1041, 715);
             this.grbFeedbackTemplate.TabIndex = 6;
             this.grbFeedbackTemplate.TabStop = false;
-            this.grbFeedbackTemplate.Text = "Feedback Template";
-            this.grbFeedbackTemplate.Visible = false;
+            this.grbFeedbackTemplate.Text = "Feedback Name";
             // 
             // panelQuestions
             // 
-            this.panelQuestions.Location = new System.Drawing.Point(8, 178);
+            this.panelQuestions.Location = new System.Drawing.Point(6, 19);
             this.panelQuestions.Name = "panelQuestions";
-            this.panelQuestions.Size = new System.Drawing.Size(574, 404);
+            this.panelQuestions.Size = new System.Drawing.Size(633, 518);
             this.panelQuestions.TabIndex = 2;
             // 
             // groupBox1
@@ -194,67 +190,66 @@
             this.groupBox1.Controls.Add(this.lblEmail);
             this.groupBox1.Controls.Add(this.lblLastName);
             this.groupBox1.Controls.Add(this.lblFirstName);
-            this.groupBox1.Controls.Add(this.picAppImage);
-            this.groupBox1.Location = new System.Drawing.Point(7, 19);
+            this.groupBox1.Location = new System.Drawing.Point(653, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(575, 138);
+            this.groupBox1.Size = new System.Drawing.Size(382, 138);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Header";
             // 
             // txtFeedbacker
             // 
-            this.txtFeedbacker.Location = new System.Drawing.Point(215, 97);
+            this.txtFeedbacker.Location = new System.Drawing.Point(93, 97);
             this.txtFeedbacker.Name = "txtFeedbacker";
-            this.txtFeedbacker.Size = new System.Drawing.Size(182, 20);
+            this.txtFeedbacker.Size = new System.Drawing.Size(97, 20);
             this.txtFeedbacker.TabIndex = 5;
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(442, 97);
+            this.dateTimePicker.Location = new System.Drawing.Point(246, 97);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(127, 20);
             this.dateTimePicker.TabIndex = 4;
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(428, 71);
+            this.txtPosition.Location = new System.Drawing.Point(253, 71);
             this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(141, 20);
+            this.txtPosition.Size = new System.Drawing.Size(120, 20);
             this.txtPosition.TabIndex = 3;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(215, 71);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(93, 71);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(154, 20);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(97, 20);
             this.txtPhoneNumber.TabIndex = 3;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(215, 45);
+            this.txtEmail.Location = new System.Drawing.Point(93, 45);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(354, 20);
+            this.txtEmail.Size = new System.Drawing.Size(280, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(430, 19);
+            this.txtLastName.Location = new System.Drawing.Point(263, 19);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(139, 20);
+            this.txtLastName.Size = new System.Drawing.Size(110, 20);
             this.txtLastName.TabIndex = 2;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(215, 19);
+            this.txtFirstName.Location = new System.Drawing.Point(93, 19);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(139, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(97, 20);
             this.txtFirstName.TabIndex = 2;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(403, 100);
+            this.lblDate.Location = new System.Drawing.Point(207, 100);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(33, 13);
             this.lblDate.TabIndex = 1;
@@ -263,7 +258,7 @@
             // lblFeedbacker
             // 
             this.lblFeedbacker.AutoSize = true;
-            this.lblFeedbacker.Location = new System.Drawing.Point(142, 106);
+            this.lblFeedbacker.Location = new System.Drawing.Point(20, 100);
             this.lblFeedbacker.Name = "lblFeedbacker";
             this.lblFeedbacker.Size = new System.Drawing.Size(67, 13);
             this.lblFeedbacker.TabIndex = 1;
@@ -272,7 +267,7 @@
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(375, 78);
+            this.lblPosition.Location = new System.Drawing.Point(200, 74);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(47, 13);
             this.lblPosition.TabIndex = 1;
@@ -281,7 +276,7 @@
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(128, 78);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(6, 74);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(81, 13);
             this.lblPhoneNumber.TabIndex = 1;
@@ -290,7 +285,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(174, 52);
+            this.lblEmail.Location = new System.Drawing.Point(52, 48);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 1;
@@ -299,7 +294,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(360, 26);
+            this.lblLastName.Location = new System.Drawing.Point(196, 22);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(61, 13);
             this.lblLastName.TabIndex = 1;
@@ -308,40 +303,22 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(149, 26);
+            this.lblFirstName.Location = new System.Drawing.Point(27, 22);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(60, 13);
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "First Name:";
             // 
-            // picAppImage
-            // 
-            this.picAppImage.Location = new System.Drawing.Point(6, 19);
-            this.picAppImage.Name = "picAppImage";
-            this.picAppImage.Size = new System.Drawing.Size(100, 100);
-            this.picAppImage.TabIndex = 0;
-            this.picAppImage.TabStop = false;
-            // 
-            // lblTemplateName
-            // 
-            this.lblTemplateName.AutoSize = true;
-            this.lblTemplateName.Location = new System.Drawing.Point(4, 35);
-            this.lblTemplateName.Name = "lblTemplateName";
-            this.lblTemplateName.Size = new System.Drawing.Size(82, 13);
-            this.lblTemplateName.TabIndex = 5;
-            this.lblTemplateName.Text = "Template Name";
-            // 
             // FeedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 654);
+            this.ClientSize = new System.Drawing.Size(1065, 606);
             this.Controls.Add(this.grbFeedbackTemplate);
-            this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FeedbackForm";
-            this.Text = "FeedbackForm";
+            this.Text = "Feedback Generator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -349,7 +326,6 @@
             this.grbFeedbackTemplate.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,8 +361,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.PictureBox picAppImage;
-        private System.Windows.Forms.Label lblTemplateName;
         private System.Windows.Forms.Panel panelQuestions;
     }
 }

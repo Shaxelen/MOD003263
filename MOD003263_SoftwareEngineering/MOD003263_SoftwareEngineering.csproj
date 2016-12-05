@@ -56,7 +56,6 @@
     <Compile Include="Core Layer\FeedbackFilter.cs" />
     <Compile Include="Core Layer\Person.cs" />
     <Compile Include="Core Layer\Question.cs" />
-    <Compile Include="Core Layer\QuestionCreator.cs" />
     <Compile Include="Core Layer\Template.cs" />
     <Compile Include="Core Layer\TemplateBank.cs" />
     <Compile Include="Core Layer\TemplateEditor.cs" />

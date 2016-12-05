@@ -45,7 +45,7 @@
             // menuItemTemplate
             // 
             this.menuItemTemplate.Name = "menuItemTemplate";
-            this.menuItemTemplate.Size = new System.Drawing.Size(73, 20);
+            this.menuItemTemplate.Size = new System.Drawing.Size(74, 20);
             this.menuItemTemplate.Text = "Templates";
             this.menuItemTemplate.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
@@ -72,7 +72,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuScreen;
             this.Name = "ScreenForm";
-            this.Text = "ScreenForm";
+            this.Text = "HappyTech";
             this.menuScreen.ResumeLayout(false);
             this.menuScreen.PerformLayout();
             this.ResumeLayout(false);

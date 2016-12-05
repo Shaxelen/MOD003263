@@ -19,7 +19,6 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         // Question Objects
         private Question _question;
-        private QuestionCreator _questionCreator;
         private int _id = 0;
 
         // Question Form Objects
@@ -43,7 +42,6 @@ namespace MOD003263_SoftwareEngineering.UI {
             _templateFactory = new TemplateFactory();
             _tempEditor = new TemplateEditor(_templateFactory);
             _templateBank = TemplateBank.Instance();
-            _questionCreator = QuestionCreator.Instance();
         }
         #region Requesting Template
 
@@ -95,7 +93,9 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
             if (_questionCount < 12) {
-                _question = _questionCreator.CreateQuestion(_id, txtAddQuestion.Text, "", 0);
+                _question = new Question();
+                _question.Title = txtAddQuestion.Text;
+                _question.ID = _id;
                 _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
                 _txtComment = CommentTextBox(_id);
                 _grbQuestion.Controls.Add(_txtComment);

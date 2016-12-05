@@ -60,7 +60,6 @@
             this.grbAddQuestion.TabIndex = 0;
             this.grbAddQuestion.TabStop = false;
             this.grbAddQuestion.Text = "Add Question";
-            this.grbAddQuestion.Visible = false;
             // 
             // txtAddQuestion
             // 
@@ -99,7 +98,6 @@
             this.grbRemoveQuestion.TabIndex = 3;
             this.grbRemoveQuestion.TabStop = false;
             this.grbRemoveQuestion.Text = "Remove Question";
-            this.grbRemoveQuestion.Visible = false;
             // 
             // btnRemoveQuestion
             // 
@@ -202,7 +200,6 @@
             this.grbFeedbackTemplate.TabIndex = 4;
             this.grbFeedbackTemplate.TabStop = false;
             this.grbFeedbackTemplate.Text = "Feedback Template";
-            this.grbFeedbackTemplate.Visible = false;
             // 
             // grbClearQuestions
             // 
@@ -213,7 +210,6 @@
             this.grbClearQuestions.TabIndex = 6;
             this.grbClearQuestions.TabStop = false;
             this.grbClearQuestions.Text = "Clear Questions";
-            this.grbClearQuestions.Visible = false;
             // 
             // btnClearQuestions
             // 
@@ -237,7 +233,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TemplateForm";
-            this.Text = "TemplateForm";
+            this.Text = "Template Creator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TemplateForm_FormClosing);
             this.grbAddQuestion.ResumeLayout(false);
             this.grbAddQuestion.PerformLayout();

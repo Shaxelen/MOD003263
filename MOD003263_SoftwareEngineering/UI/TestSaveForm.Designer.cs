@@ -73,7 +73,7 @@
             this.Controls.Add(this.lblLabel);
             this.Controls.Add(this.lstData);
             this.Name = "TestSaveForm";
-            this.Text = "TestSaveForm";
+            this.Text = "Save Template";
             this.ResumeLayout(false);
             this.PerformLayout();
 
