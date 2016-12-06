@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class FeedbackForm {
+    partial class InterviewForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -78,6 +78,7 @@ namespace MOD003263_SoftwareEngineering.Core {
 
         public List<Question> Questions {
             get { return _questions; }
+            set { _questions = value; }
         }
     }
 }

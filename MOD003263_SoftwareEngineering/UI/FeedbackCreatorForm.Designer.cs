@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class TemplateForm {
+    partial class FeedbackCreatorForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

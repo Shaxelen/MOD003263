@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class MainMenuForm : Form {
-        private TemplateForm _templateForm;
-        private FeedbackForm _feedbackForm;
-        private FilterForm _filterForm;
+    public partial class MainMenuSplashForm : Form {
+        private FeedbackCreatorForm _templateForm;
+        private InterviewForm _feedbackForm;
+        private FilterApplicantsForm _filterForm;
 
-        public MainMenuForm() {
+        public MainMenuSplashForm() {
             InitializeComponent();
         }
 
         private void btnTemplateForm_Click(object sender, EventArgs e) {
             if (null == _templateForm) {
-                _templateForm = new TemplateForm();
+                _templateForm = new FeedbackCreatorForm();
                 _templateForm.ShowDialog();
             }
             _templateForm = null;
@@ -28,7 +28,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void btnFeedbackForm_Click(object sender, EventArgs e) {
             if (null == _feedbackForm) {
-                _feedbackForm = new FeedbackForm();
+                _feedbackForm = new InterviewForm();
                 _feedbackForm.ShowDialog();
             }
             _feedbackForm = null;
@@ -36,7 +36,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void btnFilterForm_Click(object sender, EventArgs e) {
             if (null == _filterForm) {
-                _filterForm = new FilterForm();
+                _filterForm = new FilterApplicantsForm();
                 _filterForm.ShowDialog();
             }
             _filterForm = null;

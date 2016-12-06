@@ -10,14 +10,14 @@ using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class ScreenForm : Form {
+    public partial class ParentForm : Form {
         private Bank _bank = Bank.Instance;
-        private TemplateForm _templateForm;
-        private FeedbackForm _feedbackForm;
-        private FilterForm _filterForm;
+        private FeedbackCreatorForm _templateForm;
+        private InterviewForm _feedbackForm;
+        private FilterApplicantsForm _filterForm;
         private QuestionCreatorForm _questionForm;
 
-        public ScreenForm() {
+        public ParentForm() {
             InitializeComponent();
             _bank.LoadBank();
             _bank = Bank.Instance;
@@ -25,7 +25,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void templatesToolStripMenuItem_Click(object sender, EventArgs e) {
             if (null == _templateForm) {
-                _templateForm = new TemplateForm();
+                _templateForm = new FeedbackCreatorForm();
                 _templateForm.MdiParent = this;
                 _templateForm.WindowState = FormWindowState.Maximized;
                 //showScreenMenu(false);
@@ -36,7 +36,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void feedbackToolStripMenuItem_Click(object sender, EventArgs e) {
             if (null == _feedbackForm) {
-                _feedbackForm = new FeedbackForm();
+                _feedbackForm = new InterviewForm();
                 _feedbackForm.MdiParent = this;
                 _feedbackForm.WindowState = FormWindowState.Maximized;
                 //showScreenMenu(false);
@@ -47,7 +47,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void filterApplicantsToolStripMenuItem_Click(object sender, EventArgs e) {
             if (null == _filterForm) {
-                _filterForm = new FilterForm();
+                _filterForm = new FilterApplicantsForm();
                 _filterForm.MdiParent = this;
                 _filterForm.WindowState = FormWindowState.Maximized;
                 //showScreenMenu(false);
@@ -62,7 +62,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         //    menuItemQuestion.Visible = value;
         //}
 
-        public TemplateForm TemplateForm {
+        public FeedbackCreatorForm TemplateForm {
             set { _templateForm = value;
                 if (null == _templateForm) {
                     //showScreenMenu(true);
@@ -70,7 +70,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
         }
 
-        public FeedbackForm FeedbackForm {
+        public InterviewForm FeedbackForm {
             set { _feedbackForm = value;
                 if (null == _feedbackForm) {
                     //showScreenMenu(true);
@@ -78,7 +78,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
         }
 
-        public FilterForm FilterForm {
+        public FilterApplicantsForm FilterForm {
             set { _filterForm = value;
                 if (null == _filterForm) {
                     //showScreenMenu(true);

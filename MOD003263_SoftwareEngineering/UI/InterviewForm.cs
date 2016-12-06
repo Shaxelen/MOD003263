@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class FeedbackForm : Form {
-        public FeedbackForm() {
+    public partial class InterviewForm : Form {
+        public InterviewForm() {
             InitializeComponent();
         }
 
@@ -51,7 +51,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
-            ScreenForm sf = (ScreenForm)MdiParent;
+            ParentForm sf = (ParentForm)MdiParent;
             sf.FeedbackForm = null;
         }
     }

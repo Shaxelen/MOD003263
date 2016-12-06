@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class TestSaveForm {
+    partial class SaveFeedbackForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

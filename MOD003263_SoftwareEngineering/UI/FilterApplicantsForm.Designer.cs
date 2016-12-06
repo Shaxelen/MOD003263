@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class FilterForm {
+    partial class FilterApplicantsForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

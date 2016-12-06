@@ -10,10 +10,9 @@ using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class TemplateForm : Form {
+    public partial class FeedbackCreatorForm : Form {
         // Bank Objects
         private Bank _bank = Bank.Instance;
-        private TemplateBank _templateBank = Bank.Instance.Templates;
 
         // Feedback Objects
         private Feedback _feedback = new Feedback();
@@ -26,35 +25,28 @@ namespace MOD003263_SoftwareEngineering.UI {
         //Counter Object
         private int _questionCount = 0;
 
-        public TemplateForm() {
+        public FeedbackCreatorForm() {
             InitializeComponent();
             Start();
         }
 
         private void Start() {
-            _templateBank = _bank.Templates;
             foreach (Category c in _bank.Categories.Categories) {
                 cmbCategory.Items.Add(c.Title);
             }
         }
 
-        #region Saving/Loading Templates
-
         private void menuSaveTemplate_Click(object sender, EventArgs e) {
-            TestSaveForm saveForm = new TestSaveForm();
+            SaveFeedbackForm saveForm = new SaveFeedbackForm();
             saveForm.Parent = this;
             saveForm.ShowDialog();
         }
 
         private void menuLoadTemplate_Click(object sender, EventArgs e) {
-            TestLoadForm loadForm = new TestLoadForm();
+            LoadFeedbackForm loadForm = new LoadFeedbackForm();
             loadForm.Parent = this;
             loadForm.ShowDialog();
         }
-
-        #endregion
-
-        #region Creating, Adding and Removing Questions
 
         private void addQuestionToForm(Question question) {
             GroupBox grbQuestion = QuestionGroupBox(_id, question.Title);
@@ -79,6 +71,10 @@ namespace MOD003263_SoftwareEngineering.UI {
                      || toCheck.Contains("z"));
         }
 
+        private void reOrderQuestions() {
+            _feedback.Questions = _feedback.Questions.OrderBy(q => q.ID).ToList();
+        }
+
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
             if (!inputCheckForLetter(cmbQuestionID.Text)) {
                 int index = int.Parse(cmbQuestionID.Text) - 1;
@@ -101,6 +97,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                 }
                 _feedback.RemoveQuestion(compToRemove.ID);
                 cmbQuestionID.Items.Remove(index);
+                reOrderQuestions();
                 updateComboBox();
             }
             else {
@@ -184,8 +181,6 @@ namespace MOD003263_SoftwareEngineering.UI {
             radBtn.UseVisualStyleBackColor = true;
             return radBtn;
         }
-
-        #endregion
 
         private void btnClearQuestions_Click(object sender, EventArgs e) {
             flwQuestions.Controls.Clear();

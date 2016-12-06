@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class FilterForm : Form {
+    public partial class FilterApplicantsForm : Form {
         private Property _property = Property.Instance;
         private ApplicantBank _appBank = Bank.Instance.Applicants;
         private string _position = "";
         private bool _canAccRej = false;
 
-        public FilterForm() {
+        public FilterApplicantsForm() {
             InitializeComponent();
             loadPropertyData();
             loadApplicants();

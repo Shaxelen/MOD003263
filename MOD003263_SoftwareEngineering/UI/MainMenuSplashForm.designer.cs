@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class MainMenuForm {
+    partial class MainMenuSplashForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

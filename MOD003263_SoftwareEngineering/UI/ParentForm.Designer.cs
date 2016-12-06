@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class ScreenForm {
+    partial class ParentForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
