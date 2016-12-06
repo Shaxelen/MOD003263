@@ -96,6 +96,8 @@ namespace MOD003263_SoftwareEngineering.UI {
                 _question = new Question();
                 _question.Title = txtAddQuestion.Text;
                 _question.ID = _id;
+                _question.Comment = "";
+                _question.Score = 0;
                 _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
                 _txtComment = CommentTextBox(_id);
                 _grbQuestion.Controls.Add(_txtComment);
