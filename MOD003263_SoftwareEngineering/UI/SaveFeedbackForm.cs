@@ -31,12 +31,14 @@ namespace MOD003263_SoftwareEngineering.UI {
             lstData.Items.Add(txtName.Text);
             Feedback tem = Parent.CurrentFeedback;
             tem.Title = txtName.Text;
-            if (_bank.Feedbacks.FindFeedback(txtName.Text).Title == tem.Title) {
-                Feedback old = _bank.Feedbacks.FindFeedback(txtName.Text);
-                if (null != old) { saveOver(old, tem); }
-                else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
+            if (null != _bank.Feedbacks.FindFeedback(txtName.Text)) {
+                if (_bank.Feedbacks.FindFeedback(txtName.Text).Title == tem.Title) {
+                    Feedback old = _bank.Feedbacks.FindFeedback(txtName.Text);
+                    if (null != old) { saveOver(old, tem); } else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
+                }
+            } else {
+                _bank.Feedbacks.Add(tem);
             }
-            _bank.Feedbacks.Add(tem);
         }
 
         private void saveOver(Feedback old, Feedback neww) {

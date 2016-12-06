@@ -34,10 +34,10 @@
             // menuScreen
             // 
             this.menuScreen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemQuestion,
             this.menuItemTemplate,
             this.menuItemFeedback,
-            this.menuItemFilter,
-            this.menuItemQuestion});
+            this.menuItemFilter});
             this.menuScreen.Location = new System.Drawing.Point(0, 0);
             this.menuScreen.Name = "menuScreen";
             this.menuScreen.Size = new System.Drawing.Size(1069, 24);
@@ -47,15 +47,15 @@
             // menuItemTemplate
             // 
             this.menuItemTemplate.Name = "menuItemTemplate";
-            this.menuItemTemplate.Size = new System.Drawing.Size(73, 20);
-            this.menuItemTemplate.Text = "Templates";
+            this.menuItemTemplate.Size = new System.Drawing.Size(106, 20);
+            this.menuItemTemplate.Text = "Create Feedback";
             this.menuItemTemplate.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
             // menuItemFeedback
             // 
             this.menuItemFeedback.Name = "menuItemFeedback";
-            this.menuItemFeedback.Size = new System.Drawing.Size(69, 20);
-            this.menuItemFeedback.Text = "Feedback";
+            this.menuItemFeedback.Size = new System.Drawing.Size(116, 20);
+            this.menuItemFeedback.Text = "Conduct Interview";
             this.menuItemFeedback.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
             // 
             // menuItemFilter
@@ -68,11 +68,11 @@
             // menuItemQuestion
             // 
             this.menuItemQuestion.Name = "menuItemQuestion";
-            this.menuItemQuestion.Size = new System.Drawing.Size(106, 20);
-            this.menuItemQuestion.Text = "QuestionCreator";
+            this.menuItemQuestion.Size = new System.Drawing.Size(117, 20);
+            this.menuItemQuestion.Text = "Create Question(s)";
             this.menuItemQuestion.Click += new System.EventHandler(this.menuItemQuestion_Click);
             // 
-            // ScreenForm
+            // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +80,7 @@
             this.Controls.Add(this.menuScreen);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuScreen;
-            this.Name = "ScreenForm";
+            this.Name = "ParentForm";
             this.Text = "HappyTech";
             this.menuScreen.ResumeLayout(false);
             this.menuScreen.PerformLayout();

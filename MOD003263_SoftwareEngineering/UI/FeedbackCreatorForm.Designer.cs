@@ -244,7 +244,7 @@
             this.cmbCategory.Size = new System.Drawing.Size(364, 21);
             this.cmbCategory.TabIndex = 0;
             // 
-            // TemplateForm
+            // FeedbackCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,8 +256,8 @@
             this.Controls.Add(this.grbAddQuestion);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "TemplateForm";
-            this.Text = "Template Creator";
+            this.Name = "FeedbackCreatorForm";
+            this.Text = "Feedback Creator";
             this.grbAddQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.PerformLayout();
