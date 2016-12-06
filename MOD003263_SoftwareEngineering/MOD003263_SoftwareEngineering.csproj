@@ -50,21 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core Layer\Bank.cs" />
-    <Compile Include="Core Layer\Feedback.cs" />
-    <Compile Include="Core Layer\FeedbackBank.cs" />
-    <Compile Include="Core Layer\FeedbackFilter.cs" />
-    <Compile Include="Core Layer\Person.cs" />
-    <Compile Include="Core Layer\Question.cs" />
-    <Compile Include="Core Layer\Template.cs" />
-    <Compile Include="Core Layer\TemplateBank.cs" />
-    <Compile Include="Core Layer\TemplateEditor.cs" />
-    <Compile Include="Core Layer\TemplateFactory.cs" />
-    <Compile Include="Debugging\Logger.cs" />
-    <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
-    <Compile Include="Meta Layer\EmailHandler.cs" />
-    <Compile Include="Meta Layer\PDFConvert.cs" />
-    <Compile Include="Meta Layer\TemplateSerialization.cs" />
+    <Compile Include="Core\ApplicantBank.cs" />
+    <Compile Include="Core\Bank.cs" />
+    <Compile Include="Core\Category.cs" />
+    <Compile Include="Core\CategoryBank.cs" />
+    <Compile Include="Core\Feedback.cs" />
+    <Compile Include="Core\FeedbackBank.cs" />
+    <Compile Include="Core\FeedbackFilter.cs" />
+    <Compile Include="Core\Person.cs" />
+    <Compile Include="Core\Property.cs" />
+    <Compile Include="Core\Question.cs" />
+    <Compile Include="Core\Template.cs" />
+    <Compile Include="Core\TemplateBank.cs" />
+    <Compile Include="Debug\Logger.cs" />
+    <Compile Include="Meta\DatabaseMetaLayer.cs" />
+    <Compile Include="Meta\EmailHandler.cs" />
+    <Compile Include="Meta\IMetaSerializer.cs" />
+    <Compile Include="Meta\PDFConvert.cs" />
+    <Compile Include="Meta\PropertiesSerializer.cs" />
+    <Compile Include="Meta\FeedbackSerializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\FeedbackForm.cs">
@@ -84,6 +88,12 @@
     </Compile>
     <Compile Include="UI\MainMenuForm.designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionCreatorForm.Designer.cs">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ScreenForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +137,9 @@
     <EmbeddedResource Include="UI\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionCreatorForm.resx">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ScreenForm.resx">
       <DependentUpon>ScreenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExternalDLLs\itextsharp.dll" />
+    <Content Include="todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

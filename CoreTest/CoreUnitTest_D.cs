@@ -8,24 +8,19 @@ namespace CoreTests {
     public class CoreTest {
         [TestMethod]
         public void TemplateTest() {
-            Template template = new CVTemplate();
+            Template template = new Template();
+            template.TemplateType = "CV";
             template.TemplateName = "TestName";
 
             Assert.AreEqual("TestName", template.TemplateName);
             Assert.AreEqual("CV", template.TemplateType);
 
-            template = new InterviewTemplate();
-            Assert.AreEqual("Interview", template.TemplateType);
-
-            template = new EmployeeTemplate();
-            Assert.AreEqual("Employee", template.TemplateType);
-
-            Template template1 = new CVTemplate();
-            Template template2 = new CVTemplate();
+            Template template1 = new Template();
+            Template template2 = new Template();
 
             Question question = new Question();
             question.Title = "Hello";
-            question.Comment = "";
+            question.PickedFeedback = "";
             question.Score = 1;
 
             Question question2 = new Question();
@@ -39,48 +34,19 @@ namespace CoreTests {
             template2.RemoveQuestion(question2.ID);
             Assert.AreNotEqual(template1, template2);
 
-            Question testQuestion = template2.GetQuestion(2);
+            Question testQuestion = template2.FindQuestion(2);
             Assert.AreEqual(null, testQuestion);
         }
 
         [TestMethod]
-        public void TemplateFactoryTest() {
-            TemplateFactory tFactory = new TemplateFactory();
-
-            Template tCV = tFactory.CreateTemplate("CV");
-            Template tIw = tFactory.CreateTemplate("Interview");
-            Template tEe = tFactory.CreateTemplate("Employee");
-
-            Assert.AreNotSame(tCV, tIw);
-            Assert.AreEqual("CV", tCV.TemplateType);
-            Template tNull = tFactory.CreateTemplate("Bla");
-
-            Assert.AreEqual(null, tNull);
-        }
-
-        [TestMethod]
-        public void TemplateEditor() {
-            TemplateFactory tFactory = new TemplateFactory();
-            TemplateEditor tEditor = new TemplateEditor(tFactory);
-
-            Template tCV = tEditor.RequestTemplate("CV");
-            Template tIw = tEditor.RequestTemplate("Interview");
-            Template tEe = tEditor.RequestTemplate("Employee");
-
-            Assert.AreNotSame(tCV, tIw);
-            Assert.AreEqual("CV", tCV.TemplateType);
-            Template tNull = tEditor.RequestTemplate("Bla");
-
-            Assert.AreEqual(null, tNull);
-        }
-
-        [TestMethod]
         public void TemplateBankTest() {
-            Template cv = new CVTemplate();
-            Template inter = new InterviewTemplate();
+            Template cv = new Template();
+            cv.TemplateType = "CV";
+            Template inter = new Template();
+            inter.TemplateType = "Interview";
 
             // Add
-            TemplateBank tBank = TemplateBank.Instance();
+            TemplateBank tBank = Bank.Instance.Templates;
             tBank.Add("Interview Template", inter);
             tBank.Add("CV Template", cv);
 
@@ -88,7 +54,8 @@ namespace CoreTests {
             Assert.AreNotEqual(cv, tBank.Load("blablabla"));
 
             // Update
-            Template s = new CVTemplate();
+            Template s = new Template();
+            s.TemplateType = "CV";
             s.TemplateName = "New CV Template";
             tBank.Update("CV Template", s);
             cv = tBank.Load("New CV Template");
@@ -103,7 +70,7 @@ namespace CoreTests {
             Assert.AreEqual(null, tBank.Load("New CV Template"));
 
             // Templates
-            TemplateBank anotherBank = TemplateBank.Instance();
+            TemplateBank anotherBank = Bank.Instance.Templates;
             Assert.AreSame(tBank, anotherBank);
             Assert.AreSame(tBank.Templates, anotherBank.Templates);
         }
@@ -111,11 +78,11 @@ namespace CoreTests {
         public void QuestionTest() {
             Question question = new Question();
             question.Title = "Hello";
-            question.Comment = "";
+            question.PickedFeedback = "";
             question.Score = 1;
 
             Assert.AreEqual("Hello", question.Title);
-            Assert.AreEqual("", question.Comment);
+            Assert.AreEqual("", question.PickedFeedback);
             Assert.AreEqual(1, question.Score);
 
             question.Score = -1;
@@ -136,7 +103,8 @@ namespace CoreTests {
             Person applicant = new Applicant();
             applicant.FirstName = "Ben";
 
-            Template t = new CVTemplate();
+            Template t = new Template();
+            t.TemplateType = "CV";
 
             Feedback feedback1 = new Feedback("Feedback 1", employee);
             Feedback feedback2 = new Feedback("Feedback 2", applicant);
@@ -148,8 +116,8 @@ namespace CoreTests {
             feedback1.SetFileName = "File";
             Assert.AreEqual("File", feedback1.SetFileName = "File");
 
-            Assert.AreEqual("Feedback 1", feedback1.GetTitle);
-            Assert.AreNotEqual("Feedback 2", feedback1.GetTitle);
+            Assert.AreEqual("Feedback 1", feedback1.Title);
+            Assert.AreNotEqual("Feedback 2", feedback1.Title);
         }
 
         [TestMethod]
@@ -163,14 +131,14 @@ namespace CoreTests {
             Feedback f1 = new Feedback("F1", e);
             Feedback f2 = new Feedback("F2", a);
 
-            FeedbackBank fBank = FeedbackBank.Instance();
+            FeedbackBank fBank = Bank.Instance.Feedbacks;
             fBank.Add(f1);
             fBank.Add(f2);
 
             Assert.AreSame(f1, fBank.FindFeedback("F1"));
             Assert.AreNotSame(f1, fBank.FindFeedback("F2"));
 
-            FeedbackBank anotherBank = FeedbackBank.Instance();
+            FeedbackBank anotherBank = Bank.Instance.Feedbacks;
             Assert.AreSame(fBank, anotherBank);
             Assert.AreSame(fBank.FeedbackList, anotherBank.FeedbackList);
         }

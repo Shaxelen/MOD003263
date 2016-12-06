@@ -27,6 +27,7 @@
             this.menuItemTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemFeedback = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemFilter = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuScreen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -35,7 +36,8 @@
             this.menuScreen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemTemplate,
             this.menuItemFeedback,
-            this.menuItemFilter});
+            this.menuItemFilter,
+            this.menuItemQuestion});
             this.menuScreen.Location = new System.Drawing.Point(0, 0);
             this.menuScreen.Name = "menuScreen";
             this.menuScreen.Size = new System.Drawing.Size(1069, 24);
@@ -45,7 +47,7 @@
             // menuItemTemplate
             // 
             this.menuItemTemplate.Name = "menuItemTemplate";
-            this.menuItemTemplate.Size = new System.Drawing.Size(74, 20);
+            this.menuItemTemplate.Size = new System.Drawing.Size(73, 20);
             this.menuItemTemplate.Text = "Templates";
             this.menuItemTemplate.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
@@ -62,6 +64,13 @@
             this.menuItemFilter.Size = new System.Drawing.Size(104, 20);
             this.menuItemFilter.Text = "Filter Applicants";
             this.menuItemFilter.Click += new System.EventHandler(this.filterApplicantsToolStripMenuItem_Click);
+            // 
+            // menuItemQuestion
+            // 
+            this.menuItemQuestion.Name = "menuItemQuestion";
+            this.menuItemQuestion.Size = new System.Drawing.Size(106, 20);
+            this.menuItemQuestion.Text = "QuestionCreator";
+            this.menuItemQuestion.Click += new System.EventHandler(this.menuItemQuestion_Click);
             // 
             // ScreenForm
             // 
@@ -86,5 +95,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuItemFeedback;
         private System.Windows.Forms.ToolStripMenuItem menuItemFilter;
+        private System.Windows.Forms.ToolStripMenuItem menuItemQuestion;
     }
 }

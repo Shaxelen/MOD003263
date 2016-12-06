@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOD003263_SoftwareEngineering.Core {
     public class FeedbackFilter {
-        private FeedbackBank _feedbackBank = FeedbackBank.Instance();
+        private FeedbackBank _feedbackBank = Bank.Instance.Feedbacks;
         private List<Feedback> _acceptList = new List<Feedback>();
         private List<Feedback> _rejectList = new List<Feedback>();
 

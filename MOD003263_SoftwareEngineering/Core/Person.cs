@@ -1,4 +1,7 @@
-﻿namespace MOD003263_SoftwareEngineering.Core {
+﻿using System;
+
+namespace MOD003263_SoftwareEngineering.Core {
+    [Serializable]
     public abstract class Person {
         protected short _personID;
         protected string _personImageFile;
@@ -63,6 +66,7 @@
         }
     }
 
+    [Serializable]
     public class Applicant : Person {
 
         /// <summary>
@@ -82,6 +86,7 @@
         }
     }
 
+    [Serializable]
     public class Employee : Person {
 
         /// <summary>

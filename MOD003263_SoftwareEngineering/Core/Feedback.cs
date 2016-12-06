@@ -11,6 +11,9 @@ namespace MOD003263_SoftwareEngineering.Core {
         private string _fileLocation;
         private Template _template;
         private Person _person;
+        private List<Question> _questions = new List<Question>();
+
+        public Feedback() { }
 
         /// <summary>
         /// Feedback Constructor
@@ -41,8 +44,40 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// <summary>
         /// Returns the title of the feedback
         /// </summary>
-        public string GetTitle {
+        public string Title {
             get { return _title; }
+            set { _title = value; }
+        }
+
+        public void AddQuestion(Question question) {
+            _questions.Add(question);
+        }
+
+        public void EditQuestion(int id, Question newQuestion) {
+            Question oldQuestion = FindQuestion(id);
+            oldQuestion.Title = newQuestion.Title;
+            oldQuestion.PickedFeedback = newQuestion.PickedFeedback;
+            oldQuestion.FeedbackList = newQuestion.FeedbackList;
+            oldQuestion.Score = newQuestion.Score;
+            RemoveQuestion(id);
+            AddQuestion(oldQuestion);
+        }
+
+        public Question FindQuestion(int id) {
+            foreach (Question q in _questions) {
+                if (q.ID == id) {
+                    return q;
+                }
+            }
+            return null;
+        }
+
+        public void RemoveQuestion(int id) {
+            _questions.Remove(FindQuestion(id));
+        }
+
+        public List<Question> Questions {
+            get { return _questions; }
         }
     }
 }

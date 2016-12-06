@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class ScreenForm : Form {
+        private Bank _bank = Bank.Instance;
         private TemplateForm _templateForm;
         private FeedbackForm _feedbackForm;
         private FilterForm _filterForm;
+        private QuestionCreatorForm _questionForm;
 
         public ScreenForm() {
             InitializeComponent();
+            _bank.LoadBank();
+            _bank = Bank.Instance;
         }
 
         private void templatesToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -23,7 +28,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                 _templateForm = new TemplateForm();
                 _templateForm.MdiParent = this;
                 _templateForm.WindowState = FormWindowState.Maximized;
-                showScreenMenu(false);
+                //showScreenMenu(false);
                 _templateForm.Show();
             }
             _templateForm = null;
@@ -34,7 +39,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                 _feedbackForm = new FeedbackForm();
                 _feedbackForm.MdiParent = this;
                 _feedbackForm.WindowState = FormWindowState.Maximized;
-                showScreenMenu(false);
+                //showScreenMenu(false);
                 _feedbackForm.Show();
             }
             _feedbackForm = null;
@@ -45,21 +50,22 @@ namespace MOD003263_SoftwareEngineering.UI {
                 _filterForm = new FilterForm();
                 _filterForm.MdiParent = this;
                 _filterForm.WindowState = FormWindowState.Maximized;
-                showScreenMenu(false);
+                //showScreenMenu(false);
                 _filterForm.Show();
             }
         }
         
-        private void showScreenMenu(bool value) {
-            menuItemTemplate.Visible = value;
-            menuItemFeedback.Visible = value;
-            menuItemFilter.Visible = value;
-        }
+        //private void showScreenMenu(bool value) {
+        //    menuItemTemplate.Visible = value;
+        //    menuItemFeedback.Visible = value;
+        //    menuItemFilter.Visible = value;
+        //    menuItemQuestion.Visible = value;
+        //}
 
         public TemplateForm TemplateForm {
             set { _templateForm = value;
                 if (null == _templateForm) {
-                    showScreenMenu(true);
+                    //showScreenMenu(true);
                 }
             }
         }
@@ -67,7 +73,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         public FeedbackForm FeedbackForm {
             set { _feedbackForm = value;
                 if (null == _feedbackForm) {
-                    showScreenMenu(true);
+                    //showScreenMenu(true);
                 }
             }
         }
@@ -75,8 +81,18 @@ namespace MOD003263_SoftwareEngineering.UI {
         public FilterForm FilterForm {
             set { _filterForm = value;
                 if (null == _filterForm) {
-                    showScreenMenu(true);
+                    //showScreenMenu(true);
                 }
+            }
+        }
+
+        private void menuItemQuestion_Click(object sender, EventArgs e) {
+            if (null == _questionForm) {
+                _questionForm = new QuestionCreatorForm();
+                _questionForm.MdiParent = this;
+                _questionForm.WindowState = FormWindowState.Maximized;
+                //showScreenMenu(false);
+                _questionForm.Show();
             }
         }
     }

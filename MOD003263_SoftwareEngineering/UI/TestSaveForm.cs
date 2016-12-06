@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestSaveForm : Form {
-        private Bank _bank = Bank.Instance();
+        private Bank _bank = Bank.Instance;
         private TemplateForm _parent;
 
         public new TemplateForm Parent { get { return _parent; } set { _parent = value; } }
@@ -22,24 +22,24 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void addDataList() {
-            foreach (Template t in _bank.Templates.Templates) {
-                lstData.Items.Add(t.TemplateName);
+            foreach (Feedback f in _bank.Feedbacks.FeedbackList) {
+                lstData.Items.Add(f.Title);
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             lstData.Items.Add(txtName.Text);
-            Template tem = Parent.CurrentTemplate;
-            tem.TemplateName = txtName.Text;
-            if (_bank.Templates.Load(txtName.Text).TemplateName == tem.TemplateName) {
-                Template old = _bank.Templates.Load(txtName.Text);
+            Feedback tem = Parent.CurrentFeedback;
+            tem.Title = txtName.Text;
+            if (_bank.Templates.Load(txtName.Text).TemplateName == tem.Title) {
+                Feedback old = _bank.Feedbacks.FindFeedback(txtName.Text);
                 if (null != old) { saveOver(old, tem); }
                 else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
             }
-            _bank.Templates.Templates.Add(tem);
+            _bank.Feedbacks.Add(tem);
         }
 
-        private void saveOver(Template old, Template neww) {
+        private void saveOver(Feedback old, Feedback neww) {
 
         }
     }

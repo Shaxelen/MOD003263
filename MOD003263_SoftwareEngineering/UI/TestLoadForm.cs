@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TestLoadForm : Form {
-        private Bank _bank = Bank.Instance();
+        private Bank _bank = Bank.Instance;
         private int _index = -1;
         private TemplateForm _parent;
 
@@ -31,7 +31,6 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnLoad_Click(object sender, EventArgs e) {
             if (_index != -1 && _index < lstTest.Items.Count) {
                 string a = lstTest.Items[_index].ToString();
-                _parent.RetrieveTemplate(a);
                 this.Close();
             }
         }

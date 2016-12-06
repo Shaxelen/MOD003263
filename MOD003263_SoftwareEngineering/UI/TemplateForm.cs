@@ -11,24 +11,17 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class TemplateForm : Form {
-        // Template Objects
-        private TemplateFactory _templateFactory;
-        private TemplateEditor _tempEditor;
-        private Template _template;
-        private TemplateBank _templateBank;
+        // Bank Objects
+        private Bank _bank = Bank.Instance;
+        private TemplateBank _templateBank = Bank.Instance.Templates;
+
+        // Feedback Objects
+        private Feedback _feedback = new Feedback();
 
         // Question Objects
-        private Question _question;
         private int _id = 0;
-
-        // Question Form Objects
-        private GroupBox _grbQuestion;
-        private TextBox _txtComment;
-        private RadioButton[] _radScores = new RadioButton[5];
-
-        // Form Objects
-        private TestSaveForm _saveForm;
-        private TestLoadForm _loadForm;
+        private List<Question> _selectedQuestions = new List<Question>();
+        private Category _selectedCategory;
 
         //Counter Object
         private int _questionCount = 0;
@@ -39,81 +32,41 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void Start() {
-            _templateFactory = new TemplateFactory();
-            _tempEditor = new TemplateEditor(_templateFactory);
-            _templateBank = TemplateBank.Instance();
+            _templateBank = _bank.Templates;
+            foreach (Category c in _bank.Categories.Categories) {
+                cmbCategory.Items.Add(c.Title);
+            }
         }
-        #region Requesting Template
-
-        private void menuCVTemplate_Click(object sender, EventArgs e) {
-            templateRequest("CV");
-        }
-
-        private void menuInterviewTemplate_Click(object sender, EventArgs e) {
-            templateRequest("Interview");
-        }
-
-        private void menuEmployeeTemplate_Click(object sender, EventArgs e) {
-            templateRequest("Employee");
-        }
-
-        private void templateRequest(string type) {
-            grbFeedbackTemplate.Visible = true;
-            _template = _tempEditor.RequestTemplate(type);
-            Text = _template.TemplateName;
-            grbFeedbackTemplate.Visible = true;
-            grbAddQuestion.Visible = true;
-            grbRemoveQuestion.Visible = true;
-            grbClearQuestions.Visible = true;
-        }
-        #endregion
 
         #region Saving/Loading Templates
 
         private void menuSaveTemplate_Click(object sender, EventArgs e) {
-            _saveForm = new TestSaveForm();
-            _saveForm.Parent = this;
-            _saveForm.ShowDialog();
+            TestSaveForm saveForm = new TestSaveForm();
+            saveForm.Parent = this;
+            saveForm.ShowDialog();
         }
 
         private void menuLoadTemplate_Click(object sender, EventArgs e) {
-            _loadForm = new TestLoadForm();
-            _loadForm.Parent = this;
-            _loadForm.ShowDialog();
-        }
-
-        public void RetrieveTemplate(string template) {
-            _template = _templateBank.Load(template);
-            Text = _template.TemplateName;
+            TestLoadForm loadForm = new TestLoadForm();
+            loadForm.Parent = this;
+            loadForm.ShowDialog();
         }
 
         #endregion
 
         #region Creating, Adding and Removing Questions
 
-        private void btnAddQuestion_Click(object sender, EventArgs e) {
-            if (_questionCount < 12) {
-                _question = new Question();
-                _question.Title = txtAddQuestion.Text;
-                _question.ID = _id;
-                _question.Comment = "";
-                _question.Score = 0;
-                _grbQuestion = QuestionGroupBox(_id, txtAddQuestion.Text);
-                _txtComment = CommentTextBox(_id);
-                _grbQuestion.Controls.Add(_txtComment);
-                for (int i = 0; i < 5; i++) {
-                    _radScores[i] = Score(_id, i+1, 6 + (i * 37), 81);
-                    _grbQuestion.Controls.Add(_radScores[i]);
-                }
-                flwQuestions.Controls.Add(_grbQuestion);
-                _template.AddQuestion(_question);
-                cmbQuestionID.Items.Add((_id + 1));
-                _id++;
-                _questionCount++;
-            } else {
-                MessageBox.Show("Cannot Fit anymore Questions on Template");
+        private void addQuestionToForm(Question question) {
+            GroupBox grbQuestion = QuestionGroupBox(_id, question.Title);
+            for (int i = 0; i < 5; i++) {
+                RadioButton radScore = Score(_id, i + 1, 6 + (i * 37), 16);
+                grbQuestion.Controls.Add(radScore);
             }
-            txtAddQuestion.Clear();
+            question.ID = _id;
+            flwQuestions.Controls.Add(grbQuestion);
+            cmbQuestionID.Items.Add((_id + 1));
+            _id++;
+            _questionCount++;
         }
 
         private bool inputCheckForLetter(string toCheck) {
@@ -129,21 +82,24 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnRemoveQuestion_Click(object sender, EventArgs e) {
             if (!inputCheckForLetter(cmbQuestionID.Text)) {
                 int index = int.Parse(cmbQuestionID.Text) - 1;
+                string app = cmbQuestionID.Text + ":";
                 _questionCount--;
 
                 foreach (GroupBox g in flwQuestions.Controls) {
-                    if (g.Name.Contains(Convert.ToString(index))) {
+                    if (g.Name.Contains(Convert.ToString(index)) && g.Text.Contains(app)) {
+                        app = g.Text.Split(':')[1].TrimStart(' ');
                         flwQuestions.Controls.Remove(g);
+                        break;
                     }
                 }
                 Question compToRemove = null;
-                foreach (Question q in _template.Questions) {
-                    if (q.ID == index) {
+                foreach (Question q in _feedback.Questions) {
+                    if (q.Title == app) {
                         compToRemove = q;
                         break;
                     }
                 }
-                _template.RemoveQuestion(compToRemove.ID);
+                _feedback.RemoveQuestion(compToRemove.ID);
                 cmbQuestionID.Items.Remove(index);
                 updateComboBox();
             }
@@ -175,7 +131,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             List<GroupBox> grp = findAllGrps();
             int questIndex = 0;
             cmbQuestionID.Items.Clear();
-            foreach(Question q in _template.Questions) {
+            foreach(Question q in _feedback.Questions) {
                 foreach (GroupBox g in grp) {
                     if (g.Name.Contains(q.ID.ToString())) {
                         g.Name = "grbQuestion " + questIndex;
@@ -209,21 +165,6 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         /// <summary>
-        /// Creates a TextBox for question comments
-        /// </summary>
-        /// <param name="id">The id of the question</param>
-        /// <returns>A TextBox</returns>
-        private TextBox CommentTextBox(int id) {
-            TextBox txtBox = new TextBox();
-            txtBox.Location = new Point(6, 19);
-            txtBox.Multiline = true;
-            txtBox.Name = "txtComment " + id;
-            txtBox.Size = new Size(179, 56);
-            txtBox.TabIndex = 1;
-            return txtBox;
-        }
-
-        /// <summary>
         /// Creates a RadioButton for question score
         /// </summary>
         /// <param name="id">The id of the question</param>
@@ -246,21 +187,67 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         #endregion
 
-        private void TemplateForm_FormClosing(object sender, FormClosingEventArgs e) {
-            ScreenForm sf = (ScreenForm)MdiParent;
-            sf.TemplateForm = null;
-        }
-
         private void btnClearQuestions_Click(object sender, EventArgs e) {
             flwQuestions.Controls.Clear();
-            _template.Questions.Clear();
+            _feedback.Questions.Clear();
             _questionCount = 0;
             _id = 0;
         }
 
-        public Template CurrentTemplate {
-            get { return _template; }
-            set { _template = value; }
+        public Feedback CurrentFeedback {
+            get { return _feedback; }
+            set { _feedback = value; }
+        }
+
+        private Category findCategory(string title) {
+            foreach (Category c in _bank.Categories.Categories) {
+                if (c.Title == title) {
+                    return c;
+                }
+            }
+            return null;
+        }
+
+        private void btnSelectCategory_Click(object sender, EventArgs e) {
+            if (cmbCategory.Text != "") {
+                Category cat = findCategory(cmbCategory.Text);
+                if (null != cat) {
+                    lstQuestions.Items.Clear();
+                    foreach (Question q in cat.Questions) {
+                        lstQuestions.Items.Add(q.Title);
+                    }
+                    _selectedCategory = cat;
+                } else {
+                    MessageBox.Show("Invalid Category, Please Select Another", "Error");
+                }
+                
+            } else {
+                MessageBox.Show("You need to select a category first.", "Error");
+            }
+        }
+
+        private void btnAddQuestions_Click(object sender, EventArgs e) {
+            if (_selectedQuestions.Count != 0) {
+                foreach (Question q in _selectedQuestions) {
+                    addQuestionToForm(q);
+                    _feedback.AddQuestion(q);
+                }
+            } else {
+                MessageBox.Show("You need to pick at least one Question to Add.", "Error");
+            }
+        }
+
+        private void lstQuestions_SelectedIndexChanged(object sender, EventArgs e) {
+            if (lstQuestions.SelectedIndices.Count != 0) {
+                _selectedQuestions.Clear();
+                foreach (Question q in _selectedCategory.Questions) {
+                    foreach (string item in lstQuestions.SelectedItems) {
+                        if (q.Title == item) {
+                            _selectedQuestions.Add(q);
+                        }
+                    }
+                }
+            }
         }
     }
 }
