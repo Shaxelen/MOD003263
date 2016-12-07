@@ -6,7 +6,7 @@ using MOD003263_SoftwareEngineering.Debug;
 namespace MOD003263_SoftwareEngineering.Meta {
     public class EmailHandler {
         private NetworkCredential _networkCred;
-        private Logger _logger = Logger.Instance();
+        private Logger _logger = Logger.Instance;
 
         public EmailHandler(NetworkCredential NetworkCredentials) {
             _networkCred = NetworkCredentials;
