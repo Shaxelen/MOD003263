@@ -35,26 +35,26 @@
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearFeedback = new System.Windows.Forms.ToolStripMenuItem();
-            this.grbFeedbackTemplate = new System.Windows.Forms.GroupBox();
-            this.panelQuestions = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtFeedbacker = new System.Windows.Forms.TextBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblFeedbacker = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lstQuestions = new System.Windows.Forms.ListBox();
+            this.cmbApplicant = new System.Windows.Forms.ComboBox();
+            this.btnOpenCV = new System.Windows.Forms.Button();
+            this.btnNextQuestion = new System.Windows.Forms.Button();
+            this.btnFinishInterview = new System.Windows.Forms.Button();
+            this.picApplicantPicture = new System.Windows.Forms.PictureBox();
+            this.grpFeedbackAnswers = new System.Windows.Forms.GroupBox();
+            this.radAnswerOne = new System.Windows.Forms.RadioButton();
+            this.radAnswerTwo = new System.Windows.Forms.RadioButton();
+            this.radAnswerThree = new System.Windows.Forms.RadioButton();
+            this.radAnswerFour = new System.Windows.Forms.RadioButton();
+            this.radAnswerFive = new System.Windows.Forms.RadioButton();
+            this.txtAnswerOne = new System.Windows.Forms.TextBox();
+            this.txtAnswerTwo = new System.Windows.Forms.TextBox();
+            this.txtAnswerThree = new System.Windows.Forms.TextBox();
+            this.txtAnswerFour = new System.Windows.Forms.TextBox();
+            this.txtAnswerFive = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            this.grbFeedbackTemplate.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picApplicantPicture)).BeginInit();
+            this.grpFeedbackAnswers.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,7 +81,7 @@
             // menuLoadTemp
             // 
             this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(123, 22);
+            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
             this.menuLoadTemp.Text = "Template";
             this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
             // 
@@ -91,7 +91,7 @@
             this.menuLoadApplicant,
             this.menuLoadEmployee});
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.personToolStripMenuItem.Text = "Person";
             // 
             // menuLoadApplicant
@@ -154,167 +154,183 @@
             this.menuClearFeedback.Text = "Feedback";
             this.menuClearFeedback.Click += new System.EventHandler(this.menuClearFeedback_Click);
             // 
-            // grbFeedbackTemplate
+            // lstQuestions
             // 
-            this.grbFeedbackTemplate.AutoSize = true;
-            this.grbFeedbackTemplate.Controls.Add(this.panelQuestions);
-            this.grbFeedbackTemplate.Controls.Add(this.groupBox1);
-            this.grbFeedbackTemplate.Location = new System.Drawing.Point(12, 27);
-            this.grbFeedbackTemplate.Name = "grbFeedbackTemplate";
-            this.grbFeedbackTemplate.Size = new System.Drawing.Size(1041, 715);
-            this.grbFeedbackTemplate.TabIndex = 6;
-            this.grbFeedbackTemplate.TabStop = false;
-            this.grbFeedbackTemplate.Text = "Feedback Name";
+            this.lstQuestions.FormattingEnabled = true;
+            this.lstQuestions.Location = new System.Drawing.Point(12, 27);
+            this.lstQuestions.Name = "lstQuestions";
+            this.lstQuestions.Size = new System.Drawing.Size(191, 563);
+            this.lstQuestions.TabIndex = 1;
             // 
-            // panelQuestions
+            // cmbApplicant
             // 
-            this.panelQuestions.Location = new System.Drawing.Point(6, 19);
-            this.panelQuestions.Name = "panelQuestions";
-            this.panelQuestions.Size = new System.Drawing.Size(633, 518);
-            this.panelQuestions.TabIndex = 2;
+            this.cmbApplicant.FormattingEnabled = true;
+            this.cmbApplicant.Location = new System.Drawing.Point(350, 27);
+            this.cmbApplicant.Name = "cmbApplicant";
+            this.cmbApplicant.Size = new System.Drawing.Size(413, 21);
+            this.cmbApplicant.TabIndex = 2;
             // 
-            // groupBox1
+            // btnOpenCV
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.txtFeedbacker);
-            this.groupBox1.Controls.Add(this.dateTimePicker);
-            this.groupBox1.Controls.Add(this.txtPosition);
-            this.groupBox1.Controls.Add(this.txtPhoneNumber);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.lblDate);
-            this.groupBox1.Controls.Add(this.lblFeedbacker);
-            this.groupBox1.Controls.Add(this.lblPosition);
-            this.groupBox1.Controls.Add(this.lblPhoneNumber);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.lblLastName);
-            this.groupBox1.Controls.Add(this.lblFirstName);
-            this.groupBox1.Location = new System.Drawing.Point(653, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 138);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Header";
+            this.btnOpenCV.Location = new System.Drawing.Point(899, 27);
+            this.btnOpenCV.Name = "btnOpenCV";
+            this.btnOpenCV.Size = new System.Drawing.Size(154, 56);
+            this.btnOpenCV.TabIndex = 3;
+            this.btnOpenCV.Text = "Open Applicant CV";
+            this.btnOpenCV.UseVisualStyleBackColor = true;
             // 
-            // txtFeedbacker
+            // btnNextQuestion
             // 
-            this.txtFeedbacker.Location = new System.Drawing.Point(93, 97);
-            this.txtFeedbacker.Name = "txtFeedbacker";
-            this.txtFeedbacker.Size = new System.Drawing.Size(97, 20);
-            this.txtFeedbacker.TabIndex = 5;
+            this.btnNextQuestion.Location = new System.Drawing.Point(899, 476);
+            this.btnNextQuestion.Name = "btnNextQuestion";
+            this.btnNextQuestion.Size = new System.Drawing.Size(154, 56);
+            this.btnNextQuestion.TabIndex = 4;
+            this.btnNextQuestion.Text = "Next Question";
+            this.btnNextQuestion.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker
+            // btnFinishInterview
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(246, 97);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(127, 20);
-            this.dateTimePicker.TabIndex = 4;
+            this.btnFinishInterview.Location = new System.Drawing.Point(899, 538);
+            this.btnFinishInterview.Name = "btnFinishInterview";
+            this.btnFinishInterview.Size = new System.Drawing.Size(154, 56);
+            this.btnFinishInterview.TabIndex = 5;
+            this.btnFinishInterview.Text = "Finish Interview";
+            this.btnFinishInterview.UseVisualStyleBackColor = true;
             // 
-            // txtPosition
+            // picApplicantPicture
             // 
-            this.txtPosition.Location = new System.Drawing.Point(253, 71);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(120, 20);
-            this.txtPosition.TabIndex = 3;
+            this.picApplicantPicture.Location = new System.Drawing.Point(899, 89);
+            this.picApplicantPicture.Name = "picApplicantPicture";
+            this.picApplicantPicture.Size = new System.Drawing.Size(154, 154);
+            this.picApplicantPicture.TabIndex = 6;
+            this.picApplicantPicture.TabStop = false;
             // 
-            // txtPhoneNumber
+            // grpFeedbackAnswers
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(93, 71);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(97, 20);
-            this.txtPhoneNumber.TabIndex = 3;
+            this.grpFeedbackAnswers.Controls.Add(this.txtAnswerFive);
+            this.grpFeedbackAnswers.Controls.Add(this.txtAnswerFour);
+            this.grpFeedbackAnswers.Controls.Add(this.txtAnswerThree);
+            this.grpFeedbackAnswers.Controls.Add(this.txtAnswerTwo);
+            this.grpFeedbackAnswers.Controls.Add(this.txtAnswerOne);
+            this.grpFeedbackAnswers.Controls.Add(this.radAnswerFive);
+            this.grpFeedbackAnswers.Controls.Add(this.radAnswerFour);
+            this.grpFeedbackAnswers.Controls.Add(this.radAnswerThree);
+            this.grpFeedbackAnswers.Controls.Add(this.radAnswerTwo);
+            this.grpFeedbackAnswers.Controls.Add(this.radAnswerOne);
+            this.grpFeedbackAnswers.Location = new System.Drawing.Point(209, 54);
+            this.grpFeedbackAnswers.Name = "grpFeedbackAnswers";
+            this.grpFeedbackAnswers.Size = new System.Drawing.Size(684, 536);
+            this.grpFeedbackAnswers.TabIndex = 7;
+            this.grpFeedbackAnswers.TabStop = false;
+            this.grpFeedbackAnswers.Text = "Feedback Answers";
             // 
-            // txtEmail
+            // radAnswerOne
             // 
-            this.txtEmail.Location = new System.Drawing.Point(93, 45);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(280, 20);
-            this.txtEmail.TabIndex = 3;
+            this.radAnswerOne.AutoSize = true;
+            this.radAnswerOne.Location = new System.Drawing.Point(6, 35);
+            this.radAnswerOne.Name = "radAnswerOne";
+            this.radAnswerOne.Size = new System.Drawing.Size(83, 17);
+            this.radAnswerOne.TabIndex = 0;
+            this.radAnswerOne.TabStop = true;
+            this.radAnswerOne.Text = "Answer One";
+            this.radAnswerOne.UseVisualStyleBackColor = true;
             // 
-            // txtLastName
+            // radAnswerTwo
             // 
-            this.txtLastName.Location = new System.Drawing.Point(263, 19);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(110, 20);
-            this.txtLastName.TabIndex = 2;
+            this.radAnswerTwo.AutoSize = true;
+            this.radAnswerTwo.Location = new System.Drawing.Point(6, 125);
+            this.radAnswerTwo.Name = "radAnswerTwo";
+            this.radAnswerTwo.Size = new System.Drawing.Size(84, 17);
+            this.radAnswerTwo.TabIndex = 1;
+            this.radAnswerTwo.TabStop = true;
+            this.radAnswerTwo.Text = "Answer Two";
+            this.radAnswerTwo.UseVisualStyleBackColor = true;
             // 
-            // txtFirstName
+            // radAnswerThree
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(93, 19);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(97, 20);
-            this.txtFirstName.TabIndex = 2;
+            this.radAnswerThree.AutoSize = true;
+            this.radAnswerThree.Location = new System.Drawing.Point(6, 215);
+            this.radAnswerThree.Name = "radAnswerThree";
+            this.radAnswerThree.Size = new System.Drawing.Size(91, 17);
+            this.radAnswerThree.TabIndex = 2;
+            this.radAnswerThree.TabStop = true;
+            this.radAnswerThree.Text = "Answer Three";
+            this.radAnswerThree.UseVisualStyleBackColor = true;
             // 
-            // lblDate
+            // radAnswerFour
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(207, 100);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(33, 13);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "Date:";
+            this.radAnswerFour.AutoSize = true;
+            this.radAnswerFour.Location = new System.Drawing.Point(6, 305);
+            this.radAnswerFour.Name = "radAnswerFour";
+            this.radAnswerFour.Size = new System.Drawing.Size(84, 17);
+            this.radAnswerFour.TabIndex = 3;
+            this.radAnswerFour.TabStop = true;
+            this.radAnswerFour.Text = "Answer Four";
+            this.radAnswerFour.UseVisualStyleBackColor = true;
             // 
-            // lblFeedbacker
+            // radAnswerFive
             // 
-            this.lblFeedbacker.AutoSize = true;
-            this.lblFeedbacker.Location = new System.Drawing.Point(20, 100);
-            this.lblFeedbacker.Name = "lblFeedbacker";
-            this.lblFeedbacker.Size = new System.Drawing.Size(67, 13);
-            this.lblFeedbacker.TabIndex = 1;
-            this.lblFeedbacker.Text = "Feedbacker:";
+            this.radAnswerFive.AutoSize = true;
+            this.radAnswerFive.Location = new System.Drawing.Point(6, 395);
+            this.radAnswerFive.Name = "radAnswerFive";
+            this.radAnswerFive.Size = new System.Drawing.Size(83, 17);
+            this.radAnswerFive.TabIndex = 4;
+            this.radAnswerFive.TabStop = true;
+            this.radAnswerFive.Text = "Answer Five";
+            this.radAnswerFive.UseVisualStyleBackColor = true;
             // 
-            // lblPosition
+            // txtAnswerOne
             // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(200, 74);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(47, 13);
-            this.lblPosition.TabIndex = 1;
-            this.lblPosition.Text = "Position:";
+            this.txtAnswerOne.Location = new System.Drawing.Point(97, 35);
+            this.txtAnswerOne.Multiline = true;
+            this.txtAnswerOne.Name = "txtAnswerOne";
+            this.txtAnswerOne.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerOne.TabIndex = 5;
             // 
-            // lblPhoneNumber
+            // txtAnswerTwo
             // 
-            this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(6, 74);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(81, 13);
-            this.lblPhoneNumber.TabIndex = 1;
-            this.lblPhoneNumber.Text = "Phone Number:";
+            this.txtAnswerTwo.Location = new System.Drawing.Point(97, 125);
+            this.txtAnswerTwo.Multiline = true;
+            this.txtAnswerTwo.Name = "txtAnswerTwo";
+            this.txtAnswerTwo.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerTwo.TabIndex = 6;
             // 
-            // lblEmail
+            // txtAnswerThree
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(52, 48);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
-            this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "Email:";
+            this.txtAnswerThree.Location = new System.Drawing.Point(97, 215);
+            this.txtAnswerThree.Multiline = true;
+            this.txtAnswerThree.Name = "txtAnswerThree";
+            this.txtAnswerThree.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerThree.TabIndex = 7;
             // 
-            // lblLastName
+            // txtAnswerFour
             // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(196, 22);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(61, 13);
-            this.lblLastName.TabIndex = 1;
-            this.lblLastName.Text = "Last Name:";
+            this.txtAnswerFour.Location = new System.Drawing.Point(97, 305);
+            this.txtAnswerFour.Multiline = true;
+            this.txtAnswerFour.Name = "txtAnswerFour";
+            this.txtAnswerFour.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerFour.TabIndex = 8;
             // 
-            // lblFirstName
+            // txtAnswerFive
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(27, 22);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(60, 13);
-            this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "First Name:";
+            this.txtAnswerFive.Location = new System.Drawing.Point(97, 395);
+            this.txtAnswerFive.Multiline = true;
+            this.txtAnswerFive.Name = "txtAnswerFive";
+            this.txtAnswerFive.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerFive.TabIndex = 9;
             // 
             // InterviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
-            this.Controls.Add(this.grbFeedbackTemplate);
+            this.Controls.Add(this.grpFeedbackAnswers);
+            this.Controls.Add(this.picApplicantPicture);
+            this.Controls.Add(this.btnFinishInterview);
+            this.Controls.Add(this.btnNextQuestion);
+            this.Controls.Add(this.btnOpenCV);
+            this.Controls.Add(this.cmbApplicant);
+            this.Controls.Add(this.lstQuestions);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -324,12 +340,12 @@
             this.ShowIcon = false;
             this.Text = "Conduct Interview";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackForm_FormClosing);
+            this.Load += new System.EventHandler(this.InterviewForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.grbFeedbackTemplate.ResumeLayout(false);
-            this.grbFeedbackTemplate.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picApplicantPicture)).EndInit();
+            this.grpFeedbackAnswers.ResumeLayout(false);
+            this.grpFeedbackAnswers.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,22 +365,22 @@
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuClearHeader;
         private System.Windows.Forms.ToolStripMenuItem menuClearFeedback;
-        private System.Windows.Forms.GroupBox grbFeedbackTemplate;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtFeedbacker;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblFeedbacker;
-        private System.Windows.Forms.Label lblPosition;
-        private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Panel panelQuestions;
+        private System.Windows.Forms.ListBox lstQuestions;
+        private System.Windows.Forms.ComboBox cmbApplicant;
+        private System.Windows.Forms.Button btnOpenCV;
+        private System.Windows.Forms.Button btnNextQuestion;
+        private System.Windows.Forms.Button btnFinishInterview;
+        private System.Windows.Forms.PictureBox picApplicantPicture;
+        private System.Windows.Forms.GroupBox grpFeedbackAnswers;
+        private System.Windows.Forms.RadioButton radAnswerFive;
+        private System.Windows.Forms.RadioButton radAnswerFour;
+        private System.Windows.Forms.RadioButton radAnswerThree;
+        private System.Windows.Forms.RadioButton radAnswerTwo;
+        private System.Windows.Forms.RadioButton radAnswerOne;
+        private System.Windows.Forms.TextBox txtAnswerFive;
+        private System.Windows.Forms.TextBox txtAnswerFour;
+        private System.Windows.Forms.TextBox txtAnswerThree;
+        private System.Windows.Forms.TextBox txtAnswerTwo;
+        private System.Windows.Forms.TextBox txtAnswerOne;
     }
 }

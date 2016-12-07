@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class InterviewForm : Form {
+        private Feedback _feedback;
+
         public InterviewForm() {
             InitializeComponent();
+        }
+
+        public Feedback CurrentFeedback {
+            get { return _feedback; }
+            set { _feedback = value; }
         }
 
         private void menuLoadApplicant_Click(object sender, EventArgs e) {
@@ -53,6 +61,17 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.InterviewForm = null;
+        }
+
+        private void InterviewForm_Load(object sender, EventArgs e)
+        {
+            LoadFeedbackForm lff = new LoadFeedbackForm();
+            lff.InterviewParent = this;
+            lff.ShowDialog();
+            if (null == _feedback)
+            {
+                MessageBox.Show("Feedback Not Loaded", "Error");
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         /// <param name="e">The Event Arguments that Object Sends the Request With.</param>
         private void menuLoadTemplate_Click(object sender, EventArgs e) {
             LoadFeedbackForm loadForm = new LoadFeedbackForm();
-            loadForm.Parent = this;
+            loadForm.FeedbackParent = this;
             loadForm.ShowDialog();
         }
 
@@ -258,12 +258,11 @@ namespace MOD003263_SoftwareEngineering.UI {
         /// <param name="title">The title of the question being entered.</param>
         /// <returns>Returns True if Question can be added, Returns False if it cannot.</returns>
         private bool checkQuestion(string title) {
-            bool temp = false;
+            bool temp = true;
             foreach (Question q in _feedback.Questions) {
-                if (q.Title != title) {
-                    temp = true;
-                } else {
+                if (q.Title == title) {
                     temp = false;
+                    break;
                 }
             }
             return temp;

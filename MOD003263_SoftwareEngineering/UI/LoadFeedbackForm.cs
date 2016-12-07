@@ -14,8 +14,10 @@ namespace MOD003263_SoftwareEngineering.UI {
         private Bank _bank = Bank.Instance;
         private int _index = -1;
         private FeedbackCreatorForm _parent;
+        private InterviewForm _interviewParent;
 
-        public new FeedbackCreatorForm Parent { get { return _parent; } set { _parent = value; } }
+        public FeedbackCreatorForm FeedbackParent { get { return _parent; } set { _parent = value; } }
+        public InterviewForm InterviewParent { get { return _interviewParent; } set { _interviewParent = value; } }
 
         public LoadFeedbackForm() {
             InitializeComponent();
@@ -31,7 +33,15 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnLoad_Click(object sender, EventArgs e) {
             if (_index != -1 && _index < lstTest.Items.Count) {
                 string title = lstTest.Items[_index].ToString();
-                _parent.CurrentFeedback = _bank.Feedbacks.FindFeedback(title);
+                if (null != _parent) {
+                    _parent.CurrentFeedback = _bank.Feedbacks.FindFeedback(title);
+                }
+                else if (null != _interviewParent) {
+                    _interviewParent.CurrentFeedback = _bank.Feedbacks.FindFeedback(title);
+                }
+                else {
+                    MessageBox.Show("Cannot Load Feedback, Unknown Destination", "Error");
+                }
                 this.Close();
             }
         }
