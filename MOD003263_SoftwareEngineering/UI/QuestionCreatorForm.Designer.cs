@@ -42,6 +42,8 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnAddQuestion = new System.Windows.Forms.Button();
             this.lstQuestions = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.grbGenericFeedback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,9 +185,9 @@
             // lstCategoryList
             // 
             this.lstCategoryList.FormattingEnabled = true;
-            this.lstCategoryList.Location = new System.Drawing.Point(12, 77);
+            this.lstCategoryList.Location = new System.Drawing.Point(12, 103);
             this.lstCategoryList.Name = "lstCategoryList";
-            this.lstCategoryList.Size = new System.Drawing.Size(177, 524);
+            this.lstCategoryList.Size = new System.Drawing.Size(177, 498);
             this.lstCategoryList.TabIndex = 5;
             this.lstCategoryList.SelectedIndexChanged += new System.EventHandler(this.lstCategoryList_SelectedIndexChanged);
             // 
@@ -212,16 +214,36 @@
             // lstQuestions
             // 
             this.lstQuestions.FormattingEnabled = true;
-            this.lstQuestions.Location = new System.Drawing.Point(194, 77);
+            this.lstQuestions.Location = new System.Drawing.Point(194, 103);
             this.lstQuestions.Name = "lstQuestions";
-            this.lstQuestions.Size = new System.Drawing.Size(177, 524);
+            this.lstQuestions.Size = new System.Drawing.Size(177, 498);
             this.lstQuestions.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Category List";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(194, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Qu";
             // 
             // QuestionCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lstQuestions);
             this.Controls.Add(this.btnAddQuestion);
             this.Controls.Add(this.btnAddCategory);
@@ -266,5 +288,7 @@
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnAddQuestion;
         private System.Windows.Forms.ListBox lstQuestions;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -30,6 +30,22 @@ namespace MOD003263_SoftwareEngineering.UI {
             _bank.SaveBank();
         }
 
+        private void loadQuestions(string selectedCategory) {
+            lstQuestions.Items.Clear();
+            List<Question> questions;
+            Category cat;
+
+            foreach (Category c in _selectedCategories) {
+                if (selectedCategory == c.Title) {
+                    cat = c;
+                    questions = cat.Questions;
+                    foreach (Question q in questions) {
+                        lstQuestions.Items.Add(q.Title);
+                    }
+                }
+            }
+        }
+
         private void updateCategoryBoxes() {
             loadCategories();
             txtCategory.Text = "";
@@ -100,6 +116,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                     foreach (string item in lstCategoryList.SelectedItems) {
                         if (c.Title == item) {
                             _selectedCategories.Add(c);
+                            loadQuestions(c.Title);
                         }
                     }
                 }
