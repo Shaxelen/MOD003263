@@ -86,5 +86,9 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnFinishInterview_Click(object sender, EventArgs e) {
             // finish off interview and make feedback pdf
         }
+
+        private void btnLoadApplicant_Click(object sender, EventArgs e) {
+
+        }
     }
 }

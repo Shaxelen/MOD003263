@@ -40,6 +40,7 @@
             this.radAnswerThree = new System.Windows.Forms.RadioButton();
             this.radAnswerTwo = new System.Windows.Forms.RadioButton();
             this.radAnswerOne = new System.Windows.Forms.RadioButton();
+            this.btnLoadApplicant = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picApplicantPicture)).BeginInit();
             this.grpFeedbackAnswers.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             this.cmbApplicant.FormattingEnabled = true;
             this.cmbApplicant.Location = new System.Drawing.Point(350, 27);
             this.cmbApplicant.Name = "cmbApplicant";
-            this.cmbApplicant.Size = new System.Drawing.Size(413, 21);
+            this.cmbApplicant.Size = new System.Drawing.Size(372, 21);
             this.cmbApplicant.TabIndex = 2;
             // 
             // btnOpenCV
@@ -213,11 +214,22 @@
             this.radAnswerOne.Text = "Answer One";
             this.radAnswerOne.UseVisualStyleBackColor = true;
             // 
+            // btnLoadApplicant
+            // 
+            this.btnLoadApplicant.Location = new System.Drawing.Point(728, 27);
+            this.btnLoadApplicant.Name = "btnLoadApplicant";
+            this.btnLoadApplicant.Size = new System.Drawing.Size(93, 23);
+            this.btnLoadApplicant.TabIndex = 8;
+            this.btnLoadApplicant.Text = "Load Applicant";
+            this.btnLoadApplicant.UseVisualStyleBackColor = true;
+            this.btnLoadApplicant.Click += new System.EventHandler(this.btnLoadApplicant_Click);
+            // 
             // InterviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
+            this.Controls.Add(this.btnLoadApplicant);
             this.Controls.Add(this.grpFeedbackAnswers);
             this.Controls.Add(this.picApplicantPicture);
             this.Controls.Add(this.btnFinishInterview);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.TextBox txtAnswerThree;
         private System.Windows.Forms.TextBox txtAnswerTwo;
         private System.Windows.Forms.TextBox txtAnswerOne;
+        private System.Windows.Forms.Button btnLoadApplicant;
     }
 }

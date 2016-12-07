@@ -22,6 +22,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void addDataList() {
+            lstData.Items.Clear();
             foreach (Feedback f in _bank.Feedbacks.FeedbackList) {
                 lstData.Items.Add(f.Title);
             }
@@ -44,6 +45,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void saveOver(Feedback old, Feedback neww) {
             _bank.Feedbacks.Remove(old.Title);
             _bank.Feedbacks.Add(neww);
+            addDataList();
         }
     }
 }
