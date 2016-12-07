@@ -12,6 +12,7 @@ using MOD003263_SoftwareEngineering.Core;
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class FilterApplicantsForm : Form {
         private Property _property = Property.Instance;
+        private Bank _bank = Bank.Instance;
         private ApplicantBank _appBank = Bank.Instance.Applicants;
         private string _position = "";
         private bool _canAccRej = false;
@@ -118,6 +119,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void FilterApplicantsForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.FilterApplicantsForm = null;
+            _bank.SaveBank();
         }
     }
 }

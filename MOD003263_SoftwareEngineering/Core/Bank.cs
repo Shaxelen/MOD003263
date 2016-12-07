@@ -34,11 +34,12 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         public void SaveBank() {
-            _serializer.Save(this);
+            _serializer.Save(Bank.Instance);
         }
 
         public void LoadBank() {
             _instance = _serializer.Load();
+            _instance.Applicants.Applicants = DatabaseMetaLayer.Instance().GetApplicants();
         }
 
         /// <summary>

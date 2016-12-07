@@ -40,6 +40,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             } else {
                 _bank.Feedbacks.Add(tem);
             }
+            _bank.SaveBank();
         }
 
         private void saveOver(Feedback old, Feedback neww) {

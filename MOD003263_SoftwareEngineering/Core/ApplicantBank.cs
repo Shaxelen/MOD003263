@@ -27,6 +27,7 @@ namespace MOD003263_SoftwareEngineering.Core {
 
         public List<Applicant> Applicants {
             get { return _applicants; }
+            set { _applicants = value; }
         }
 
         public void Remove(int id) {

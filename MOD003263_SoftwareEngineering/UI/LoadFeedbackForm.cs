@@ -42,6 +42,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                 else {
                     MessageBox.Show("Cannot Load Feedback, Unknown Destination", "Error");
                 }
+                _bank.SaveBank();
                 this.Close();
             }
         }

@@ -41,6 +41,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.InterviewForm = null;
+            _bank.SaveBank();
         }
 
         private void load() {
@@ -79,8 +80,13 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
         }
 
+        private void saveQuestion(Question editted) {
+
+        }
+
         private void btnNextQuestion_Click(object sender, EventArgs e) {
             //question saving over as selected feedback
+
         }
 
         private void btnFinishInterview_Click(object sender, EventArgs e) {

@@ -358,6 +358,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void FeedbackCreatorForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.FeedbackCreatorForm = null;
+            _bank.SaveBank();
         }
     }
 }
