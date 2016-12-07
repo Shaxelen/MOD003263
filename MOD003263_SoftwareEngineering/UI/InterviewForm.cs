@@ -11,10 +11,14 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class InterviewForm : Form {
+        private Bank _bank = Bank.Instance;
         private Feedback _feedback;
+        private Question _question;
+        private Applicant _applicant;
 
         public InterviewForm() {
             InitializeComponent();
+            load();
         }
 
         public Feedback CurrentFeedback {
@@ -22,40 +26,16 @@ namespace MOD003263_SoftwareEngineering.UI {
             set { _feedback = value; }
         }
 
-        private void menuLoadApplicant_Click(object sender, EventArgs e) {
-            // Get Applicant
-            // Add Applicant Data to Feedback
-            // Show on Header
+        private void inputFeedbackQuestions() {
+            foreach (Question q in _feedback.Questions) {
+                lstQuestions.Items.Add(q.Title);
+            }
         }
 
-        private void menuLoadEmployee_Click(object sender, EventArgs e) {
-            // Get Employee
-            // Add Employee Data to Feedback
-            // Show on Header
-        }
-
-        private void menuLoadTemp_Click(object sender, EventArgs e) {
-            // Get Template
-            // Add Template to Feedback
-            // Add Template Data to Form
-        }
-
-        private void menuSave_Click(object sender, EventArgs e) {
-            // Handles Saving 
-            // If New, Save As, else, Save
-        }
-
-        private void menuSaveAs_Click(object sender, EventArgs e) {
-            // Handles Saving as
-            // Saves as New Feedback File
-        }
-
-        private void menuClearHeader_Click(object sender, EventArgs e) {
-
-        }
-
-        private void menuClearFeedback_Click(object sender, EventArgs e) {
-
+        private void loadInApplicants() {
+            foreach (Applicant a in _bank.Applicants.Applicants) {
+                cmbApplicant.Items.Add(a.FullName);
+            }
         }
 
         private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -63,8 +43,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             pf.InterviewForm = null;
         }
 
-        private void InterviewForm_Load(object sender, EventArgs e)
-        {
+        private void load() {
             LoadFeedbackForm lff = new LoadFeedbackForm();
             lff.InterviewParent = this;
             lff.ShowDialog();
@@ -72,6 +51,40 @@ namespace MOD003263_SoftwareEngineering.UI {
             {
                 MessageBox.Show("Feedback Not Loaded", "Error");
             }
+            else
+            {
+                inputFeedbackQuestions();
+                loadInApplicants();
+            }
+        }
+
+        private void lstQuestions_SelectedIndexChanged(object sender, EventArgs e) {
+            _question = _bank.Feedbacks.FindFeedback(_feedback.Title).FindQuestion(lstQuestions.SelectedItem.ToString());
+            txtAnswerOne.Text = _question.FeedbackList[0];
+            txtAnswerTwo.Text = _question.FeedbackList[1];
+            txtAnswerThree.Text = _question.FeedbackList[2];
+            txtAnswerFour.Text = _question.FeedbackList[3];
+            txtAnswerFive.Text = _question.FeedbackList[4];
+        }
+
+        private void btnOpenCV_Click(object sender, EventArgs e) {
+            if (null != _applicant) {
+                try {
+                    System.Diagnostics.Process.Start(_applicant.CVLocation);
+                } catch (Exception) {
+                    MessageBox.Show("No CV For Applicant", "Error");
+                }
+            } else {
+                MessageBox.Show("No Applicant Loaded in", "Error");
+            }
+        }
+
+        private void btnNextQuestion_Click(object sender, EventArgs e) {
+            //question saving over as selected feedback
+        }
+
+        private void btnFinishInterview_Click(object sender, EventArgs e) {
+            // finish off interview and make feedback pdf
         }
     }
 }

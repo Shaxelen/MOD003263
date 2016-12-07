@@ -23,18 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLoadTemp = new System.Windows.Forms.ToolStripMenuItem();
-            this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLoadApplicant = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLoadEmployee = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuClearHeader = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuClearFeedback = new System.Windows.Forms.ToolStripMenuItem();
             this.lstQuestions = new System.Windows.Forms.ListBox();
             this.cmbApplicant = new System.Windows.Forms.ComboBox();
             this.btnOpenCV = new System.Windows.Forms.Button();
@@ -42,125 +30,28 @@
             this.btnFinishInterview = new System.Windows.Forms.Button();
             this.picApplicantPicture = new System.Windows.Forms.PictureBox();
             this.grpFeedbackAnswers = new System.Windows.Forms.GroupBox();
-            this.radAnswerOne = new System.Windows.Forms.RadioButton();
-            this.radAnswerTwo = new System.Windows.Forms.RadioButton();
-            this.radAnswerThree = new System.Windows.Forms.RadioButton();
-            this.radAnswerFour = new System.Windows.Forms.RadioButton();
-            this.radAnswerFive = new System.Windows.Forms.RadioButton();
-            this.txtAnswerOne = new System.Windows.Forms.TextBox();
-            this.txtAnswerTwo = new System.Windows.Forms.TextBox();
-            this.txtAnswerThree = new System.Windows.Forms.TextBox();
-            this.txtAnswerFour = new System.Windows.Forms.TextBox();
             this.txtAnswerFive = new System.Windows.Forms.TextBox();
-            this.menuStrip1.SuspendLayout();
+            this.txtAnswerFour = new System.Windows.Forms.TextBox();
+            this.txtAnswerThree = new System.Windows.Forms.TextBox();
+            this.txtAnswerTwo = new System.Windows.Forms.TextBox();
+            this.txtAnswerOne = new System.Windows.Forms.TextBox();
+            this.radAnswerFive = new System.Windows.Forms.RadioButton();
+            this.radAnswerFour = new System.Windows.Forms.RadioButton();
+            this.radAnswerThree = new System.Windows.Forms.RadioButton();
+            this.radAnswerTwo = new System.Windows.Forms.RadioButton();
+            this.radAnswerOne = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picApplicantPicture)).BeginInit();
             this.grpFeedbackAnswers.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.clearToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1065, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuLoadTemp,
-            this.personToolStripMenuItem});
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.loadToolStripMenuItem.Text = "Load";
-            // 
-            // menuLoadTemp
-            // 
-            this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
-            this.menuLoadTemp.Text = "Template";
-            this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
-            // 
-            // personToolStripMenuItem
-            // 
-            this.personToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuLoadApplicant,
-            this.menuLoadEmployee});
-            this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.personToolStripMenuItem.Text = "Person";
-            // 
-            // menuLoadApplicant
-            // 
-            this.menuLoadApplicant.Name = "menuLoadApplicant";
-            this.menuLoadApplicant.Size = new System.Drawing.Size(126, 22);
-            this.menuLoadApplicant.Text = "Applicant";
-            this.menuLoadApplicant.Click += new System.EventHandler(this.menuLoadApplicant_Click);
-            // 
-            // menuLoadEmployee
-            // 
-            this.menuLoadEmployee.Name = "menuLoadEmployee";
-            this.menuLoadEmployee.Size = new System.Drawing.Size(126, 22);
-            this.menuLoadEmployee.Text = "Employee";
-            this.menuLoadEmployee.Click += new System.EventHandler(this.menuLoadEmployee_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuSave,
-            this.menuSaveAs});
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // menuSave
-            // 
-            this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(114, 22);
-            this.menuSave.Text = "Save";
-            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
-            // 
-            // menuSaveAs
-            // 
-            this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.Size = new System.Drawing.Size(114, 22);
-            this.menuSaveAs.Text = "Save As";
-            this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuClearHeader,
-            this.menuClearFeedback});
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.clearToolStripMenuItem.Text = "Clear";
-            // 
-            // menuClearHeader
-            // 
-            this.menuClearHeader.Name = "menuClearHeader";
-            this.menuClearHeader.Size = new System.Drawing.Size(124, 22);
-            this.menuClearHeader.Text = "Header";
-            this.menuClearHeader.Click += new System.EventHandler(this.menuClearHeader_Click);
-            // 
-            // menuClearFeedback
-            // 
-            this.menuClearFeedback.Name = "menuClearFeedback";
-            this.menuClearFeedback.Size = new System.Drawing.Size(124, 22);
-            this.menuClearFeedback.Text = "Feedback";
-            this.menuClearFeedback.Click += new System.EventHandler(this.menuClearFeedback_Click);
-            // 
             // lstQuestions
             // 
             this.lstQuestions.FormattingEnabled = true;
-            this.lstQuestions.Location = new System.Drawing.Point(12, 27);
+            this.lstQuestions.Location = new System.Drawing.Point(12, 14);
             this.lstQuestions.Name = "lstQuestions";
-            this.lstQuestions.Size = new System.Drawing.Size(191, 563);
+            this.lstQuestions.Size = new System.Drawing.Size(191, 576);
             this.lstQuestions.TabIndex = 1;
+            this.lstQuestions.SelectedIndexChanged += new System.EventHandler(this.lstQuestions_SelectedIndexChanged);
             // 
             // cmbApplicant
             // 
@@ -178,6 +69,7 @@
             this.btnOpenCV.TabIndex = 3;
             this.btnOpenCV.Text = "Open Applicant CV";
             this.btnOpenCV.UseVisualStyleBackColor = true;
+            this.btnOpenCV.Click += new System.EventHandler(this.btnOpenCV_Click);
             // 
             // btnNextQuestion
             // 
@@ -187,6 +79,7 @@
             this.btnNextQuestion.TabIndex = 4;
             this.btnNextQuestion.Text = "Next Question";
             this.btnNextQuestion.UseVisualStyleBackColor = true;
+            this.btnNextQuestion.Click += new System.EventHandler(this.btnNextQuestion_Click);
             // 
             // btnFinishInterview
             // 
@@ -196,6 +89,7 @@
             this.btnFinishInterview.TabIndex = 5;
             this.btnFinishInterview.Text = "Finish Interview";
             this.btnFinishInterview.UseVisualStyleBackColor = true;
+            this.btnFinishInterview.Click += new System.EventHandler(this.btnFinishInterview_Click);
             // 
             // picApplicantPicture
             // 
@@ -224,49 +118,45 @@
             this.grpFeedbackAnswers.TabStop = false;
             this.grpFeedbackAnswers.Text = "Feedback Answers";
             // 
-            // radAnswerOne
+            // txtAnswerFive
             // 
-            this.radAnswerOne.AutoSize = true;
-            this.radAnswerOne.Location = new System.Drawing.Point(6, 35);
-            this.radAnswerOne.Name = "radAnswerOne";
-            this.radAnswerOne.Size = new System.Drawing.Size(83, 17);
-            this.radAnswerOne.TabIndex = 0;
-            this.radAnswerOne.TabStop = true;
-            this.radAnswerOne.Text = "Answer One";
-            this.radAnswerOne.UseVisualStyleBackColor = true;
+            this.txtAnswerFive.Location = new System.Drawing.Point(97, 395);
+            this.txtAnswerFive.Multiline = true;
+            this.txtAnswerFive.Name = "txtAnswerFive";
+            this.txtAnswerFive.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerFive.TabIndex = 9;
             // 
-            // radAnswerTwo
+            // txtAnswerFour
             // 
-            this.radAnswerTwo.AutoSize = true;
-            this.radAnswerTwo.Location = new System.Drawing.Point(6, 125);
-            this.radAnswerTwo.Name = "radAnswerTwo";
-            this.radAnswerTwo.Size = new System.Drawing.Size(84, 17);
-            this.radAnswerTwo.TabIndex = 1;
-            this.radAnswerTwo.TabStop = true;
-            this.radAnswerTwo.Text = "Answer Two";
-            this.radAnswerTwo.UseVisualStyleBackColor = true;
+            this.txtAnswerFour.Location = new System.Drawing.Point(97, 305);
+            this.txtAnswerFour.Multiline = true;
+            this.txtAnswerFour.Name = "txtAnswerFour";
+            this.txtAnswerFour.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerFour.TabIndex = 8;
             // 
-            // radAnswerThree
+            // txtAnswerThree
             // 
-            this.radAnswerThree.AutoSize = true;
-            this.radAnswerThree.Location = new System.Drawing.Point(6, 215);
-            this.radAnswerThree.Name = "radAnswerThree";
-            this.radAnswerThree.Size = new System.Drawing.Size(91, 17);
-            this.radAnswerThree.TabIndex = 2;
-            this.radAnswerThree.TabStop = true;
-            this.radAnswerThree.Text = "Answer Three";
-            this.radAnswerThree.UseVisualStyleBackColor = true;
+            this.txtAnswerThree.Location = new System.Drawing.Point(97, 215);
+            this.txtAnswerThree.Multiline = true;
+            this.txtAnswerThree.Name = "txtAnswerThree";
+            this.txtAnswerThree.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerThree.TabIndex = 7;
             // 
-            // radAnswerFour
+            // txtAnswerTwo
             // 
-            this.radAnswerFour.AutoSize = true;
-            this.radAnswerFour.Location = new System.Drawing.Point(6, 305);
-            this.radAnswerFour.Name = "radAnswerFour";
-            this.radAnswerFour.Size = new System.Drawing.Size(84, 17);
-            this.radAnswerFour.TabIndex = 3;
-            this.radAnswerFour.TabStop = true;
-            this.radAnswerFour.Text = "Answer Four";
-            this.radAnswerFour.UseVisualStyleBackColor = true;
+            this.txtAnswerTwo.Location = new System.Drawing.Point(97, 125);
+            this.txtAnswerTwo.Multiline = true;
+            this.txtAnswerTwo.Name = "txtAnswerTwo";
+            this.txtAnswerTwo.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerTwo.TabIndex = 6;
+            // 
+            // txtAnswerOne
+            // 
+            this.txtAnswerOne.Location = new System.Drawing.Point(97, 35);
+            this.txtAnswerOne.Multiline = true;
+            this.txtAnswerOne.Name = "txtAnswerOne";
+            this.txtAnswerOne.Size = new System.Drawing.Size(581, 80);
+            this.txtAnswerOne.TabIndex = 5;
             // 
             // radAnswerFive
             // 
@@ -279,45 +169,49 @@
             this.radAnswerFive.Text = "Answer Five";
             this.radAnswerFive.UseVisualStyleBackColor = true;
             // 
-            // txtAnswerOne
+            // radAnswerFour
             // 
-            this.txtAnswerOne.Location = new System.Drawing.Point(97, 35);
-            this.txtAnswerOne.Multiline = true;
-            this.txtAnswerOne.Name = "txtAnswerOne";
-            this.txtAnswerOne.Size = new System.Drawing.Size(581, 80);
-            this.txtAnswerOne.TabIndex = 5;
+            this.radAnswerFour.AutoSize = true;
+            this.radAnswerFour.Location = new System.Drawing.Point(6, 305);
+            this.radAnswerFour.Name = "radAnswerFour";
+            this.radAnswerFour.Size = new System.Drawing.Size(84, 17);
+            this.radAnswerFour.TabIndex = 3;
+            this.radAnswerFour.TabStop = true;
+            this.radAnswerFour.Text = "Answer Four";
+            this.radAnswerFour.UseVisualStyleBackColor = true;
             // 
-            // txtAnswerTwo
+            // radAnswerThree
             // 
-            this.txtAnswerTwo.Location = new System.Drawing.Point(97, 125);
-            this.txtAnswerTwo.Multiline = true;
-            this.txtAnswerTwo.Name = "txtAnswerTwo";
-            this.txtAnswerTwo.Size = new System.Drawing.Size(581, 80);
-            this.txtAnswerTwo.TabIndex = 6;
+            this.radAnswerThree.AutoSize = true;
+            this.radAnswerThree.Location = new System.Drawing.Point(6, 215);
+            this.radAnswerThree.Name = "radAnswerThree";
+            this.radAnswerThree.Size = new System.Drawing.Size(91, 17);
+            this.radAnswerThree.TabIndex = 2;
+            this.radAnswerThree.TabStop = true;
+            this.radAnswerThree.Text = "Answer Three";
+            this.radAnswerThree.UseVisualStyleBackColor = true;
             // 
-            // txtAnswerThree
+            // radAnswerTwo
             // 
-            this.txtAnswerThree.Location = new System.Drawing.Point(97, 215);
-            this.txtAnswerThree.Multiline = true;
-            this.txtAnswerThree.Name = "txtAnswerThree";
-            this.txtAnswerThree.Size = new System.Drawing.Size(581, 80);
-            this.txtAnswerThree.TabIndex = 7;
+            this.radAnswerTwo.AutoSize = true;
+            this.radAnswerTwo.Location = new System.Drawing.Point(6, 125);
+            this.radAnswerTwo.Name = "radAnswerTwo";
+            this.radAnswerTwo.Size = new System.Drawing.Size(84, 17);
+            this.radAnswerTwo.TabIndex = 1;
+            this.radAnswerTwo.TabStop = true;
+            this.radAnswerTwo.Text = "Answer Two";
+            this.radAnswerTwo.UseVisualStyleBackColor = true;
             // 
-            // txtAnswerFour
+            // radAnswerOne
             // 
-            this.txtAnswerFour.Location = new System.Drawing.Point(97, 305);
-            this.txtAnswerFour.Multiline = true;
-            this.txtAnswerFour.Name = "txtAnswerFour";
-            this.txtAnswerFour.Size = new System.Drawing.Size(581, 80);
-            this.txtAnswerFour.TabIndex = 8;
-            // 
-            // txtAnswerFive
-            // 
-            this.txtAnswerFive.Location = new System.Drawing.Point(97, 395);
-            this.txtAnswerFive.Multiline = true;
-            this.txtAnswerFive.Name = "txtAnswerFive";
-            this.txtAnswerFive.Size = new System.Drawing.Size(581, 80);
-            this.txtAnswerFive.TabIndex = 9;
+            this.radAnswerOne.AutoSize = true;
+            this.radAnswerOne.Location = new System.Drawing.Point(6, 35);
+            this.radAnswerOne.Name = "radAnswerOne";
+            this.radAnswerOne.Size = new System.Drawing.Size(83, 17);
+            this.radAnswerOne.TabIndex = 0;
+            this.radAnswerOne.TabStop = true;
+            this.radAnswerOne.Text = "Answer One";
+            this.radAnswerOne.UseVisualStyleBackColor = true;
             // 
             // InterviewForm
             // 
@@ -331,40 +225,21 @@
             this.Controls.Add(this.btnOpenCV);
             this.Controls.Add(this.cmbApplicant);
             this.Controls.Add(this.lstQuestions);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "InterviewForm";
             this.ShowIcon = false;
             this.Text = "Conduct Interview";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackForm_FormClosing);
-            this.Load += new System.EventHandler(this.InterviewForm_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picApplicantPicture)).EndInit();
             this.grpFeedbackAnswers.ResumeLayout(false);
             this.grpFeedbackAnswers.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuLoadTemp;
-        private System.Windows.Forms.ToolStripMenuItem personToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuLoadApplicant;
-        private System.Windows.Forms.ToolStripMenuItem menuLoadEmployee;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuSave;
-        private System.Windows.Forms.ToolStripMenuItem menuSaveAs;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuClearHeader;
-        private System.Windows.Forms.ToolStripMenuItem menuClearFeedback;
         private System.Windows.Forms.ListBox lstQuestions;
         private System.Windows.Forms.ComboBox cmbApplicant;
         private System.Windows.Forms.Button btnOpenCV;

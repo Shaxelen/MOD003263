@@ -72,6 +72,15 @@ namespace MOD003263_SoftwareEngineering.Core {
             return null;
         }
 
+        public Question FindQuestion(string title) {
+            foreach (Question q in _questions) {
+                if (q.Title == title) {
+                    return q;
+                }
+            }
+            return null;
+        }
+
         public void RemoveQuestion(int id) {
             _questions.Remove(FindQuestion(id));
         }

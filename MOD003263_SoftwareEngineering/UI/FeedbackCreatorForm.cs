@@ -250,6 +250,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             foreach (Question q in _feedback.Questions) {
                 addQuestionToForm(q);
             }
+            saveBank();
         }
 
         /// <summary>
