@@ -8,7 +8,7 @@ using MOD003263_SoftwareEngineering.Debug;
 namespace MOD003263_SoftwareEngineering.Meta {
     public class FeedbackSerializer : IMetaSerializer<Bank> {
         private const string _BankFile = "Templates.bin";
-        Logger _logger = Logger.Instance();
+        Logger _logger = Logger.Instance;
 
         public Bank Load() {
             Bank bank = null;

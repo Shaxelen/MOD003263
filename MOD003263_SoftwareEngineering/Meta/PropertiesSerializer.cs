@@ -8,7 +8,7 @@ using MOD003263_SoftwareEngineering.Core;
 namespace MOD003263_SoftwareEngineering.Meta {
     public class PropertiesSerializer : IMetaSerializer<Property> {
         private const string _propertyFile = "properties.bin";
-        Logger _logger = Logger.Instance();
+        Logger _logger = Logger.Instance;
 
         public Property Load() {
             Property prop = null;

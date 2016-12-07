@@ -135,7 +135,7 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void DebugLoggerTest() {
-            Logger log = Logger.Instance();
+            Logger log = Logger.Instance;
             bool test = log.WriteLine("Testing Message from the Unit Test : " + DateTime.Now.ToLongTimeString());
             Assert.AreEqual(true, test);
         }
