@@ -41,6 +41,7 @@
             this.lstCategoryList = new System.Windows.Forms.ListBox();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnAddQuestion = new System.Windows.Forms.Button();
+            this.lstQuestions = new System.Windows.Forms.ListBox();
             this.grbGenericFeedback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,8 +185,7 @@
             this.lstCategoryList.FormattingEnabled = true;
             this.lstCategoryList.Location = new System.Drawing.Point(12, 77);
             this.lstCategoryList.Name = "lstCategoryList";
-            this.lstCategoryList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstCategoryList.Size = new System.Drawing.Size(347, 524);
+            this.lstCategoryList.Size = new System.Drawing.Size(177, 524);
             this.lstCategoryList.TabIndex = 5;
             this.lstCategoryList.SelectedIndexChanged += new System.EventHandler(this.lstCategoryList_SelectedIndexChanged);
             // 
@@ -209,11 +209,20 @@
             this.btnAddQuestion.UseVisualStyleBackColor = true;
             this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
             // 
+            // lstQuestions
+            // 
+            this.lstQuestions.FormattingEnabled = true;
+            this.lstQuestions.Location = new System.Drawing.Point(194, 77);
+            this.lstQuestions.Name = "lstQuestions";
+            this.lstQuestions.Size = new System.Drawing.Size(177, 524);
+            this.lstQuestions.TabIndex = 8;
+            // 
             // QuestionCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
+            this.Controls.Add(this.lstQuestions);
             this.Controls.Add(this.btnAddQuestion);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.lstCategoryList);
@@ -256,5 +265,6 @@
         private System.Windows.Forms.ListBox lstCategoryList;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnAddQuestion;
+        private System.Windows.Forms.ListBox lstQuestions;
     }
 }

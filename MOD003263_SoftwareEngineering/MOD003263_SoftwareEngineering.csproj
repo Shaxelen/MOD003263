@@ -65,10 +65,10 @@
     <Compile Include="Debug\Logger.cs" />
     <Compile Include="Meta\DatabaseMetaLayer.cs" />
     <Compile Include="Meta\EmailHandler.cs" />
+    <Compile Include="Meta\FeedbackSerializer.cs" />
     <Compile Include="Meta\IMetaSerializer.cs" />
     <Compile Include="Meta\PDFConvert.cs" />
     <Compile Include="Meta\PropertiesSerializer.cs" />
-    <Compile Include="Meta\FeedbackSerializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ApplicantEntryForm.cs">
@@ -77,11 +77,11 @@
     <Compile Include="UI\ApplicantEntryForm.Designer.cs">
       <DependentUpon>ApplicantEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\InterviewForm.cs">
+    <Compile Include="UI\FeedbackCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\InterviewForm.Designer.cs">
-      <DependentUpon>InterviewForm.cs</DependentUpon>
+    <Compile Include="UI\FeedbackCreatorForm.Designer.cs">
+      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FilterApplicantsForm.cs">
       <SubType>Form</SubType>
@@ -89,11 +89,17 @@
     <Compile Include="UI\FilterApplicantsForm.Designer.cs">
       <DependentUpon>FilterApplicantsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\QuestionCreatorForm.cs">
+    <Compile Include="UI\InterviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\QuestionCreatorForm.Designer.cs">
-      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
+    <Compile Include="UI\InterviewForm.Designer.cs">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LoadFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoadFeedbackForm.Designer.cs">
+      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ParentForm.cs">
       <SubType>Form</SubType>
@@ -101,17 +107,11 @@
     <Compile Include="UI\ParentForm.Designer.cs">
       <DependentUpon>ParentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FeedbackCreatorForm.cs">
+    <Compile Include="UI\QuestionCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FeedbackCreatorForm.Designer.cs">
-      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\LoadFeedbackForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\LoadFeedbackForm.Designer.cs">
-      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
+    <Compile Include="UI\QuestionCreatorForm.Designer.cs">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SaveFeedbackForm.cs">
       <SubType>Form</SubType>
@@ -137,23 +137,23 @@
     <EmbeddedResource Include="UI\ApplicantEntryForm.resx">
       <DependentUpon>ApplicantEntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\InterviewForm.resx">
-      <DependentUpon>InterviewForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FeedbackCreatorForm.resx">
+      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FilterApplicantsForm.resx">
       <DependentUpon>FilterApplicantsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\QuestionCreatorForm.resx">
-      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\InterviewForm.resx">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoadFeedbackForm.resx">
+      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FeedbackCreatorForm.resx">
-      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\LoadFeedbackForm.resx">
-      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\QuestionCreatorForm.resx">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SaveFeedbackForm.resx">
       <DependentUpon>SaveFeedbackForm.cs</DependentUpon>
@@ -176,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExternalDLLs\itextsharp.dll" />
-    <Content Include="todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
