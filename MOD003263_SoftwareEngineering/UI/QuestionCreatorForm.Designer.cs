@@ -44,6 +44,7 @@
             this.lstQuestions = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSaveQuestion = new System.Windows.Forms.Button();
             this.grbGenericFeedback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,7 +188,7 @@
             this.lstCategoryList.FormattingEnabled = true;
             this.lstCategoryList.Location = new System.Drawing.Point(12, 103);
             this.lstCategoryList.Name = "lstCategoryList";
-            this.lstCategoryList.Size = new System.Drawing.Size(177, 498);
+            this.lstCategoryList.Size = new System.Drawing.Size(161, 498);
             this.lstCategoryList.TabIndex = 5;
             this.lstCategoryList.SelectedIndexChanged += new System.EventHandler(this.lstCategoryList_SelectedIndexChanged);
             // 
@@ -205,7 +206,7 @@
             // 
             this.btnAddQuestion.Location = new System.Drawing.Point(377, 555);
             this.btnAddQuestion.Name = "btnAddQuestion";
-            this.btnAddQuestion.Size = new System.Drawing.Size(676, 39);
+            this.btnAddQuestion.Size = new System.Drawing.Size(333, 39);
             this.btnAddQuestion.TabIndex = 7;
             this.btnAddQuestion.Text = "Add Question";
             this.btnAddQuestion.UseVisualStyleBackColor = true;
@@ -214,10 +215,11 @@
             // lstQuestions
             // 
             this.lstQuestions.FormattingEnabled = true;
-            this.lstQuestions.Location = new System.Drawing.Point(194, 103);
+            this.lstQuestions.Location = new System.Drawing.Point(179, 103);
             this.lstQuestions.Name = "lstQuestions";
-            this.lstQuestions.Size = new System.Drawing.Size(177, 498);
+            this.lstQuestions.Size = new System.Drawing.Size(180, 498);
             this.lstQuestions.TabIndex = 8;
+            this.lstQuestions.SelectedIndexChanged += new System.EventHandler(this.lstQuestions_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -233,15 +235,27 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(194, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Qu";
+            this.label2.Text = "Category Questions";
+            // 
+            // btnSaveQuestion
+            // 
+            this.btnSaveQuestion.Location = new System.Drawing.Point(716, 557);
+            this.btnSaveQuestion.Name = "btnSaveQuestion";
+            this.btnSaveQuestion.Size = new System.Drawing.Size(337, 37);
+            this.btnSaveQuestion.TabIndex = 11;
+            this.btnSaveQuestion.Text = "Save Question";
+            this.btnSaveQuestion.UseVisualStyleBackColor = true;
+            this.btnSaveQuestion.Visible = false;
+            this.btnSaveQuestion.Click += new System.EventHandler(this.btnSaveQuestion_Click);
             // 
             // QuestionCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
+            this.Controls.Add(this.btnSaveQuestion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstQuestions);
@@ -290,5 +304,6 @@
         private System.Windows.Forms.ListBox lstQuestions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSaveQuestion;
     }
 }
