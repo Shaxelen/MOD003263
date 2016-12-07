@@ -34,38 +34,51 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         public void SaveBank() {
-            _serializer.Save(this);
+            _serializer.Save(Bank.Instance);
         }
 
         public void LoadBank() {
             _instance = _serializer.Load();
+            _instance.Applicants.Applicants = DatabaseMetaLayer.Instance().GetApplicants();
         }
 
         /// <summary>
         /// Returns the Feedback Bank
         /// </summary>
         public FeedbackBank Feedbacks {
-            get { return _feedbackBank; }
+            get {
+                SaveBank();
+                return _feedbackBank;
+            }
         }
 
         /// <summary>
         /// Returns the Template Bank
         /// </summary>
         public TemplateBank Templates {
-            get { return _templateBank; }
+            get {
+                SaveBank();
+                return _templateBank;
+            }
         }
         /// <summary>
         /// Returns the Category Bank
         /// </summary>
         public CategoryBank Categories {
-            get { return _categoryBank; }
+            get {
+                SaveBank();
+                return _categoryBank;
+            }
         }
 
         /// <summary>
         /// Returns the Applicant Bank
         /// </summary>
         public ApplicantBank Applicants {
-            get { return _applicantBank; }
+            get {
+                SaveBank();
+                return _applicantBank;
+            }
         }
     }
 }

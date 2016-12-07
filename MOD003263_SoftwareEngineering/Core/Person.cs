@@ -10,6 +10,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         protected string _personEmailAddress;
         protected string _personPhoneNumber;
         protected string _position;
+        protected string _cvFileLocation;
 
         private string _defaultImageFile = "default.png";
 
@@ -34,6 +35,14 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         /// <summary>
+        /// Get and Set the CV File Location
+        /// </summary>
+        public string CVLocation {
+            get { return _cvFileLocation; }
+            set { _cvFileLocation = value; }
+        }
+
+        /// <summary>
         /// Get and Set the Person First Name
         /// </summary>
         public string FirstName {
@@ -47,6 +56,10 @@ namespace MOD003263_SoftwareEngineering.Core {
         public string LastName {
             get { return _personLastName; }
             set { _personLastName = value; }
+        }
+
+        public string FullName {
+            get { return _personFirstName + " " + _personLastName; }
         }
 
         /// <summary>

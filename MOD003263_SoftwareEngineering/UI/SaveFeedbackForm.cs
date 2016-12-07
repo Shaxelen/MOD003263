@@ -10,18 +10,19 @@ using System.Windows.Forms;
 using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
-    public partial class TestSaveForm : Form {
+    public partial class SaveFeedbackForm : Form {
         private Bank _bank = Bank.Instance;
-        private TemplateForm _parent;
+        private FeedbackCreatorForm _parent;
 
-        public new TemplateForm Parent { get { return _parent; } set { _parent = value; } }
+        public new FeedbackCreatorForm Parent { get { return _parent; } set { _parent = value; } }
 
-        public TestSaveForm() {
+        public SaveFeedbackForm() {
             InitializeComponent();
             addDataList();
         }
 
         private void addDataList() {
+            lstData.Items.Clear();
             foreach (Feedback f in _bank.Feedbacks.FeedbackList) {
                 lstData.Items.Add(f.Title);
             }
@@ -31,16 +32,21 @@ namespace MOD003263_SoftwareEngineering.UI {
             lstData.Items.Add(txtName.Text);
             Feedback tem = Parent.CurrentFeedback;
             tem.Title = txtName.Text;
-            if (_bank.Templates.Load(txtName.Text).TemplateName == tem.Title) {
-                Feedback old = _bank.Feedbacks.FindFeedback(txtName.Text);
-                if (null != old) { saveOver(old, tem); }
-                else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
+            if (null != _bank.Feedbacks.FindFeedback(txtName.Text)) {
+                if (_bank.Feedbacks.FindFeedback(txtName.Text).Title == tem.Title) {
+                    Feedback old = _bank.Feedbacks.FindFeedback(txtName.Text);
+                    if (null != old) { saveOver(old, tem); } else { MessageBox.Show("Unable to Save as Name: " + txtName.Text); }
+                }
+            } else {
+                _bank.Feedbacks.Add(tem);
             }
-            _bank.Feedbacks.Add(tem);
+            _bank.SaveBank();
         }
 
         private void saveOver(Feedback old, Feedback neww) {
-
+            _bank.Feedbacks.Remove(old.Title);
+            _bank.Feedbacks.Add(neww);
+            addDataList();
         }
     }
 }

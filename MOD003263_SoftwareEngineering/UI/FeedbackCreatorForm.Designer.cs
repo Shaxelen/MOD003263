@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class TemplateForm {
+    partial class FeedbackCreatorForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -244,7 +244,7 @@
             this.cmbCategory.Size = new System.Drawing.Size(364, 21);
             this.cmbCategory.TabIndex = 0;
             // 
-            // TemplateForm
+            // FeedbackCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -255,9 +255,14 @@
             this.Controls.Add(this.grbRemoveQuestion);
             this.Controls.Add(this.grbAddQuestion);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "TemplateForm";
-            this.Text = "Template Creator";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FeedbackCreatorForm";
+            this.ShowIcon = false;
+            this.Text = "Feedback Creator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackCreatorForm_FormClosing);
             this.grbAddQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.PerformLayout();

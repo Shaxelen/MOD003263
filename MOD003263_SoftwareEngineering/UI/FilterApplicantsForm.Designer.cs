@@ -1,5 +1,5 @@
 ﻿namespace MOD003263_SoftwareEngineering.UI {
-    partial class FilterForm {
+    partial class FilterApplicantsForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -318,7 +318,7 @@
             this.btnEmailRejected.UseVisualStyleBackColor = true;
             this.btnEmailRejected.Click += new System.EventHandler(this.btnEmailRejected_Click);
             // 
-            // FilterForm
+            // FilterApplicantsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -333,8 +333,13 @@
             this.Controls.Add(this.grbPersonData);
             this.Controls.Add(this.lstFeedbackList);
             this.Controls.Add(this.lblPosAppliedFor);
-            this.Name = "FilterForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FilterApplicantsForm";
+            this.ShowIcon = false;
             this.Text = "Filter Applicants";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FilterApplicantsForm_FormClosing);
             this.grbPersonData.ResumeLayout(false);
             this.grbPersonData.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -59,31 +59,35 @@ namespace MOD003263_SoftwareEngineering.Meta {
 
         public List<Applicant> GetApplicants() {
             List<Applicant> applicants = new List<Applicant>();
-            OleDbCommand cmd = new OleDbCommand("SELECT * FROM Person WHERE PersonIsEmployee=false", _connection);
-            _connection.Open();
-            if (_connection.State == ConnectionState.Open) {
-                try {
-                    DataTable table = new DataTable();
-                    OleDbDataAdapter adapter = new OleDbDataAdapter();
-                    adapter.SelectCommand = cmd;
-                    adapter.Fill(table);
-                    short appp = 0;
-                    foreach (DataRow r in table.Rows) {
-                        Applicant app = (Applicant)buildPerson(r[1].ToString(), r[2].ToString(), r[3].ToString(), r[4].ToString(), r[6].ToString(), appp, false);
-                        applicants.Add(app);
-                        appp++;
+            try {
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Person WHERE PersonIsEmployee=false", _connection);
+                _connection.Open();
+                if (_connection.State == ConnectionState.Open) {
+                    try {
+                        DataTable table = new DataTable();
+                        OleDbDataAdapter adapter = new OleDbDataAdapter();
+                        adapter.SelectCommand = cmd;
+                        adapter.Fill(table);
+                        short appp = 0;
+                        foreach (DataRow r in table.Rows) {
+                            Applicant app = (Applicant)buildPerson(r[1].ToString(), r[2].ToString(), r[3].ToString(), r[4].ToString(), r[6].ToString(), appp, false);
+                            applicants.Add(app);
+                            appp++;
+                        }
+                        _connection.Close();
+                        table.Dispose();
+                        adapter.Dispose();
+                        return applicants;
+                    } catch (OleDbException oleDb) {
+                        _logger.WriteLine(oleDb.Message);
                     }
-                    _connection.Close();
-                    table.Dispose();
-                    adapter.Dispose();
-                    return applicants;
-                } catch (OleDbException oleDb) {
-                    _logger.WriteLine(oleDb.Message);
+                } else {
+                    _logger.WriteLine("Connection Failed!");
                 }
-            } else {
-                _logger.WriteLine("Connection Failed!");
+                _connection.Close();
+            } catch (Exception e) {
+                _logger.WriteLine(e.Message);
             }
-            _connection.Close();
             return applicants;
         }
 
