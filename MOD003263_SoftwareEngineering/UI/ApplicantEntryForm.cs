@@ -22,5 +22,29 @@ namespace MOD003263_SoftwareEngineering.UI {
             pf.ApplicantEntryForm = null;
             _bank.SaveBank();
         }
+
+        private void btnAddCV_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnAddAppImage_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnAddApplicant_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnSaveApplicant_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnNextApplicant_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnPrevApplicant_Click(object sender, EventArgs e) {
+
+        }
     }
 }
