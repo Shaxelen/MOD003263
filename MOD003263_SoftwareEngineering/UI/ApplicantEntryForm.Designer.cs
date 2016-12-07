@@ -35,6 +35,7 @@
             this.txtFName = new System.Windows.Forms.TextBox();
             this.lblFName = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
             this.imgApplicantImage = new System.Windows.Forms.PictureBox();
             this.btnAddCV = new System.Windows.Forms.Button();
             this.btnAddAppImage = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.btnSaveApplicant = new System.Windows.Forms.Button();
             this.btnNextApplicant = new System.Windows.Forms.Button();
             this.btnPrevApplicant = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
+            this.ofdCV = new System.Windows.Forms.OpenFileDialog();
             this.grpApplicantDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgApplicantImage)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +157,15 @@
             this.txtID.Size = new System.Drawing.Size(69, 20);
             this.txtID.TabIndex = 2;
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(6, 148);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "ID";
+            // 
             // imgApplicantImage
             // 
             this.imgApplicantImage.Location = new System.Drawing.Point(373, 26);
@@ -224,14 +234,9 @@
             this.btnPrevApplicant.UseVisualStyleBackColor = true;
             this.btnPrevApplicant.Click += new System.EventHandler(this.btnPrevApplicant_Click);
             // 
-            // lblID
+            // ofdCV
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(6, 148);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
-            this.lblID.TabIndex = 1;
-            this.lblID.Text = "ID";
+            this.ofdCV.FileName = "openFileDialog1";
             // 
             // ApplicantEntryForm
             // 
@@ -281,5 +286,6 @@
         private System.Windows.Forms.Button btnNextApplicant;
         private System.Windows.Forms.Button btnPrevApplicant;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.OpenFileDialog ofdCV;
     }
 }
