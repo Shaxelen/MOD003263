@@ -70,12 +70,29 @@ namespace MOD003263_SoftwareEngineering.UI {
             loadForm.FeedbackParent = this;
             loadForm.ShowDialog();
         }
+        /// <summary>
+        /// Adds the selected Questions to the Form and to the Feedback
+        /// </summary>
+        /// <param name="sender">The Object that is sending the Request.</param>
+        /// <param name="e">The Event Arguments that Object Sends the Request With.</param>
+        private void btnAddQuestions_Click(object sender, EventArgs e) {
+            if (_selectedQuestions.Count != 0) {
+                foreach (Question q in _selectedQuestions) {
+                    if (addQuestionToForm(q)) {
+                        _feedback.AddQuestion(q);
+                    }
+                }
+            } else {
+                MessageBox.Show("You need to pick at least one Question to Add.", "Error");
+            }
+            saveBank();
+        }
 
         /// <summary>
         /// Adds the Question given to the Form and to the Feedback
         /// </summary>
         /// <param name="question">The Question to add to the Form</param>
-        private void addQuestionToForm(Question question) {
+        private bool addQuestionToForm(Question question) {
             if (checkQuestion(question.Title)) {
                 GroupBox grbQuestion = QuestionGroupBox(_id, question.Title);
                 for (int i = 0; i < 5; i++) {
@@ -87,11 +104,13 @@ namespace MOD003263_SoftwareEngineering.UI {
                 cmbQuestionID.Items.Add((_id + 1));
                 _id++;
                 _questionCount++;
+                return true;
             }
             else {
                 MessageBox.Show("Cannot add Question as Question already exists.", "Error");
             }
             saveBank();
+            return false;
         }
 
         /// <summary>
@@ -160,10 +179,14 @@ namespace MOD003263_SoftwareEngineering.UI {
         /// <returns> Returns a List of Groupboxes that are Question Groupboxes </returns>
         private List<GroupBox> findAllGrps() {
             List<GroupBox> grp = new List<GroupBox>();
-            foreach (Control c in flwQuestions.Controls) {
+            /*foreach (Control c in flwQuestions.Controls) {
                 if ((c.GetType() == typeof(GroupBox)) && (c.Name.Contains("grbQuestion"))) {
                     grp.Add((GroupBox)c);
                 }
+            }
+            */
+            foreach (GroupBox g in flwQuestions.Controls) {
+                grp.Add(g);
             }
             return grp;
         }
@@ -259,14 +282,12 @@ namespace MOD003263_SoftwareEngineering.UI {
         /// <param name="title">The title of the question being entered.</param>
         /// <returns>Returns True if Question can be added, Returns False if it cannot.</returns>
         private bool checkQuestion(string title) {
-            bool temp = true;
             foreach (Question q in _feedback.Questions) {
                 if (q.Title == title) {
-                    temp = false;
-                    break;
+                    return false;
                 }
             }
-            return temp;
+            return true;
         }
 
         /// <summary>
@@ -316,23 +337,6 @@ namespace MOD003263_SoftwareEngineering.UI {
                 
             } else {
                 MessageBox.Show("You need to select a category first.", "Error");
-            }
-            saveBank();
-        }
-
-        /// <summary>
-        /// Adds the selected Questions to the Form and to the Feedback
-        /// </summary>
-        /// <param name="sender">The Object that is sending the Request.</param>
-        /// <param name="e">The Event Arguments that Object Sends the Request With.</param>
-        private void btnAddQuestions_Click(object sender, EventArgs e) {
-            if (_selectedQuestions.Count != 0) {
-                foreach (Question q in _selectedQuestions) {
-                    addQuestionToForm(q);
-                    _feedback.AddQuestion(q);
-                }
-            } else {
-                MessageBox.Show("You need to pick at least one Question to Add.", "Error");
             }
             saveBank();
         }
