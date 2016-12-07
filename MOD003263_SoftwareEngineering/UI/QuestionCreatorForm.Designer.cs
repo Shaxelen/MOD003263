@@ -44,7 +44,8 @@
             this.lstQuestions = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSaveQuestion = new System.Windows.Forms.Button();
+            this.btnRemoveQuestion = new System.Windows.Forms.Button();
+            this.btnDeselect = new System.Windows.Forms.Button();
             this.grbGenericFeedback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,7 +218,7 @@
             this.lstQuestions.FormattingEnabled = true;
             this.lstQuestions.Location = new System.Drawing.Point(179, 103);
             this.lstQuestions.Name = "lstQuestions";
-            this.lstQuestions.Size = new System.Drawing.Size(180, 498);
+            this.lstQuestions.Size = new System.Drawing.Size(180, 459);
             this.lstQuestions.TabIndex = 8;
             this.lstQuestions.SelectedIndexChanged += new System.EventHandler(this.lstQuestions_SelectedIndexChanged);
             // 
@@ -239,23 +240,34 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Category Questions";
             // 
-            // btnSaveQuestion
+            // btnRemoveQuestion
             // 
-            this.btnSaveQuestion.Location = new System.Drawing.Point(716, 557);
-            this.btnSaveQuestion.Name = "btnSaveQuestion";
-            this.btnSaveQuestion.Size = new System.Drawing.Size(337, 37);
-            this.btnSaveQuestion.TabIndex = 11;
-            this.btnSaveQuestion.Text = "Save Question";
-            this.btnSaveQuestion.UseVisualStyleBackColor = true;
-            this.btnSaveQuestion.Visible = false;
-            this.btnSaveQuestion.Click += new System.EventHandler(this.btnSaveQuestion_Click);
+            this.btnRemoveQuestion.Location = new System.Drawing.Point(716, 557);
+            this.btnRemoveQuestion.Name = "btnRemoveQuestion";
+            this.btnRemoveQuestion.Size = new System.Drawing.Size(337, 37);
+            this.btnRemoveQuestion.TabIndex = 11;
+            this.btnRemoveQuestion.Text = "Remove Question";
+            this.btnRemoveQuestion.UseVisualStyleBackColor = true;
+            this.btnRemoveQuestion.Visible = false;
+            this.btnRemoveQuestion.Click += new System.EventHandler(this.btnRemoveQuestion_Click);
+            // 
+            // btnDeselect
+            // 
+            this.btnDeselect.Location = new System.Drawing.Point(179, 571);
+            this.btnDeselect.Name = "btnDeselect";
+            this.btnDeselect.Size = new System.Drawing.Size(180, 23);
+            this.btnDeselect.TabIndex = 12;
+            this.btnDeselect.Text = "Deselect";
+            this.btnDeselect.UseVisualStyleBackColor = true;
+            this.btnDeselect.Click += new System.EventHandler(this.btnDeselect_Click);
             // 
             // QuestionCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
-            this.Controls.Add(this.btnSaveQuestion);
+            this.Controls.Add(this.btnDeselect);
+            this.Controls.Add(this.btnRemoveQuestion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstQuestions);
@@ -304,6 +316,7 @@
         private System.Windows.Forms.ListBox lstQuestions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSaveQuestion;
+        private System.Windows.Forms.Button btnRemoveQuestion;
+        private System.Windows.Forms.Button btnDeselect;
     }
 }

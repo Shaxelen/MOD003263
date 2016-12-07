@@ -14,6 +14,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private Bank _bank = Bank.Instance;
         private List<Category> _selectedCategories = new List<Category>();
         private Question _question;
+        private Category _category;
         private int id = 0;
 
         public QuestionCreatorForm() {
@@ -34,12 +35,10 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void loadQuestions(string selectedCategory) {
             lstQuestions.Items.Clear();
             List<Question> questions;
-            Category cat;
-
             foreach (Category c in _selectedCategories) {
                 if (selectedCategory == c.Title) {
-                    cat = c;
-                    questions = cat.Questions;
+                    _category = c;
+                    questions = _category.Questions;
                     foreach (Question q in questions) {
                         lstQuestions.Items.Add(q.Title);
                     }
@@ -59,7 +58,6 @@ namespace MOD003263_SoftwareEngineering.UI {
             txtGenericFour.Text = "";
             txtGenericFive.Text = "";
             txtQuestion.Text = "";
-            deselectListbox();
         }
 
         private void populateQuestionBoxes(Question question) {
@@ -84,6 +82,15 @@ namespace MOD003263_SoftwareEngineering.UI {
             for (int i = 0; i < lstCategoryList.Items.Count; i++) {
                 lstCategoryList.SetSelected(i, false);
             }
+            for (int i = 0; i < lstQuestions.Items.Count; i++) {
+                lstQuestions.SetSelected(i, false);
+            }
+            txtGenericOne.Text = "";
+            txtGenericTwo.Text = "";
+            txtGenericThree.Text = "";
+            txtGenericFour.Text = "";
+            txtGenericFive.Text = "";
+            txtQuestion.Text = "";
         }
 
         private bool checkQuestionFields() {
@@ -99,6 +106,18 @@ namespace MOD003263_SoftwareEngineering.UI {
             else {
                 return true;
             }
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e) {
+            if (txtCategory.Text != "") {
+                Category c = new Category(txtCategory.Text);
+                _bank.Categories.Add(c);
+                updateCategoryBoxes();
+            } else {
+                MessageBox.Show("You need to give the Category a Name.", "Error");
+                txtCategory.Focus();
+            }
+            _bank.SaveBank();
         }
 
         private void btnAddQuestion_Click(object sender, EventArgs e) {
@@ -119,7 +138,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                         c.Add(_question);
                     }
                     MessageBox.Show("Question " + _question.Title + " created", "Success");
-                    updateQuestionBoxes();
+                    deselectListbox();
                 }
             } else {
                 MessageBox.Show("You need to pick at least one Category.", "Error");
@@ -128,25 +147,16 @@ namespace MOD003263_SoftwareEngineering.UI {
             _bank.SaveBank();
         }
 
-        private void btnAddCategory_Click(object sender, EventArgs e) {
-            if (txtCategory.Text != "") {
-                Category c = new Category(txtCategory.Text);
-                _bank.Categories.Add(c);
-                updateCategoryBoxes();
-            } else {
-                MessageBox.Show("You need to give the Category a Name.", "Error");
-                txtCategory.Focus();
-            }
+        private void btnRemoveQuestion_Click(object sender, EventArgs e) {
+            _category.Questions.Remove(_question);
+            deselectListbox();
+            lstQuestions.Items.Clear();
             _bank.SaveBank();
-        }
-
-        private void btnSaveQuestion_Click(object sender, EventArgs e) {
-
         }
 
         private void lstCategoryList_SelectedIndexChanged(object sender, EventArgs e) {
             btnAddQuestion.Visible = true;
-            btnSaveQuestion.Visible = false;
+            btnRemoveQuestion.Visible = false;
 
             if (lstCategoryList.SelectedIndices.Count != 0) {
                 _selectedCategories.Clear();
@@ -163,23 +173,36 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void lstQuestions_SelectedIndexChanged(object sender, EventArgs e) {
-            btnAddQuestion.Visible = false;
-            btnSaveQuestion.Visible = true;
-            foreach (Question q in _selectedCategories[0].Questions) {
-                if (q.Title == lstQuestions.SelectedItem.ToString()) {
-                    _question = q;
+            if (lstQuestions.SelectedIndex != -1) {
+                btnAddQuestion.Visible = false;
+                btnRemoveQuestion.Visible = true;
+                foreach (Question q in _selectedCategories[0].Questions) {
+                    if (q.Title == lstQuestions.SelectedItem.ToString()) {
+                        _question = q;
+                    }
                 }
+                populateQuestionBoxes(_question);
             }
-            populateQuestionBoxes(_question);
         }
 
         private void QuestionCreatorForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.QuestionCreatorForm = null;
+            _bank.SaveBank();
         }
 
-        private void saveOver(Question old, Question toSave) {
-
+        private void btnDeselect_Click(object sender, EventArgs e) { 
+            for (int i = 0; i < lstQuestions.Items.Count; i++) {
+                lstQuestions.SetSelected(i, false);
+            }
+            btnAddQuestion.Visible = true;
+            btnRemoveQuestion.Visible = false;
+            txtGenericOne.Text = "";
+            txtGenericTwo.Text = "";
+            txtGenericThree.Text = "";
+            txtGenericFour.Text = "";
+            txtGenericFive.Text = "";
+            txtQuestion.Text = "";
         }
     }
 }
