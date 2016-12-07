@@ -50,64 +50,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core Layer\Bank.cs" />
-    <Compile Include="Core Layer\Feedback.cs" />
-    <Compile Include="Core Layer\FeedbackBank.cs" />
-    <Compile Include="Core Layer\FeedbackFilter.cs" />
-    <Compile Include="Core Layer\Person.cs" />
-    <Compile Include="Core Layer\Question.cs" />
-    <Compile Include="Core Layer\Template.cs" />
-    <Compile Include="Core Layer\TemplateBank.cs" />
-    <Compile Include="Core Layer\TemplateEditor.cs" />
-    <Compile Include="Core Layer\TemplateFactory.cs" />
-    <Compile Include="Debugging\Logger.cs" />
-    <Compile Include="Meta Layer\DatabaseMetaLayer.cs" />
-    <Compile Include="Meta Layer\EmailHandler.cs" />
-    <Compile Include="Meta Layer\PDFConvert.cs" />
-    <Compile Include="Meta Layer\TemplateSerialization.cs" />
+    <Compile Include="Core\ApplicantBank.cs" />
+    <Compile Include="Core\Bank.cs" />
+    <Compile Include="Core\Category.cs" />
+    <Compile Include="Core\CategoryBank.cs" />
+    <Compile Include="Core\Feedback.cs" />
+    <Compile Include="Core\FeedbackBank.cs" />
+    <Compile Include="Core\FeedbackFilter.cs" />
+    <Compile Include="Core\Person.cs" />
+    <Compile Include="Core\Property.cs" />
+    <Compile Include="Core\Question.cs" />
+    <Compile Include="Core\Template.cs" />
+    <Compile Include="Core\TemplateBank.cs" />
+    <Compile Include="Debug\Logger.cs" />
+    <Compile Include="Meta\DatabaseMetaLayer.cs" />
+    <Compile Include="Meta\EmailHandler.cs" />
+    <Compile Include="Meta\IMetaSerializer.cs" />
+    <Compile Include="Meta\PDFConvert.cs" />
+    <Compile Include="Meta\PropertiesSerializer.cs" />
+    <Compile Include="Meta\FeedbackSerializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\FeedbackForm.cs">
+    <Compile Include="UI\ApplicantEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <Compile Include="UI\ApplicantEntryForm.Designer.cs">
+      <DependentUpon>ApplicantEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FilterForm.cs">
+    <Compile Include="UI\InterviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FilterForm.Designer.cs">
-      <DependentUpon>FilterForm.cs</DependentUpon>
+    <Compile Include="UI\InterviewForm.Designer.cs">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\MainMenuForm.cs">
+    <Compile Include="UI\FilterApplicantsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\MainMenuForm.designer.cs">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <Compile Include="UI\FilterApplicantsForm.Designer.cs">
+      <DependentUpon>FilterApplicantsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ScreenForm.cs">
+    <Compile Include="UI\QuestionCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ScreenForm.Designer.cs">
-      <DependentUpon>ScreenForm.cs</DependentUpon>
+    <Compile Include="UI\QuestionCreatorForm.Designer.cs">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\TemplateForm.cs">
+    <Compile Include="UI\ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\TemplateForm.Designer.cs">
-      <DependentUpon>TemplateForm.cs</DependentUpon>
+    <Compile Include="UI\ParentForm.Designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\TestLoadForm.cs">
+    <Compile Include="UI\FeedbackCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\TestLoadForm.Designer.cs">
-      <DependentUpon>TestLoadForm.cs</DependentUpon>
+    <Compile Include="UI\FeedbackCreatorForm.Designer.cs">
+      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\TestSaveForm.cs">
+    <Compile Include="UI\LoadFeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\TestSaveForm.Designer.cs">
-      <DependentUpon>TestSaveForm.cs</DependentUpon>
+    <Compile Include="UI\LoadFeedbackForm.Designer.cs">
+      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SaveFeedbackForm.Designer.cs">
+      <DependentUpon>SaveFeedbackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingsEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SettingsEntryForm.Designer.cs">
+      <DependentUpon>SettingsEntryForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -118,26 +134,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ApplicantEntryForm.resx">
+      <DependentUpon>ApplicantEntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FilterForm.resx">
-      <DependentUpon>FilterForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\InterviewForm.resx">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\MainMenuForm.resx">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FilterApplicantsForm.resx">
+      <DependentUpon>FilterApplicantsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ScreenForm.resx">
-      <DependentUpon>ScreenForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\QuestionCreatorForm.resx">
+      <DependentUpon>QuestionCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\TemplateForm.resx">
-      <DependentUpon>TemplateForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\TestLoadForm.resx">
-      <DependentUpon>TestLoadForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FeedbackCreatorForm.resx">
+      <DependentUpon>FeedbackCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\TestSaveForm.resx">
-      <DependentUpon>TestSaveForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\LoadFeedbackForm.resx">
+      <DependentUpon>LoadFeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveFeedbackForm.resx">
+      <DependentUpon>SaveFeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsEntryForm.resx">
+      <DependentUpon>SettingsEntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExternalDLLs\itextsharp.dll" />
+    <Content Include="todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

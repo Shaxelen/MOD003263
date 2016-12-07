@@ -15,31 +15,31 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void TemplateSerializationTest() {
-            TemplateSerialization ts = new TemplateSerialization();
-            Bank bank = Bank.Instance();
-            Template template = new CVTemplate();
+            FeedbackSerializer ts = new FeedbackSerializer();
+            Bank bank = Bank.Instance;
+            Template template = new Template();
             Question q = new Question();
             q.Score = 3;
             q.Title = "Test";
-            q.Comment = "Test Comment";
+            q.PickedFeedback = "Test Comment";
             template.AddQuestion(q);
             bank.Templates.Add("TempTest", template);
 
-            bool test = ts.SaveTemplateBank(bank);
+            bool test = ts.Save(bank);
             Assert.AreEqual(true, test);
 
-            Bank b = ts.LoadTemplateBank();
+            Bank b = ts.Load();
             Assert.AreEqual(bank.Templates.Templates, b.Templates.Templates);
         }
         [TestMethod]
         public void PDFConvertTest() {
             PDFConvert pdf = new PDFConvert();
             //Make Template to Save
-            Template template = new CVTemplate();
+            Template template = new Template();
             Question q = new Question();
             q.Score = 3;
             q.Title = "Test";
-            q.Comment = "Test Comment";
+            q.PickedFeedback = "Test Comment";
             for (int i = 0; i < 5; i++) {
                 template.AddQuestion(q);
             }
@@ -126,9 +126,9 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void BankTest() {
-            Bank bank = Bank.Instance();
-            FeedbackBank fb = FeedbackBank.Instance();
-            TemplateBank tb = TemplateBank.Instance();
+            Bank bank = Bank.Instance;
+            FeedbackBank fb = Bank.Instance.Feedbacks;
+            TemplateBank tb = Bank.Instance.Templates;
 
             Assert.AreEqual(fb, bank.Feedbacks);
             Assert.AreEqual(tb, bank.Templates);

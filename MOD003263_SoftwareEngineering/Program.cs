@@ -18,7 +18,7 @@ namespace MOD003263_SoftwareEngineering
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScreenForm());
+            Application.Run(new ParentForm());
         }
     }
 }

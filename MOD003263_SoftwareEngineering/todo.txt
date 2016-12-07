@@ -1,0 +1,14 @@
+MainMenu.Size = MDIChild.Size
+MainMenu = MenuStrip Settings
+MainMenu Autoshow on startup
+
+FilterForm
+Sort By Applicant.TotalScore + Display Score with Applicant Name in ListBox
+
+Generic Email Body for Accept and Reject w/ Subject
+
+Add person to Database where Category == PositionAppliedFor
+
+Drag And Drop from Prototype
+
+TemplateForm Remove sometimes works (need to fix) -> might be ID based problem

@@ -1,0 +1,31 @@
+QuestionCreatorForm
++AddQuestion
++SaveIntoQuestionBank
+
+Question
++Category {get set} from _category; //Searchable term
++Dictionary<int, string> //int = score //string = feedback
+
+Template ->-> Feedback (Add all things inside Template into Feedback)
+
+TemplateForm ==> FeedbackCreatorForm
++DragnDrop Questions from Bank that match Category
++Load in Questions from Bank using a specified Category that exists (or make new category)
+
+MainMenu.Size = MDIChild.Size
+MainMenu = MenuStrip Settings
+MainMenu Autoshow on startup
+
+FilterForm
+Sort By Applicant.TotalScore + Display Score with Applicant Name in ListBox
+Make List Selectable
+Button == Accept Selected
+Button == Reject Selected
+Button == Select All
+
+Generic Email Body for Accept and Reject w/ Subject
+
+Add person to Database where Category == PositionAppliedFor
+
+Bank += CategoryBank
+Category = new Class {List<Question> Questions, string Name}
