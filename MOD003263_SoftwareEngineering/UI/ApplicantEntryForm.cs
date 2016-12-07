@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOD003263_SoftwareEngineering.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,8 @@ using System.Windows.Forms;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class ApplicantEntryForm : Form {
+        private Bank _bank = Bank.Instance;
+
         public ApplicantEntryForm() {
             InitializeComponent();
         }
@@ -17,6 +20,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void ApplicantEntryForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
             pf.ApplicantEntryForm = null;
+            _bank.SaveBank();
         }
     }
 }
