@@ -12,7 +12,7 @@ using MOD003263_SoftwareEngineering.Debug;
 
 namespace MOD003263_SoftwareEngineering.Meta {
     public class PDFConvert {
-        private Logger _logger = Logger.Instance();
+        private Logger _logger = Logger.Instance;
         public bool ConvertApplicantTemplateToPDF(Template template, Applicant app, bool accepted) {
             try {
                 FileStream fs = new FileStream("A" + app.ApplicantID + ".pdf", FileMode.Create);
