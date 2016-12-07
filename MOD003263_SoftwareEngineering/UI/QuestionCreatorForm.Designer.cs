@@ -222,8 +222,13 @@
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.txtCategory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "QuestionCreatorForm";
+            this.ShowIcon = false;
             this.Text = "Question Creator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuestionCreatorForm_FormClosing);
             this.grbGenericFeedback.ResumeLayout(false);
             this.grbGenericFeedback.PerformLayout();
             this.ResumeLayout(false);

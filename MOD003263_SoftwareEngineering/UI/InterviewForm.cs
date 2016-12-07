@@ -51,8 +51,8 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void FeedbackForm_FormClosing(object sender, FormClosingEventArgs e) {
-            ParentForm sf = (ParentForm)MdiParent;
-            sf.FeedbackForm = null;
+            ParentForm pf = (ParentForm)MdiParent;
+            pf.InterviewForm = null;
         }
     }
 }

@@ -114,5 +114,10 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnEmailRejected_Click(object sender, EventArgs e) {
 
         }
+
+        private void FilterApplicantsForm_FormClosing(object sender, FormClosingEventArgs e) {
+            ParentForm pf = (ParentForm)MdiParent;
+            pf.FilterApplicantsForm = null;
+        }
     }
 }

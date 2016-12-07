@@ -63,7 +63,7 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // TestSaveForm
+            // SaveFeedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,8 +72,11 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblLabel);
             this.Controls.Add(this.lstData);
-            this.Name = "TestSaveForm";
-            this.Text = "Save Template";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "SaveFeedbackForm";
+            this.Text = "Save Feedback";
             this.ResumeLayout(false);
             this.PerformLayout();
 

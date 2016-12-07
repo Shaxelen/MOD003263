@@ -81,7 +81,7 @@
             // menuLoadTemp
             // 
             this.menuLoadTemp.Name = "menuLoadTemp";
-            this.menuLoadTemp.Size = new System.Drawing.Size(124, 22);
+            this.menuLoadTemp.Size = new System.Drawing.Size(123, 22);
             this.menuLoadTemp.Text = "Template";
             this.menuLoadTemp.Click += new System.EventHandler(this.menuLoadTemp_Click);
             // 
@@ -91,7 +91,7 @@
             this.menuLoadApplicant,
             this.menuLoadEmployee});
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.personToolStripMenuItem.Text = "Person";
             // 
             // menuLoadApplicant
@@ -309,16 +309,20 @@
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "First Name:";
             // 
-            // FeedbackForm
+            // InterviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
             this.Controls.Add(this.grbFeedbackTemplate);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FeedbackForm";
-            this.Text = "Feedback Generator";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "InterviewForm";
+            this.ShowIcon = false;
+            this.Text = "Conduct Interview";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

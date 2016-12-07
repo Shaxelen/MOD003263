@@ -46,15 +46,18 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // TestLoadForm
+            // LoadFeedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lstTest);
-            this.Name = "TestLoadForm";
-            this.Text = "Load Template";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "LoadFeedbackForm";
+            this.Text = "Load Feedback";
             this.ResumeLayout(false);
 
         }

@@ -8,6 +8,8 @@ namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class Property {
         private string _connectionString;
+        private string _emailEmail;
+        private string _emailPassword;
         private string _accBody;
         private string _rejBody;
         private string _accSubject;

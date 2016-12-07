@@ -106,5 +106,10 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
             _bank.SaveBank();
         }
+
+        private void QuestionCreatorForm_FormClosing(object sender, FormClosingEventArgs e) {
+            ParentForm pf = (ParentForm)MdiParent;
+            pf.QuestionCreatorForm = null;
+        }
     }
 }

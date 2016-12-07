@@ -255,9 +255,14 @@
             this.Controls.Add(this.grbRemoveQuestion);
             this.Controls.Add(this.grbAddQuestion);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FeedbackCreatorForm";
+            this.ShowIcon = false;
             this.Text = "Feedback Creator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeedbackCreatorForm_FormClosing);
             this.grbAddQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.ResumeLayout(false);
             this.grbRemoveQuestion.PerformLayout();
