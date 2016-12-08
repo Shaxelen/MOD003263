@@ -21,6 +21,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         public FilterApplicantsForm() {
             InitializeComponent();
             loadPropertyData();
+            loadPosition();
             loadApplicants();
         }
 
@@ -34,9 +35,11 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void loadPosition()
         {
-            foreach (Applicant a in _appBank.Applicants)
+            List<Applicant> app = _appBank.Applicants;
+            for (int i = 0; i < app.Count; i++)
             {
-                cmbPosition.Items.Add(a.ApplicantPosition);
+                _position = app[i].ApplicantPosition;
+                cmbPosition.Items.Add(_position);
             }
         }
 
