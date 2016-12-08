@@ -51,6 +51,7 @@
             this.txtRejSubject = new System.Windows.Forms.TextBox();
             this.txtRejBody = new System.Windows.Forms.TextBox();
             this.btnEmailRejected = new System.Windows.Forms.Button();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.grbPersonData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -61,10 +62,10 @@
             // lstFeedbackList
             // 
             this.lstFeedbackList.FormattingEnabled = true;
-            this.lstFeedbackList.Location = new System.Drawing.Point(12, 51);
+            this.lstFeedbackList.Location = new System.Drawing.Point(12, 77);
             this.lstFeedbackList.Name = "lstFeedbackList";
             this.lstFeedbackList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstFeedbackList.Size = new System.Drawing.Size(199, 498);
+            this.lstFeedbackList.Size = new System.Drawing.Size(199, 472);
             this.lstFeedbackList.TabIndex = 0;
             this.lstFeedbackList.SelectedIndexChanged += new System.EventHandler(this.lstFeedbackList_SelectedIndexChanged);
             // 
@@ -318,11 +319,20 @@
             this.btnEmailRejected.UseVisualStyleBackColor = true;
             this.btnEmailRejected.Click += new System.EventHandler(this.btnEmailRejected_Click);
             // 
+            // cmbPosition
+            // 
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Location = new System.Drawing.Point(12, 45);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(199, 21);
+            this.cmbPosition.TabIndex = 12;
+            // 
             // FilterApplicantsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 606);
+            this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -383,5 +393,6 @@
         private System.Windows.Forms.TextBox txtRejSubject;
         private System.Windows.Forms.TextBox txtRejBody;
         private System.Windows.Forms.Button btnEmailRejected;
+        private System.Windows.Forms.ComboBox cmbPosition;
     }
 }

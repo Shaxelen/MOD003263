@@ -14,6 +14,7 @@ namespace MOD003263_SoftwareEngineering.UI {
         private Property _property = Property.Instance;
         private Bank _bank = Bank.Instance;
         private ApplicantBank _appBank = Bank.Instance.Applicants;
+        private FeedbackFilter _feedbackFilter = new FeedbackFilter();
         private string _position = "";
         private bool _canAccRej = false;
 
@@ -21,6 +22,22 @@ namespace MOD003263_SoftwareEngineering.UI {
             InitializeComponent();
             loadPropertyData();
             loadApplicants();
+        }
+
+        private void DummyData()
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                lstFeedbackList.Items.Add(i);
+            }
+        }
+
+        private void loadPosition()
+        {
+            foreach (Applicant a in _appBank.Applicants)
+            {
+                cmbPosition.Items.Add(a.ApplicantPosition);
+            }
         }
 
         private void loadApplicants() {
@@ -84,12 +101,6 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
             else {
                 _canAccRej = true;
-            }
-        }
-
-        private void DummyData() {
-            for (int i = 0; i < 200; i++) {
-                lstFeedbackList.Items.Add(i);
             }
         }
 

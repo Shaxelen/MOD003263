@@ -38,8 +38,8 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         public void LoadBank() {
-            /*_instance = _serializer.Load();
-            _instance.Applicants.Applicants = DatabaseMetaLayer.Instance().GetApplicants();*/
+            _instance = _serializer.Load();
+            _instance.Applicants.Applicants = DatabaseMetaLayer.Instance().GetApplicants();
         }
 
         /// <summary>
