@@ -62,17 +62,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MOD003263_SoftwareEngineering\MOD003263_SoftwareEngineering.csproj">
-      <Project>{83d582cd-ecce-4e8d-a683-34b5b447270d}</Project>
-      <Name>MOD003263_SoftwareEngineering</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MOD003263_SoftwareEngineering\MOD003263_SoftwareEngineering.csproj">
+      <Project>{83d582cd-ecce-4e8d-a683-34b5b447270d}</Project>
+      <Name>MOD003263_SoftwareEngineering</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
