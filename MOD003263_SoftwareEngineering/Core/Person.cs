@@ -11,6 +11,7 @@ namespace MOD003263_SoftwareEngineering.Core {
         protected string _personPhoneNumber;
         protected string _position;
         protected string _cvFileLocation;
+        protected int _totalScore;
 
         private string _defaultImageFile = "default.png";
 
@@ -32,6 +33,19 @@ namespace MOD003263_SoftwareEngineering.Core {
                     _personImageFile = value;
                 }
             }
+        }
+
+        /// <summary>
+        /// Get: Gets the Total Score of Feedback, Set: Adds the Score(value) to Total Score
+        /// </summary>
+        public int TotalScore {
+            get {
+                if (0 == _totalScore) {
+                    _totalScore = 1;
+                }
+                return _totalScore;
+            }
+            set { _totalScore += value; }
         }
 
         /// <summary>

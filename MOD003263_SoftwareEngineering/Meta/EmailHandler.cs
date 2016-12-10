@@ -12,9 +12,9 @@ namespace MOD003263_SoftwareEngineering.Meta {
             _networkCred = NetworkCredentials;
         }
 
-        public bool SendEmail(string to, string from, string subject, string body, string attachment) {
+        public bool SendEmail(string to, string subject, string body, string attachment) {
             try {
-                MailMessage mail = new MailMessage(from, to, subject, body);
+                MailMessage mail = new MailMessage(_networkCred.UserName, to, subject, body);
                 SmtpClient smtpServer = new SmtpClient();
 
                 smtpServer.Host = "smtp-mail.outlook.com";

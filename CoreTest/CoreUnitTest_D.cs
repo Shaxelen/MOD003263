@@ -7,74 +7,6 @@ namespace CoreTests {
     [TestClass]
     public class CoreTest {
         [TestMethod]
-        public void TemplateTest() {
-            Template template = new Template();
-            template.TemplateType = "CV";
-            template.TemplateName = "TestName";
-
-            Assert.AreEqual("TestName", template.TemplateName);
-            Assert.AreEqual("CV", template.TemplateType);
-
-            Template template1 = new Template();
-            Template template2 = new Template();
-
-            Question question = new Question();
-            question.Title = "Hello";
-            question.PickedFeedback = "";
-            question.Score = 1;
-
-            Question question2 = new Question();
-            question2.Title = "Hello";
-
-            template1.AddQuestion(question);
-            template2.AddQuestion(question);
-            template2.AddQuestion(question2);
-            Assert.AreNotEqual(template1, template2);
-
-            template2.RemoveQuestion(question2.ID);
-            Assert.AreNotEqual(template1, template2);
-
-            Question testQuestion = template2.FindQuestion(2);
-            Assert.AreEqual(null, testQuestion);
-        }
-
-        [TestMethod]
-        public void TemplateBankTest() {
-            Template cv = new Template();
-            cv.TemplateType = "CV";
-            Template inter = new Template();
-            inter.TemplateType = "Interview";
-
-            // Add
-            TemplateBank tBank = Bank.Instance.Templates;
-            tBank.Add("Interview Template", inter);
-            tBank.Add("CV Template", cv);
-
-            Assert.AreEqual(cv, tBank.Load("CV Template"));
-            Assert.AreNotEqual(cv, tBank.Load("blablabla"));
-
-            // Update
-            Template s = new Template();
-            s.TemplateType = "CV";
-            s.TemplateName = "New CV Template";
-            tBank.Update("CV Template", s);
-            cv = tBank.Load("New CV Template");
-            Assert.AreEqual(s, cv);
-
-            // Load
-            Template loadT = tBank.Load("New CV Template");
-            Assert.AreEqual(cv, loadT);
-
-            // Remove
-            tBank.Remove("New CV Template");
-            Assert.AreEqual(null, tBank.Load("New CV Template"));
-
-            // Templates
-            TemplateBank anotherBank = Bank.Instance.Templates;
-            Assert.AreSame(tBank, anotherBank);
-            Assert.AreSame(tBank.Templates, anotherBank.Templates);
-        }
-        [TestMethod]
         public void QuestionTest() {
             Question question = new Question();
             question.Title = "Hello";
@@ -103,14 +35,8 @@ namespace CoreTests {
             Person applicant = new Applicant();
             applicant.FirstName = "Ben";
 
-            Template t = new Template();
-            t.TemplateType = "CV";
-
             Feedback feedback1 = new Feedback("Feedback 1", employee);
             Feedback feedback2 = new Feedback("Feedback 2", applicant);
-
-            feedback1.LoadTemplate(t);
-            feedback2.LoadTemplate(t);
 
             Assert.AreNotEqual(feedback1, feedback2);
             feedback1.SetFileName = "File";

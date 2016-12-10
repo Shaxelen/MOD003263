@@ -20,13 +20,16 @@ namespace MOD003263_SoftwareEngineering.Core {
             _connectionString = Properties.Settings.Default.ConnectionString;
         }
 
-        public static Property Instance {
-            get {
-                if (null == _instance) {
-                    _instance = new Property();
-                }
-                return _instance;
+        private Property(string email, string password) : this() {
+            _emailEmail = email;
+            _emailPassword = password;
+        }
+
+        public static Property Instance(string email, string password) {
+            if (null == _instance) {
+                _instance = new Property(email, password);
             }
+            return _instance;
         }
 
         public string ConnectionString {
@@ -51,6 +54,10 @@ namespace MOD003263_SoftwareEngineering.Core {
         public string RejectedSubject {
             get { return _rejSubject; }
             set { _rejSubject = value; }
+        }
+
+        public System.Net.NetworkCredential Credentials {
+            get { return new System.Net.NetworkCredential(_emailEmail, _emailPassword); }
         }
     }
 }

@@ -15,33 +15,34 @@ namespace MetaUnitTests {
         }
         [TestMethod]
         public void TemplateSerializationTest() {
-            FeedbackSerializer ts = new FeedbackSerializer();
+            FeedbackSerializer fs = new FeedbackSerializer();
             Bank bank = Bank.Instance;
-            Template template = new Template();
+            Feedback feedback = new Feedback();
+            feedback.Title = "Test";
             Question q = new Question();
             q.Score = 3;
             q.Title = "Test";
             q.PickedFeedback = "Test Comment";
-            template.AddQuestion(q);
-            bank.Templates.Add("TempTest", template);
+            feedback.AddQuestion(q);
+            bank.Feedbacks.Add(feedback);
 
-            bool test = ts.Save(bank);
+            bool test = fs.Save(bank);
             Assert.AreEqual(true, test);
 
-            Bank b = ts.Load();
-            Assert.AreEqual(bank.Templates.Templates, b.Templates.Templates);
+            Bank b = fs.Load();
+            Assert.AreEqual(bank.Feedbacks.FeedbackList, b.Feedbacks.FeedbackList);
         }
         [TestMethod]
         public void PDFConvertTest() {
             PDFConvert pdf = new PDFConvert();
             //Make Template to Save
-            Template template = new Template();
+            Feedback feedback = new Feedback();
             Question q = new Question();
             q.Score = 3;
             q.Title = "Test";
             q.PickedFeedback = "Test Comment";
             for (int i = 0; i < 5; i++) {
-                template.AddQuestion(q);
+                feedback.AddQuestion(q);
             }
 
             //Make Employee
@@ -54,16 +55,16 @@ namespace MetaUnitTests {
             Applicant aip = new Applicant();
             aip.ApplicantID = 1; aip.ApplicantPosition = "Sales"; aip.EmailAddress = "NThurlow@outlook.com"; aip.FirstName = "Nathaniel"; aip.LastName = "Thurlow"; aip.PhoneNumber = "07000000002";
 
-            bool test = pdf.ConvertApplicantTemplateToPDF(template, app, true);
+            bool test = pdf.ConvertApplicantTemplateToPDF(feedback, app);
             Assert.AreEqual(true, test);
 
-            test = pdf.ConvertApplicantTemplateToPDF(template, aip, false);
+            test = pdf.ConvertApplicantTemplateToPDF(feedback, aip);
             Assert.AreEqual(true, test);
 
-            test = pdf.ConvertEmployeeTemplateToPDF(template, emp);
+            test = pdf.ConvertEmployeeTemplateToPDF(feedback, emp);
             Assert.AreEqual(true, test);
 
-            test = pdf.ConvertApplicantTemplateToPDF(null, null, false);
+            test = pdf.ConvertApplicantTemplateToPDF(null, null);
             Assert.AreEqual(false, test);
 
             test = pdf.ConvertEmployeeTemplateToPDF(null, null);
@@ -74,15 +75,15 @@ namespace MetaUnitTests {
             NetworkCredential nc = new NetworkCredential("softwareengineeringcwatest@outlook.com", "thisPasswordIsDumb");
             EmailHandler eh = new EmailHandler(nc);
 
-            bool test = eh.SendEmail("skydriveshax@hotmail.co.uk", "softwareengineeringcwatest@outlook.com", "Test", "This is Test Text", "test.pdf");
+            bool test = eh.SendEmail("skydriveshax@hotmail.co.uk", "Test", "This is Test Text", "test.pdf");
             Assert.AreEqual(true, test);
 
-            test = eh.SendEmail("a", "b", "Test", "This is Test Text", "");
+            test = eh.SendEmail("a", "Test", "This is Test Text", "");
             Assert.AreEqual(false, test);
         }
         [TestMethod]
         public void DatabaseMetaLayerTest() {
-            DatabaseMetaLayer dm = DatabaseMetaLayer.Instance();
+            DatabaseMetaLayer dm = DatabaseMetaLayer.Instance;
 
             //GetApplicants
             List<Applicant> myApps = new List<Applicant>();
@@ -128,10 +129,12 @@ namespace MetaUnitTests {
         public void BankTest() {
             Bank bank = Bank.Instance;
             FeedbackBank fb = Bank.Instance.Feedbacks;
-            TemplateBank tb = Bank.Instance.Templates;
+            CategoryBank cb = Bank.Instance.Categories;
+            ApplicantBank ab = Bank.Instance.Applicants;
 
             Assert.AreEqual(fb, bank.Feedbacks);
-            Assert.AreEqual(tb, bank.Templates);
+            Assert.AreEqual(cb, bank.Categories);
+            Assert.AreEqual(ab, bank.Applicants);
         }
         [TestMethod]
         public void DebugLoggerTest() {

@@ -13,15 +13,15 @@ using MOD003263_SoftwareEngineering.Debug;
 namespace MOD003263_SoftwareEngineering.Meta {
     public class PDFConvert {
         private Logger _logger = Logger.Instance;
-        public bool ConvertApplicantTemplateToPDF(Template template, Applicant app, bool accepted) {
+        public bool ConvertApplicantTemplateToPDF(Feedback feedback, Applicant app) {
             try {
                 FileStream fs = new FileStream("A" + app.ApplicantID + ".pdf", FileMode.Create);
                 Document document = new Document(PageSize.A4, 25, 25, 30, 30);
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
-                document.AddAuthor("Test Author");
-                document.AddCreator("Sample Tester");
-                document.AddTitle("Test Title");
+                document.AddAuthor("HappyTech");
+                document.AddCreator("HappyTech");
+                document.AddTitle("Applicant Feedback");
 
                 document.Open();
                 document.AddTitle("Applicant Details");
@@ -29,12 +29,10 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 document.Add(new Paragraph("Applicant Email: " + app.EmailAddress));
                 document.Add(new Paragraph("Applicant Phone Number: " + app.PhoneNumber));
                 document.Add(new Paragraph("Position Applied For: " + app.ApplicantPosition));
-                if (accepted) { document.Add(new Paragraph("You have been Accepted")); }
-                else { document.Add(new Paragraph("You have Not been Accepted")); }
                 document.Add(new Paragraph(" "));
                 document.AddTitle("Question Feedback");
                 int a = 1;
-                foreach (Question q in template.Questions) {
+                foreach (Question q in feedback.Questions) {
                     document.Add(new Paragraph("Question " + a));
                     document.Add(new Paragraph(q.Title + ": " + q.Score + "/5"));
                     document.Add(new Paragraph(q.PickedFeedback));
@@ -52,15 +50,15 @@ namespace MOD003263_SoftwareEngineering.Meta {
             }
         }
 
-        public bool ConvertEmployeeTemplateToPDF(Template template, Employee emp) {
+        public bool ConvertEmployeeTemplateToPDF(Feedback feedback, Employee emp) {
             try {
                 FileStream fs = new FileStream("E" + emp.EmployeeID + ".pdf", FileMode.Create);
                 Document document = new Document(PageSize.A4, 25, 25, 30, 30);
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
-                document.AddAuthor("Test Author");
-                document.AddCreator("Sample Tester");
-                document.AddTitle("Test Title");
+                document.AddAuthor("HappyTech");
+                document.AddCreator("HappyTech");
+                document.AddTitle("Employee Feedback");
 
                 document.Open();
                 document.AddTitle("Employee Details");
@@ -71,7 +69,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
                 document.Add(new Paragraph(" "));
                 document.AddTitle("Employee Feedback");
                 int a = 1;
-                foreach (Question q in template.Questions) {
+                foreach (Question q in feedback.Questions) {
                     document.Add(new Paragraph("Question " + a));
                     document.Add(new Paragraph(q.Title + ": " + q.Score + "/5"));
                     document.Add(new Paragraph(q.PickedFeedback));

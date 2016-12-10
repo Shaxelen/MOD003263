@@ -9,7 +9,6 @@ namespace MOD003263_SoftwareEngineering.Core {
     public class Feedback {
         private string _title;
         private string _fileLocation;
-        private Template _template;
         private Person _person;
         private List<Question> _questions = new List<Question>();
 
@@ -23,15 +22,6 @@ namespace MOD003263_SoftwareEngineering.Core {
         public Feedback(string title, Person person) {
             _title = title;
             _person = person;
-        }
-
-        /// <summary>
-        /// Load a template to use
-        /// </summary>
-        /// <param name="template">The selected template to load</param>
-        /// <returns></returns>
-        public Template LoadTemplate(Template template) {
-            return _template = template;
         }
 
         /// <summary>

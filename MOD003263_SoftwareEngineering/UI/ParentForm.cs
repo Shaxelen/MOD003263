@@ -70,6 +70,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             btnConductInterview.Visible = value;
             btnAddApplicants.Visible = value;
             btnEditSettings.Visible = value;
+            _bank.SaveBank();
         }
 
         public FeedbackCreatorForm FeedbackCreatorForm {

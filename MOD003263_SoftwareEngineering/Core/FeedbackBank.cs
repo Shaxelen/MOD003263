@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class FeedbackBank {
-        private static List<Feedback> _feedbackList = new List<Feedback>();
+        private List<Feedback> _feedbackList = new List<Feedback>();
 
         public FeedbackBank() { }
 
@@ -16,7 +16,12 @@ namespace MOD003263_SoftwareEngineering.Core {
         }
 
         public List<Feedback> FeedbackList {
-            get { return _feedbackList; }
+            get {
+                if (null == _feedbackList) {
+                    _feedbackList = new List<Feedback>();
+                }
+                return _feedbackList;
+            }
         }
 
         public Feedback FindFeedback(string title) {

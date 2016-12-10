@@ -25,6 +25,15 @@ namespace MOD003263_SoftwareEngineering.Core {
             return null;
         }
 
+        public Applicant FindApplicant(string fullName) {
+            foreach (Applicant a in _applicants) {
+                if (a.FullName == fullName) {
+                    return a;
+                }
+            }
+            return null;
+        }
+
         public List<Applicant> Applicants {
             get { return _applicants; }
             set { _applicants = value; }

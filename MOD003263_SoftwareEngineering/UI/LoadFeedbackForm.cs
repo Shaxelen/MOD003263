@@ -25,8 +25,10 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void addDataList() {
-            foreach (Feedback f in _bank.Feedbacks.FeedbackList) {
-                lstTest.Items.Add(f.Title);
+            if (null != _bank.Feedbacks.FeedbackList) {
+                foreach (Feedback f in _bank.Feedbacks.FeedbackList) {
+                    lstTest.Items.Add(f.Title);
+                }
             }
         }
 

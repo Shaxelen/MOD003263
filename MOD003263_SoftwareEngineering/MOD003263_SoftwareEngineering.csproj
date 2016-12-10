@@ -60,8 +60,6 @@
     <Compile Include="Core\Person.cs" />
     <Compile Include="Core\Property.cs" />
     <Compile Include="Core\Question.cs" />
-    <Compile Include="Core\Template.cs" />
-    <Compile Include="Core\TemplateBank.cs" />
     <Compile Include="Debug\Logger.cs" />
     <Compile Include="Meta\DatabaseMetaLayer.cs" />
     <Compile Include="Meta\EmailHandler.cs" />

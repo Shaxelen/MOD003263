@@ -10,7 +10,6 @@ namespace MOD003263_SoftwareEngineering.Core {
     public class Bank {
         private static FeedbackSerializer _serializer = new FeedbackSerializer();
         private FeedbackBank _feedbackBank = new FeedbackBank();
-        private TemplateBank _templateBank = new TemplateBank();
         private CategoryBank _categoryBank = new CategoryBank();
         private ApplicantBank _applicantBank = new ApplicantBank();
         private static Bank _instance = null;
@@ -39,7 +38,9 @@ namespace MOD003263_SoftwareEngineering.Core {
 
         public void LoadBank() {
             _instance = _serializer.Load();
-            _instance.Applicants.Applicants = DatabaseMetaLayer.Instance().GetApplicants();
+            if (null != _instance) {
+                _instance.Applicants.Applicants = DatabaseMetaLayer.Instance.GetApplicants();
+            }
         }
 
         /// <summary>
@@ -52,15 +53,6 @@ namespace MOD003263_SoftwareEngineering.Core {
             }
         }
 
-        /// <summary>
-        /// Returns the Template Bank
-        /// </summary>
-        public TemplateBank Templates {
-            get {
-                SaveBank();
-                return _templateBank;
-            }
-        }
         /// <summary>
         /// Returns the Category Bank
         /// </summary>

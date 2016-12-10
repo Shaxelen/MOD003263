@@ -11,9 +11,12 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class FilterApplicantsForm : Form {
-        private Property _property = Property.Instance;
+        private Property _property = Property.Instance("softwareengineeringcwatest@outlook.com", "thisPasswordIsDumb");
         private Bank _bank = Bank.Instance;
         private ApplicantBank _appBank = Bank.Instance.Applicants;
+        private List<Applicant> _applicants = Bank.Instance.Applicants.Applicants;
+        private List<Applicant> _accepted = new List<Applicant>();
+        private List<Applicant> _rejected = new List<Applicant>();
         private FeedbackFilter _feedbackFilter = new FeedbackFilter();
         private string _position = "";
         private bool _canAccRej = false;
@@ -22,33 +25,48 @@ namespace MOD003263_SoftwareEngineering.UI {
             InitializeComponent();
             loadPropertyData();
             loadPosition();
+            orderApplicants();
             loadApplicants();
         }
 
-        private void DummyData()
-        {
-            for (int i = 0; i < 200; i++)
-            {
+        private void orderApplicants() {
+            _applicants = _applicants.OrderBy(a => a.ApplicantID).ToList();
+        }
+
+        private void dummyData() {
+            for (int i = 0; i < 200; i++) {
                 lstFeedbackList.Items.Add(i);
             }
         }
 
-        private void loadPosition()
-        {
+        private void loadPosition() {
             List<Applicant> app = _appBank.Applicants;
-            for (int i = 0; i < app.Count; i++)
-            {
+            for (int i = 0; i < app.Count; i++) {
                 _position = app[i].ApplicantPosition;
-                cmbPosition.Items.Add(_position);
+                if (checkPositionExist(_position)) {
+                    cmbPosition.Items.Add(_position);
+                }
+            }
+        }
+
+        private bool checkPositionExist(string position) {
+            if (cmbPosition.Items.Contains(position)) {
+                return false;
+            } else {
+                return true;
             }
         }
 
         private void loadApplicants() {
-            foreach (Applicant a in _appBank.Applicants) {
+            foreach (Applicant a in _applicants) {
                 if (a.ApplicantPosition == _position) {
-                    lstFeedbackList.Items.Add(a);
+                    lstFeedbackList.Items.Add(a.TotalScore + ":" + a.FullName);
                 }
             }
+            List<string> list = new List<string>(lstFeedbackList.Items.Cast<string>());
+            list = list.OrderByDescending(li => li.ToString()).ToList<string>();
+            lstFeedbackList.Items.Clear();
+            lstFeedbackList.Items.AddRange(list.ToArray<string>());
         }
 
         private void loadPropertyData() {
@@ -70,7 +88,9 @@ namespace MOD003263_SoftwareEngineering.UI {
             if (_canAccRej) {
                 List<int> ints = new List<int>();
                 foreach (int i in lstFeedbackList.SelectedIndices) {
-                    lstAccepted.Items.Add(lstFeedbackList.Items[i]);
+                    string app = lstFeedbackList.Items[i].ToString().Split(':')[1];
+                    lstAccepted.Items.Add(app);
+                    _accepted.Add(_appBank.FindApplicant(app));
                     ints.Add(i);
                 }
                 ints.Reverse();
@@ -86,7 +106,9 @@ namespace MOD003263_SoftwareEngineering.UI {
             if (_canAccRej) {
                 List<int> ints = new List<int>();
                 foreach (int i in lstFeedbackList.SelectedIndices) {
-                    lstRejected.Items.Add(lstFeedbackList.Items[i]);
+                    string app = lstFeedbackList.Items[i].ToString().Split(':')[1];
+                    lstRejected.Items.Add(app);
+                    _rejected.Add(_appBank.FindApplicant(app));
                     ints.Add(i);
                 }
                 ints.Reverse();
@@ -123,11 +145,19 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void btnEmailAccepted_Click(object sender, EventArgs e) {
-
+            Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
+            foreach (Applicant a in _accepted) {
+                eh.SendEmail(a.EmailAddress, txtAccSubject.Text, txtAccBody.Text, "A" + a.ApplicantID + ".pdf");
+                lstAccepted.Items.Remove(a.FullName);
+            }
         }
 
         private void btnEmailRejected_Click(object sender, EventArgs e) {
-
+            Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
+            foreach (Applicant a in _rejected) {
+                eh.SendEmail(a.EmailAddress, txtRejSubject.Text, txtRejBody.Text, "A" + a.ApplicantID + ".pdf");
+                lstRejected.Items.Remove(a.FullName);
+            }
         }
 
         private void FilterApplicantsForm_FormClosing(object sender, FormClosingEventArgs e) {

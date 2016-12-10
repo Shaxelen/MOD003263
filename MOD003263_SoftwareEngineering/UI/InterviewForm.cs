@@ -60,7 +60,13 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void lstQuestions_SelectedIndexChanged(object sender, EventArgs e) {
-            _question = _bank.Feedbacks.FindFeedback(_feedback.Title).FindQuestion(lstQuestions.SelectedItem.ToString());
+            if (lstQuestions.Items.Count != 0) {
+                addQuestionFeedbacks();
+            }
+        }
+
+        private void addQuestionFeedbacks() {
+            _question = _feedback.FindQuestion(lstQuestions.Items[0].ToString());
             txtAnswerOne.Text = _question.FeedbackList[0];
             txtAnswerTwo.Text = _question.FeedbackList[1];
             txtAnswerThree.Text = _question.FeedbackList[2];
@@ -80,21 +86,77 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
         }
 
-        private void saveQuestion(Question editted) {
+        private void saveQuestion() {
+            int score = generateScore();
+            _feedback.Questions.Find(x => x.Title == _question.Title).Score = score;
+            _feedback.Questions.Find(x => x.Title == _question.Title).pickFeedback(score);
+            _applicant.TotalScore = score;
+        }
 
+        private int generateScore() {
+            if (radAnswerOne.Checked) { return 1; }
+            else if (radAnswerOne.Checked) { return 2; }
+            else if (radAnswerOne.Checked) { return 3; }
+            else if (radAnswerOne.Checked) { return 4; }
+            else { return 5; }
+        }
+
+        private void uncheckRads() {
+            radAnswerOne.Checked = false;
+            radAnswerTwo.Checked = false;
+            radAnswerThree.Checked = false;
+            radAnswerFour.Checked = false;
+            radAnswerFive.Checked = false;
+            txtAnswerOne.Text = "";
+            txtAnswerTwo.Text = "";
+            txtAnswerThree.Text = "";
+            txtAnswerFour.Text = "";
+            txtAnswerFive.Text = "";
         }
 
         private void btnNextQuestion_Click(object sender, EventArgs e) {
-            //question saving over as selected feedback
-
+            if (lstQuestions.Items.Count > 1) {
+                if (!(!radAnswerOne.Checked && !radAnswerTwo.Checked && !radAnswerThree.Checked && !radAnswerFour.Checked && !radAnswerFive.Checked)) {
+                    saveQuestion();
+                    uncheckRads();
+                    lstQuestions.Items.RemoveAt(0);
+                    lstQuestions.SelectedItem = lstQuestions.Items[0];
+                } else {
+                    MessageBox.Show("Please make sure an answer is selected", "Error");
+                }
+            } else {
+                btnFinishInterview_Click(sender, e);
+            }
         }
 
         private void btnFinishInterview_Click(object sender, EventArgs e) {
-            // finish off interview and make feedback pdf
+            if (!(!radAnswerOne.Checked && !radAnswerTwo.Checked && !radAnswerThree.Checked && !radAnswerFour.Checked && !radAnswerFive.Checked)) {
+                saveQuestion();
+                uncheckRads();
+                lstQuestions.Items.RemoveAt(0);
+                if (lstQuestions.Items.Count == 0) {
+                    Meta.PDFConvert pdf = new Meta.PDFConvert();
+                    pdf.ConvertApplicantTemplateToPDF(_feedback, _applicant);
+                    this.Close();
+                } else {
+                    btnNextQuestion_Click(sender, e);
+                }
+            } else {
+                MessageBox.Show("Please make sure an answer is selected", "Error");
+            }
         }
 
         private void btnLoadApplicant_Click(object sender, EventArgs e) {
-
+            if (cmbApplicant.Text != "") {
+                if (null != _bank.Applicants.FindApplicant(cmbApplicant.Text)) {
+                    _applicant = _bank.Applicants.FindApplicant(cmbApplicant.Text);
+                    //picApplicantPicture.Image = Image.FromFile(_applicant.ImageFileLocation);
+                } else {
+                    MessageBox.Show("Applicant not found", "Error");
+                }
+            } else {
+                MessageBox.Show("Please pick an applicant from the list to interview", "Error");
+            }
         }
     }
 }
