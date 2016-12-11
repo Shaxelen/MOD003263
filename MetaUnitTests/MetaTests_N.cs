@@ -128,6 +128,74 @@ namespace MetaUnitTests {
             Assert.AreEqual(cb, bank.Categories);
             Assert.AreEqual(ab, bank.Applicants);
             bank.LoadBank();
+
+            Applicant a = new Applicant();
+            a.FirstName = "Test";
+            a.LastName = "Name";
+            a.ApplicantID = 0;
+
+            Applicant b = a;
+            b.LastName = "Neam";
+            
+            ab.Add(a);
+            Assert.AreEqual(a, ab.FindApplicant(0));
+            Assert.AreEqual(a.FullName, ab.FindApplicant(a.FullName).FullName);
+            ab.Update(0, b);
+            Assert.AreEqual(a, ab.FindApplicant(0));
+            ab.Remove(0);
+
+            List<Applicant> apps = ab.Applicants;
+            apps.Clear();
+            ab.Applicants = apps;
+
+            Assert.AreEqual(0, ab.Applicants.Count);
+
+            Category c = new Category("C1");
+            Assert.AreEqual("C1", c.Title);
+
+            Assert.AreEqual(0, c.Questions.Count);
+
+            Question qOne = new Question();
+            qOne.ID = 0;
+            qOne.Title = "Hello";
+            c.Add(qOne);
+            Question q2 = c.Find(0);
+            q2.Title = "Nope";
+            q2.ID = 1;
+            c.Add(q2);
+            c.Delete(0);
+
+            Assert.AreEqual(2, c.Questions.Count);
+
+            Assert.AreEqual("Nope", c.Find(1).Title);
+            Category d = new Category("C2");
+            
+            c.Add(qOne);
+            cb.Add(c);
+
+            Assert.AreEqual(c, cb.FindCategory("C1"));
+
+            cb.Update("C1", d);
+            cb.Remove("C2");
+
+            List<Category> cats = cb.Categories;
+
+            Assert.AreEqual(cats, cb.Categories);
+
+            Property p = Property.Instance("abc@def.ghi", "password");
+            Assert.AreEqual(Property.CurrentInstance, p);
+            Assert.AreEqual("abc@def.ghi", p.Credentials.UserName);
+            Assert.AreEqual("password", p.Credentials.Password);
+
+            p.AcceptedBody = "Test1";
+            p.AcceptedSubject = "Test2";
+            p.RejectedBody = "Test3";
+            p.RejectedSubject = "Test4";
+
+            Assert.AreEqual("Test1", p.AcceptedBody);
+            Assert.AreEqual("Test2", p.AcceptedSubject);
+            Assert.AreEqual("Test3", p.RejectedBody);
+            Assert.AreEqual("Test4", p.RejectedSubject);
         }
         [TestMethod]
         public void DebugLoggerTest() {
