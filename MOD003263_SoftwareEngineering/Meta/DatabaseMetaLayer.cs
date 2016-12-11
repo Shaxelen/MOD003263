@@ -14,7 +14,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
         static private DatabaseMetaLayer m_instance = null;
         private OleDbConnection _connection = new OleDbConnection();
         private Logger _logger = Logger.Instance;
-        private Property _property = Property.Instance("softwareengineeringcwatest@outlook.com", "thisPasswordIsDumb");
+        private Property _property = Property.CurrentInstance;
 
         private DatabaseMetaLayer() {
             if (null != _property.ConnectionString) {

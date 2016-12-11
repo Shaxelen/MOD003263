@@ -128,6 +128,7 @@ namespace MetaUnitTests {
         [TestMethod]
         public void BankTest() {
             Bank bank = Bank.Instance;
+            bank.LoadBank();
             FeedbackBank fb = Bank.Instance.Feedbacks;
             CategoryBank cb = Bank.Instance.Categories;
             ApplicantBank ab = Bank.Instance.Applicants;

@@ -25,6 +25,10 @@ namespace MOD003263_SoftwareEngineering.Core {
             _emailPassword = password;
         }
 
+        public static Property CurrentInstance {
+            get { return _instance; }
+        }
+
         public static Property Instance(string email, string password) {
             if (null == _instance) {
                 _instance = new Property(email, password);

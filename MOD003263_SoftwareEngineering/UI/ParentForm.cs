@@ -21,6 +21,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         public ParentForm() {
             InitializeComponent();
+            Property p = Property.Instance("softwareengineeringcwatest@outlook.com", "thisPasswordIsDumb");
             _bank.LoadBank();
             _bank = Bank.Instance;
         }

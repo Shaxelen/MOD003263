@@ -17,6 +17,8 @@ namespace UITests {
             a.PhoneNumber = "07456679770";
             a.ApplicantPosition = "Website Developer";
             a.ImageFileLocation = "file.png";
+            a.CVLocation = "file.png";
+            a.TotalScore = 2;
 
             Assert.AreEqual(111, a.ApplicantID);
             Assert.AreEqual("Alex", a.FirstName);
@@ -25,6 +27,9 @@ namespace UITests {
             Assert.AreEqual("07456679770", a.PhoneNumber);
             Assert.AreEqual("Website Developer", a.ApplicantPosition);
             Assert.AreEqual("file.png", a.ImageFileLocation);
+            Assert.AreEqual("file.png", a.CVLocation);
+            Assert.AreEqual(2, a.TotalScore);
+            Assert.AreEqual(a.FirstName + " " + a.LastName, a.FullName);
         }
 
         [TestMethod]

@@ -11,7 +11,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class FilterApplicantsForm : Form {
-        private Property _property = Property.Instance("softwareengineeringcwatest@outlook.com", "thisPasswordIsDumb");
+        private Property _property = Property.CurrentInstance;
         private Bank _bank = Bank.Instance;
         private ApplicantBank _appBank = Bank.Instance.Applicants;
         private List<Applicant> _applicants = Bank.Instance.Applicants.Applicants;
@@ -145,20 +145,30 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void btnEmailAccepted_Click(object sender, EventArgs e) {
-            Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
-            foreach (Applicant a in _accepted) {
-                eh.SendEmail(a.EmailAddress, txtAccSubject.Text, txtAccBody.Text, "A" + a.ApplicantID + ".pdf");
-                lstAccepted.Items.Remove(a.FullName);
+            try {
+                Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
+                foreach (Applicant a in _accepted) {
+                    eh.SendEmail(a.EmailAddress, txtAccSubject.Text, txtAccBody.Text, "A" + a.ApplicantID + ".pdf");
+                    lstAccepted.Items.Remove(a.FullName);
+                }
+                MessageBox.Show("Emails have been Sent", "Success");
+            } catch (Exception) {
+                MessageBox.Show("Emails have not been Sent", "Error");
             }
         }
 
         private void btnEmailRejected_Click(object sender, EventArgs e) {
-            Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
-            foreach (Applicant a in _rejected) {
-                eh.SendEmail(a.EmailAddress, txtRejSubject.Text, txtRejBody.Text, "A" + a.ApplicantID + ".pdf");
-                lstRejected.Items.Remove(a.FullName);
+            try {
+                Meta.EmailHandler eh = new Meta.EmailHandler(_property.Credentials);
+                foreach (Applicant a in _rejected) {
+                    eh.SendEmail(a.EmailAddress, txtRejSubject.Text, txtRejBody.Text, "A" + a.ApplicantID + ".pdf");
+                    lstRejected.Items.Remove(a.FullName);
+                }
+                MessageBox.Show("Emails have been Sent", "Success");
+            } catch (Exception) {
+                MessageBox.Show("Emails have not been Sent", "Error");
             }
-        }
+}
 
         private void FilterApplicantsForm_FormClosing(object sender, FormClosingEventArgs e) {
             ParentForm pf = (ParentForm)MdiParent;
