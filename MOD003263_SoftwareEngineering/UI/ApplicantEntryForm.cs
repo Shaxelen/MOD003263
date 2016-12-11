@@ -98,9 +98,18 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 } else {
                     //End of Applicant List
+                    //i = 0;
+
+                    txtID.Text = _bank.Applicants.Applicants[0].ApplicantID.ToString();
+                    txtFName.Text = _bank.Applicants.Applicants[0].FirstName;
+                    txtLName.Text = _bank.Applicants.Applicants[0].LastName;
+                    txtEmail.Text = _bank.Applicants.Applicants[0].EmailAddress;
+                    txtPhone.Text = _bank.Applicants.Applicants[0].PhoneNumber;
+                    txtPosition.Text = _bank.Applicants.Applicants[0].ApplicantPosition;
                 }
             } catch (Exception) {
                 // Error Message (Just in case)
+                MessageBox.Show("Error!!!", "Error");
             }
         }
 
@@ -119,9 +128,17 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 } else {
                     //Beginning of Applicant List
+
+                    txtID.Text = _bank.Applicants.Applicants[i].ApplicantID.ToString();
+                    txtFName.Text = _bank.Applicants.Applicants[i].FirstName;
+                    txtLName.Text = _bank.Applicants.Applicants[i].LastName;
+                    txtEmail.Text = _bank.Applicants.Applicants[i].EmailAddress;
+                    txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
+                    txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 }
             } catch (Exception) {
                 // Error Message (Just in case)
+                MessageBox.Show("Error!!!", "Error");
             }
         }
     }
