@@ -12,6 +12,7 @@ using System.IO;
 
 namespace MOD003263_SoftwareEngineering.UI {
     public partial class ApplicantEntryForm : Form {
+        private int i = 0;
         private Bank _bank = Bank.Instance;
         private Applicant _applicant = new Applicant();
 
@@ -82,11 +83,33 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnNextApplicant_Click(object sender, EventArgs e) {
             //If at end of List<Applicant>, show (new applicant) OR (first applicant) {You decide on which one}
             //Else show next Applicant in List<Applicant> {use the [] on List for precise indexing}
+            
+            if (i < _bank.Applicants.Applicants.Count - 1)
+            {
+                i += 1;
+                txtID.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
+                txtFName.Text = _bank.Applicants.Applicants[i].FirstName;
+                txtLName.Text = _bank.Applicants.Applicants[i].LastName;
+                txtEmail.Text = _bank.Applicants.Applicants[i].EmailAddress;
+                txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
+                txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
+            }
         }
 
         private void btnPrevApplicant_Click(object sender, EventArgs e) {
             //If at beginning of List<Applicant>, show (new applicant) OR (last applicant) {You decide on which one}
             //Else show previous Applicant in List<Applicant> {use the [] on List for precise indexing}
+
+            if (i < _bank.Applicants.Applicants.Count - 1)
+            {
+                i -= 1;
+                txtID.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
+                txtFName.Text = _bank.Applicants.Applicants[i].FirstName;
+                txtLName.Text = _bank.Applicants.Applicants[i].LastName;
+                txtEmail.Text = _bank.Applicants.Applicants[i].EmailAddress;
+                txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
+                txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
+            }
         }
     }
 }
