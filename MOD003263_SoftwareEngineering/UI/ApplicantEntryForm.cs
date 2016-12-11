@@ -97,10 +97,10 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 } else {
-
+                    //End of Applicant List
                 }
             } catch (Exception) {
-
+                // Error Message (Just in case)
             }
         }
 
@@ -118,10 +118,10 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 } else {
-
+                    //Beginning of Applicant List
                 }
             } catch (Exception) {
-
+                // Error Message (Just in case)
             }
         }
     }
