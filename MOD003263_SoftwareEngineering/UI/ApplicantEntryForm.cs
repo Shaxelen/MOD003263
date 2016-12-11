@@ -72,8 +72,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             //If new, then AddApplicant
             //Else find oldApplicant and change internals to be newApplicant (could be seperate method)
 
-            if (_bank.Applicants.Applicants.Contains(_applicant.FullName))
-            {
+            if (_bank.Applicants.Applicants.Contains(_bank.Applicants.FindApplicant(_applicant.FullName))) {
                 _bank.Applicants.FindApplicant(_applicant.FullName);
             } else {
                 _bank.Applicants.Add(_applicant);
