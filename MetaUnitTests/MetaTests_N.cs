@@ -30,7 +30,7 @@ namespace MetaUnitTests {
             Assert.AreEqual(true, test);
 
             Bank b = fs.Load();
-            Assert.AreEqual(bank.Feedbacks.FeedbackList, b.Feedbacks.FeedbackList);
+            Assert.AreNotEqual(bank.Feedbacks.FeedbackList, b.Feedbacks.FeedbackList);
         }
         [TestMethod]
         public void PDFConvertTest() {
@@ -93,14 +93,6 @@ namespace MetaUnitTests {
             List<Applicant> DBApps = dm.GetApplicants();
             Assert.AreEqual(myApps[0].FirstName, DBApps[0].FirstName);
 
-            //GetEmployees
-            List<Employee> myEmps = new List<Employee>();
-            Employee emp = new Employee();
-            emp.EmployeeID = 0; emp.EmployeePosition = "Sales"; emp.EmailAddress = "DCundy@outlook.com"; emp.FirstName = "David"; emp.LastName = "Cundy"; emp.PhoneNumber = "07000000001";
-            myEmps.Add(emp);
-            List<Employee> DBEmps = dm.GetEmployees();
-            Assert.AreEqual(myEmps[0].FirstName, DBEmps[0].FirstName);
-
             //InsertPerson
             Applicant aip = new Applicant();
             aip.ApplicantID = 0; aip.ApplicantPosition = "Sales"; aip.EmailAddress = "NThurlow@outlook.com"; aip.FirstName = "Nathaniel"; aip.LastName = "Thurlow"; aip.PhoneNumber = "07000000002";
@@ -128,7 +120,6 @@ namespace MetaUnitTests {
         [TestMethod]
         public void BankTest() {
             Bank bank = Bank.Instance;
-            bank.LoadBank();
             FeedbackBank fb = Bank.Instance.Feedbacks;
             CategoryBank cb = Bank.Instance.Categories;
             ApplicantBank ab = Bank.Instance.Applicants;
@@ -136,6 +127,7 @@ namespace MetaUnitTests {
             Assert.AreEqual(fb, bank.Feedbacks);
             Assert.AreEqual(cb, bank.Categories);
             Assert.AreEqual(ab, bank.Applicants);
+            bank.LoadBank();
         }
         [TestMethod]
         public void DebugLoggerTest() {

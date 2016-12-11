@@ -17,12 +17,7 @@ namespace MOD003263_SoftwareEngineering.Meta {
         private Property _property = Property.CurrentInstance;
 
         private DatabaseMetaLayer() {
-            if (null != _property.ConnectionString) {
-                _connection.ConnectionString = _property.ConnectionString;
-            }
-            else {
-                _connection.ConnectionString = Properties.Settings.Default.ConnectionString;
-            }
+            _connection.ConnectionString = Properties.Settings.Default.ConnectionString;
         }
 
         static public DatabaseMetaLayer Instance {
