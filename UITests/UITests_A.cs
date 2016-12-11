@@ -5,7 +5,7 @@ using MOD003263_SoftwareEngineering.Core;
 
 namespace UITests {
     [TestClass]
-    public class UnitTest {
+    public class UITest {
         [TestMethod]
         public void ApplicantTest() {
             Applicant a = new Applicant();

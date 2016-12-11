@@ -112,7 +112,6 @@ namespace CoreTests {
 
             Assert.AreNotSame(fFilter.AcceptList, fFilter.RejectList);
         }
-
         [TestMethod]
         private void CategoryTest() {
             Category c = new Category("C1");
@@ -140,7 +139,6 @@ namespace CoreTests {
 
             Assert.AreEqual("Nope", c.Find(1));
         }
-
         [TestMethod]
         private void CategoryBankTest() {
             CategoryBank cb = new CategoryBank();
@@ -162,7 +160,6 @@ namespace CoreTests {
 
             Assert.AreEqual(cats, cb.Categories);
         }
-
         [TestMethod]
         private void PropertyTest() {
             Property p = Property.Instance("abc@def.ghi", "password");
@@ -180,7 +177,6 @@ namespace CoreTests {
             Assert.AreEqual("Test3", p.RejectedBody);
             Assert.AreEqual("Test4", p.RejectedSubject);
         }
-
         [TestMethod]
         private void ApplicantBankTest() {
             Applicant a = new Applicant();
