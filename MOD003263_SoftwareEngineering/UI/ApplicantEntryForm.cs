@@ -71,6 +71,13 @@ namespace MOD003263_SoftwareEngineering.UI {
         private void btnSaveApplicant_Click(object sender, EventArgs e) {
             //If new, then AddApplicant
             //Else find oldApplicant and change internals to be newApplicant (could be seperate method)
+
+            if (_bank.Applicants.Applicants.Contains(_applicant.FullName))
+            {
+                _bank.Applicants.FindApplicant(_applicant.FullName);
+            } else {
+                _bank.Applicants.Add(_applicant);
+            }
         }
 
         private void btnNextApplicant_Click(object sender, EventArgs e) {
