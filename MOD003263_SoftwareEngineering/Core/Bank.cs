@@ -35,9 +35,24 @@ namespace MOD003263_SoftwareEngineering.Core {
 
         public void SaveBank() {
             _serializer.Save(Bank.Instance);
-            foreach (Applicant a in _applicantBank.Applicants) {
-                _databaseMetaLayer.InsertPerson(a, a.ApplicantPosition, false);
+            List<Applicant> LoadedApplicants = _databaseMetaLayer.GetApplicants();
+            foreach (Applicant app in LoadedApplicants) {
+                _databaseMetaLayer.DeletePerson(app);
             }
+            _applicantBank.Applicants = combineLists(LoadedApplicants, _applicantBank.Applicants);
+            foreach (Applicant aip in _applicantBank.Applicants) {
+                _databaseMetaLayer.InsertPerson(aip, aip.ApplicantPosition, false);
+            }
+        }
+
+        private List<Applicant> combineLists(List<Applicant> appOne, List<Applicant> appTwo) {
+            List<Applicant> newApp = new List<Applicant>(appOne);
+            foreach (Applicant a in appTwo) {
+                if (!newApp.Contains(a)) {
+                    newApp.Add(a);
+                }
+            }
+            return newApp;
         }
 
         public void LoadBank() {
@@ -52,7 +67,6 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public FeedbackBank Feedbacks {
             get {
-                SaveBank();
                 return _feedbackBank;
             }
         }
@@ -62,7 +76,6 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public CategoryBank Categories {
             get {
-                SaveBank();
                 return _categoryBank;
             }
         }
@@ -72,7 +85,6 @@ namespace MOD003263_SoftwareEngineering.Core {
         /// </summary>
         public ApplicantBank Applicants {
             get {
-                SaveBank();
                 return _applicantBank;
             }
         }

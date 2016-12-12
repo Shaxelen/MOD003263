@@ -32,6 +32,7 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
             else {
                 txtID.Text = "0";
+                i = 0;
             }
         }
 
@@ -87,6 +88,7 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void btnAddApplicant_Click(object sender, EventArgs e) {
             if (!checkApplicant()) {
+                _applicant.ApplicantID = (short)i;
                 _applicant.ApplicantPosition = txtPosition.Text;
                 _applicant.EmailAddress = txtEmail.Text;
                 _applicant.FirstName = txtFName.Text;
@@ -112,9 +114,11 @@ namespace MOD003263_SoftwareEngineering.UI {
             }
         }
 
-        private void btnNextApplicant_Click(object sender, EventArgs e) {
+        private void btnNextApplicant_Click(object sender, EventArgs e)  {
             try {
-                if (i < _bank.Applicants.Applicants.Count - 1) {
+                if (i == _bank.Applicants.Applicants.Count - 1) {
+                    wrapNewApplicant();
+                } else if (i < _bank.Applicants.Applicants.Count - 1) {
                     i += 1;
                     txtID.Text = _bank.Applicants.Applicants[i].ApplicantID.ToString();
                     txtFName.Text = _bank.Applicants.Applicants[i].FirstName;
@@ -122,8 +126,6 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtEmail.Text = _bank.Applicants.Applicants[i].EmailAddress;
                     txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
-                } else if (i == _bank.Applicants.Applicants.Count - 1) {
-                    wrapNewApplicant();
                 } else {
                     loadApplicantZero();
                 }

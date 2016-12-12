@@ -31,10 +31,6 @@
             this.lblRemove = new System.Windows.Forms.Label();
             this.cmbQuestionID = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCVTemplate = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInterviewTemplate = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEmployeeTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSaveTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoadTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.flwQuestions = new System.Windows.Forms.FlowLayoutPanel();
@@ -125,7 +121,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createToolStripMenuItem,
             this.menuSaveTemplate,
             this.menuLoadTemplate});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -133,34 +128,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1065, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // createToolStripMenuItem
-            // 
-            this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCVTemplate,
-            this.menuInterviewTemplate,
-            this.menuEmployeeTemplate});
-            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.createToolStripMenuItem.Text = "Create";
-            // 
-            // menuCVTemplate
-            // 
-            this.menuCVTemplate.Name = "menuCVTemplate";
-            this.menuCVTemplate.Size = new System.Drawing.Size(126, 22);
-            this.menuCVTemplate.Text = "CV";
-            // 
-            // menuInterviewTemplate
-            // 
-            this.menuInterviewTemplate.Name = "menuInterviewTemplate";
-            this.menuInterviewTemplate.Size = new System.Drawing.Size(126, 22);
-            this.menuInterviewTemplate.Text = "Interview";
-            // 
-            // menuEmployeeTemplate
-            // 
-            this.menuEmployeeTemplate.Name = "menuEmployeeTemplate";
-            this.menuEmployeeTemplate.Size = new System.Drawing.Size(126, 22);
-            this.menuEmployeeTemplate.Text = "Employee";
             // 
             // menuSaveTemplate
             // 
@@ -281,10 +248,6 @@
         private System.Windows.Forms.GroupBox grbAddQuestion;
         private System.Windows.Forms.GroupBox grbRemoveQuestion;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuCVTemplate;
-        private System.Windows.Forms.ToolStripMenuItem menuInterviewTemplate;
-        private System.Windows.Forms.ToolStripMenuItem menuEmployeeTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuSaveTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuLoadTemplate;
         private System.Windows.Forms.FlowLayoutPanel flwQuestions;
