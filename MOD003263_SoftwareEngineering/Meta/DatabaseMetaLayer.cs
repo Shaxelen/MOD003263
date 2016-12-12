@@ -29,36 +29,6 @@ namespace MOD003263_SoftwareEngineering.Meta {
             }
         }
 
-        public List<Employee> GetEmployees() {
-            List<Employee> employees = new List<Employee>();
-            OleDbCommand cmd = new OleDbCommand("SELECT * FROM Person WHERE PersonIsEmployee=true", _connection);
-            _connection.Open();
-            if (_connection.State == ConnectionState.Open) {
-                try {
-                    DataTable table = new DataTable();
-                    OleDbDataAdapter adapter = new OleDbDataAdapter();
-                    adapter.SelectCommand = cmd;
-                    adapter.Fill(table);
-                    short empp = 0;
-                    foreach (DataRow r in table.Rows) {
-                        Employee emp = (Employee)buildPerson(r[1].ToString(), r[2].ToString(), r[3].ToString(), r[4].ToString(), r[6].ToString(), empp, true);
-                        employees.Add(emp);
-                        empp++;
-                    }
-                    _connection.Close();
-                    table.Dispose();
-                    adapter.Dispose();
-                    return employees;
-                } catch (OleDbException oleDb) {
-                    _logger.WriteLine(oleDb.Message);
-                }
-            } else {
-                _logger.WriteLine("Connection Failed!");
-            }
-            _connection.Close();
-            return employees;
-        }
-
         public List<Applicant> GetApplicants() {
             List<Applicant> applicants = new List<Applicant>();
             try {
@@ -119,14 +89,14 @@ namespace MOD003263_SoftwareEngineering.Meta {
         /// <summary>
         /// Inserts A Person into the Database
         /// </summary>
-        /// <param name="p">The Person to Insert</param>
+        /// <param name="a">The Person to Insert</param>
         /// <param name="position">The Position the Person holds/is going for</param>
         /// <param name="isEmployee">If True, then they are an Employee, else they are an Applicant</param>
         /// <returns>Returns True if Insert was Successful, Returns False if Insert was not Successful</returns>
-        public bool InsertPerson(Person p, string position, bool isEmployee) {
+        public bool InsertPerson(Applicant a, string position, bool isEmployee) {
             try {
                 OleDbCommand cmd = new OleDbCommand("INSERT INTO Person (PersonFirstName, PersonLastName, PersonEmailAddress, PersonPhoneNumber, PersonIsEmployee, PersonPosition)" +
-                    " VALUES ('" + p.FirstName + "', '" + p.LastName + "', '" + p.EmailAddress + "', '" + p.PhoneNumber + "', " + isEmployee + ", '" + position + "');", _connection);
+                    " VALUES ('" + a.FirstName + "', '" + a.LastName + "', '" + a.EmailAddress + "', '" + a.PhoneNumber + "', " + isEmployee + ", '" + position + "');", _connection);
                 _connection.Open();
                 if (_connection.State == ConnectionState.Open) {
                     try {

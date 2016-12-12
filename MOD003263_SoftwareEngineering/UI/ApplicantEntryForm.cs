@@ -18,6 +18,30 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         public ApplicantEntryForm() {
             InitializeComponent();
+            loadApplicantZero();
+        }
+
+        private void loadApplicantZero() {
+            if (_bank.Applicants.Applicants.Count != 0) {
+                txtID.Text = _bank.Applicants.Applicants[0].ApplicantID.ToString();
+                txtFName.Text = _bank.Applicants.Applicants[0].FirstName;
+                txtLName.Text = _bank.Applicants.Applicants[0].LastName;
+                txtEmail.Text = _bank.Applicants.Applicants[0].EmailAddress;
+                txtPhone.Text = _bank.Applicants.Applicants[0].PhoneNumber;
+                txtPosition.Text = _bank.Applicants.Applicants[0].ApplicantPosition;
+            }
+            else {
+                txtID.Text = "0";
+            }
+        }
+
+        private void wrapNewApplicant() {
+            txtID.Text = (i + 1).ToString();
+            txtFName.Text = "";
+            txtLName.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+            txtPosition.Text = "";
         }
 
         private void ApplicantEntryForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -63,6 +87,11 @@ namespace MOD003263_SoftwareEngineering.UI {
 
         private void btnAddApplicant_Click(object sender, EventArgs e) {
             if (!checkApplicant()) {
+                _applicant.ApplicantPosition = txtPosition.Text;
+                _applicant.EmailAddress = txtEmail.Text;
+                _applicant.FirstName = txtFName.Text;
+                _applicant.LastName = txtLName.Text;
+                _applicant.PhoneNumber = txtPhone.Text;
                 _bank.Applicants.Add(_applicant);
             } else {
                 MessageBox.Show("Some Applicant Data is Empty", "Error");
@@ -84,9 +113,6 @@ namespace MOD003263_SoftwareEngineering.UI {
         }
 
         private void btnNextApplicant_Click(object sender, EventArgs e) {
-            //If at end of List<Applicant>, show (new applicant) OR (first applicant) {You decide on which one}
-            //Else show next Applicant in List<Applicant> {use the [] on List for precise indexing}
-
             try {
                 if (i < _bank.Applicants.Applicants.Count - 1) {
                     i += 1;
@@ -96,27 +122,17 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtEmail.Text = _bank.Applicants.Applicants[i].EmailAddress;
                     txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
+                } else if (i == _bank.Applicants.Applicants.Count - 1) {
+                    wrapNewApplicant();
                 } else {
-                    //End of Applicant List
-                    //i = 0;
-
-                    txtID.Text = _bank.Applicants.Applicants[0].ApplicantID.ToString();
-                    txtFName.Text = _bank.Applicants.Applicants[0].FirstName;
-                    txtLName.Text = _bank.Applicants.Applicants[0].LastName;
-                    txtEmail.Text = _bank.Applicants.Applicants[0].EmailAddress;
-                    txtPhone.Text = _bank.Applicants.Applicants[0].PhoneNumber;
-                    txtPosition.Text = _bank.Applicants.Applicants[0].ApplicantPosition;
+                    loadApplicantZero();
                 }
             } catch (Exception) {
-                // Error Message (Just in case)
-                MessageBox.Show("Error!!!", "Error");
+                MessageBox.Show("Unable to load next applicant", "Error");
             }
         }
 
         private void btnPrevApplicant_Click(object sender, EventArgs e) {
-            //If at beginning of List<Applicant>, show (new applicant) OR (last applicant) {You decide on which one}
-            //Else show previous Applicant in List<Applicant> {use the [] on List for precise indexing}
-
             try {
                 if (i < _bank.Applicants.Applicants.Count - 1 && i > 0) {
                     i -= 1;
@@ -127,8 +143,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPhone.Text = _bank.Applicants.Applicants[i].PhoneNumber;
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 } else {
-                    //Beginning of Applicant List
-
+                    i = _bank.Applicants.Applicants.Count - 1;
                     txtID.Text = _bank.Applicants.Applicants[i].ApplicantID.ToString();
                     txtFName.Text = _bank.Applicants.Applicants[i].FirstName;
                     txtLName.Text = _bank.Applicants.Applicants[i].LastName;
@@ -137,8 +152,7 @@ namespace MOD003263_SoftwareEngineering.UI {
                     txtPosition.Text = _bank.Applicants.Applicants[i].ApplicantPosition;
                 }
             } catch (Exception) {
-                // Error Message (Just in case)
-                MessageBox.Show("Error!!!", "Error");
+                MessageBox.Show("Unable to load previous applicant", "Error");
             }
         }
     }

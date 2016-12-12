@@ -9,6 +9,7 @@ namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class Bank {
         private static FeedbackSerializer _serializer = new FeedbackSerializer();
+        private static DatabaseMetaLayer _databaseMetaLayer = DatabaseMetaLayer.Instance;
         private FeedbackBank _feedbackBank = new FeedbackBank();
         private CategoryBank _categoryBank = new CategoryBank();
         private ApplicantBank _applicantBank = new ApplicantBank();
@@ -34,6 +35,9 @@ namespace MOD003263_SoftwareEngineering.Core {
 
         public void SaveBank() {
             _serializer.Save(Bank.Instance);
+            foreach (Applicant a in _applicantBank.Applicants) {
+                _databaseMetaLayer.InsertPerson(a, a.ApplicantPosition, false);
+            }
         }
 
         public void LoadBank() {

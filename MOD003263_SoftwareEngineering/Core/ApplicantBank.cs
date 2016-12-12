@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MOD003263_SoftwareEngineering.Core {
     [Serializable]
     public class ApplicantBank {
-        private List<Applicant> _applicants = new List<Applicant>();
+        private static List<Applicant> _applicants = new List<Applicant>();
 
         public ApplicantBank() { }
 
