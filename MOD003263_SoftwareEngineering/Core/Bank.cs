@@ -36,13 +36,13 @@ namespace MOD003263_SoftwareEngineering.Core {
         public void SaveBank() {
             _serializer.Save(Bank.Instance);
             List<Applicant> LoadedApplicants = _databaseMetaLayer.GetApplicants();
-            foreach (Applicant app in LoadedApplicants) {
-                _databaseMetaLayer.DeletePerson(app);
-            }
-            _applicantBank.Applicants = combineLists(LoadedApplicants, _applicantBank.Applicants);
-            foreach (Applicant aip in _applicantBank.Applicants) {
-                _databaseMetaLayer.InsertPerson(aip, aip.ApplicantPosition, false);
-            }
+            //foreach (Applicant app in LoadedApplicants) {
+            //    _databaseMetaLayer.DeletePerson(app);
+            //}
+            //_applicantBank.Applicants = combineLists(LoadedApplicants, _applicantBank.Applicants);
+            //foreach (Applicant aip in _applicantBank.Applicants) {
+            //    _databaseMetaLayer.InsertPerson(aip, aip.ApplicantPosition, false);
+            //}
         }
 
         private List<Applicant> combineLists(List<Applicant> appOne, List<Applicant> appTwo) {
